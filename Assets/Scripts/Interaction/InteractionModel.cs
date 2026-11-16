@@ -25,6 +25,7 @@ namespace FireSlop.Interaction
         public bool CanInteractWithDoor => _enabled && _doorInSight;
         public bool ShouldCloseDoor { get; private set; }
         public event Action HammerPressed;
+        public event Action HoseStopped;
         public event Action ContextChanged;
         public event Action ContextRequested;
         public event Action ClosedDoor;
@@ -58,7 +59,13 @@ namespace FireSlop.Interaction
         private void CancelPrimary()
         {
             _primarySource = null;
+            if (!HoseActive)
+            {
+                return;
+            }
+
             HoseActive = false;
+            HoseStopped?.Invoke();
         }
 
         public void SetActionsEnabled(bool enabled)

@@ -1341,7 +1341,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7581577418459542951}
-  - {fileID: 3413852294369625564}
+  - {fileID: 6051241221090992965}
   - {fileID: 2435776882976476178}
   - {fileID: 4891343364258172957}
   - {fileID: 4205182938669889126}
@@ -2773,6 +2773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4487105353826056288}
     m_Modifications:
+    - target: {fileID: 1301965667369683611, guid: 29d5685abb7554b69ac05b0ef3c31b1d, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-3-Sofa
+      objectReference: {fileID: 0}
     - target: {fileID: 3481644356582307129, guid: 29d5685abb7554b69ac05b0ef3c31b1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3
@@ -3232,6 +3236,10 @@ PrefabInstance:
     - target: {fileID: 5114018130939902688, guid: 24bd8b6934df74f9ca1b55fe5fe85264, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422909472995224960, guid: 24bd8b6934df74f9ca1b55fe5fe85264, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-3-Armchair
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9629,6 +9637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoffeeTable
       objectReference: {fileID: 0}
+    - target: {fileID: 472328076377333311, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-1-CoffeeTable
+      objectReference: {fileID: 0}
     - target: {fileID: 8504509091798730050, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3
@@ -9674,7 +9686,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
---- !u!4 &3413852294369625564 stripped
+--- !u!4 &6051241221090992965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8504509091798730050, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
   m_PrefabInstance: {fileID: 2737139783849092615}
@@ -11467,6 +11479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoffeeTable
       objectReference: {fileID: 0}
+    - target: {fileID: 472328076377333311, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-3-CoffeeTable
+      objectReference: {fileID: 0}
     - target: {fileID: 8504509091798730050, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3
@@ -13025,6 +13041,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 588015695868725427}
     m_Modifications:
+    - target: {fileID: 1301965667369683611, guid: 29d5685abb7554b69ac05b0ef3c31b1d, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-2-Sofa
+      objectReference: {fileID: 0}
     - target: {fileID: 3481644356582307129, guid: 29d5685abb7554b69ac05b0ef3c31b1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3
@@ -19665,6 +19685,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1472623562141856581}
     m_Modifications:
+    - target: {fileID: 1301965667369683611, guid: 29d5685abb7554b69ac05b0ef3c31b1d, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-1-Sofa
+      objectReference: {fileID: 0}
     - target: {fileID: 3481644356582307129, guid: 29d5685abb7554b69ac05b0ef3c31b1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3
@@ -21889,6 +21913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8422909472995224960, guid: 24bd8b6934df74f9ca1b55fe5fe85264, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-1-Armchair
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22396,6 +22424,10 @@ PrefabInstance:
     - target: {fileID: 434477177409500178, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
       propertyPath: m_Name
       value: CoffeeTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 472328076377333311, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-2-CoffeeTable
       objectReference: {fileID: 0}
     - target: {fileID: 8504509091798730050, guid: d0e295d2b76e9496c963d2c5e20243fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23870,6 +23902,10 @@ PrefabInstance:
     - target: {fileID: 5114018130939902688, guid: 24bd8b6934df74f9ca1b55fe5fe85264, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422909472995224960, guid: 24bd8b6934df74f9ca1b55fe5fe85264, type: 3}
+      propertyPath: _contentId
+      value: base-house-floor-2-Armchair
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
