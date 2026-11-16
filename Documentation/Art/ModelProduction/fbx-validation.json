@@ -1,0 +1,123 @@
+[
+  {
+    "name": "CoffeeTable",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      1.149999976158142,
+      0.6400000751018524,
+      0.5300000831290319
+    ]
+  },
+  {
+    "name": "Sledgehammer",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      0.41999998688697815,
+      0.19000019133090973,
+      1.195000067929552
+    ]
+  },
+  {
+    "name": "Hose",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      0.3443579077720642,
+      1.2120380699634552,
+      0.39781476743519306
+    ]
+  },
+  {
+    "name": "Door",
+    "issues": [],
+    "meshes": 2,
+    "bones": 0,
+    "dimensionsMeters": [
+      1.449999988079071,
+      0.2650003731250763,
+      2.3750000215869917
+    ]
+  },
+  {
+    "name": "Trampoline",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      3.2335784435272217,
+      3.2335785627365112,
+      0.7100004803693025
+    ]
+  },
+  {
+    "name": "Cat",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      0.8027336597442627,
+      1.3030002117156982,
+      1.039922602078363
+    ]
+  },
+  {
+    "name": "RescueDrone",
+    "issues": [],
+    "meshes": 21,
+    "bones": 0,
+    "dimensionsMeters": [
+      3.89487361907959,
+      3.907373785972595,
+      2.9498481798364082
+    ]
+  },
+  {
+    "name": "BaseHouse",
+    "issues": [],
+    "meshes": 380,
+    "bones": 0,
+    "dimensionsMeters": [
+      12.680000305175781,
+      10.52000093460083,
+      12.420000011101365
+    ]
+  },
+  {
+    "name": "Resident",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      1.9272747039794922,
+      0.6930002868175507,
+      1.8479953347705305
+    ]
+  },
+  {
+    "name": "Sofa",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      2.2999998331069946,
+      0.9300001561641693,
+      1.1282513858483014
+    ]
+  },
+  {
+    "name": "Armchair",
+    "issues": [],
+    "meshes": 1,
+    "bones": 0,
+    "dimensionsMeters": [
+      0.9500000476837158,
+      0.9300001561641693,
+      1.1282513858483014
+    ]
+  }
+]

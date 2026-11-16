@@ -1,0 +1,264 @@
+{
+  "assets": [
+    {
+      "name": "CoffeeTable",
+      "source": "Documentation/Art/Props/CoffeeTable/source.blend",
+      "fbx": "Assets/Models/Props/CoffeeTable.fbx",
+      "preview": "Documentation/Art/Props/CoffeeTable/model-preview.png",
+      "triangles": 396,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        1.149999976158142,
+        0.6399999856948853,
+        0.5299999713897705
+      ],
+      "materials": [
+        "FS_HoneyWood",
+        "FS_Wood"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Sledgehammer",
+      "source": "Documentation/Art/Props/Sledgehammer/source.blend",
+      "fbx": "Assets/Models/Props/Sledgehammer.fbx",
+      "preview": "Documentation/Art/Props/Sledgehammer/model-preview.png",
+      "triangles": 296,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        0.41999998688697815,
+        0.1899999976158142,
+        1.1950000524520874
+      ],
+      "materials": [
+        "FS_Charcoal",
+        "FS_DarkSteel",
+        "FS_Steel",
+        "FS_Wood",
+        "FS_YellowWrap"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Hose",
+      "source": "Documentation/Art/Props/Hose/source.blend",
+      "fbx": "Assets/Models/Props/Hose.fbx",
+      "preview": "Documentation/Art/Props/Hose/model-preview.png",
+      "triangles": 420,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        0.3443579077720642,
+        1.2120380401611328,
+        0.3978145718574524
+      ],
+      "materials": [
+        "FS_Charcoal",
+        "FS_HoseRed",
+        "FS_RescueRed",
+        "FS_Steel"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Door",
+      "source": "Documentation/Art/Props/Door/source.blend",
+      "fbx": "Assets/Models/Props/Door.fbx",
+      "preview": "Documentation/Art/Props/Door/model-preview.png",
+      "triangles": 1096,
+      "meshObjects": 2,
+      "dimensionsMeters": [
+        1.4500000476837158,
+        0.26500001549720764,
+        2.375
+      ],
+      "materials": [
+        "FS_DarkWood",
+        "FS_HoneyWood",
+        "FS_Steel",
+        "FS_Wood"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Trampoline",
+      "source": "Documentation/Art/Props/Trampoline/source.blend",
+      "fbx": "Assets/Models/Props/Trampoline.fbx",
+      "preview": "Documentation/Art/Props/Trampoline/model-preview.png",
+      "triangles": 844,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        3.2335784435272217,
+        3.2335784435272217,
+        0.7099999785423279
+      ],
+      "materials": [
+        "FS_BluePad",
+        "FS_Charcoal",
+        "FS_LightBlue",
+        "FS_Mat",
+        "FS_Steel"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Cat",
+      "source": "Documentation/Art/Characters/Cat/source.blend",
+      "fbx": "Assets/Models/Characters/Cat.fbx",
+      "preview": "Documentation/Art/Characters/Cat/model-preview.png",
+      "triangles": 2362,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        0.8027336597442627,
+        1.3029999732971191,
+        1.0399223566055298
+      ],
+      "materials": [
+        "FS_Charcoal",
+        "FS_DarkWood",
+        "FS_Ginger",
+        "FS_Ivory",
+        "FS_Pink",
+        "FS_Tabby",
+        "FS_White"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "RescueDrone",
+      "source": "Documentation/Art/Vehicles/RescueDrone/source.blend",
+      "fbx": "Assets/Models/RescueDrone.fbx",
+      "preview": "Documentation/Art/Vehicles/RescueDrone/model-preview.png",
+      "triangles": 2000,
+      "meshObjects": 21,
+      "dimensionsMeters": [
+        3.89487361907959,
+        3.9073736667633057,
+        2.94984769821167
+      ],
+      "materials": [
+        "FS_Charcoal",
+        "FS_DarkSteel",
+        "FS_Ivory",
+        "FS_RescueRed",
+        "FS_Steel"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "BaseHouse",
+      "source": "Documentation/Art/Environments/BaseHouse/source.blend",
+      "fbx": "Assets/Models/BaseHouse.fbx",
+      "preview": "Documentation/Art/Environments/BaseHouse/model-preview.png",
+      "triangles": 20532,
+      "meshObjects": 380,
+      "dimensionsMeters": [
+        12.680000305175781,
+        10.520000457763672,
+        12.420000076293945
+      ],
+      "materials": [
+        "FS_DarkSteel.001",
+        "FS_DarkWood",
+        "FS_Ivory.001",
+        "FS_Plaster",
+        "FS_Roof",
+        "FS_Terracotta",
+        "FS_Window"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Resident",
+      "source": "Documentation/Art/Characters/Resident/source.blend",
+      "fbx": "Assets/Models/Characters/Resident.fbx",
+      "preview": "Documentation/Art/Characters/Resident/model-preview.png",
+      "triangles": 2248,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        1.9272747039794922,
+        0.6929999589920044,
+        1.8479952812194824
+      ],
+      "materials": [
+        "FS_Charcoal",
+        "FS_DarkWood",
+        "FS_Denim",
+        "FS_DenimLight",
+        "FS_Hair",
+        "FS_Hoodie",
+        "FS_Ivory",
+        "FS_Skin",
+        "FS_White"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Sofa",
+      "source": "Documentation/Art/Props/Sofa/source.blend",
+      "fbx": "Assets/Models/Props/Sofa.fbx",
+      "preview": "Documentation/Art/Props/Sofa/model-preview.png",
+      "triangles": 616,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        2.299999713897705,
+        0.9299999475479126,
+        1.1282511949539185
+      ],
+      "materials": [
+        "FS_DarkWood",
+        "FS_Upholstery",
+        "FS_UpholsteryDark"
+      ],
+      "rigBones": 0
+    },
+    {
+      "name": "Armchair",
+      "source": "Documentation/Art/Props/Armchair/source.blend",
+      "fbx": "Assets/Models/Props/Armchair.fbx",
+      "preview": "Documentation/Art/Props/Armchair/model-preview.png",
+      "triangles": 440,
+      "meshObjects": 1,
+      "dimensionsMeters": [
+        0.9500000476837158,
+        0.9299999475479126,
+        1.1282511949539185
+      ],
+      "materials": [
+        "FS_DarkWood",
+        "FS_Upholstery",
+        "FS_UpholsteryDark"
+      ],
+      "rigBones": 0
+    }
+  ],
+  "palette": {
+    "Ivory": "#F0E6CF",
+    "White": "#F7F6EF",
+    "Charcoal": "#262B34",
+    "Steel": "#939DA6",
+    "DarkSteel": "#505963",
+    "Wood": "#B47A3E",
+    "DarkWood": "#65412B",
+    "HoneyWood": "#D7A35E",
+    "YellowWrap": "#F4C51D",
+    "RescueRed": "#C73530",
+    "HoseRed": "#913B41",
+    "Hoodie": "#B54C40",
+    "Denim": "#42658C",
+    "DenimLight": "#829BB1",
+    "Skin": "#F0B58F",
+    "Hair": "#55372A",
+    "Pink": "#EA8C8E",
+    "Upholstery": "#B7754C",
+    "UpholsteryDark": "#9A5C3C",
+    "Ginger": "#D88F50",
+    "Tabby": "#A75F32",
+    "Plaster": "#E6C9A4",
+    "Terracotta": "#BC7C5B",
+    "Roof": "#A49E96",
+    "Window": "#567689",
+    "BluePad": "#308EBB",
+    "LightBlue": "#8BC7DF",
+    "Mat": "#303544"
+  }
+}

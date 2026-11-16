@@ -1,0 +1,218 @@
+[
+  {
+    "path": "Assets/Prefabs/BaseHouse.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 736,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/RescueDrone.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 42,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Characters/Cat.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Characters/Resident.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/Armchair.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/CoffeeTable.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/Door.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/DoorFractured.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/Hose.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/Sledgehammer.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/Sofa.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Props/Trampoline.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DroneArm.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DroneGuard.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DroneHull.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DronePlatform.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DronePylon.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DroneRestraint.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DroneRotor.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/Drone/DroneSkid.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/BreakableWallPlaceholder.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseCornice2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseDoorway2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseFloorUnit.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseParapet2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseQuoin.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseWall2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseWallUnit.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseWindow.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/HouseWindowBay2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/InteriorDoorway2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/InteriorWallUnit.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/Railing2m.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/StairFlight.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/StairLandingUnit.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  },
+  {
+    "path": "Assets/Prefabs/Modules/House/StairRailing.prefab",
+    "invalidMaterials": 0,
+    "connectedNestedRoots": 1,
+    "animators": 0
+  }
+]

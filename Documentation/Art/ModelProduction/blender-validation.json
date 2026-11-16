@@ -1,0 +1,86 @@
+[
+  {
+    "name": "CoffeeTable",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 396,
+    "bones": 0
+  },
+  {
+    "name": "Sledgehammer",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 296,
+    "bones": 0
+  },
+  {
+    "name": "Hose",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 420,
+    "bones": 0
+  },
+  {
+    "name": "Door",
+    "issues": [],
+    "meshes": 2,
+    "triangles": 1096,
+    "bones": 0
+  },
+  {
+    "name": "Trampoline",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 844,
+    "bones": 0
+  },
+  {
+    "name": "Cat",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 2362,
+    "bones": 0
+  },
+  {
+    "name": "RescueDrone",
+    "issues": [],
+    "meshes": 21,
+    "triangles": 2000,
+    "bones": 0
+  },
+  {
+    "name": "BaseHouse",
+    "issues": [],
+    "meshes": 380,
+    "triangles": 20532,
+    "bones": 0
+  },
+  {
+    "name": "Resident",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 2248,
+    "bones": 0
+  },
+  {
+    "name": "Sofa",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 616,
+    "bones": 0
+  },
+  {
+    "name": "Armchair",
+    "issues": [],
+    "meshes": 1,
+    "triangles": 440,
+    "bones": 0
+  },
+  {
+    "name": "DoorFractured",
+    "issues": [],
+    "meshes": 21,
+    "triangles": 3860,
+    "bones": 0
+  }
+]

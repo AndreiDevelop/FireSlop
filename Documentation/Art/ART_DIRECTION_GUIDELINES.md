@@ -62,4 +62,8 @@ Follow [authored scene content](../Engineering/CODE_STYLE_AND_ARCHITECTURE.md#au
 
 ## Fire Slop modeling concepts
 
-See [Modeling Sketches](ModelingSketches.md) for the current draft resident, tools, furniture, door, drone and base-house sheets, their source references and generation prompts.
+See [Modeling Sketches](ModelingSketches.md) for the current draft resident, tools, furniture, door, drone, base-house, trampoline and cat sheets, their source references and generation prompts.
+
+The [base-house sheet](Environments/BaseHouse/modeling-sheet.png) shows the approved intact roof, modular three-floor structure, rear return stairs, corridor and two-room apartment layout.
+
+See [model production](ModelProduction/README.md) for editable Blender sources, FBX exports, geometry checks and Unity import status.

@@ -1,0 +1,13 @@
+{
+  "fragments": 20,
+  "fbx": "Assets/Models/Props/DoorFractured.fbx",
+  "source": "Documentation/Art/Props/Door/fractured.blend",
+  "triangleCount": 3672,
+  "sharedRootOrigin": [
+    0,
+    0,
+    0
+  ],
+  "frameSeparate": true,
+  "runtimeDestructionImplemented": false
+}

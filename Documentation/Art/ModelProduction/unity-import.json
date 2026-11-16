@@ -1,0 +1,9161 @@
+[
+  {
+    "path": "Assets/Models/BaseHouse.fbx",
+    "renderers": 380,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "BaseHouse",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "BreakableWallPlaceholder.001",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          1.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "BreakableWallPlaceholder.002",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          1.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "BreakableWallPlaceholder.003",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          1.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.003",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.004",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.005",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.006",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.007",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.008",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.009",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.010",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.011",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.012",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.013",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.014",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.015",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.016",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.017",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.018",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.019",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.020",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.021",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.022",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.023",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.024",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.025",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.026",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.027",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.028",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.029",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.030",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.031",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.032",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.033",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.034",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.035",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.036",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.037",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.038",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.039",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.040",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.041",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.042",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.043",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.044",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.045",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.046",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.047",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.048",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.049",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.050",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.051",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.052",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.053",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.054",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.055",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.056",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.057",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.058",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.059",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.060",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.061",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.062",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.063",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.064",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.065",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.066",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.067",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.068",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.069",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.070",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.071",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.072",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.073",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.074",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.075",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.076",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.077",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.078",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.079",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.080",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.081",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.082",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.083",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          0.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.084",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          0.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.085",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.086",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.087",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseCornice2m.088",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseDoorway2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseDoorway2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.001",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          11.76,
+          9.76,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.002",
+        "parent": "BaseHouse",
+        "position": [
+          2.34,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          7.08,
+          9.76,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.003",
+        "parent": "BaseHouse",
+        "position": [
+          -3.54,
+          -1.99,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.68,
+          5.78,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.004",
+        "parent": "BaseHouse",
+        "position": [
+          -3.54,
+          4.79,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.68,
+          0.18,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.005",
+        "parent": "BaseHouse",
+        "position": [
+          2.34,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          7.08,
+          9.76,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.006",
+        "parent": "BaseHouse",
+        "position": [
+          -3.54,
+          -1.99,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.68,
+          5.78,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.007",
+        "parent": "BaseHouse",
+        "position": [
+          -3.54,
+          4.79,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.68,
+          0.18,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.008",
+        "parent": "BaseHouse",
+        "position": [
+          2.4,
+          0.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          7.2,
+          10.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.009",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          -2.05,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.8,
+          5.9,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.010",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          4.85,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.8,
+          0.3,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.011",
+        "parent": "BaseHouse",
+        "position": [
+          -5.8,
+          2.8,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.4,
+          3.8,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseFloorUnit.012",
+        "parent": "BaseHouse",
+        "position": [
+          -2.8,
+          2.7,
+          12.4
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          5.9,
+          4.1,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.003",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.004",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.005",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.006",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.007",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.008",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.009",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.010",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.011",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.012",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.02,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.013",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.014",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.015",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          -2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.016",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          -2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.017",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          0.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.018",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          0.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.019",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.020",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          2.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.021",
+        "parent": "BaseHouse",
+        "position": [
+          6.02,
+          4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseParapet2m.022",
+        "parent": "BaseHouse",
+        "position": [
+          -6.02,
+          4.0,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.001",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          0.24
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.002",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          0.68
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.003",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          1.12
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.004",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          1.56
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.005",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          2.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.006",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          2.44
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.007",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          2.88
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.008",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          3.32
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.009",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          3.76
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.010",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          4.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.011",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          4.64
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.012",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          5.08
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.013",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          5.52
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.014",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          5.96
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.015",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          6.4
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.016",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          6.84
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.017",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          7.28
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.018",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          7.72
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.019",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          8.16
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.020",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          -4.88,
+          8.6
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.021",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          0.24
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.022",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          0.68
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.023",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          1.12
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.024",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          1.56
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.025",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          2.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.026",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          2.44
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.027",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          2.88
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.028",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          3.32
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.029",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          3.76
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.030",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          4.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.031",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          4.64
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.032",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          5.08
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.033",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          5.52
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.034",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          5.96
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.035",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          6.4
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.036",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          6.84
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.037",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          7.28
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.038",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          7.72
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.039",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          8.16
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.040",
+        "parent": "BaseHouse",
+        "position": [
+          5.88,
+          4.88,
+          8.6
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.041",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          0.24
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.042",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          0.68
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.043",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          1.12
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.044",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          1.56
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.045",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          2.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.046",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          2.44
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.047",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          2.88
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.048",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          3.32
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.049",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          3.76
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.050",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          4.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.051",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          4.64
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.052",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          5.08
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.053",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          5.52
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.054",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          5.96
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.055",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          6.4
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.056",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          6.84
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.057",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          7.28
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.058",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          7.72
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.059",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          8.16
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.060",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          -4.88,
+          8.6
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.061",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          0.24
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.062",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          0.68
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.063",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          1.12
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.064",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          1.56
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.065",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          2.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.066",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          2.44
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.067",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          2.88
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.068",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          3.32
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.069",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          3.76
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.070",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          4.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.071",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          4.64
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.072",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          5.08
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.073",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          5.52
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.074",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          5.96
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.075",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          6.4
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.076",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          6.84
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.077",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          7.28
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.078",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          7.72
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.079",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          8.16
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseQuoin.080",
+        "parent": "BaseHouse",
+        "position": [
+          -5.88,
+          4.88,
+          8.6
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.003",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.004",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.005",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.006",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.007",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.008",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.009",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.010",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.011",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.012",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          4.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.013",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.014",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.015",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.016",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.017",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.018",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.019",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.020",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.021",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.022",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.023",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.024",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          4.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.025",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.026",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.027",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.028",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.029",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.030",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.031",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.032",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.033",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.034",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.035",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWall2m.036",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          4.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWallUnit.001",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          3.8,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.6,
+          1.0,
+          3.0
+        ]
+      },
+      {
+        "name": "HouseWallUnit.002",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          0.9,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          0.2,
+          1.0,
+          3.0
+        ]
+      },
+      {
+        "name": "HouseWallUnit.003",
+        "parent": "BaseHouse",
+        "position": [
+          -2.8,
+          0.8,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          5.6,
+          1.0,
+          3.0
+        ]
+      },
+      {
+        "name": "HouseWallUnit.004",
+        "parent": "BaseHouse",
+        "position": [
+          -2.8,
+          4.6,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          5.6,
+          1.0,
+          3.0
+        ]
+      },
+      {
+        "name": "HouseWallUnit.005",
+        "parent": "BaseHouse",
+        "position": [
+          -5.6,
+          2.7,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          3.8,
+          1.0,
+          3.0
+        ]
+      },
+      {
+        "name": "HouseWindow.001",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.002",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.003",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.004",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.005",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.006",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.007",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.008",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.009",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.010",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.011",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.012",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.013",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.014",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.015",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.016",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.017",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.018",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.019",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.020",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.021",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.022",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.023",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.024",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.025",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.026",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.027",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.028",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindow.029",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.003",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.004",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.005",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.006",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.007",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.008",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.009",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.010",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.011",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.012",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.013",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.014",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.015",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.016",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.017",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.018",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.019",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.020",
+        "parent": "BaseHouse",
+        "position": [
+          5.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.021",
+        "parent": "BaseHouse",
+        "position": [
+          3.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.022",
+        "parent": "BaseHouse",
+        "position": [
+          1.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.023",
+        "parent": "BaseHouse",
+        "position": [
+          -1.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.024",
+        "parent": "BaseHouse",
+        "position": [
+          -3.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.025",
+        "parent": "BaseHouse",
+        "position": [
+          -5.0,
+          -5.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.026",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.027",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.028",
+        "parent": "BaseHouse",
+        "position": [
+          6.0,
+          2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "HouseWindowBay2m.029",
+        "parent": "BaseHouse",
+        "position": [
+          -6.0,
+          2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorDoorway2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -2.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorDoorway2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          4.0,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorDoorway2m.003",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -2.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorDoorway2m.004",
+        "parent": "BaseHouse",
+        "position": [
+          4.0,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorDoorway2m.005",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -2.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorDoorway2m.006",
+        "parent": "BaseHouse",
+        "position": [
+          4.0,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.001",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -3.94,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.002",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -0.5,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.003",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          3.44,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          2.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.004",
+        "parent": "BaseHouse",
+        "position": [
+          5.44,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.005",
+        "parent": "BaseHouse",
+        "position": [
+          2.56,
+          0.0,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.006",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          -2.05,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          5.5,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.007",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -3.94,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.008",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -0.5,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.009",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          3.44,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          2.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.010",
+        "parent": "BaseHouse",
+        "position": [
+          5.44,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.011",
+        "parent": "BaseHouse",
+        "position": [
+          2.56,
+          0.0,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.012",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          -2.05,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          5.5,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.013",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -3.94,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.014",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          -0.5,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.015",
+        "parent": "BaseHouse",
+        "position": [
+          2.0,
+          3.44,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          2.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.016",
+        "parent": "BaseHouse",
+        "position": [
+          5.44,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.017",
+        "parent": "BaseHouse",
+        "position": [
+          2.56,
+          0.0,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.88,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "InteriorWallUnit.018",
+        "parent": "BaseHouse",
+        "position": [
+          0.0,
+          -2.05,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          5.5,
+          1.0,
+          2.8
+        ]
+      },
+      {
+        "name": "Railing2m.001",
+        "parent": "BaseHouse",
+        "position": [
+          -5.25,
+          1.0,
+          1.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.65,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Railing2m.002",
+        "parent": "BaseHouse",
+        "position": [
+          -5.25,
+          1.0,
+          4.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.65,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Railing2m.003",
+        "parent": "BaseHouse",
+        "position": [
+          -5.25,
+          1.0,
+          7.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.65,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairFlight.001",
+        "parent": "BaseHouse",
+        "position": [
+          -1.2,
+          1.75,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairFlight.002",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          3.55,
+          1.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairFlight.003",
+        "parent": "BaseHouse",
+        "position": [
+          -1.2,
+          1.75,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairFlight.004",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          3.55,
+          4.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairFlight.005",
+        "parent": "BaseHouse",
+        "position": [
+          -1.2,
+          1.75,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairFlight.006",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          3.55,
+          7.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairLandingUnit.001",
+        "parent": "BaseHouse",
+        "position": [
+          -4.42,
+          2.65,
+          1.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.64,
+          3.3,
+          1.0
+        ]
+      },
+      {
+        "name": "StairLandingUnit.002",
+        "parent": "BaseHouse",
+        "position": [
+          -0.6,
+          2.65,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.2,
+          3.3,
+          1.0
+        ]
+      },
+      {
+        "name": "StairLandingUnit.003",
+        "parent": "BaseHouse",
+        "position": [
+          -4.42,
+          2.65,
+          4.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.64,
+          3.3,
+          1.0
+        ]
+      },
+      {
+        "name": "StairLandingUnit.004",
+        "parent": "BaseHouse",
+        "position": [
+          -0.6,
+          2.65,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.2,
+          3.3,
+          1.0
+        ]
+      },
+      {
+        "name": "StairLandingUnit.005",
+        "parent": "BaseHouse",
+        "position": [
+          -4.42,
+          2.65,
+          7.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.64,
+          3.3,
+          1.0
+        ]
+      },
+      {
+        "name": "StairLandingUnit.006",
+        "parent": "BaseHouse",
+        "position": [
+          -0.6,
+          2.65,
+          9.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.2,
+          3.3,
+          1.0
+        ]
+      },
+      {
+        "name": "StairRailing.001",
+        "parent": "BaseHouse",
+        "position": [
+          -1.2,
+          1.02,
+          0.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairRailing.002",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          4.28,
+          1.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairRailing.003",
+        "parent": "BaseHouse",
+        "position": [
+          -1.2,
+          1.02,
+          3.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairRailing.004",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          4.28,
+          4.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairRailing.005",
+        "parent": "BaseHouse",
+        "position": [
+          -1.2,
+          1.02,
+          6.2
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "StairRailing.006",
+        "parent": "BaseHouse",
+        "position": [
+          -3.6,
+          4.28,
+          7.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/RescueDrone.fbx",
+    "renderers": 21,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "RescueDrone",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneArm.001",
+        "parent": "RescueDrone",
+        "position": [
+          -0.494974732,
+          0.494974732,
+          2.65
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          315.0
+        ],
+        "scale": [
+          0.99999994,
+          0.99999994,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneArm.002",
+        "parent": "RescueDrone",
+        "position": [
+          0.494974732,
+          0.494974732,
+          2.65
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          225.0
+        ],
+        "scale": [
+          0.99999994,
+          0.99999994,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneArm.003",
+        "parent": "RescueDrone",
+        "position": [
+          0.494974732,
+          -0.494974732,
+          2.65
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          135.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneArm.004",
+        "parent": "RescueDrone",
+        "position": [
+          -0.494974732,
+          -0.494974732,
+          2.65
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          45.0000038
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneGuard.001",
+        "parent": "RescueDrone",
+        "position": [
+          -1.23743689,
+          1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneGuard.002",
+        "parent": "RescueDrone",
+        "position": [
+          1.23743689,
+          1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneGuard.003",
+        "parent": "RescueDrone",
+        "position": [
+          1.23743689,
+          -1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneGuard.004",
+        "parent": "RescueDrone",
+        "position": [
+          -1.23743689,
+          -1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneHull.001",
+        "parent": "RescueDrone",
+        "position": [
+          0.0,
+          0.0,
+          2.7
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DronePlatform.001",
+        "parent": "RescueDrone",
+        "position": [
+          0.0,
+          0.0,
+          0.25
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DronePylon.001",
+        "parent": "RescueDrone",
+        "position": [
+          -0.64,
+          0.6,
+          0.17
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DronePylon.002",
+        "parent": "RescueDrone",
+        "position": [
+          0.6,
+          0.64,
+          0.17
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          270.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DronePylon.003",
+        "parent": "RescueDrone",
+        "position": [
+          0.64,
+          -0.6,
+          0.17
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          180.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DronePylon.004",
+        "parent": "RescueDrone",
+        "position": [
+          -0.6,
+          -0.64,
+          0.17
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          90.00001
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneRestraint.001",
+        "parent": "RescueDrone",
+        "position": [
+          0.0,
+          -0.52,
+          1.23
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneRotor.001",
+        "parent": "RescueDrone",
+        "position": [
+          -1.23743689,
+          1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneRotor.002",
+        "parent": "RescueDrone",
+        "position": [
+          1.23743689,
+          1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneRotor.003",
+        "parent": "RescueDrone",
+        "position": [
+          1.23743689,
+          -1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneRotor.004",
+        "parent": "RescueDrone",
+        "position": [
+          -1.23743689,
+          -1.23743689,
+          2.74
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneSkid.001",
+        "parent": "RescueDrone",
+        "position": [
+          0.64,
+          0.0,
+          0.1
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DroneSkid.002",
+        "parent": "RescueDrone",
+        "position": [
+          -0.64,
+          0.0,
+          0.1
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "PilotAnchor",
+        "parent": "RescueDrone",
+        "position": [
+          0.0,
+          0.0,
+          0.32
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Characters/Cat.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Cat",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Cat",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Characters/Resident.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Resident",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Resident",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/Armchair.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Armchair",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Armchair",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/CoffeeTable.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "CoffeeTable",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "CoffeeTable",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/Door.fbx",
+    "renderers": 2,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Door",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "DoorLeaf",
+        "parent": "Door",
+        "position": [
+          -0.57,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Frame",
+        "parent": "Door",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/DoorFractured.fbx",
+    "renderers": 21,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DoorFractured",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_01",
+        "parent": "DoorFractured",
+        "position": [
+          0.462049335,
+          0.0,
+          0.294316828
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_02",
+        "parent": "DoorFractured",
+        "position": [
+          0.4403569,
+          0.0,
+          0.7509824
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_03",
+        "parent": "DoorFractured",
+        "position": [
+          0.437891126,
+          3.7252903E-09,
+          1.30565667
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_04",
+        "parent": "DoorFractured",
+        "position": [
+          0.422068447,
+          0.0,
+          1.8779645
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_05",
+        "parent": "DoorFractured",
+        "position": [
+          0.273392379,
+          0.0,
+          0.243261814
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_06",
+        "parent": "DoorFractured",
+        "position": [
+          0.200706288,
+          0.0,
+          0.6773119
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_07",
+        "parent": "DoorFractured",
+        "position": [
+          0.231509209,
+          0.0,
+          1.30343533
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_08",
+        "parent": "DoorFractured",
+        "position": [
+          0.227471232,
+          0.0,
+          1.91182828
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_09",
+        "parent": "DoorFractured",
+        "position": [
+          -0.007476613,
+          0.0,
+          0.3382885
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_10",
+        "parent": "DoorFractured",
+        "position": [
+          0.04530848,
+          0.0,
+          0.8863005
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_11",
+        "parent": "DoorFractured",
+        "position": [
+          -0.03153612,
+          0.0,
+          1.2343061
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_12",
+        "parent": "DoorFractured",
+        "position": [
+          -0.0192646533,
+          0.0,
+          1.87077916
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_13",
+        "parent": "DoorFractured",
+        "position": [
+          -0.283240616,
+          0.0,
+          0.2593553
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_14",
+        "parent": "DoorFractured",
+        "position": [
+          -0.218985528,
+          0.0,
+          0.7863779
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_15",
+        "parent": "DoorFractured",
+        "position": [
+          -0.275494874,
+          0.0,
+          1.35458708
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_16",
+        "parent": "DoorFractured",
+        "position": [
+          -0.207034066,
+          0.0,
+          1.910701
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_17",
+        "parent": "DoorFractured",
+        "position": [
+          -0.435627162,
+          0.0,
+          0.334182918
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_18",
+        "parent": "DoorFractured",
+        "position": [
+          -0.450471729,
+          0.0,
+          0.8893944
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_19",
+        "parent": "DoorFractured",
+        "position": [
+          -0.466242671,
+          0.0,
+          1.43234754
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Fragment_20",
+        "parent": "DoorFractured",
+        "position": [
+          -0.411191434,
+          0.0,
+          1.86194682
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Frame",
+        "parent": "DoorFractured",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/Hose.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Hose",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Hose",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/Sledgehammer.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Sledgehammer",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Sledgehammer",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/Sofa.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Sofa",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Sofa",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Props/Trampoline.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Trampoline",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "Trampoline",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DroneArm.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DroneArm",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.001",
+        "parent": "DroneArm",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DroneGuard.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DroneGuard",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.002",
+        "parent": "DroneGuard",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DroneHull.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DroneHull",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body",
+        "parent": "DroneHull",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DronePlatform.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DronePlatform",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.006",
+        "parent": "DronePlatform",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DronePylon.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DronePylon",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.004",
+        "parent": "DronePylon",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DroneRestraint.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DroneRestraint",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.007",
+        "parent": "DroneRestraint",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DroneRotor.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DroneRotor",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.003",
+        "parent": "DroneRotor",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/Drone/DroneSkid.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "DroneSkid",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.005",
+        "parent": "DroneSkid",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/BreakableWallPlaceholder.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "BreakableWallPlaceholder",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.015",
+        "parent": "BreakableWallPlaceholder",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseCornice2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseCornice2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.012",
+        "parent": "HouseCornice2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseDoorway2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseDoorway2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Shell.001",
+        "parent": "HouseDoorway2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseFloorUnit.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseFloorUnit",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.010",
+        "parent": "HouseFloorUnit",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseParapet2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseParapet2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.011",
+        "parent": "HouseParapet2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseQuoin.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseQuoin",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.013",
+        "parent": "HouseQuoin",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseWall2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseWall2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.008",
+        "parent": "HouseWall2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseWallUnit.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseWallUnit",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.009",
+        "parent": "HouseWallUnit",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseWindow.fbx",
+    "renderers": 2,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseWindow",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "WindowFrames",
+        "parent": "HouseWindow",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "WindowGlass",
+        "parent": "HouseWindow",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/HouseWindowBay2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "HouseWindowBay2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Shell",
+        "parent": "HouseWindowBay2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/InteriorDoorway2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "InteriorDoorway2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.016",
+        "parent": "InteriorDoorway2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/InteriorWallUnit.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "InteriorWallUnit",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.014",
+        "parent": "InteriorWallUnit",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/Railing2m.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "Railing2m",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.019",
+        "parent": "Railing2m",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/StairFlight.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "StairFlight",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.017",
+        "parent": "StairFlight",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/StairLandingUnit.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "StairLandingUnit",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.018",
+        "parent": "StairLandingUnit",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Assets/Models/Modules/House/StairRailing.fbx",
+    "renderers": 1,
+    "invalidMaterials": 0,
+    "animators": 0,
+    "skinnedRenderers": 0,
+    "transforms": [
+      {
+        "name": "StairRailing",
+        "parent": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          270.019775,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Body.020",
+        "parent": "StairRailing",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  }
+]

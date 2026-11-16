@@ -1,11 +1,9 @@
 {
-  "subject": "Breakable Door",
-  "status": "Draft",
+  "subject": "Door",
+  "status": "Draft for review",
   "updated": "2026-11-16",
-  "tool": "built-in image_gen",
+  "tool": "image_gen",
   "image": "modeling-sheet.png",
-  "reference": "FireSlop/FireSlop/Screens/Pasted image 20261113145828.png",
-  "reference_usage": "Visual inspiration; door final generation used a text description after source inspection.",
-  "prompt": "One intact ordinary wooden apartment door with plain rectangular frame, two tall upper recessed panels and two short lower recessed panels, a simple lever handle and two hinges. Grayscale clean line-art modeling reference sheet on white, chunky simplified cartoon geometry matching a stylized apartment furniture set. Show large three-quarter view, straight front elevation, rear elevation and narrow side view displaying slab thickness. Same design in all views. No people, no scene. Title 'Door'.",
-  "notes": "Intact four-panel door and separate frame. This sheet defines the apartment door; damage meshes are not included."
+  "prompt": "Use case: stylized-concept. Update colored low-poly game modeling sheet. First image is the existing door design, preserve its proportions, four wood panels, warm brown frame, honey wood leaf, gray handle. Second image is a supporting actual Blender exploded assembly reference. White background, clean black outline colored sketch. Show three views: INTACT front with separate frame, PRE-CUT ASSEMBLED same door with subtle irregular seams, EXPLODED PIECES same door with about twenty chunky irregular wooden pieces spaced slightly apart inside stationary frame. Title 'Door — Intact & Pre-cut'. No scene, no people, no tools. This is a model assembly reference: pieces have thickness, plain wooden cut surfaces, recognizable panels remain on pieces. Keep scale consistent.",
+  "modeling_target": "Low-poly Blender mesh, solid-color materials; no skeletons"
 }

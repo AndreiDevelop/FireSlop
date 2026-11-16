@@ -1,0 +1,22 @@
+[
+  {
+    "prefab": "Assets/Prefabs/BaseHouse.prefab",
+    "nestedModules": 351,
+    "boundsDifferenceMeters": 2.33601554E-06,
+    "sizeMeters": [
+      12.6799994,
+      12.4199982,
+      10.5199986
+    ]
+  },
+  {
+    "prefab": "Assets/Prefabs/RescueDrone.prefab",
+    "nestedModules": 21,
+    "boundsDifferenceMeters": 0.0,
+    "sizeMeters": [
+      3.89487362,
+      2.9498477,
+      3.90737343
+    ]
+  }
+]

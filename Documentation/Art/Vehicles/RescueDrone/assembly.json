@@ -1,0 +1,461 @@
+{
+  "name": "RescueDrone",
+  "modules": [
+    {
+      "name": "DroneHull",
+      "fbx": "Assets/Models/Modules/Drone/DroneHull.fbx"
+    },
+    {
+      "name": "DroneArm",
+      "fbx": "Assets/Models/Modules/Drone/DroneArm.fbx"
+    },
+    {
+      "name": "DroneGuard",
+      "fbx": "Assets/Models/Modules/Drone/DroneGuard.fbx"
+    },
+    {
+      "name": "DroneRotor",
+      "fbx": "Assets/Models/Modules/Drone/DroneRotor.fbx"
+    },
+    {
+      "name": "DronePylon",
+      "fbx": "Assets/Models/Modules/Drone/DronePylon.fbx"
+    },
+    {
+      "name": "DroneSkid",
+      "fbx": "Assets/Models/Modules/Drone/DroneSkid.fbx"
+    },
+    {
+      "name": "DronePlatform",
+      "fbx": "Assets/Models/Modules/Drone/DronePlatform.fbx"
+    },
+    {
+      "name": "DroneRestraint",
+      "fbx": "Assets/Models/Modules/Drone/DroneRestraint.fbx"
+    }
+  ],
+  "instances": [
+    {
+      "module": "DroneHull",
+      "position": [
+        0,
+        0,
+        2.7
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Hull"
+    },
+    {
+      "module": "DroneArm",
+      "position": [
+        0.4949747468305833,
+        0.4949747468305832,
+        2.65
+      ],
+      "rotationZ": 0.7853981633974483,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneGuard",
+      "position": [
+        1.2374368670764582,
+        1.237436867076458,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneRotor",
+      "position": [
+        1.2374368670764582,
+        1.237436867076458,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Rotors"
+    },
+    {
+      "module": "DroneArm",
+      "position": [
+        -0.4949747468305832,
+        0.4949747468305833,
+        2.65
+      ],
+      "rotationZ": 2.356194490192345,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneGuard",
+      "position": [
+        -1.237436867076458,
+        1.2374368670764582,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneRotor",
+      "position": [
+        -1.237436867076458,
+        1.2374368670764582,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Rotors"
+    },
+    {
+      "module": "DroneArm",
+      "position": [
+        -0.49497474683058335,
+        -0.4949747468305832,
+        2.65
+      ],
+      "rotationZ": 3.9269908169872414,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneGuard",
+      "position": [
+        -1.2374368670764584,
+        -1.237436867076458,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneRotor",
+      "position": [
+        -1.2374368670764584,
+        -1.237436867076458,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Rotors"
+    },
+    {
+      "module": "DroneArm",
+      "position": [
+        0.4949747468305831,
+        -0.49497474683058335,
+        2.65
+      ],
+      "rotationZ": 5.497787143782138,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneGuard",
+      "position": [
+        1.237436867076458,
+        -1.2374368670764584,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Propulsion"
+    },
+    {
+      "module": "DroneRotor",
+      "position": [
+        1.237436867076458,
+        -1.2374368670764584,
+        2.74
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Rotors"
+    },
+    {
+      "module": "DronePylon",
+      "position": [
+        0.64,
+        0.6,
+        0.17
+      ],
+      "rotationZ": 0.0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "LandingGear"
+    },
+    {
+      "module": "DronePylon",
+      "position": [
+        -0.6,
+        0.64,
+        0.17
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "LandingGear"
+    },
+    {
+      "module": "DronePylon",
+      "position": [
+        -0.6400000000000001,
+        -0.5999999999999999,
+        0.17
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "LandingGear"
+    },
+    {
+      "module": "DronePylon",
+      "position": [
+        0.5999999999999999,
+        -0.6400000000000001,
+        0.17
+      ],
+      "rotationZ": 4.71238898038469,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "LandingGear"
+    },
+    {
+      "module": "DroneSkid",
+      "position": [
+        -0.64,
+        0,
+        0.1
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "LandingGear"
+    },
+    {
+      "module": "DroneSkid",
+      "position": [
+        0.64,
+        0,
+        0.1
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "LandingGear"
+    },
+    {
+      "module": "DronePlatform",
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Platform"
+    },
+    {
+      "module": "DroneRestraint",
+      "position": [
+        0,
+        -0.52,
+        1.23
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Platform"
+    }
+  ],
+  "namedInstances": [
+    {
+      "instanceName": "DroneArm.001",
+      "module": "DroneArm",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneArm.002",
+      "module": "DroneArm",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneArm.003",
+      "module": "DroneArm",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneArm.004",
+      "module": "DroneArm",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneGuard.001",
+      "module": "DroneGuard",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneGuard.002",
+      "module": "DroneGuard",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneGuard.003",
+      "module": "DroneGuard",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneGuard.004",
+      "module": "DroneGuard",
+      "group": "Propulsion"
+    },
+    {
+      "instanceName": "DroneHull.001",
+      "module": "DroneHull",
+      "group": "Hull"
+    },
+    {
+      "instanceName": "DronePlatform.001",
+      "module": "DronePlatform",
+      "group": "Platform"
+    },
+    {
+      "instanceName": "DronePylon.001",
+      "module": "DronePylon",
+      "group": "LandingGear"
+    },
+    {
+      "instanceName": "DronePylon.002",
+      "module": "DronePylon",
+      "group": "LandingGear"
+    },
+    {
+      "instanceName": "DronePylon.003",
+      "module": "DronePylon",
+      "group": "LandingGear"
+    },
+    {
+      "instanceName": "DronePylon.004",
+      "module": "DronePylon",
+      "group": "LandingGear"
+    },
+    {
+      "instanceName": "DroneRestraint.001",
+      "module": "DroneRestraint",
+      "group": "Platform"
+    },
+    {
+      "instanceName": "DroneRotor.001",
+      "module": "DroneRotor",
+      "group": "Rotors"
+    },
+    {
+      "instanceName": "DroneRotor.002",
+      "module": "DroneRotor",
+      "group": "Rotors"
+    },
+    {
+      "instanceName": "DroneRotor.003",
+      "module": "DroneRotor",
+      "group": "Rotors"
+    },
+    {
+      "instanceName": "DroneRotor.004",
+      "module": "DroneRotor",
+      "group": "Rotors"
+    },
+    {
+      "instanceName": "DroneSkid.001",
+      "module": "DroneSkid",
+      "group": "LandingGear"
+    },
+    {
+      "instanceName": "DroneSkid.002",
+      "module": "DroneSkid",
+      "group": "LandingGear"
+    }
+  ]
+}

@@ -1,0 +1,7093 @@
+{
+  "name": "BaseHouse",
+  "modules": [
+    {
+      "name": "HouseWall2m",
+      "fbx": "Assets/Models/Modules/House/HouseWall2m.fbx"
+    },
+    {
+      "name": "HouseWallUnit",
+      "fbx": "Assets/Models/Modules/House/HouseWallUnit.fbx"
+    },
+    {
+      "name": "HouseWindowBay2m",
+      "fbx": "Assets/Models/Modules/House/HouseWindowBay2m.fbx"
+    },
+    {
+      "name": "HouseWindow",
+      "fbx": "Assets/Models/Modules/House/HouseWindow.fbx"
+    },
+    {
+      "name": "HouseDoorway2m",
+      "fbx": "Assets/Models/Modules/House/HouseDoorway2m.fbx"
+    },
+    {
+      "name": "HouseFloorUnit",
+      "fbx": "Assets/Models/Modules/House/HouseFloorUnit.fbx"
+    },
+    {
+      "name": "HouseParapet2m",
+      "fbx": "Assets/Models/Modules/House/HouseParapet2m.fbx"
+    },
+    {
+      "name": "HouseCornice2m",
+      "fbx": "Assets/Models/Modules/House/HouseCornice2m.fbx"
+    },
+    {
+      "name": "HouseQuoin",
+      "fbx": "Assets/Models/Modules/House/HouseQuoin.fbx"
+    },
+    {
+      "name": "InteriorWallUnit",
+      "fbx": "Assets/Models/Modules/House/InteriorWallUnit.fbx"
+    },
+    {
+      "name": "BreakableWallPlaceholder",
+      "fbx": "Assets/Models/Modules/House/BreakableWallPlaceholder.fbx"
+    },
+    {
+      "name": "InteriorDoorway2m",
+      "fbx": "Assets/Models/Modules/House/InteriorDoorway2m.fbx"
+    },
+    {
+      "name": "StairFlight",
+      "fbx": "Assets/Models/Modules/House/StairFlight.fbx"
+    },
+    {
+      "name": "StairLandingUnit",
+      "fbx": "Assets/Models/Modules/House/StairLandingUnit.fbx"
+    },
+    {
+      "name": "Railing2m",
+      "fbx": "Assets/Models/Modules/House/Railing2m.fbx"
+    },
+    {
+      "name": "StairRailing",
+      "fbx": "Assets/Models/Modules/House/StairRailing.fbx"
+    }
+  ],
+  "instances": [
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -5,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -5,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -5,
+        5,
+        0.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -3,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -3,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -3,
+        5,
+        0.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseDoorway2m",
+      "position": [
+        -1,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -1,
+        5,
+        0.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        1,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        1,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        1,
+        5,
+        0.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        3,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        3,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        3,
+        5,
+        0.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        5,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        5,
+        -5,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        5,
+        5,
+        0.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        -4,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        -4,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -6,
+        -2,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -6,
+        -2,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        6,
+        -2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        6,
+        -2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        0,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        0,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -6,
+        2,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -6,
+        2,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        6,
+        2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        6,
+        2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        4,
+        0.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        4,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Facade"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        0,
+        0,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        11.76,
+        9.76,
+        1
+      ],
+      "group": "Floor_1/Slabs"
+    },
+    {
+      "module": "InteriorDoorway2m",
+      "position": [
+        -2,
+        -2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        -3.94,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        -0.5,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        2.8
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        3.44,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        2.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "BreakableWallPlaceholder",
+      "position": [
+        -2,
+        1,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/BreakableSlots"
+    },
+    {
+      "module": "InteriorDoorway2m",
+      "position": [
+        -4,
+        0,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -5.44,
+        0,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2.56,
+        0,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        0,
+        -2.05,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        5.5,
+        1,
+        2.8
+      ],
+      "group": "Floor_1/Corridor"
+    },
+    {
+      "module": "StairFlight",
+      "position": [
+        1.2,
+        1.75,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "StairLandingUnit",
+      "position": [
+        4.42,
+        2.65,
+        1.7
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1.64,
+        3.3,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "StairFlight",
+      "position": [
+        3.6,
+        3.55,
+        1.7
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "StairLandingUnit",
+      "position": [
+        0.6,
+        2.65,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1.2,
+        3.3,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "StairRailing",
+      "position": [
+        1.2,
+        1.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "StairRailing",
+      "position": [
+        3.6,
+        4.28,
+        1.7
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "Railing2m",
+      "position": [
+        5.25,
+        1.0,
+        1.7
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1.65,
+        1,
+        1
+      ],
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -5,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -5,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -5,
+        5,
+        3.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -3,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -3,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -3,
+        5,
+        3.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -1,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -1,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -1,
+        5,
+        3.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        1,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        1,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        1,
+        5,
+        3.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        3,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        3,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        3,
+        5,
+        3.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        5,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        5,
+        -5,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        5,
+        5,
+        3.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        -4,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        -4,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -6,
+        -2,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -6,
+        -2,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        6,
+        -2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        6,
+        -2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        0,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        0,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -6,
+        2,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -6,
+        2,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        6,
+        2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        6,
+        2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        4,
+        3.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        4,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Facade"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        -2.34,
+        0,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        7.08,
+        9.76,
+        1
+      ],
+      "group": "Floor_2/Slabs"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        3.54,
+        -1.99,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        4.68,
+        5.78,
+        1
+      ],
+      "group": "Floor_2/Slabs"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        3.54,
+        4.79,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        4.68,
+        0.18,
+        1
+      ],
+      "group": "Floor_2/Slabs"
+    },
+    {
+      "module": "InteriorDoorway2m",
+      "position": [
+        -2,
+        -2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        -3.94,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        -0.5,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        2.8
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        3.44,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        2.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "BreakableWallPlaceholder",
+      "position": [
+        -2,
+        1,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/BreakableSlots"
+    },
+    {
+      "module": "InteriorDoorway2m",
+      "position": [
+        -4,
+        0,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -5.44,
+        0,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2.56,
+        0,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        0,
+        -2.05,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        5.5,
+        1,
+        2.8
+      ],
+      "group": "Floor_2/Corridor"
+    },
+    {
+      "module": "StairFlight",
+      "position": [
+        1.2,
+        1.75,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "StairLandingUnit",
+      "position": [
+        4.42,
+        2.65,
+        4.7
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1.64,
+        3.3,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "StairFlight",
+      "position": [
+        3.6,
+        3.55,
+        4.7
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "StairLandingUnit",
+      "position": [
+        0.6,
+        2.65,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1.2,
+        3.3,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "StairRailing",
+      "position": [
+        1.2,
+        1.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "StairRailing",
+      "position": [
+        3.6,
+        4.28,
+        4.7
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "Railing2m",
+      "position": [
+        5.25,
+        1.0,
+        4.7
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1.65,
+        1,
+        1
+      ],
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -5,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -5,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -5,
+        5,
+        6.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -3,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -3,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -3,
+        5,
+        6.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -1,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -1,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -1,
+        5,
+        6.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        1,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        1,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        1,
+        5,
+        6.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        3,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        3,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        3,
+        5,
+        6.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        5,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        5,
+        -5,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        5,
+        5,
+        6.2
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        -4,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        -4,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -6,
+        -2,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -6,
+        -2,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        6,
+        -2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        6,
+        -2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        0,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        0,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        -6,
+        2,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        -6,
+        2,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWindowBay2m",
+      "position": [
+        6,
+        2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWindow",
+      "position": [
+        6,
+        2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Windows"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        -6,
+        4,
+        6.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseWall2m",
+      "position": [
+        6,
+        4,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Facade"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        -2.34,
+        0,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        7.08,
+        9.76,
+        1
+      ],
+      "group": "Floor_3/Slabs"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        3.54,
+        -1.99,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        4.68,
+        5.78,
+        1
+      ],
+      "group": "Floor_3/Slabs"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        3.54,
+        4.79,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        4.68,
+        0.18,
+        1
+      ],
+      "group": "Floor_3/Slabs"
+    },
+    {
+      "module": "InteriorDoorway2m",
+      "position": [
+        -2,
+        -2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        -3.94,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        -0.5,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        2.8
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2,
+        3.44,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        2.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "BreakableWallPlaceholder",
+      "position": [
+        -2,
+        1,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/BreakableSlots"
+    },
+    {
+      "module": "InteriorDoorway2m",
+      "position": [
+        -4,
+        0,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -5.44,
+        0,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        -2.56,
+        0,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.88,
+        1,
+        2.8
+      ],
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "module": "InteriorWallUnit",
+      "position": [
+        0,
+        -2.05,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        5.5,
+        1,
+        2.8
+      ],
+      "group": "Floor_3/Corridor"
+    },
+    {
+      "module": "StairFlight",
+      "position": [
+        1.2,
+        1.75,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "StairLandingUnit",
+      "position": [
+        4.42,
+        2.65,
+        7.7
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1.64,
+        3.3,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "StairFlight",
+      "position": [
+        3.6,
+        3.55,
+        7.7
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "StairLandingUnit",
+      "position": [
+        0.6,
+        2.65,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1.2,
+        3.3,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "StairRailing",
+      "position": [
+        1.2,
+        1.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "StairRailing",
+      "position": [
+        3.6,
+        4.28,
+        7.7
+      ],
+      "rotationZ": 3.141592653589793,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "Railing2m",
+      "position": [
+        5.25,
+        1.0,
+        7.7
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1.65,
+        1,
+        1
+      ],
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        -5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        -5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        -5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        -5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        -5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        -5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        5.02,
+        0.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -4,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -4,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        0,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        0,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        2,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        4,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        4,
+        0.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        -5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        -5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        -5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        -5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        -5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        -5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        5.02,
+        3.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -4,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -4,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        0,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        0,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        2,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        4,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        4,
+        3.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        -5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        -5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        -5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        -5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        -5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        -5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        5.02,
+        6.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -4,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -4,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        0,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        0,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        2,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        4,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        4,
+        6.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -5,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -3,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -1,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        1,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        3,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        5,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        -2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        -2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        0,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        0,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        -6.02,
+        4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseCornice2m",
+      "position": [
+        6.02,
+        4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        0.24
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        0.6799999999999999
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        1.12
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        1.56
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        2.0
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        2.4400000000000004
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        2.88
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        3.3200000000000003
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        3.76
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        4.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        4.640000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        5.08
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        5.5200000000000005
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        5.96
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        6.4
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        6.84
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        7.28
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        7.720000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        8.16
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        -4.88,
+        8.6
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        0.24
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        0.6799999999999999
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        1.12
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        1.56
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        2.0
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        2.4400000000000004
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        2.88
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        3.3200000000000003
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        3.76
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        4.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        4.640000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        5.08
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        5.5200000000000005
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        5.96
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        6.4
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        6.84
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        7.28
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        7.720000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        8.16
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        -5.88,
+        4.88,
+        8.6
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        0.24
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        0.6799999999999999
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        1.12
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        1.56
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        2.0
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        2.4400000000000004
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        2.88
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        3.3200000000000003
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        3.76
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        4.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        4.640000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        5.08
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        5.5200000000000005
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        5.96
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        6.4
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        6.84
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        7.28
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        7.720000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        8.16
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        -4.88,
+        8.6
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        0.24
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        0.6799999999999999
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        1.12
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        1.56
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        2.0
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        2.4400000000000004
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        2.88
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        3.3200000000000003
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        3.76
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        4.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        4.640000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        5.08
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        5.5200000000000005
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        5.96
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        6.4
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        6.84
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        7.28
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        7.720000000000001
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        8.16
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseQuoin",
+      "position": [
+        5.88,
+        4.88,
+        8.6
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "FacadeTrim"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -5,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -5,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -3,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -3,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -1,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -1,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        1,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        1,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        3,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        3,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        5,
+        -5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        5,
+        5.02,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -6.02,
+        -4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        6.02,
+        -4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -6.02,
+        -2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        6.02,
+        -2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -6.02,
+        0,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        6.02,
+        0,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -6.02,
+        2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        6.02,
+        2,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        -6.02,
+        4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseParapet2m",
+      "position": [
+        6.02,
+        4,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        -2.4,
+        0,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        7.2,
+        10,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        3.6,
+        -2.05,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        4.8,
+        5.9,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        3.6,
+        4.85,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        4.8,
+        0.3,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        5.8,
+        2.8,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        0.4,
+        3.8,
+        1
+      ],
+      "group": "Roof"
+    },
+    {
+      "module": "HouseDoorway2m",
+      "position": [
+        0,
+        2.0,
+        9.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "group": "RoofAccess"
+    },
+    {
+      "module": "HouseWallUnit",
+      "position": [
+        0,
+        3.8,
+        9.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        1.6,
+        1,
+        3
+      ],
+      "group": "RoofAccess"
+    },
+    {
+      "module": "HouseWallUnit",
+      "position": [
+        0,
+        0.9,
+        9.2
+      ],
+      "rotationZ": -1.5707963267948966,
+      "scale": [
+        0.2,
+        1,
+        3
+      ],
+      "group": "RoofAccess"
+    },
+    {
+      "module": "HouseWallUnit",
+      "position": [
+        2.8,
+        0.8,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        5.6,
+        1,
+        3
+      ],
+      "group": "RoofAccess"
+    },
+    {
+      "module": "HouseWallUnit",
+      "position": [
+        2.8,
+        4.6,
+        9.2
+      ],
+      "rotationZ": 0,
+      "scale": [
+        5.6,
+        1,
+        3
+      ],
+      "group": "RoofAccess"
+    },
+    {
+      "module": "HouseWallUnit",
+      "position": [
+        5.6,
+        2.7,
+        9.2
+      ],
+      "rotationZ": 1.5707963267948966,
+      "scale": [
+        3.8,
+        1,
+        3
+      ],
+      "group": "RoofAccess"
+    },
+    {
+      "module": "HouseFloorUnit",
+      "position": [
+        2.8,
+        2.7,
+        12.4
+      ],
+      "rotationZ": 0,
+      "scale": [
+        5.9,
+        4.1,
+        1
+      ],
+      "group": "RoofAccess"
+    }
+  ],
+  "namedInstances": [
+    {
+      "instanceName": "BreakableWallPlaceholder.001",
+      "module": "BreakableWallPlaceholder",
+      "group": "Floor_1/BreakableSlots"
+    },
+    {
+      "instanceName": "BreakableWallPlaceholder.002",
+      "module": "BreakableWallPlaceholder",
+      "group": "Floor_2/BreakableSlots"
+    },
+    {
+      "instanceName": "BreakableWallPlaceholder.003",
+      "module": "BreakableWallPlaceholder",
+      "group": "Floor_3/BreakableSlots"
+    },
+    {
+      "instanceName": "HouseCornice2m.001",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.002",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.003",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.004",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.005",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.006",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.007",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.008",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.009",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.010",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.011",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.012",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.013",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.014",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.015",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.016",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.017",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.018",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.019",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.020",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.021",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.022",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.023",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.024",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.025",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.026",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.027",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.028",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.029",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.030",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.031",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.032",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.033",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.034",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.035",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.036",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.037",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.038",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.039",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.040",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.041",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.042",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.043",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.044",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.045",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.046",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.047",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.048",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.049",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.050",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.051",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.052",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.053",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.054",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.055",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.056",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.057",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.058",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.059",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.060",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.061",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.062",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.063",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.064",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.065",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.066",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.067",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.068",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.069",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.070",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.071",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.072",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.073",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.074",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.075",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.076",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.077",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.078",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.079",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.080",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.081",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.082",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.083",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.084",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.085",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.086",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.087",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseCornice2m.088",
+      "module": "HouseCornice2m",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseDoorway2m.001",
+      "module": "HouseDoorway2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseDoorway2m.002",
+      "module": "HouseDoorway2m",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseFloorUnit.001",
+      "module": "HouseFloorUnit",
+      "group": "Floor_1/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.002",
+      "module": "HouseFloorUnit",
+      "group": "Floor_2/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.003",
+      "module": "HouseFloorUnit",
+      "group": "Floor_2/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.004",
+      "module": "HouseFloorUnit",
+      "group": "Floor_2/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.005",
+      "module": "HouseFloorUnit",
+      "group": "Floor_3/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.006",
+      "module": "HouseFloorUnit",
+      "group": "Floor_3/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.007",
+      "module": "HouseFloorUnit",
+      "group": "Floor_3/Slabs"
+    },
+    {
+      "instanceName": "HouseFloorUnit.008",
+      "module": "HouseFloorUnit",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseFloorUnit.009",
+      "module": "HouseFloorUnit",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseFloorUnit.010",
+      "module": "HouseFloorUnit",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseFloorUnit.011",
+      "module": "HouseFloorUnit",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseFloorUnit.012",
+      "module": "HouseFloorUnit",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseParapet2m.001",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.002",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.003",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.004",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.005",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.006",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.007",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.008",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.009",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.010",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.011",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.012",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.013",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.014",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.015",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.016",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.017",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.018",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.019",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.020",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.021",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseParapet2m.022",
+      "module": "HouseParapet2m",
+      "group": "Roof"
+    },
+    {
+      "instanceName": "HouseQuoin.001",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.002",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.003",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.004",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.005",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.006",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.007",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.008",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.009",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.010",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.011",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.012",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.013",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.014",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.015",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.016",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.017",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.018",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.019",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.020",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.021",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.022",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.023",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.024",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.025",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.026",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.027",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.028",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.029",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.030",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.031",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.032",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.033",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.034",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.035",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.036",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.037",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.038",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.039",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.040",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.041",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.042",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.043",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.044",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.045",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.046",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.047",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.048",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.049",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.050",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.051",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.052",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.053",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.054",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.055",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.056",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.057",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.058",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.059",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.060",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.061",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.062",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.063",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.064",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.065",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.066",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.067",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.068",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.069",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.070",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.071",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.072",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.073",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.074",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.075",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.076",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.077",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.078",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.079",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseQuoin.080",
+      "module": "HouseQuoin",
+      "group": "FacadeTrim"
+    },
+    {
+      "instanceName": "HouseWall2m.001",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.002",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.003",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.004",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.005",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.006",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.007",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.008",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.009",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.010",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.011",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.012",
+      "module": "HouseWall2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.013",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.014",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.015",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.016",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.017",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.018",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.019",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.020",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.021",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.022",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.023",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.024",
+      "module": "HouseWall2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.025",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.026",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.027",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.028",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.029",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.030",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.031",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.032",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.033",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.034",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.035",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWall2m.036",
+      "module": "HouseWall2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWallUnit.001",
+      "module": "HouseWallUnit",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseWallUnit.002",
+      "module": "HouseWallUnit",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseWallUnit.003",
+      "module": "HouseWallUnit",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseWallUnit.004",
+      "module": "HouseWallUnit",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseWallUnit.005",
+      "module": "HouseWallUnit",
+      "group": "RoofAccess"
+    },
+    {
+      "instanceName": "HouseWindow.001",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.002",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.003",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.004",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.005",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.006",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.007",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.008",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.009",
+      "module": "HouseWindow",
+      "group": "Floor_1/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.010",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.011",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.012",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.013",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.014",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.015",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.016",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.017",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.018",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.019",
+      "module": "HouseWindow",
+      "group": "Floor_2/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.020",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.021",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.022",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.023",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.024",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.025",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.026",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.027",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.028",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindow.029",
+      "module": "HouseWindow",
+      "group": "Floor_3/Windows"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.001",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.002",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.003",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.004",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.005",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.006",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.007",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.008",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.009",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_1/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.010",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.011",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.012",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.013",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.014",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.015",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.016",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.017",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.018",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.019",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_2/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.020",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.021",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.022",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.023",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.024",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.025",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.026",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.027",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.028",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "HouseWindowBay2m.029",
+      "module": "HouseWindowBay2m",
+      "group": "Floor_3/Facade"
+    },
+    {
+      "instanceName": "InteriorDoorway2m.001",
+      "module": "InteriorDoorway2m",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorDoorway2m.002",
+      "module": "InteriorDoorway2m",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorDoorway2m.003",
+      "module": "InteriorDoorway2m",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorDoorway2m.004",
+      "module": "InteriorDoorway2m",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorDoorway2m.005",
+      "module": "InteriorDoorway2m",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorDoorway2m.006",
+      "module": "InteriorDoorway2m",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.001",
+      "module": "InteriorWallUnit",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.002",
+      "module": "InteriorWallUnit",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.003",
+      "module": "InteriorWallUnit",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.004",
+      "module": "InteriorWallUnit",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.005",
+      "module": "InteriorWallUnit",
+      "group": "Floor_1/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.006",
+      "module": "InteriorWallUnit",
+      "group": "Floor_1/Corridor"
+    },
+    {
+      "instanceName": "InteriorWallUnit.007",
+      "module": "InteriorWallUnit",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.008",
+      "module": "InteriorWallUnit",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.009",
+      "module": "InteriorWallUnit",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.010",
+      "module": "InteriorWallUnit",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.011",
+      "module": "InteriorWallUnit",
+      "group": "Floor_2/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.012",
+      "module": "InteriorWallUnit",
+      "group": "Floor_2/Corridor"
+    },
+    {
+      "instanceName": "InteriorWallUnit.013",
+      "module": "InteriorWallUnit",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.014",
+      "module": "InteriorWallUnit",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.015",
+      "module": "InteriorWallUnit",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.016",
+      "module": "InteriorWallUnit",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.017",
+      "module": "InteriorWallUnit",
+      "group": "Floor_3/Apartment"
+    },
+    {
+      "instanceName": "InteriorWallUnit.018",
+      "module": "InteriorWallUnit",
+      "group": "Floor_3/Corridor"
+    },
+    {
+      "instanceName": "Railing2m.001",
+      "module": "Railing2m",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "Railing2m.002",
+      "module": "Railing2m",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "Railing2m.003",
+      "module": "Railing2m",
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "instanceName": "StairFlight.001",
+      "module": "StairFlight",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "StairFlight.002",
+      "module": "StairFlight",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "StairFlight.003",
+      "module": "StairFlight",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "StairFlight.004",
+      "module": "StairFlight",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "StairFlight.005",
+      "module": "StairFlight",
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "instanceName": "StairFlight.006",
+      "module": "StairFlight",
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "instanceName": "StairLandingUnit.001",
+      "module": "StairLandingUnit",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "StairLandingUnit.002",
+      "module": "StairLandingUnit",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "StairLandingUnit.003",
+      "module": "StairLandingUnit",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "StairLandingUnit.004",
+      "module": "StairLandingUnit",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "StairLandingUnit.005",
+      "module": "StairLandingUnit",
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "instanceName": "StairLandingUnit.006",
+      "module": "StairLandingUnit",
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "instanceName": "StairRailing.001",
+      "module": "StairRailing",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "StairRailing.002",
+      "module": "StairRailing",
+      "group": "Floor_1/Stairs"
+    },
+    {
+      "instanceName": "StairRailing.003",
+      "module": "StairRailing",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "StairRailing.004",
+      "module": "StairRailing",
+      "group": "Floor_2/Stairs"
+    },
+    {
+      "instanceName": "StairRailing.005",
+      "module": "StairRailing",
+      "group": "Floor_3/Stairs"
+    },
+    {
+      "instanceName": "StairRailing.006",
+      "module": "StairRailing",
+      "group": "Floor_3/Stairs"
+    }
+  ]
+}
