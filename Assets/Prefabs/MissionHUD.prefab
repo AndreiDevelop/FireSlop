@@ -709,7 +709,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.ContextActionView
   _hint: {fileID: 7989804866292114669}
   _touchButton: {fileID: 2391890386820591474}
+  _touchLabel: {fileID: 5985477235597843486}
   _objective: {fileID: 1330251541362225385}
+  _closedMessageSeconds: 1.25
 --- !u!1 &4846783670547910421
 GameObject:
   m_ObjectHideFlags: 0

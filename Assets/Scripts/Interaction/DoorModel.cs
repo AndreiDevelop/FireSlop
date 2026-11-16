@@ -12,14 +12,14 @@ namespace FireSlop.Interaction
         public bool IsBroken { get; private set; }
         public bool IsPassable => IsOpen || IsBroken;
 
-        public bool TryOpen()
+        public bool TryToggle()
         {
-            if (IsLocked || IsPassable)
+            if (IsLocked || IsBroken)
             {
                 return false;
             }
 
-            IsOpen = true;
+            IsOpen = !IsOpen;
             return true;
         }
 

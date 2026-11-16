@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: MissionInteraction
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.InteractionConfigSO
   _contextRange: 2.5
+  _doorSwingDuration: 0.4

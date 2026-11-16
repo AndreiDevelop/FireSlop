@@ -11,6 +11,7 @@ namespace FireSlop.MissionHud
     {
         [SerializeField] private Text _hint;
         [SerializeField] private Button _touchButton;
+        [SerializeField] private Text _touchLabel;
         [SerializeField] private Text _objective;
         [SerializeField, Min(0.1f)] private float _closedMessageSeconds = 1.25f;
 
@@ -59,14 +60,16 @@ namespace FireSlop.MissionHud
         private void Render()
         {
             var touch = Application.isMobilePlatform || Touchscreen.current != null;
-            if (!_model.CanOpenDoor)
+            if (!_model.CanInteractWithDoor)
             {
                 ClearClosed();
             }
 
-            _hint.text = _closedMessage != null ? "Closed" : "E  Open door";
-            _hint.gameObject.SetActive(_closedMessage != null || (_model.CanOpenDoor && !touch));
-            _touchButton.gameObject.SetActive(_model.CanOpenDoor && touch);
+            var action = _model.ShouldCloseDoor ? "Close door" : "Open door";
+            _hint.text = _closedMessage != null ? "Closed" : "E  " + action;
+            _hint.gameObject.SetActive(_closedMessage != null || (_model.CanInteractWithDoor && !touch));
+            _touchLabel.text = action;
+            _touchButton.gameObject.SetActive(_model.CanInteractWithDoor && touch);
             _objective.text = _model.IsEntrancePassable ? "Enter the building" : "Reach the entrance";
         }
 

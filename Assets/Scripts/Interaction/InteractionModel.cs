@@ -22,7 +22,8 @@ namespace FireSlop.Interaction
 
         public bool HoseActive { get; private set; }
         public bool IsEntrancePassable { get; private set; }
-        public bool CanOpenDoor => _enabled && _doorInSight;
+        public bool CanInteractWithDoor => _enabled && _doorInSight;
+        public bool ShouldCloseDoor { get; private set; }
         public event Action HammerPressed;
         public event Action ContextChanged;
         public event Action ContextRequested;
@@ -72,20 +73,23 @@ namespace FireSlop.Interaction
             ContextChanged?.Invoke();
         }
 
-        public void SetDoorInSight(bool visible)
+        public void SetDoorInSight(DoorModel door)
         {
-            if (_doorInSight == visible)
+            var visible = door != null && !door.IsBroken;
+            var shouldCloseDoor = visible && door.IsOpen;
+            if (_doorInSight == visible && ShouldCloseDoor == shouldCloseDoor)
             {
                 return;
             }
 
             _doorInSight = visible;
+            ShouldCloseDoor = shouldCloseDoor;
             ContextChanged?.Invoke();
         }
 
         public void Interact()
         {
-            if (CanOpenDoor)
+            if (CanInteractWithDoor)
             {
                 ContextRequested?.Invoke();
             }
@@ -96,14 +100,14 @@ namespace FireSlop.Interaction
             ClosedDoor?.Invoke();
         }
 
-        public void SetEntrancePassable()
+        public void SetEntrancePassable(bool isPassable)
         {
-            if (IsEntrancePassable)
+            if (IsEntrancePassable == isPassable)
             {
                 return;
             }
 
-            IsEntrancePassable = true;
+            IsEntrancePassable = isPassable;
             ContextChanged?.Invoke();
         }
 
