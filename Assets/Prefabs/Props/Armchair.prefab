@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2309728669233932001}
   - component: {fileID: 2157336644146333131}
   - component: {fileID: 8422909472995224960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armchair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

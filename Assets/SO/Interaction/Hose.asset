@@ -13,4 +13,20 @@ MonoBehaviour:
   m_Name: Hose
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HoseConfigSO
   _range: 12
-  _force: 220
+  _force: 2200
+  _launchSpeed: 7.91
+  _gravityScale: 1
+  _castRadius: 0.065
+  _fixedStepsPerSample: 4
+  _collisionMask:
+    serializedVersion: 2
+    m_Bits: 15361
+  _movingCollisionMask:
+    serializedVersion: 2
+    m_Bits: 11264
+  _pushMask:
+    serializedVersion: 2
+    m_Bits: 3072
+  _fireMask:
+    serializedVersion: 2
+    m_Bits: 4096

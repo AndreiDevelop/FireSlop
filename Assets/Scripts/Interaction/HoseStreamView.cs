@@ -1,115 +1,120 @@
 using UnityEngine;
-using Zenject;
 
 namespace FireSlop.Interaction
 {
     public sealed class HoseStreamView : MonoBehaviour
     {
-        [SerializeField] private LineRenderer _stream;
         [SerializeField] private ParticleSystem _droplets;
         [SerializeField] private ParticleSystem _splash;
+        [SerializeField, Range(1, 32)] private int _dropletsPerSample;
+        [SerializeField, Min(0f)] private float _dropletSpread;
 
-        private InteractionModel _model;
-        private float _dropletSpeed;
+        private ParticleSystem.Particle[] _particles;
+        private int _count;
+        private Vector2[] _offsets;
+        private float[] _sizes;
+        private Color32[] _colors;
+        private float _splashRate;
 
         private void Awake()
         {
-            if (_stream == null || _droplets == null || _splash == null ||
-                _droplets.main.startSpeed.mode != ParticleSystemCurveMode.Constant ||
-                _droplets.main.startSpeed.constant <= 0f)
+            if (_droplets == null || _splash == null || _dropletsPerSample <= 0)
             {
-                Debug.LogError("Hose water requires a line, two particle systems, and a positive droplet speed.", this);
+                Debug.LogError("Hose stream requires authored droplet and splash particle systems.", this);
                 enabled = false;
                 return;
             }
 
-            _dropletSpeed = _droplets.main.startSpeed.constant;
-        }
-
-        [Inject]
-        public void Construct(InteractionModel model)
-        {
-            _model = model;
-            if (isActiveAndEnabled)
+            var settings = _droplets.main;
+            _particles = new ParticleSystem.Particle[settings.maxParticles];
+            _offsets = new Vector2[_dropletsPerSample];
+            _sizes = new float[_dropletsPerSample];
+            _colors = new Color32[_dropletsPerSample];
+            for (var index = 0; index < _dropletsPerSample; index++)
             {
-                _model.HoseStopped += Hide;
-            }
-        }
-
-        private void OnEnable()
-        {
-            if (_model != null)
-            {
-                _model.HoseStopped += Hide;
+                var phase = (float)index / _dropletsPerSample;
+                var angle = phase * Mathf.PI * 8f;
+                _offsets[index] = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * (_dropletSpread * phase);
+                _sizes[index] = settings.startSize.Evaluate(phase, phase);
+                _colors[index] = settings.startColor.Evaluate(phase, phase);
             }
 
-            Hide();
+            // Keep the Particle System Inspector preview available while gameplay owns all emission.
+            var dropletEmission = _droplets.emission;
+            dropletEmission.enabled = false;
+
+            var splashEmission = _splash.emission;
+            _splashRate = splashEmission.rateOverTime.constant;
+            splashEmission.enabled = false;
         }
 
-        private void OnDisable()
+        internal void BeginFrame()
         {
-            if (_model != null)
-            {
-                _model.HoseStopped -= Hide;
-            }
-
-            Hide();
+            _count = 0;
         }
 
-        public void Render(Vector3 origin, Vector3 end, Vector3 surfaceNormal)
+        internal void DrawPacket(HoseWaterPacket packet, Vector3 gravity, float age, float sampleDuration)
         {
             if (!isActiveAndEnabled)
             {
                 return;
             }
 
-            _stream.SetPosition(0, origin);
-            _stream.SetPosition(1, end);
-            _stream.enabled = true;
-            RenderDroplets(origin, end);
-
-            if (surfaceNormal == Vector3.zero)
+            var forward = packet.LaunchVelocity.normalized;
+            var right = Vector3.Cross(Vector3.up, forward).normalized;
+            var up = Vector3.Cross(forward, right);
+            for (var index = 0; index < _dropletsPerSample && _count < _particles.Length; index++)
             {
-                if (_splash.isEmitting)
+                var phase = (float)index / _dropletsPerSample;
+                var dropletAge = age - phase * sampleDuration;
+                if (dropletAge < 0f || dropletAge > packet.FlightLimit)
                 {
-                    _splash.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+                    continue;
                 }
 
-                return;
-            }
-
-            _splash.transform.SetPositionAndRotation(end, Quaternion.FromToRotation(Vector3.forward, surfaceNormal));
-            if (!_splash.isEmitting)
-            {
-                _splash.Play(false);
+                var offset = right * _offsets[index].x + up * _offsets[index].y;
+                _particles[_count] = new ParticleSystem.Particle
+                {
+                    position = packet.PositionAt(dropletAge, gravity) + offset,
+                    velocity = packet.VelocityAt(dropletAge, gravity),
+                    startSize = _sizes[index],
+                    startColor = _colors[index],
+                    startLifetime = packet.FlightLimit,
+                    remainingLifetime = Mathf.Max(float.Epsilon, packet.FlightLimit - dropletAge)
+                };
+                _count++;
             }
         }
 
-        private void RenderDroplets(Vector3 origin, Vector3 end)
+        internal void DrawFrame()
         {
-            var travel = end - origin;
-            if (travel.sqrMagnitude <= Mathf.Epsilon)
+            if (!isActiveAndEnabled)
             {
-                _droplets.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
                 return;
             }
 
-            _droplets.transform.SetPositionAndRotation(origin, Quaternion.LookRotation(travel));
-            var settings = _droplets.main;
-            settings.startLifetime = travel.magnitude / _dropletSpeed;
-            if (!_droplets.isEmitting)
+            if (_droplets.isStopped)
             {
                 _droplets.Play(false);
+                _droplets.Pause(false);
             }
+
+            _droplets.SetParticles(_particles, _count);
+        }
+
+        public void Splash(Vector3 point, Vector3 normal, float sampleDuration)
+        {
+            if (!isActiveAndEnabled)
+            {
+                return;
+            }
+
+            _splash.transform.SetPositionAndRotation(point, Quaternion.FromToRotation(Vector3.forward, normal));
+            _splash.Emit(Mathf.Max(1, Mathf.RoundToInt(_splashRate * sampleDuration)));
         }
 
         public void Hide()
         {
-            if (_stream != null)
-            {
-                _stream.enabled = false;
-            }
-
             if (_droplets != null)
             {
                 _droplets.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
