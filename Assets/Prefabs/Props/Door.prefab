@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505629590957156970}
+  - component: {fileID: 3461801732838463318}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -32,6 +33,21 @@ Transform:
   - {fileID: 6955990112295876422}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3461801732838463318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392095678262796906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16418cb20476b44f49e7d3aeb093d007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.DoorView
+  _leaf: {fileID: 5299890050333285900}
+  _isLocked: 1
+  _openLocalRotation: {x: 0, y: -0.00000009131963, z: 0.7660445, w: 0.6427876}
 --- !u!1001 &7422527409959407789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +259,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.14, y: 0.26500002, z: 2.21}
   m_Center: {x: 0.57, y: 0, z: 1.105}
+--- !u!4 &5299890050333285900 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3354865826749812385, guid: b8bc7283798314cf388490c7162ba452, type: 3}
+  m_PrefabInstance: {fileID: 7422527409959407789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6955990112295876422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b8bc7283798314cf388490c7162ba452, type: 3}

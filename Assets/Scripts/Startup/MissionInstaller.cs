@@ -1,4 +1,5 @@
 using FireSlop.Firefighter;
+using FireSlop.Interaction;
 using FireSlop.MissionHud;
 using UnityEngine;
 using Zenject;
@@ -16,6 +17,7 @@ namespace FireSlop.Startup
             Container.Bind<MovementConfigSO>().FromInstance(_movement);
             Container.Bind<MissionInputModel>().AsSingle();
             Container.Bind<ToolSelectionModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();
             Container.Bind<QuestTargetModel>().FromInstance(new QuestTargetModel(_entrance.position));
             Container.Bind<Camera>().FromInstance(_camera);
         }

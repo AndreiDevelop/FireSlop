@@ -18,6 +18,7 @@ namespace FireSlop.Firefighter
         private float _pitch;
         private bool _waitForNeutral;
         private bool _focused;
+        private bool _captureMouseOnFocus = true;
 
         [Inject]
         public void Construct(MissionInputModel input, MovementConfigSO config, ToolSelectionModel tools)
@@ -41,7 +42,11 @@ namespace FireSlop.Firefighter
         private void OnApplicationFocus(bool hasFocus)
         {
             _focused = hasFocus;
-            if (!hasFocus)
+            if (hasFocus)
+            {
+                _captureMouseOnFocus = true;
+            }
+            else
             {
                 ReleaseInput();
             }
@@ -59,6 +64,7 @@ namespace FireSlop.Firefighter
         {
             _input?.Cancel();
             _waitForNeutral = true;
+            _captureMouseOnFocus = false;
             Cursor.lockState = CursorLockMode.None;
         }
 
@@ -77,9 +83,11 @@ namespace FireSlop.Firefighter
             }
 
             var mouse = Mouse.current;
-            if (mouse != null && mouse.rightButton.wasPressedThisFrame)
+            var captureMouse = _input.ConsumeMouseLookRequest();
+            if (mouse != null && (_captureMouseOnFocus || captureMouse || mouse.rightButton.wasPressedThisFrame))
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                _captureMouseOnFocus = false;
             }
 
             var look = _input.ConsumeLook() * (_config.DegreesPerScreen / Mathf.Max(1, Mathf.Min(Screen.width, Screen.height)));

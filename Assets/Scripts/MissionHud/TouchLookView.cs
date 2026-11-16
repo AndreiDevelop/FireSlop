@@ -1,6 +1,7 @@
 using FireSlop.Firefighter;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using Zenject;
 
@@ -20,6 +21,13 @@ namespace FireSlop.MissionHud
 
         public void OnPointerDown(PointerEventData data)
         {
+            if (data is ExtendedPointerEventData { device: Mouse } &&
+                data.button == PointerEventData.InputButton.Left)
+            {
+                _input.RequestMouseLook();
+                return;
+            }
+
             if (data is ExtendedPointerEventData { pointerType: UIPointerType.Touch } && !_pointer.HasValue)
             {
                 _pointer = data.pointerId;

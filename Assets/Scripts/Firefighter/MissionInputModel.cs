@@ -6,6 +6,7 @@ namespace FireSlop.Firefighter
     public sealed class MissionInputModel
     {
         private Vector2 _lookDelta;
+        private bool _mouseLookRequested;
 
         public Vector2 Movement { get; private set; }
         public event Action Cancelled;
@@ -27,10 +28,23 @@ namespace FireSlop.Firefighter
             return delta;
         }
 
+        public void RequestMouseLook()
+        {
+            _mouseLookRequested = true;
+        }
+
+        public bool ConsumeMouseLookRequest()
+        {
+            var requested = _mouseLookRequested;
+            _mouseLookRequested = false;
+            return requested;
+        }
+
         public void Cancel()
         {
             Movement = Vector2.zero;
             _lookDelta = Vector2.zero;
+            _mouseLookRequested = false;
             Cancelled?.Invoke();
         }
     }
