@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016570507579688896}
+  - component: {fileID: 3587451123949735897}
   m_Layer: 0
   m_Name: DroneHull
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 4393398972319860958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3587451123949735897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650806697369649352}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.76, y: 0.59, z: 1.9199998}
+  m_Center: {x: 0, y: -0.044999987, z: 0}
 --- !u!1001 &4283702163500986165
 PrefabInstance:
   m_ObjectHideFlags: 0
