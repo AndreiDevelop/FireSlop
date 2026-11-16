@@ -1,0 +1,11 @@
+{
+  "subject": "Breakable Door",
+  "status": "Draft",
+  "updated": "2026-11-16",
+  "tool": "built-in image_gen",
+  "image": "modeling-sheet.png",
+  "reference": "FireSlop/FireSlop/Screens/Pasted image 20261113145828.png",
+  "reference_usage": "Visual inspiration; door final generation used a text description after source inspection.",
+  "prompt": "One intact ordinary wooden apartment door with plain rectangular frame, two tall upper recessed panels and two short lower recessed panels, a simple lever handle and two hinges. Grayscale clean line-art modeling reference sheet on white, chunky simplified cartoon geometry matching a stylized apartment furniture set. Show large three-quarter view, straight front elevation, rear elevation and narrow side view displaying slab thickness. Same design in all views. No people, no scene. Title 'Door'.",
+  "notes": "Intact four-panel door and separate frame. This sheet defines the apartment door; damage meshes are not included."
+}

@@ -1,0 +1,11 @@
+{
+  "subject": "Armchair",
+  "status": "Draft",
+  "updated": "2026-11-16",
+  "tool": "built-in image_gen",
+  "image": "modeling-sheet.png",
+  "reference": "FireSlop/FireSlop/Screens/Pasted image 20261113145650.png",
+  "reference_usage": "Visual inspiration",
+  "prompt": "Use case: stylized-concept. Create a clean grayscale pencil-and-ink 3D MODELING REFERENCE SKETCH SHEET for Fire Slop, a comic stylized rescue game. White background, confident dark contours, very light gray planar shading, simplified chunky low-poly-friendly geometry, few large details. NOT a photoreal render, NOT a screenshot. One consistent object design across all views, uncluttered generous separation, all silhouettes fully in frame. Landscape sheet. Large three-quarter hero view plus smaller aligned front, side and rear or top views as appropriate. Minimal English view labels and title only; no invented dimension numbers, no watermark, no flames, smoke, UI or scene clutter. Shapes must be clear enough for a 3D artist to reconstruct. Title: Armchair. Use the attached image as visual reference for the armchair at left and matching sofa. One single-seat upholstered armchair from the same simple chunky furniture family: one broad seat cushion, one broad back cushion, thick squared gently softened armrests, solid base and four short stout feet. Show three-quarter hero plus front, side and back. No upholstery buttons, no ornament, no burn damage, no separate throw pillow.",
+  "notes": "One seat and one back cushion. Match sofa bevels, upholstery and feet."
+}

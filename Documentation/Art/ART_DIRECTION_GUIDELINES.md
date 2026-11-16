@@ -59,3 +59,7 @@ Use original or authorized artwork. Distinguish concept previews from verified r
 ## Editable scene composition
 
 Follow [authored scene content](../Engineering/CODE_STYLE_AND_ARCHITECTURE.md#authored-scene-content). Permanent layout must be visible and editable as prefab instances outside Play Mode; preserve authored placement and prefab connections. Reread current project and visual rules before implementing visual changes.
+
+## Fire Slop modeling concepts
+
+See [Modeling Sketches](ModelingSketches.md) for the current draft resident, tools, furniture, door, drone and base-house sheets, their source references and generation prompts.
