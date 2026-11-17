@@ -226,6 +226,7 @@ namespace FireSlop.Interaction
 
             var velocity = _aim.forward * _config.LaunchSpeed;
             var packet = new HoseWaterPacket(origin, velocity, time, _flightLimit);
+            packet.DropletCount = _stream.TakeDroplets(sampleDuration);
             PreviewSegment(ref packet, sampleDuration);
             _packets[_packetCount] = packet;
             _packetCount++;
@@ -271,7 +272,7 @@ namespace FireSlop.Interaction
                 var time = Time.timeAsDouble;
                 var sampleDuration = Time.fixedDeltaTime * _stepsBetweenSamples;
                 _stream.BeginFrame();
-                for (var index = 0; index < _packetCount; index++)
+                for (var index = _packetCount - 1; index >= 0; index--)
                 {
                     var packet = _packets[index];
                     var age = (float)(time - packet.LaunchTime);

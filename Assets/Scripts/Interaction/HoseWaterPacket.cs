@@ -15,6 +15,7 @@ namespace FireSlop.Interaction
             SegmentStartAge = 0f;
             HasPendingImpact = false;
             HasImpacted = false;
+            DropletCount = 0;
         }
 
         public Vector3 Origin { get; }
@@ -26,6 +27,7 @@ namespace FireSlop.Interaction
         public float SegmentStartAge { get; set; }
         public bool HasPendingImpact { get; set; }
         public bool HasImpacted { get; set; }
+        public int DropletCount { get; set; }
 
         public Vector3 PositionAt(float age, Vector3 gravity)
         {

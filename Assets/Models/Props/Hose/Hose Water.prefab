@@ -2346,8 +2346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HoseStreamView
   _droplets: {fileID: 6769015309705551701}
   _splash: {fileID: 1649348251869084729}
-  _dropletsPerSample: 24
-  _dropletSpread: 0.04
 --- !u!1 &8431249533755217467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,7 +2766,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 3
       minMaxState: 0
-      scalar: 2000
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2

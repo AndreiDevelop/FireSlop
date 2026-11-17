@@ -6,37 +6,22 @@ namespace FireSlop.Interaction
     {
         [SerializeField] private ParticleSystem _droplets;
         [SerializeField] private ParticleSystem _splash;
-        [SerializeField, Range(1, 32)] private int _dropletsPerSample;
-        [SerializeField, Min(0f)] private float _dropletSpread;
 
         private ParticleSystem.Particle[] _particles;
+        private ParticleSystem.Particle[] _dropletSamples;
         private int _count;
-        private Vector2[] _offsets;
-        private float[] _sizes;
-        private Color32[] _colors;
+        private float _dropletRate;
+        private float _dropletRemainder;
         private float _splashRate;
+        private bool _refreshSettings = true;
 
         private void Awake()
         {
-            if (_droplets == null || _splash == null || _dropletsPerSample <= 0)
+            if (_droplets == null || _splash == null)
             {
                 Debug.LogError("Hose stream requires authored droplet and splash particle systems.", this);
                 enabled = false;
                 return;
-            }
-
-            var settings = _droplets.main;
-            _particles = new ParticleSystem.Particle[settings.maxParticles];
-            _offsets = new Vector2[_dropletsPerSample];
-            _sizes = new float[_dropletsPerSample];
-            _colors = new Color32[_dropletsPerSample];
-            for (var index = 0; index < _dropletsPerSample; index++)
-            {
-                var phase = (float)index / _dropletsPerSample;
-                var angle = phase * Mathf.PI * 8f;
-                _offsets[index] = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * (_dropletSpread * phase);
-                _sizes[index] = settings.startSize.Evaluate(phase, phase);
-                _colors[index] = settings.startColor.Evaluate(phase, phase);
             }
 
             // Keep the Particle System Inspector preview available while gameplay owns all emission.
@@ -48,6 +33,65 @@ namespace FireSlop.Interaction
             splashEmission.enabled = false;
         }
 
+        internal int TakeDroplets(float sampleDuration)
+        {
+            if (!isActiveAndEnabled)
+            {
+                return 0;
+            }
+
+            if (_refreshSettings)
+            {
+                ReadDropletSettings();
+                _refreshSettings = false;
+            }
+
+            var emission = Mathf.Min(_dropletRate * sampleDuration + _dropletRemainder, _particles.Length);
+            var count = Mathf.FloorToInt(emission);
+            _dropletRemainder = emission - count;
+            return count;
+        }
+
+        private void ReadDropletSettings()
+        {
+            var main = _droplets.main;
+            var shape = _droplets.shape;
+            var maxParticles = main.maxParticles;
+            if (_particles == null || _particles.Length != maxParticles)
+            {
+                _particles = new ParticleSystem.Particle[maxParticles];
+                _dropletSamples = new ParticleSystem.Particle[maxParticles];
+            }
+
+            var radius = shape.enabled ? shape.radius : 0f;
+            var innerRadius = 1f - shape.radiusThickness;
+            var coneAngle = shape.enabled ? shape.angle * Mathf.Deg2Rad : 0f;
+            for (var index = 0; index < _dropletSamples.Length; index++)
+            {
+                var randomRadius = HashFraction(index, 0x9E3779B9u);
+                var radialDistance = Mathf.Sqrt(Mathf.Lerp(innerRadius * innerRadius, 1f, randomRadius));
+                var angle = HashFraction(index, 0x85EBCA6Bu) * shape.arc * Mathf.Deg2Rad;
+                var radialDirection = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f);
+                var launchAngle = coneAngle * radialDistance;
+                _dropletSamples[index] = new ParticleSystem.Particle
+                {
+                    position = radialDirection * (radius * radialDistance),
+                    velocity = radialDirection * Mathf.Sin(launchAngle) + Vector3.forward * Mathf.Cos(launchAngle),
+                    startSize = main.startSize.Evaluate(0f, HashFraction(index, 0xC2B2AE35u)),
+                    startColor = main.startColor.Evaluate(0f, HashFraction(index, 0x27D4EB2Fu))
+                };
+            }
+
+            _dropletRate = Mathf.Max(0f, _droplets.emission.rateOverTime.Evaluate(0f, 0.5f));
+        }
+
+        private static float HashFraction(int index, uint salt)
+        {
+            var hash = unchecked(((uint)index + salt) * 0x45D9F3Bu);
+            hash ^= hash >> 16;
+            return (hash & 0xFFFFu) / 65536f;
+        }
+
         internal void BeginFrame()
         {
             _count = 0;
@@ -55,40 +99,39 @@ namespace FireSlop.Interaction
 
         internal void DrawPacket(HoseWaterPacket packet, Vector3 gravity, float age, float sampleDuration)
         {
-            if (!isActiveAndEnabled)
+            if (!isActiveAndEnabled || packet.DropletCount == 0)
             {
                 return;
             }
 
-            var forward = packet.LaunchVelocity.normalized;
-            var right = Vector3.Cross(Vector3.up, forward).normalized;
-            var up = Vector3.Cross(forward, right);
-            for (var index = 0; index < _dropletsPerSample && _count < _particles.Length; index++)
+            var rotation = Quaternion.LookRotation(packet.LaunchVelocity);
+            var speed = packet.LaunchVelocity.magnitude;
+            var sampleIndex = (packet.LaunchTime.GetHashCode() & int.MaxValue) % _dropletSamples.Length;
+            for (var index = 0; index < packet.DropletCount && _count < _particles.Length; index++)
             {
-                var phase = (float)index / _dropletsPerSample;
+                var sample = _dropletSamples[sampleIndex];
+                sampleIndex = (sampleIndex + 1) % _dropletSamples.Length;
+                var phase = (float)index / packet.DropletCount;
                 var dropletAge = age - phase * sampleDuration;
                 if (dropletAge < 0f || dropletAge > packet.FlightLimit)
                 {
                     continue;
                 }
 
-                var offset = right * _offsets[index].x + up * _offsets[index].y;
-                _particles[_count] = new ParticleSystem.Particle
-                {
-                    position = packet.PositionAt(dropletAge, gravity) + offset,
-                    velocity = packet.VelocityAt(dropletAge, gravity),
-                    startSize = _sizes[index],
-                    startColor = _colors[index],
-                    startLifetime = packet.FlightLimit,
-                    remainingLifetime = Mathf.Max(float.Epsilon, packet.FlightLimit - dropletAge)
-                };
+                var launchVelocity = rotation * sample.velocity * speed;
+                sample.position = packet.Origin + rotation * sample.position +
+                    (launchVelocity + gravity * (0.5f * dropletAge)) * dropletAge;
+                sample.velocity = launchVelocity + gravity * dropletAge;
+                sample.startLifetime = packet.FlightLimit;
+                sample.remainingLifetime = Mathf.Max(float.Epsilon, packet.FlightLimit - dropletAge);
+                _particles[_count] = sample;
                 _count++;
             }
         }
 
         internal void DrawFrame()
         {
-            if (!isActiveAndEnabled)
+            if (!isActiveAndEnabled || _particles == null)
             {
                 return;
             }
@@ -115,6 +158,8 @@ namespace FireSlop.Interaction
 
         public void Hide()
         {
+            _dropletRemainder = 0f;
+            _refreshSettings = true;
             if (_droplets != null)
             {
                 _droplets.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
