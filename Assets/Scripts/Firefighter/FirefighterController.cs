@@ -85,7 +85,7 @@ namespace FireSlop.Firefighter
 
         private void Update()
         {
-            if (_input == null || !_focused)
+            if (_input == null || !_input.IsEnabled || !_focused)
             {
                 return;
             }

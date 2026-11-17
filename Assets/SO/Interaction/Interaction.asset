@@ -17,13 +17,13 @@ MonoBehaviour:
   _hammerReach: 2.5
   _hammerImpactTime: 0.15
   _doorHitsToBreak: 3
-  _wallFragmentsToCollapse: 5
   _debrisSettleSeconds: 0.62
   _debrisTravel: 0.68
   _aimCollisionMask:
     serializedVersion: 2
     m_Bits: 4294753531
   _debrisLayer: 16
+  _brickDust: {fileID: 621834074393983432, guid: 170a215114c284bb6b36d8d279369843, type: 3}
   _residentReleaseDistance: 1.25
   _residentThrowSpeed: 6
   _residentMass: 36

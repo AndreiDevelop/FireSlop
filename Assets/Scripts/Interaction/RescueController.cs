@@ -7,9 +7,7 @@ namespace FireSlop.Interaction
     {
         [SerializeField] private string _cabinetContentId;
         [SerializeField] private ResidentView _resident;
-        [SerializeField] private Collider _cabinetTarget;
-        [SerializeField] private Transform _leftLeaf;
-        [SerializeField] private Transform _rightLeaf;
+        [SerializeField] private CabinetView _cabinet;
         [SerializeField] private Transform _shoulder;
         [SerializeField] private InteractionConfigSO _config;
 
@@ -35,11 +33,11 @@ namespace FireSlop.Interaction
             {
                 context = RescueContext.PutDown;
             }
-            else if (!_model.CabinetOpened && target == _cabinetTarget)
+            else if (!_model.CabinetOpened && target == _cabinet.Target)
             {
                 context = RescueContext.OpenCabinet;
             }
-            else if (_model.CabinetOpened && target == _resident.Capsule)
+            else if (_cabinet.IsOpen && target == _resident.Capsule)
             {
                 context = RescueContext.PickUp;
             }
@@ -52,9 +50,6 @@ namespace FireSlop.Interaction
             switch (_model.RescueAction)
             {
                 case RescueContext.OpenCabinet:
-                    _leftLeaf.localRotation *= Quaternion.Euler(0f, -105f, 0f);
-                    _rightLeaf.localRotation *= Quaternion.Euler(0f, 105f, 0f);
-                    _cabinetTarget.enabled = false;
                     _model.OpenCabinet();
                     return true;
                 case RescueContext.PickUp:

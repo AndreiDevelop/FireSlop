@@ -8,17 +8,31 @@ namespace FireSlop.Firefighter
         private Vector2 _lookDelta;
         private bool _mouseLookRequested;
 
+        public bool IsEnabled { get; private set; } = true;
+
+        public void SetEnabled(bool enabled)
+        {
+            IsEnabled = enabled;
+            if (!enabled)
+            {
+                Cancel();
+            }
+        }
+
         public Vector2 Movement { get; private set; }
         public event Action Cancelled;
 
         public void SetMovement(Vector2 movement)
         {
-            Movement = Vector2.ClampMagnitude(movement, 1f);
+            Movement = IsEnabled ? Vector2.ClampMagnitude(movement, 1f) : Vector2.zero;
         }
 
         public void AddLook(Vector2 screenDelta)
         {
-            _lookDelta += screenDelta;
+            if (IsEnabled)
+            {
+                _lookDelta += screenDelta;
+            }
         }
 
         public Vector2 ConsumeLook()
@@ -30,7 +44,7 @@ namespace FireSlop.Firefighter
 
         public void RequestMouseLook()
         {
-            _mouseLookRequested = true;
+            _mouseLookRequested = IsEnabled;
         }
 
         public bool ConsumeMouseLookRequest()

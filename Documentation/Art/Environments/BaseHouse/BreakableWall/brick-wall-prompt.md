@@ -1,0 +1,5 @@
+# Brick wall reference prompt
+
+Generated with built-in ImageGen.
+
+Stylized-concept low-poly 3D environment reference for FireSlop, a first-person firefighter game. Wide triptych of the same 2m wide by 2.8m tall brick infill panel between plain plaster sides on a dark gray tile floor. Very large chunky warm terracotta masonry blocks, each full brick 80 cm wide by 40 cm tall, 7 rows total and exactly 3 masonry pieces across each row (two full bricks and a half brick, alternating left and right half-brick on every row). Clearly countable big blocks, no small standard bricks. Straight staggered bond, subtle bevels, dark narrow recessed seams, matte flat palette, gentle daylight. Left intact, center exactly one full brick tumbles out with a clearly visible rectangular hole, right four individually removed pieces form a larger opening and all other chunky blocks stay fixed, even above the opening. Match viewing angle across all panels. No text, no graphics, no tools, no HUD, no cracks beyond holes, no mortar sheet.

@@ -13,6 +13,7 @@ namespace FireSlop.Interaction
         private Camera _camera;
         private InteractionModel _input;
         private Coroutine _strike;
+        private ParticleSystem _brickDust;
 
         [Inject]
         public void Construct(Camera camera, InteractionModel input)
@@ -27,10 +28,10 @@ namespace FireSlop.Interaction
 
         private void Awake()
         {
-            if (_swing == null || _config == null || _config.AimCollisionMask.value == 0 ||
+            if (_swing == null || _config == null || _config.BrickDust == null || _config.AimCollisionMask.value == 0 ||
                 _config.HammerImpactTime >= _swing.Duration)
             {
-                Debug.LogError("Hammer requires a swing clip, a valid contact time, and a collision mask.", this);
+                Debug.LogError("Hammer requires a swing clip, brick dust, a valid contact time, and a collision mask.", this);
                 enabled = false;
             }
         }
@@ -117,6 +118,16 @@ namespace FireSlop.Interaction
                 return;
             }
 
+            if (hit.collider.TryGetComponent<BreakableBrickView>(out var brick))
+            {
+                if (brick.TryBreak(ray.direction, _config))
+                {
+                    PlayBrickDust(hit);
+                }
+
+                return;
+            }
+
             if (hit.collider.TryGetComponent<BreakableFragment>(out var piece))
             {
                 var door = piece.GetComponentInParent<DoorView>();
@@ -126,18 +137,6 @@ namespace FireSlop.Interaction
                     return;
                 }
 
-                var fragmentWall = piece.GetComponentInParent<BreakableWallView>();
-                if (fragmentWall != null)
-                {
-                    fragmentWall.Hit(piece, ray.direction, _config);
-                }
-
-                return;
-            }
-
-            if (hit.collider.TryGetComponent<BreakableWallView>(out var wall))
-            {
-                wall.HitIntact(ray, _config);
                 return;
             }
 
@@ -146,6 +145,18 @@ namespace FireSlop.Interaction
             {
                 intactDoor.HitIntact(hit.collider, ray, _config);
             }
+        }
+
+        private void PlayBrickDust(RaycastHit hit)
+        {
+            if (_brickDust == null)
+            {
+                _brickDust = Instantiate(_config.BrickDust, transform);
+            }
+
+            _brickDust.transform.SetPositionAndRotation(hit.point, Quaternion.LookRotation(hit.normal));
+            _brickDust.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            _brickDust.Play(false);
         }
     }
 }

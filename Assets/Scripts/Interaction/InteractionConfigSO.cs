@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace FireSlop.Interaction
 {
@@ -10,12 +9,11 @@ namespace FireSlop.Interaction
         [SerializeField, Min(0.1f)] private float _hammerReach = 2.5f;
         [SerializeField, Min(0f)] private float _hammerImpactTime = 0.15f;
         [SerializeField, Min(1)] private int _doorHitsToBreak = 3;
-        [FormerlySerializedAs("_wallHitsToBreak")]
-        [SerializeField, Min(1)] private int _wallFragmentsToCollapse = 5;
         [SerializeField, Min(0.01f)] private float _debrisSettleSeconds = 0.62f;
         [SerializeField, Min(0f)] private float _debrisTravel = 0.68f;
         [SerializeField] private LayerMask _aimCollisionMask;
         [SerializeField, Range(0, 31)] private int _debrisLayer = 2;
+        [SerializeField] private ParticleSystem _brickDust;
 
         [SerializeField, Min(0.1f)] private float _residentReleaseDistance = 1.25f;
         [SerializeField, Min(0.1f)] private float _residentThrowSpeed = 6f;
@@ -30,10 +28,10 @@ namespace FireSlop.Interaction
         public float HammerReach => _hammerReach;
         public float HammerImpactTime => _hammerImpactTime;
         public int DoorHitsToBreak => _doorHitsToBreak;
-        public int WallFragmentsToCollapse => _wallFragmentsToCollapse;
         public float DebrisSettleSeconds => _debrisSettleSeconds;
         public float DebrisTravel => _debrisTravel;
         public LayerMask AimCollisionMask => _aimCollisionMask;
         public int DebrisLayer => _debrisLayer;
+        public ParticleSystem BrickDust => _brickDust;
     }
 }

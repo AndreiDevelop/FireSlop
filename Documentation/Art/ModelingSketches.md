@@ -128,11 +128,13 @@ Three floors with an intact roof, rear return stairs, corridor and a basic two-r
 
 ### Breakable Wall Damage
 
-![Intact, dented, and detached wall fragment concept](Environments/BaseHouse/BreakableWall/dent-preview.png)
+![Oversized brick wall intact, with one brick removed, and with a larger opening](Environments/BaseHouse/BreakableWall/brick-wall-reference.png)
 
-Concept preview. The first hit leaves a visible dent in the attached fragment. In the game, the surrounding surface stays flush and hides the seams. The second hit removes the fragment and exposes the edges of the opening.
+The brick infill has seven staggered courses. Full bricks are 80 × 40 cm, with half bricks at alternating edges. Each struck brick splits into three pieces and puffs out a small cloud of dust. The rest of the courses stay in place.
 
-![Seamless wall after the first hammer hit in Unity](Environments/BaseHouse/BreakableWall/dent-in-game.png)
+[Generation prompt](Environments/BaseHouse/BreakableWall/brick-wall-prompt.md) · [Blender source](Environments/BaseHouse/BreakableWall/brick.blend) · [Unity FBX](../../Assets/Models/Modules/House/WallBrick.fbx)
+
+The dust uses frames 04–07 of Chill Miner's `Assets/Art/Textures/Vfx/InkVfxAtlas.png` from revision `82d4620`. FireSlop packs those frames into a 512 × 128 strip for its brick dust particle prefab.
 
 ### Cat
 
