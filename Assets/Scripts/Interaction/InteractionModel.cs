@@ -13,7 +13,6 @@ namespace FireSlop.Interaction
         private PrimaryInputSource? _primarySource;
         private bool _enabled = true;
         private bool _doorInSight;
-        private bool _hasRevealedResident;
 
         public InteractionModel(ToolSelectionModel tools, MissionInputModel input, DroneModel flight)
         {
@@ -27,6 +26,7 @@ namespace FireSlop.Interaction
 
         private RescueContext _rescueContext;
 
+        public bool HasRevealedResident { get; private set; }
         public bool CabinetOpened { get; private set; }
         public bool IsCarryingResident { get; private set; }
         public RescueContext RescueAction => _enabled ? _rescueContext : RescueContext.None;
@@ -146,9 +146,9 @@ namespace FireSlop.Interaction
         public void ToggleCabinet()
         {
             CabinetOpened = !CabinetOpened;
-            if (CabinetOpened && !_hasRevealedResident)
+            if (CabinetOpened && !HasRevealedResident)
             {
-                _hasRevealedResident = true;
+                HasRevealedResident = true;
                 CabinetRevealed?.Invoke();
             }
 

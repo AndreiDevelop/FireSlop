@@ -10865,6 +10865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Startup.MissionInstaller
   _drone: {fileID: 509868889}
   _resident: {fileID: 1250570685}
+  _rescueZone: {fileID: 6092115684212726608}
   _camera: {fileID: 1117075223}
   _entrance: {fileID: 1270000263}
   _movement: {fileID: 11400000, guid: 9ce45ac303da74293991ed5fcadaefdd, type: 2}
@@ -12150,6 +12151,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c20c810613c77414eb7e7ff76e83ea85, type: 3}
+--- !u!114 &6092115684212726608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8313337566451526385, guid: c20c810613c77414eb7e7ff76e83ea85, type: 3}
+  m_PrefabInstance: {fileID: 6092115684212726607}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070676be41ddd46dcbee7f0012c41bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Mission.RescueZoneView
 --- !u!1001 &8863148026339573843
 PrefabInstance:
   m_ObjectHideFlags: 0

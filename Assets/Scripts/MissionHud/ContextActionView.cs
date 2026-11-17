@@ -13,7 +13,6 @@ namespace FireSlop.MissionHud
         [SerializeField] private GameObject _droneControls;
         [SerializeField] private Button _touchButton;
         [SerializeField] private Text _touchLabel;
-        [SerializeField] private Text _objective;
         [SerializeField, Min(0.1f)] private float _closedMessageSeconds = 1.25f;
 
         private InteractionModel _model;
@@ -86,7 +85,6 @@ namespace FireSlop.MissionHud
             _droneControls.SetActive(showDroneControls);
             _touchLabel.text = action;
             _touchButton.gameObject.SetActive(hasAction && touch);
-            _objective.text = _model.IsEntrancePassable ? "Rescue the resident" : "Reach the entrance";
         }
 
         private string GetActionLabel()

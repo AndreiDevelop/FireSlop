@@ -12,6 +12,7 @@ namespace FireSlop.Startup
     {
         [SerializeField] private DroneController _drone;
         [SerializeField] private ResidentView _resident;
+        [SerializeField] private RescueZoneView _rescueZone;
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _entrance;
         [SerializeField] private MovementConfigSO _movement;
@@ -22,6 +23,7 @@ namespace FireSlop.Startup
             if (_resident != null)
             {
                 Container.Bind<ResidentView>().FromInstance(_resident);
+                Container.Bind<RescueZoneView>().FromInstance(_rescueZone);
                 Container.Bind<MissionModel>().FromInstance(new MissionModel(_resident.ContentId));
                 Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();
             }
@@ -39,7 +41,8 @@ namespace FireSlop.Startup
             Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();
             Container.Bind<FireSpreadModel>().AsTransient();
             Container.Bind<WaterKnockdownModel>().AsTransient();
-            Container.Bind<QuestTargetModel>().FromInstance(new QuestTargetModel(_entrance.position));
+            Container.BindInterfacesAndSelfTo<QuestTargetModel>().AsSingle();
+            Container.Bind<Transform>().WithId(QuestArrowView.EntranceId).FromInstance(_entrance);
             Container.Bind<Camera>().FromInstance(_camera);
         }
     }

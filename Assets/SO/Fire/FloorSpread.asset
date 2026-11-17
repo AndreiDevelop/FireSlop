@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.FireSpreadConfigSO
   _spreadInterval: 4
   _reignitionDelay: 8
-  _cellSpacing: 0.86
-  _corridorLaneSpacing: 0.55
-  _patchOffsetFraction: 0.4
+  _cellSpacing: 0.4
+  _corridorLaneSpacing: 0.25
+  _patchOffsetFraction: 0.15
   _clearanceRadius: 0.25
   _clearanceHeight: 0.56
   _ignitionsPerTick: 4
