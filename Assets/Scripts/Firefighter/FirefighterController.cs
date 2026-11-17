@@ -18,6 +18,7 @@ namespace FireSlop.Firefighter
         [SerializeField] private Animator _locomotionAnimator;
 
         private CharacterController _body;
+        private OpeningTraversal _traversal;
         private DroneController _drone;
         private DroneModel _flight;
         private Transform _camera;
@@ -69,6 +70,7 @@ namespace FireSlop.Firefighter
         private void Awake()
         {
             _body = GetComponent<CharacterController>();
+            _traversal = new OpeningTraversal(_body);
             _standingHeight = _body.height;
             _standingCenter = _body.center;
             _standingStepOffset = _body.stepOffset;
@@ -165,6 +167,7 @@ namespace FireSlop.Firefighter
         {
             SetRunning(false);
             _input?.Cancel();
+            _traversal?.Cancel();
             _jumpRequested = 0f;
             _waitForNeutral = true;
             _captureMouseOnFocus = false;
@@ -175,6 +178,7 @@ namespace FireSlop.Firefighter
         {
             if (_input == null || !_input.IsEnabled || !_focused)
             {
+                _traversal.Cancel();
                 SetRunning(false);
                 return;
             }
@@ -231,6 +235,7 @@ namespace FireSlop.Firefighter
                 SetRunning(false);
                 _verticalSpeed = 0f;
                 _hoseFlight.Reset();
+                _traversal.Cancel();
                 _jumpRequested = 0f;
                 _windowJumpTuck = false;
                 UpdateStance(false);
@@ -255,6 +260,7 @@ namespace FireSlop.Firefighter
             if (hasHoseThrust && !_hoseFlight.IsAirborne)
             {
                 _hoseFlight.Start(_body.bounds.min.y);
+                _traversal.Cancel();
                 _jumpRequested = 0f;
             }
 
@@ -272,6 +278,7 @@ namespace FireSlop.Firefighter
                 if (_jumpRequested > 0f)
                 {
                     _jumpRequested = 0f;
+                    _traversal.Cancel();
                     Jump();
                 }
             }
@@ -288,6 +295,15 @@ namespace FireSlop.Firefighter
             var dockedWindow = !_hoseFlight.IsAirborne && opening != null && _drone != null &&
                 _drone.IsDockedAtWindow(opening);
             var flyingThroughWindow = _hoseFlight.IsAirborne && opening != null;
+            if (dockedWindow || _hoseFlight.IsAirborne)
+            {
+                _traversal.Cancel();
+            }
+            else if (TryMoveThroughOpening(direction, deltaTime, crouchHeld))
+            {
+                return;
+            }
+
             UpdateStance(crouchHeld, dockedWindow || flyingThroughWindow);
             var speed = _config.Speed;
             if (crouchHeld || (!_windowJumpTuck && _body.height < _standingHeight))
@@ -332,6 +348,53 @@ namespace FireSlop.Firefighter
                 _verticalSpeed = 0f;
             }
 
+            UpdateFootPresentation();
+        }
+
+        private bool TryMoveThroughOpening(Vector3 direction, float deltaTime, bool crouchHeld)
+        {
+            if (!_traversal.IsActive)
+            {
+                if (!_body.isGrounded || _verticalSpeed > 0f || direction.sqrMagnitude <= 0f)
+                {
+                    _traversal.Cancel();
+                    return false;
+                }
+
+                var reach = Mathf.Min(_config.WindowJumpReach, _config.Speed * deltaTime + 2f * _body.skinWidth);
+                _traversal.TryStart(direction.normalized, reach, _config, crouchHeld, deltaTime);
+                if (!_traversal.IsActive)
+                {
+                    return false;
+                }
+            }
+
+            var speed = crouchHeld ? _config.Speed * _config.CrouchSpeedMultiplier : _config.Speed;
+            var liftSpeed = Mathf.Sqrt(2f * _config.Gravity * _config.JumpHeight);
+            if (!_traversal.TryGetMotion(direction, speed, liftSpeed, deltaTime, out var motion))
+            {
+                return false;
+            }
+
+            if (_traversal.Height < _body.height ||
+                (_traversal.Height > _body.height && CanFit(_traversal.Height)))
+            {
+                SetHeight(_traversal.Height);
+            }
+
+            _verticalSpeed = 0f;
+            _body.stepOffset = 0f;
+            var collision = _body.Move(motion);
+            _body.stepOffset = _standingStepOffset;
+            _traversal.FinishMove(motion, collision);
+            var horizontalVelocity = Vector3.ProjectOnPlane(_body.velocity, Vector3.up);
+            SetRunning(motion.y == 0f && horizontalVelocity.sqrMagnitude > MinimumRunningSpeed * MinimumRunningSpeed);
+            UpdateFootPresentation();
+            return true;
+        }
+
+        private void UpdateFootPresentation()
+        {
             UpdateStanceCamera();
             if (_drone != null)
             {

@@ -10,6 +10,7 @@ namespace FireSlop.MissionHud
     public sealed class ContextActionView : MonoBehaviour
     {
         [SerializeField] private Text _hint;
+        [SerializeField] private GameObject _droneControls;
         [SerializeField] private Button _touchButton;
         [SerializeField] private Text _touchLabel;
         [SerializeField] private Text _objective;
@@ -68,9 +69,9 @@ namespace FireSlop.MissionHud
             var action = GetActionLabel();
             var hasAction = _model.HasDroneAction || _model.CanInteractWithDoor ||
                             _model.RescueAction != RescueContext.None;
-            _hint.text = _model.HasDroneAction && _model.IsPilotingDrone
-                ? "Arrows  Move   |   Space  Up   |   Ctrl  Down   |   E  Exit flight"
-                : "E  " + action;
+            var showDroneControls = _model.HasDroneAction && _model.IsPilotingDrone && !touch &&
+                                    _closedMessage == null;
+            _hint.text = "E  " + action;
             if (_model.IsCarryingResident && !_model.IsPilotingDrone && !touch)
             {
                 _hint.text += "   |   LMB  Throw";
@@ -81,10 +82,11 @@ namespace FireSlop.MissionHud
                 _hint.text = "Closed";
             }
 
-            _hint.gameObject.SetActive(_closedMessage != null || (hasAction && !touch));
+            _hint.gameObject.SetActive(_closedMessage != null || (hasAction && !touch && !showDroneControls));
+            _droneControls.SetActive(showDroneControls);
             _touchLabel.text = action;
             _touchButton.gameObject.SetActive(hasAction && touch);
-            _objective.text = _model.IsEntrancePassable ? "Enter the building" : "Reach the entrance";
+            _objective.text = _model.IsEntrancePassable ? "Rescue the resident" : "Reach the entrance";
         }
 
         private string GetActionLabel()

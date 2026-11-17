@@ -5525,6 +5525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.017
@@ -7231,6 +7235,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.010
@@ -8059,6 +8067,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.006
@@ -8743,6 +8755,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.009
@@ -10663,6 +10679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.012
@@ -12089,6 +12109,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.002
@@ -12835,6 +12859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.001
@@ -14529,6 +14557,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.008
@@ -14863,6 +14895,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.014
@@ -15923,6 +15959,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.016
@@ -16059,6 +16099,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.007
@@ -16397,6 +16441,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.013
@@ -17143,6 +17191,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.011
@@ -20233,6 +20285,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.015
@@ -21123,6 +21179,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.005
@@ -22553,6 +22613,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.004
@@ -24411,6 +24475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753184965312368709}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.003
@@ -25445,6 +25513,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.018
@@ -26549,6 +26621,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4525952939337824614}
     m_Modifications:
+    - target: {fileID: 2291101998903486511, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
+      propertyPath: _allowGroundTraversal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839512309730854299, guid: 910aa5e41cb4e444b8a09b4d7f61ea27, type: 3}
       propertyPath: m_Name
       value: HouseWindow.019

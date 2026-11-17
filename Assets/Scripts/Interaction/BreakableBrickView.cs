@@ -8,6 +8,15 @@ namespace FireSlop.Interaction
         [SerializeField] private MeshRenderer _surface;
         [SerializeField] private BrickDebrisView _debris;
 
+        internal BreakableWallView Wall { get; private set; }
+        internal bool IsSolid => _solid.enabled && gameObject.activeInHierarchy;
+        internal float Top => _solid.bounds.max.y;
+
+        private void Awake()
+        {
+            Wall = GetComponentInParent<BreakableWallView>();
+        }
+
         internal bool TryBreak(Vector3 direction, InteractionConfigSO config)
         {
             if (!_solid.enabled)

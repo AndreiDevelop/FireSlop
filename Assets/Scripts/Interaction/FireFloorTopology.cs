@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 namespace FireSlop.Interaction
 {
@@ -67,7 +68,51 @@ namespace FireSlop.Interaction
                 AddLink(cell, Vector2Int.up, cells, positions, floors, bounds, config, links);
             }
 
-            return new FireFloorTopology(positions.ToArray(), links.ToArray(), seedIndex);
+            // Keep the checked routes through doorways and breaches, and scatter their ignition points.
+            var spreadPositions = positions.ToArray();
+            if (config.PatchOffsetFraction > 0f)
+            {
+                var random = new Random();
+                for (var index = 0; index < spreadPositions.Length; index++)
+                {
+                    if (index != seedIndex)
+                    {
+                        spreadPositions[index] = ScatterPatch(positions[index], floors, bounds, config, random);
+                    }
+                }
+            }
+
+            return new FireFloorTopology(spreadPositions, links.ToArray(), seedIndex);
+        }
+
+        private static Vector3 ScatterPatch(Vector3 anchor, Collider[] floors, Bounds bounds,
+            FireSpreadConfigSO config, Random random)
+        {
+            const int maxAttempts = 8;
+            var height = Vector3.up * config.ClearanceHeight;
+            var radius = config.ClearanceRadius;
+            var maxX = config.CorridorLaneSpacing * config.PatchOffsetFraction;
+            var maxZ = config.CellSpacing * config.PatchOffsetFraction;
+
+            for (var attempt = 0; attempt < maxAttempts; attempt++)
+            {
+                var x = (float)(2d * random.NextDouble() - 1d) * maxX;
+                var z = (float)(2d * random.NextDouble() - 1d) * maxZ;
+                var point = anchor + new Vector3(x, 0f, z);
+                if (!TryGetFloor(point, floors, bounds, out var position))
+                {
+                    continue;
+                }
+
+                var center = position + height;
+                if (!Physics.CheckSphere(center, radius, config.StructureMask, QueryTriggerInteraction.Ignore) &&
+                    !Physics.Linecast(anchor + height, center, config.StructureMask, QueryTriggerInteraction.Ignore))
+                {
+                    return position;
+                }
+            }
+
+            return anchor;
         }
 
         private static float GetColumnOffset(int column, float cellSpacing, float laneSpacing)

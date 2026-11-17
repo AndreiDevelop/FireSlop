@@ -18,6 +18,10 @@ namespace FireSlop.Firefighter
         [SerializeField, Range(0.01f, 1f)] private float _crouchSpeedMultiplier = 0.55f;
         [SerializeField] private LayerMask _windowOpeningMask;
 
+        [Header("Automatic Traversal")]
+        [Tooltip("Seconds of continuous movement toward a passable opening before automatic traversal starts.")]
+        [SerializeField, Min(0f)] private float _autoTraversalDelay;
+
         [Header("Hose Flight")]
         [SerializeField, Range(0f, 45f)] private float _hoseLaunchAngle = 12f;
         [SerializeField, Range(0f, 75f)] private float _hoseSteeringAngle = 40f;
@@ -52,6 +56,7 @@ namespace FireSlop.Firefighter
         public float CrouchHeight => _crouchHeight;
         public float CrouchSpeedMultiplier => _crouchSpeedMultiplier;
         public LayerMask WindowOpeningMask => _windowOpeningMask;
+        public float AutoTraversalDelay => _autoTraversalDelay;
         public float HoseLaunchAngle => _hoseLaunchAngle;
         public float HoseSteeringAngle => _hoseSteeringAngle;
         public float HoseMaxRise => _hoseMaxRise;

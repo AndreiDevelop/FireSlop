@@ -12,6 +12,7 @@ namespace FireSlop.Drone
         [SerializeField] private BoxCollider _deck;
         [SerializeField] private BoxCollider _flightBounds;
         [SerializeField] private BoxCollider _landingBounds;
+        [SerializeField] private DroneRotorView _rotorView;
         [SerializeField] private string _contentId;
 
         private readonly RaycastHit[] _hits = new RaycastHit[32];
@@ -94,11 +95,40 @@ namespace FireSlop.Drone
 
         private void LateUpdate()
         {
-            if (_input != null && _input.IsEnabled && _model.CanDescend(Time.time) &&
-                transform.position.y >= _origin.y - _config.FlightHeight)
+            if (_input == null || !_input.IsEnabled)
             {
-                Move(Vector3.down * (_config.DescentSpeed * Time.deltaTime), null);
+                return;
             }
+
+            var deltaTime = Time.deltaTime;
+            var isFlying = _model.IsPiloted;
+            if (!isFlying)
+            {
+                if (_model.CanDescend(Time.time) && transform.position.y >= _origin.y - _config.FlightHeight)
+                {
+                    var descent = GetFlightDistance(Vector3.down * (_config.DescentSpeed * deltaTime), null);
+                    transform.position += Vector3.down * descent;
+                    isFlying = descent > 0f;
+                }
+                else
+                {
+                    isFlying = HasGroundClearance();
+                }
+            }
+
+            if (isFlying && _rotorView != null)
+            {
+                _rotorView.Spin(deltaTime);
+            }
+        }
+
+        private bool HasGroundClearance()
+        {
+            var half = GetHalfSize(_landingBounds);
+            var center = transform.TransformPoint(_landingBounds.center);
+            center.y -= half.y - Clearance;
+            half.y = Clearance;
+            return GetClearDistance(center, half, Vector3.down * Clearance, null, transform.rotation) > 0f;
         }
 
         private void Move(Vector3 delta, CharacterController pilot)

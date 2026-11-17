@@ -9,9 +9,12 @@ namespace FireSlop.Interaction
         [SerializeField] private WindowSectionView _wood;
         [SerializeField] private Collider _entryGuard;
 
+        [SerializeField] private bool _allowGroundTraversal;
+
         private readonly BreakableWindowModel _state = new BreakableWindowModel();
 
         public bool IsOpen => _state.IsOpen;
+        public bool AllowsGroundTraversal => _allowGroundTraversal && IsOpen;
 
         internal void Hit(WindowSectionView section, Vector3 direction, InteractionConfigSO config)
         {
