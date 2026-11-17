@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5145571241986052063}
   - component: {fileID: 6256074955459381120}
   - component: {fileID: 2475757955329912477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Valve Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
