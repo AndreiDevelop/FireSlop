@@ -1059,6 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd102d15624f24475aeec7d4d8b4395a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.HoldActionView
+  _label: {fileID: 226421105503159724}
 --- !u!1 &6154116461060405753
 GameObject:
   m_ObjectHideFlags: 0

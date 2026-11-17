@@ -123,6 +123,13 @@ namespace FireSlop.Interaction
                 if (door != null)
                 {
                     door.Hit(piece, view.forward, _config);
+                    return;
+                }
+
+                var fragmentWall = piece.GetComponentInParent<BreakableWallView>();
+                if (fragmentWall != null)
+                {
+                    fragmentWall.Hit(piece, ray.direction, _config);
                 }
 
                 return;
@@ -130,7 +137,7 @@ namespace FireSlop.Interaction
 
             if (hit.collider.TryGetComponent<BreakableWallView>(out var wall))
             {
-                wall.Hit(view.forward, _config);
+                wall.HitIntact(ray, _config);
                 return;
             }
 

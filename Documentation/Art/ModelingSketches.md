@@ -126,6 +126,14 @@ Three floors with an intact roof, rear return stairs, corridor and a basic two-r
 
 [Blender source](Environments/BaseHouse/source.blend) · [FBX](../../Assets/Models/BaseHouse.fbx) · 20,532 triangles before furniture.
 
+### Breakable Wall Damage
+
+![Intact, dented, and detached wall fragment concept](Environments/BaseHouse/BreakableWall/dent-preview.png)
+
+Concept preview. The first hit leaves a visible dent in the attached fragment. In the game, the surrounding surface stays flush and hides the seams. The second hit removes the fragment and exposes the edges of the opening.
+
+![Seamless wall after the first hammer hit in Unity](Environments/BaseHouse/BreakableWall/dent-in-game.png)
+
 ### Cat
 
 ![Cat modeling reference](Characters/Cat/modeling-sheet.png)

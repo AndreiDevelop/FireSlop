@@ -65,11 +65,22 @@ namespace FireSlop.MissionHud
                 ClearClosed();
             }
 
-            var action = _model.ShouldCloseDoor ? "Close door" : "Open door";
+            var action = _model.RescueAction switch
+            {
+                RescueContext.OpenCabinet => "Open cabinet",
+                RescueContext.PickUp => "Pick up",
+                RescueContext.PutDown => "Put down",
+                _ => _model.ShouldCloseDoor ? "Close door" : "Open door"
+            };
+            var hasAction = _model.CanInteractWithDoor || _model.RescueAction != RescueContext.None;
             _hint.text = _closedMessage != null ? "Closed" : "E  " + action;
-            _hint.gameObject.SetActive(_closedMessage != null || (_model.CanInteractWithDoor && !touch));
+            if (_model.IsCarryingResident && !touch)
+            {
+                _hint.text = "E  Put down   |   LMB  Throw";
+            }
+            _hint.gameObject.SetActive(_closedMessage != null || (hasAction && !touch));
             _touchLabel.text = action;
-            _touchButton.gameObject.SetActive(_model.CanInteractWithDoor && touch);
+            _touchButton.gameObject.SetActive(hasAction && touch);
             _objective.text = _model.IsEntrancePassable ? "Enter the building" : "Reach the entrance";
         }
 

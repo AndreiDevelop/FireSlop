@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5800039274844919257}
   - component: {fileID: 279318591383969891}
   - component: {fileID: 6187910451591369850}
+  - component: {fileID: 6212188729874254945}
   m_Layer: 0
   m_Name: Wall Fragment 04
   m_TagString: Untagged
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219916048960314511}
-  m_Mesh: {fileID: -2595087629733585691, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: -3696646939908444389, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &279318591383969891
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -104,8 +105,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 279318591383969891}
-  _solid: {fileID: 0}
+  _solid: {fileID: 6212188729874254945}
   _restHeight: 0.06
+--- !u!64 &6212188729874254945
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219916048960314511}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2595087629733585691, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &815672176659784279
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +141,7 @@ GameObject:
   - component: {fileID: 6143838566683371322}
   - component: {fileID: 8119866014225282881}
   - component: {fileID: 3909875852179485338}
+  - component: {fileID: 3665433787231865509}
   m_Layer: 0
   m_Name: Wall Fragment 06
   m_TagString: Untagged
@@ -147,7 +171,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815672176659784279}
-  m_Mesh: {fileID: -2193258389499842660, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: -654039450071776834, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &8119866014225282881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -210,8 +234,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 8119866014225282881}
-  _solid: {fileID: 0}
+  _solid: {fileID: 3665433787231865509}
   _restHeight: 0.06
+--- !u!64 &3665433787231865509
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815672176659784279}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2193258389499842660, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &2217083540973225955
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +270,7 @@ GameObject:
   - component: {fileID: 1094052857327122783}
   - component: {fileID: 1916026714995450405}
   - component: {fileID: 3925859484301513463}
+  - component: {fileID: 3105624224035002906}
   m_Layer: 0
   m_Name: WallSectionFragments
   m_TagString: Untagged
@@ -253,7 +300,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2217083540973225955}
-  m_Mesh: {fileID: 4300000, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &1916026714995450405
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -316,8 +363,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 1916026714995450405}
-  _solid: {fileID: 0}
+  _solid: {fileID: 3105624224035002906}
   _restHeight: 0.06
+--- !u!64 &3105624224035002906
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217083540973225955}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &4037611506977652928
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +399,7 @@ GameObject:
   - component: {fileID: 29994965111810126}
   - component: {fileID: 5195917598877421511}
   - component: {fileID: 4572968251485054365}
+  - component: {fileID: 2994028782410380390}
   m_Layer: 0
   m_Name: Wall Fragment 08
   m_TagString: Untagged
@@ -359,7 +429,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4037611506977652928}
-  m_Mesh: {fileID: -992238960834839186, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: 5010203447371192361, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &5195917598877421511
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -422,8 +492,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 5195917598877421511}
-  _solid: {fileID: 0}
+  _solid: {fileID: 2994028782410380390}
   _restHeight: 0.06
+--- !u!64 &2994028782410380390
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037611506977652928}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -992238960834839186, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &4438199706179116483
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +528,7 @@ GameObject:
   - component: {fileID: 3306767109557882320}
   - component: {fileID: 7797809159212168979}
   - component: {fileID: 1407470209269109534}
+  - component: {fileID: 3371828046650241267}
   m_Layer: 0
   m_Name: Wall Fragment 02
   m_TagString: Untagged
@@ -465,7 +558,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4438199706179116483}
-  m_Mesh: {fileID: -5324004623587042556, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: -52912800087992871, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &7797809159212168979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -528,8 +621,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 7797809159212168979}
-  _solid: {fileID: 0}
+  _solid: {fileID: 3371828046650241267}
   _restHeight: 0.06
+--- !u!64 &3371828046650241267
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438199706179116483}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5324004623587042556, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &5319475026765460510
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +657,7 @@ GameObject:
   - component: {fileID: 1395429639561905132}
   - component: {fileID: 7685046059852944793}
   - component: {fileID: 6904164611526185431}
+  - component: {fileID: 7590367372531543649}
   m_Layer: 0
   m_Name: Wall Fragment 07
   m_TagString: Untagged
@@ -571,7 +687,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5319475026765460510}
-  m_Mesh: {fileID: 2741012926294791696, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: 3417927239329240187, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &7685046059852944793
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -634,8 +750,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 7685046059852944793}
-  _solid: {fileID: 0}
+  _solid: {fileID: 7590367372531543649}
   _restHeight: 0.06
+--- !u!64 &7590367372531543649
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319475026765460510}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2741012926294791696, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &5787379456540069154
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +786,7 @@ GameObject:
   - component: {fileID: 8973337546381684635}
   - component: {fileID: 121111393024825175}
   - component: {fileID: 6246008206435108775}
+  - component: {fileID: 5587557210751948102}
   m_Layer: 0
   m_Name: Wall Fragment 05
   m_TagString: Untagged
@@ -677,7 +816,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5787379456540069154}
-  m_Mesh: {fileID: -608762352499757516, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: -2528055061052755353, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &121111393024825175
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -740,8 +879,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 121111393024825175}
-  _solid: {fileID: 0}
+  _solid: {fileID: 5587557210751948102}
   _restHeight: 0.06
+--- !u!64 &5587557210751948102
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5787379456540069154}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -608762352499757516, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &6113185579938397589
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +1024,16 @@ MonoBehaviour:
   - {fileID: 6904164611526185431}
   - {fileID: 4572968251485054365}
   - {fileID: 1625051459413605567}
+  _dentedMeshes:
+  - {fileID: 1322852661141864587, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: -6660175624652348323, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: 2432661402522268269, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: -7656526374854914634, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: -6163872451406267695, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: -1237529720283916397, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: 8946243505650330165, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: 8011576789542063567, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
+  - {fileID: -6527209406849678462, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!1 &7538649076693226251
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +1046,7 @@ GameObject:
   - component: {fileID: 5601881296793619435}
   - component: {fileID: 8931310412541459358}
   - component: {fileID: 2653267841918946537}
+  - component: {fileID: 294457879570100723}
   m_Layer: 0
   m_Name: Wall Fragment 03
   m_TagString: Untagged
@@ -904,7 +1076,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7538649076693226251}
-  m_Mesh: {fileID: 3825604232335159747, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: -7225867355133220347, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &8931310412541459358
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -967,8 +1139,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 8931310412541459358}
-  _solid: {fileID: 0}
+  _solid: {fileID: 294457879570100723}
   _restHeight: 0.06
+--- !u!64 &294457879570100723
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538649076693226251}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3825604232335159747, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1 &8265377916263307466
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1175,7 @@ GameObject:
   - component: {fileID: 5334964529923208634}
   - component: {fileID: 797458442977399296}
   - component: {fileID: 1625051459413605567}
+  - component: {fileID: 6658259182697040056}
   m_Layer: 0
   m_Name: Wall Fragment 09
   m_TagString: Untagged
@@ -1010,7 +1205,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265377916263307466}
-  m_Mesh: {fileID: -64207219899062209, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
+  m_Mesh: {fileID: -4742101829824882421, guid: 7959af6ce989b4068a495c12d777599e, type: 2}
 --- !u!23 &797458442977399296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1073,8 +1268,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableFragment
   _surface: {fileID: 797458442977399296}
-  _solid: {fileID: 0}
+  _solid: {fileID: 6658259182697040056}
   _restHeight: 0.06
+--- !u!64 &6658259182697040056
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265377916263307466}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -64207219899062209, guid: fee764a466b534ce4b59b7d90471cc30, type: 2}
 --- !u!1001 &8890962792702959461
 PrefabInstance:
   m_ObjectHideFlags: 0

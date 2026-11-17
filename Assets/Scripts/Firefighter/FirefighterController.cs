@@ -23,7 +23,7 @@ namespace FireSlop.Firefighter
         private float _standingHeight;
         private Vector3 _standingCenter;
         private Vector3 _standingEyes;
-        private bool _tucked;
+        private bool _windowJumpTuck;
         private float _jumpRequested;
         private float _jumpCameraVelocity;
 
@@ -47,7 +47,8 @@ namespace FireSlop.Firefighter
         private void OnDisable()
         {
             ReleaseInput();
-            RestoreStandingPose();
+            SetHeight(_standingHeight);
+            _windowJumpTuck = false;
             _eyes.localPosition = _standingEyes;
             _jumpCameraVelocity = 0f;
         }
@@ -136,7 +137,6 @@ namespace FireSlop.Firefighter
             }
 
             movement = Vector2.ClampMagnitude(movement + _input.Movement, 1f);
-            var velocity = (transform.right * movement.x + transform.forward * movement.y) * _config.Speed;
             _jumpRequested = Mathf.Max(0f, _jumpRequested - Time.deltaTime);
             if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
             {
@@ -146,10 +146,7 @@ namespace FireSlop.Firefighter
             if (_body.isGrounded)
             {
                 _verticalSpeed = Mathf.Max(0f, _verticalSpeed);
-                if (_tucked && CanStand())
-                {
-                    RestoreStandingPose();
-                }
+                _windowJumpTuck = false;
 
                 if (_jumpRequested > 0f)
                 {
@@ -158,6 +155,15 @@ namespace FireSlop.Firefighter
                 }
             }
 
+            var crouchHeld = keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed);
+            UpdateStance(crouchHeld);
+            var speed = _config.Speed;
+            if (crouchHeld || (!_windowJumpTuck && _body.height < _standingHeight))
+            {
+                speed *= _config.CrouchSpeedMultiplier;
+            }
+
+            var velocity = (transform.right * movement.x + transform.forward * movement.y) * speed;
             _verticalSpeed -= _config.Gravity * Time.deltaTime;
             velocity.y = _verticalSpeed;
             var collision = _body.Move(velocity * Time.deltaTime);
@@ -166,20 +172,12 @@ namespace FireSlop.Firefighter
                 _verticalSpeed = 0f;
             }
 
-            UpdateJumpCamera();
+            UpdateStanceCamera();
         }
 
         private void Jump()
         {
-            if (!_tucked && FacesOpenWindow())
-            {
-                var height = Mathf.Clamp(_config.WindowJumpCapsuleHeight, _body.radius * 2f, _standingHeight);
-                var drop = _standingHeight - height;
-                _body.height = height;
-                _body.center = _standingCenter - Vector3.up * (drop * 0.5f);
-                _tucked = true;
-            }
-
+            _windowJumpTuck = FacesOpenWindow();
             _verticalSpeed = Mathf.Sqrt(2f * _config.Gravity * _config.JumpHeight);
         }
 
@@ -196,28 +194,42 @@ namespace FireSlop.Firefighter
             return window != null && window.IsOpen;
         }
 
-        private bool CanStand()
+        private void UpdateStance(bool crouchHeld)
         {
-            var center = transform.TransformPoint(_standingCenter);
-            var endOffset = Vector3.up * (_standingHeight * 0.5f - _body.radius);
+            var height = crouchHeld ? _config.CrouchHeight : _standingHeight;
+            if (_windowJumpTuck)
+            {
+                height = Mathf.Min(height, _config.WindowJumpCapsuleHeight);
+            }
+
+            height = Mathf.Clamp(height, _body.radius * 2f, _standingHeight);
+            if (height < _body.height || (height > _body.height && CanFit(height)))
+            {
+                SetHeight(height);
+            }
+        }
+
+        private bool CanFit(float height)
+        {
+            var center = transform.TransformPoint(CenterAtHeight(height));
+            var endOffset = Vector3.up * (height * 0.5f - _body.radius);
             var solidLayers = Physics.DefaultRaycastLayers & ~(1 << gameObject.layer);
             return !Physics.CheckCapsule(center - endOffset, center + endOffset, _body.radius - _body.skinWidth,
                 solidLayers, QueryTriggerInteraction.Ignore);
         }
 
-        private void RestoreStandingPose()
+        private Vector3 CenterAtHeight(float height)
         {
-            if (!_tucked)
-            {
-                return;
-            }
-
-            _body.height = _standingHeight;
-            _body.center = _standingCenter;
-            _tucked = false;
+            return _standingCenter - Vector3.up * ((_standingHeight - height) * 0.5f);
         }
 
-        private void UpdateJumpCamera()
+        private void SetHeight(float height)
+        {
+            _body.height = height;
+            _body.center = CenterAtHeight(height);
+        }
+
+        private void UpdateStanceCamera()
         {
             var target = _standingEyes.y - (_standingHeight - _body.height);
             var position = _eyes.localPosition;

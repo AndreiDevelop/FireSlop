@@ -14,6 +14,8 @@ namespace FireSlop.Firefighter
         [SerializeField, Min(0.01f)] private float _jumpCameraSmoothTime = 0.08f;
         [SerializeField, Min(0.01f)] private float _windowJumpReach = 1.8f;
         [SerializeField, Min(0.01f)] private float _windowJumpCapsuleHeight = 1.05f;
+        [SerializeField, Min(0.01f)] private float _crouchHeight = 1.05f;
+        [SerializeField, Range(0.01f, 1f)] private float _crouchSpeedMultiplier = 0.55f;
         [SerializeField] private LayerMask _windowOpeningMask;
 
         public float Speed => _speed;
@@ -26,6 +28,8 @@ namespace FireSlop.Firefighter
         public float JumpCameraSmoothTime => _jumpCameraSmoothTime;
         public float WindowJumpReach => _windowJumpReach;
         public float WindowJumpCapsuleHeight => _windowJumpCapsuleHeight;
+        public float CrouchHeight => _crouchHeight;
+        public float CrouchSpeedMultiplier => _crouchSpeedMultiplier;
         public LayerMask WindowOpeningMask => _windowOpeningMask;
     }
 }

@@ -51,34 +51,10 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            _intactSolid.enabled = false;
-            foreach (var piece in _fragments)
-            {
-                piece.Solid.enabled = true;
-            }
-
-            Physics.SyncTransforms();
-            BreakableFragment struck = null;
-            var distance = config.HammerReach;
-            foreach (var piece in _fragments)
-            {
-                if (piece.Solid.Raycast(ray, out var pieceHit, distance))
-                {
-                    struck = piece;
-                    distance = pieceHit.distance;
-                }
-            }
-
+            var struck = BreakableFragment.FindFirstHit(_intactSolid, _fragments, ray, config.HammerReach);
             if (struck != null)
             {
                 Hit(struck, ray.direction, config);
-                return;
-            }
-
-            _intactSolid.enabled = true;
-            foreach (var piece in _fragments)
-            {
-                piece.Solid.enabled = false;
             }
         }
 

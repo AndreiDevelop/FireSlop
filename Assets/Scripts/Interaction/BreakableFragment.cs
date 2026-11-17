@@ -17,6 +17,39 @@ namespace FireSlop.Interaction
 
         internal Collider Solid => _solid;
 
+        internal static BreakableFragment FindFirstHit(Collider intact, BreakableFragment[] pieces, Ray ray, float reach)
+        {
+            intact.enabled = false;
+            foreach (var piece in pieces)
+            {
+                piece.Solid.enabled = true;
+            }
+
+            Physics.SyncTransforms();
+            BreakableFragment struck = null;
+            foreach (var piece in pieces)
+            {
+                if (piece.Solid.Raycast(ray, out var hit, reach))
+                {
+                    struck = piece;
+                    reach = hit.distance;
+                }
+            }
+
+            if (struck != null)
+            {
+                return struck;
+            }
+
+            intact.enabled = true;
+            foreach (var piece in pieces)
+            {
+                piece.Solid.enabled = false;
+            }
+
+            return null;
+        }
+
         internal void Reveal()
         {
             _surface.enabled = true;

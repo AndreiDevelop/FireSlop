@@ -9,6 +9,7 @@ namespace FireSlop.Interaction
     {
         [SerializeField] private DoorView _entranceDoor;
         [SerializeField] private InteractionConfigSO _config;
+        [SerializeField] private RescueController _rescue;
 
         private Camera _camera;
         private InteractionModel _model;
@@ -39,7 +40,7 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            _model.ContextRequested -= ToggleDoor;
+            _model.ContextRequested -= Interact;
             _entranceDoor.Broken -= RefreshEntrance;
             _model.SetDoorInSight(null);
             _model.EndPrimary(PrimaryInputSource.Mouse);
@@ -47,7 +48,7 @@ namespace FireSlop.Interaction
 
         private void Subscribe()
         {
-            _model.ContextRequested += ToggleDoor;
+            _model.ContextRequested += Interact;
             _entranceDoor.Broken += RefreshEntrance;
         }
 
@@ -58,7 +59,13 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            var aimedDoor = FindDoor();
+            var target = FindTarget();
+            if (_rescue != null)
+            {
+                _rescue.SetTarget(target);
+            }
+
+            var aimedDoor = FindDoor(target);
             _model.SetDoorInSight(aimedDoor != null ? aimedDoor.Door : null);
 
             var keyboard = Keyboard.current;
@@ -90,7 +97,7 @@ namespace FireSlop.Interaction
             }
         }
 
-        private DoorView FindDoor()
+        private Collider FindTarget()
         {
             var view = _camera.transform;
             if (!Physics.Raycast(view.position, view.forward, out var hit, _config.ContextRange,
@@ -99,13 +106,33 @@ namespace FireSlop.Interaction
                 return null;
             }
 
-            var door = hit.transform.GetComponentInParent<DoorView>();
-            return door != null && door.IsLeafHit(hit.transform) ? door : null;
+            return hit.collider;
         }
 
-        private void ToggleDoor()
+        private DoorView FindDoor(Collider target)
         {
-            var door = FindDoor();
+            if (target == null)
+            {
+                return null;
+            }
+
+            var door = target.GetComponentInParent<DoorView>();
+            return door != null && door.IsLeafHit(target.transform) ? door : null;
+        }
+
+        private void Interact()
+        {
+            var target = FindTarget();
+            if (_rescue != null)
+            {
+                _rescue.SetTarget(target);
+                if (_rescue.TryInteract())
+                {
+                    return;
+                }
+            }
+
+            var door = FindDoor(target);
             if (door == null || door.Door.IsBroken)
             {
                 return;

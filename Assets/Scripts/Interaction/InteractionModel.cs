@@ -20,6 +20,15 @@ namespace FireSlop.Interaction
             _input.Cancelled += InterruptPrimary;
         }
 
+        private RescueContext _rescueContext;
+
+        public bool CabinetOpened { get; private set; }
+        public bool IsCarryingResident { get; private set; }
+        public RescueContext RescueAction => _enabled ? _rescueContext : RescueContext.None;
+        public event Action ThrowRequested;
+        public event Action CabinetRevealed;
+        public event Action CarryingChanged;
+
         public bool HoseActive { get; private set; }
         public bool IsEntrancePassable { get; private set; }
         public bool CanInteractWithDoor => _enabled && _doorInSight;
@@ -39,7 +48,11 @@ namespace FireSlop.Interaction
             }
 
             _primarySource = source;
-            if (_tools.Selected == 0)
+            if (IsCarryingResident)
+            {
+                ThrowRequested?.Invoke();
+            }
+            else if (_tools.Selected == 0)
             {
                 HoseActive = true;
             }
@@ -103,10 +116,43 @@ namespace FireSlop.Interaction
 
         public void Interact()
         {
-            if (CanInteractWithDoor)
+            if (CanInteractWithDoor || RescueAction != RescueContext.None)
             {
                 ContextRequested?.Invoke();
             }
+        }
+
+        public void SetRescueContext(RescueContext context)
+        {
+            if (_rescueContext == context)
+            {
+                return;
+            }
+
+            _rescueContext = context;
+            ContextChanged?.Invoke();
+        }
+
+        public void OpenCabinet()
+        {
+            CabinetOpened = true;
+            CabinetRevealed?.Invoke();
+            SetRescueContext(RescueContext.None);
+        }
+
+        public void StartCarryingResident()
+        {
+            IsCarryingResident = true;
+            InterruptPrimary();
+            CarryingChanged?.Invoke();
+            SetRescueContext(RescueContext.PutDown);
+        }
+
+        public void StopCarryingResident()
+        {
+            IsCarryingResident = false;
+            CarryingChanged?.Invoke();
+            SetRescueContext(RescueContext.None);
         }
 
         public void ReportClosedDoor()

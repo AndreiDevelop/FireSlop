@@ -3,12 +3,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
 using Zenject;
 
 namespace FireSlop.MissionHud
 {
     public sealed class HoldActionView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
+        [SerializeField] private Text _label;
+
         private InteractionModel _model;
         private int? _pointer;
 
@@ -16,6 +19,24 @@ namespace FireSlop.MissionHud
         public void Construct(InteractionModel model)
         {
             _model = model;
+            _model.CarryingChanged += Render;
+            Render();
+        }
+
+        private void Render()
+        {
+            if (_label != null)
+            {
+                _label.text = _model.IsCarryingResident ? "Throw" : "Use tool";
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_model != null)
+            {
+                _model.CarryingChanged -= Render;
+            }
         }
 
         private void Start()
