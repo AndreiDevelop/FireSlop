@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HoseConfigSO
   _range: 12
   _force: 1100
-  _launchSpeed: 7.91
+  _launchSpeed: 12
   _gravityScale: 1
   _castRadius: 0.065
   _fixedStepsPerSample: 8

@@ -28,26 +28,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 131072
   _hoseLaunchAngle: 12
-  _hoseSteeringAngle: 40
+  _hoseSteeringAngle: 55
   _hoseMaxRise: 4
   _hoseSupportRange: 8
   _hoseSupportMask:
     serializedVersion: 2
     m_Bits: 1
-  _hoseSupportMinUp: 0.55
-  _hoseLiftSpeed: 3.6
-  _hoseSteeringSpeed: 3.2
-  _hoseSteeringAcceleration: 12
-  _hoseRecoveryAcceleration: 15
-  _hoseHoverDuration: 0.85
-  _hoseFallDuration: 1.05
+  _hoseSupportMinUp: 0.45
+  _hoseLiftSpeed: 5.6
+  _hoseSteeringSpeed: 6.4
+  _hoseSteeringAcceleration: 38
+  _hoseRecoveryAcceleration: 64
+  _hoseHoverDuration: 0.1
+  _hoseFallDuration: 0.7
   _hoseFallSpeed: 9
   _hoseLiftCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.35
+      time: -0.0036392212
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.35
-      value: 1
+      time: 0.09875145
+      value: 0.99804777
       inSlope: 0
       outSlope: 0
       tangentMode: 0

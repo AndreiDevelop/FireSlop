@@ -360,9 +360,11 @@ namespace FireSlop.Firefighter
                 return false;
             }
 
-            var tilt = Mathf.InverseLerp(launchDown, steeringDown, down);
+            var aimAngle = Mathf.Acos(Mathf.Clamp(down, -1f, 1f)) * Mathf.Rad2Deg;
+            var tilt = Mathf.InverseLerp(_config.HoseLaunchAngle, _config.HoseSteeringAngle, aimAngle);
+            var steeringResponse = Mathf.Sqrt(tilt);
             var horizontalAim = Vector3.ProjectOnPlane(aim, Vector3.up);
-            steeringVelocity = -horizontalAim.normalized * (tilt * _config.HoseSteeringSpeed);
+            steeringVelocity = -horizontalAim.normalized * (steeringResponse * _config.HoseSteeringSpeed);
             return true;
         }
 
