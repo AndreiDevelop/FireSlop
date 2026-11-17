@@ -65,11 +65,13 @@ namespace FireSlop.Interaction
                 }
             }
 
+            var pivot = _limbs[0].worldCenterOfMass;
+            var spin = Vector3.Cross(Vector3.up, direction) * _config.TipSpeed;
             foreach (var limb in _limbs)
             {
                 limb.isKinematic = false;
-                limb.linearVelocity = velocity;
-                limb.angularVelocity = Vector3.zero;
+                limb.linearVelocity = velocity + Vector3.Cross(spin, limb.worldCenterOfMass - pivot);
+                limb.angularVelocity = spin;
             }
 
             enabled = true;
