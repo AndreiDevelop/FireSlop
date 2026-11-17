@@ -17,12 +17,14 @@ namespace FireSlop.Interaction
 
         private InteractionModel _model;
         private MissionModel _mission;
+        private bool _hasBeenRevealed;
 
         public bool IsRescued => _mission != null && _mission.IsWon;
 
         public string ContentId => _contentId;
         public CapsuleCollider Capsule => _capsule;
         public bool IsFree => !_body.isKinematic;
+        public bool CanBeKnockedDown => _hasBeenRevealed && _capsule.enabled && !IsRescued;
 
         [Inject]
         public void Construct(InteractionModel model, MissionModel mission)
@@ -66,6 +68,7 @@ namespace FireSlop.Interaction
 
         private void Reveal()
         {
+            _hasBeenRevealed = true;
             _visual.SetLocalPositionAndRotation(_standingPosition, _standingRotation);
         }
 

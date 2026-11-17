@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1f763f8cac441708db274e08b22b8c, type: 3}
   m_Name: FireSource
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.WaterFireConfigSO
-  _secondsToExtinguish: 1.6
+  _secondsToExtinguish: 0.53333336
   _initialIntensity: 1
   _passageOpenIntensity: 0.35

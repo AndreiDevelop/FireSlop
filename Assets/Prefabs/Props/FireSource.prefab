@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9056410247238082487
 Transform:
   m_ObjectHideFlags: 0
@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -298,7 +298,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 100
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -420,7 +420,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 3
       minMaxState: 0
-      scalar: 200
+      scalar: 22
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4804,4 +4804,5 @@ MonoBehaviour:
   _passageBlocker: {fileID: 4410116193981438517}
   _blocksPassage: 1
   _flames: {fileID: 1079609326285779167}
+  _smoke: {fileID: 6682119670962595592}
   _settings: {fileID: 11400000, guid: c7eafd93b502e4adeb83a8e11a3d8f3f, type: 2}

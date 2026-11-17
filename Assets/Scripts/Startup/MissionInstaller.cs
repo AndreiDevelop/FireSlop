@@ -36,6 +36,8 @@ namespace FireSlop.Startup
             Container.Bind<MissionInputModel>().AsSingle();
             Container.Bind<ToolSelectionModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();
+            Container.Bind<FireSpreadModel>().AsTransient();
+            Container.Bind<WaterKnockdownModel>().AsTransient();
             Container.Bind<QuestTargetModel>().FromInstance(new QuestTargetModel(_entrance.position));
             Container.Bind<Camera>().FromInstance(_camera);
         }
