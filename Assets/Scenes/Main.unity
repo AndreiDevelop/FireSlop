@@ -1364,9 +1364,45 @@ PrefabInstance:
       propertyPath: _isLocked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 816318144214232418, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-01
+      objectReference: {fileID: 0}
+    - target: {fileID: 911724314281925933, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 960778141074574170, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970123042526924829, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-wall-02
+      objectReference: {fileID: 0}
     - target: {fileID: 3299289349835053507, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: m_Name
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402940213966490460, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039587525006069345, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-wall-01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047555267213925813, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071170962089892593, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707776810033349319, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-06
       objectReference: {fileID: 0}
     - target: {fileID: 7841757515086750381, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1407,6 +1443,14 @@ PrefabInstance:
     - target: {fileID: 7841757515086750381, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022316191752044917, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-wall-03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425984099827903777, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _contentId
+      value: main-door-02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

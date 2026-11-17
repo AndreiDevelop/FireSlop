@@ -442,13 +442,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4360857970698112424, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2081614935845412250}
   m_SourcePrefab: {fileID: 100100000, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
 --- !u!1 &3862596054820306271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4360857970698112424, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
   m_PrefabInstance: {fileID: 657054532320620791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081614935845412250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862596054820306271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd18054b507964e5fb80443b41c3504c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.HammerSwingView
+  _swing: {fileID: 7400000, guid: 7ebfa6b75ca3746d8a0d7ec2d82b3853, type: 2}
 --- !u!4 &7005653362734226628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7505045369433926707, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
@@ -534,6 +550,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8071093049864600968}
+    - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1223469966129940510}
   m_SourcePrefab: {fileID: 100100000, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
 --- !u!4 &1355092379467948173 stripped
 Transform:
@@ -598,6 +617,20 @@ MonoBehaviour:
   _nozzle: {fileID: 314311187692709026}
   _stream: {fileID: 3269234917642291008}
   _config: {fileID: 11400000, guid: ae31a67f9571a4088afea60f74ba2b26, type: 2}
+--- !u!114 &1223469966129940510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573718648985156242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9c8686d2e064077abed92ac1c3b877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HammerController
+  _swing: {fileID: 2081614935845412250}
+  _config: {fileID: 11400000, guid: 53f6a3a2d4a374297bbb5aadf69995bf, type: 2}
 --- !u!1001 &3019140890367754357
 PrefabInstance:
   m_ObjectHideFlags: 0

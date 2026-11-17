@@ -16,8 +16,8 @@ namespace FireSlop.Interaction
         {
             _tools = tools;
             _input = input;
-            _tools.Changed += CancelPrimary;
-            _input.Cancelled += CancelPrimary;
+            _tools.Changed += InterruptPrimary;
+            _input.Cancelled += InterruptPrimary;
         }
 
         public bool HoseActive { get; private set; }
@@ -25,6 +25,7 @@ namespace FireSlop.Interaction
         public bool CanInteractWithDoor => _enabled && _doorInSight;
         public bool ShouldCloseDoor { get; private set; }
         public event Action HammerPressed;
+        public event Action HammerInterrupted;
         public event Action HoseStopped;
         public event Action ContextChanged;
         public event Action ContextRequested;
@@ -68,6 +69,12 @@ namespace FireSlop.Interaction
             HoseStopped?.Invoke();
         }
 
+        private void InterruptPrimary()
+        {
+            CancelPrimary();
+            HammerInterrupted?.Invoke();
+        }
+
         public void SetActionsEnabled(bool enabled)
         {
             if (_enabled == enabled)
@@ -76,7 +83,7 @@ namespace FireSlop.Interaction
             }
 
             _enabled = enabled;
-            CancelPrimary();
+            InterruptPrimary();
             ContextChanged?.Invoke();
         }
 
@@ -120,8 +127,8 @@ namespace FireSlop.Interaction
 
         public void Dispose()
         {
-            _tools.Changed -= CancelPrimary;
-            _input.Cancelled -= CancelPrimary;
+            _tools.Changed -= InterruptPrimary;
+            _input.Cancelled -= InterruptPrimary;
         }
     }
 }

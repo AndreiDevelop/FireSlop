@@ -10,6 +10,7 @@ namespace FireSlop.Interaction
         public bool IsLocked { get; }
         public bool IsOpen { get; private set; }
         public bool IsBroken { get; private set; }
+        public int DamageHits { get; private set; }
         public bool IsPassable => IsOpen || IsBroken;
 
         public bool TryToggle()
@@ -23,14 +24,15 @@ namespace FireSlop.Interaction
             return true;
         }
 
-        public bool Break()
+        public bool RegisterHit(int hitsToBreak)
         {
             if (IsBroken)
             {
                 return false;
             }
 
-            IsBroken = true;
+            DamageHits++;
+            IsBroken = DamageHits >= hitsToBreak;
             return true;
         }
     }

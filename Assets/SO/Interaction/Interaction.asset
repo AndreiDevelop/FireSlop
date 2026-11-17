@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.InteractionConfigSO
   _contextRange: 2.5
   _doorSwingDuration: 0.4
+  _hammerReach: 2.5
+  _hammerImpactTime: 0.15
+  _doorHitsToBreak: 3
+  _debrisSettleSeconds: 0.62
+  _debrisTravel: 0.68
+  _aimCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294950139

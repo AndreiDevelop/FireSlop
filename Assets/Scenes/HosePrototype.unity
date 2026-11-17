@@ -564,6 +564,10 @@ PrefabInstance:
       propertyPath: _isLocked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3461801732838463318, guid: 197b86243eca1416da097c86dab917fb, type: 3}
+      propertyPath: _contentId
+      value: hose-prototype-door-01
+      objectReference: {fileID: 0}
     - target: {fileID: 6392095678262796906, guid: 197b86243eca1416da097c86dab917fb, type: 3}
       propertyPath: m_Name
       value: Test Door (E)

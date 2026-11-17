@@ -40,7 +40,7 @@ namespace FireSlop.Interaction
             }
 
             _model.ContextRequested -= ToggleDoor;
-            _model.HammerPressed -= BreakDoor;
+            _entranceDoor.Broken -= RefreshEntrance;
             _model.SetDoorInSight(null);
             _model.EndPrimary(PrimaryInputSource.Mouse);
         }
@@ -48,7 +48,7 @@ namespace FireSlop.Interaction
         private void Subscribe()
         {
             _model.ContextRequested += ToggleDoor;
-            _model.HammerPressed += BreakDoor;
+            _entranceDoor.Broken += RefreshEntrance;
         }
 
         private void Update()
@@ -94,7 +94,7 @@ namespace FireSlop.Interaction
         {
             var view = _camera.transform;
             if (!Physics.Raycast(view.position, view.forward, out var hit, _config.ContextRange,
-                    Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+                    _config.AimCollisionMask, QueryTriggerInteraction.Ignore))
             {
                 return null;
             }
@@ -120,13 +120,10 @@ namespace FireSlop.Interaction
             RefreshDoor(door);
         }
 
-        private void BreakDoor()
+        private void RefreshEntrance()
         {
-            var door = FindDoor();
-            if (door != null && door.Door.Break())
-            {
-                RefreshDoor(door);
-            }
+            _model.SetDoorInSight(null);
+            _model.SetEntrancePassable(true);
         }
 
         private void RefreshDoor(DoorView door)
