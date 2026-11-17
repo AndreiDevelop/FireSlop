@@ -29,7 +29,6 @@ namespace FireSlop.Interaction
             dropletEmission.enabled = false;
 
             var splashEmission = _splash.emission;
-            _splashRate = splashEmission.rateOverTime.constant;
             splashEmission.enabled = false;
         }
 
@@ -83,6 +82,7 @@ namespace FireSlop.Interaction
             }
 
             _dropletRate = Mathf.Max(0f, _droplets.emission.rateOverTime.Evaluate(0f, 0.5f));
+            _splashRate = Mathf.Max(0f, _splash.emission.rateOverTime.Evaluate(0f, 0.5f));
         }
 
         private static float HashFraction(int index, uint salt)
@@ -104,22 +104,45 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            var rotation = Quaternion.LookRotation(packet.LaunchVelocity);
             var speed = packet.LaunchVelocity.magnitude;
+            var startRotation = Quaternion.LookRotation(packet.LaunchVelocity);
+            var interpolates = packet.EmissionDuration > 0f &&
+                (packet.Origin != packet.EmissionEndOrigin || packet.LaunchVelocity != packet.EmissionEndVelocity);
+            var endRotation = interpolates ? Quaternion.LookRotation(packet.EmissionEndVelocity) : startRotation;
             var sampleIndex = (packet.LaunchTime.GetHashCode() & int.MaxValue) % _dropletSamples.Length;
             for (var index = 0; index < packet.DropletCount && _count < _particles.Length; index++)
             {
                 var sample = _dropletSamples[sampleIndex];
                 sampleIndex = (sampleIndex + 1) % _dropletSamples.Length;
-                var phase = (float)index / packet.DropletCount;
-                var dropletAge = age - phase * sampleDuration;
+                var emissionTime = sampleDuration * index / packet.DropletCount;
+                if (emissionTime > packet.EmissionDuration)
+                {
+                    break;
+                }
+
+                var dropletAge = age - emissionTime;
                 if (dropletAge < 0f || dropletAge > packet.FlightLimit)
                 {
                     continue;
                 }
 
+                var origin = packet.Origin;
+                var rotation = startRotation;
+                if (interpolates)
+                {
+                    var blend = emissionTime / packet.EmissionDuration;
+                    if (packet.HasPendingImpact || packet.HasImpacted)
+                    {
+                        // Tighten the visible stream around the measured impact point.
+                        blend *= Mathf.Clamp01((packet.FlightLimit - dropletAge) / sampleDuration);
+                    }
+
+                    origin = Vector3.Lerp(origin, packet.EmissionEndOrigin, blend);
+                    rotation = Quaternion.Lerp(startRotation, endRotation, blend);
+                }
+
                 var launchVelocity = rotation * sample.velocity * speed;
-                sample.position = packet.Origin + rotation * sample.position +
+                sample.position = origin + rotation * sample.position +
                     (launchVelocity + gravity * (0.5f * dropletAge)) * dropletAge;
                 sample.velocity = launchVelocity + gravity * dropletAge;
                 sample.startLifetime = packet.FlightLimit;
@@ -153,21 +176,34 @@ namespace FireSlop.Interaction
             }
 
             _splash.transform.SetPositionAndRotation(point, Quaternion.FromToRotation(Vector3.forward, normal));
-            _splash.Emit(Mathf.Max(1, Mathf.RoundToInt(_splashRate * sampleDuration)));
+            var count = Mathf.RoundToInt(_splashRate * sampleDuration);
+            if (count > 0)
+            {
+                _splash.Emit(count);
+            }
         }
 
         public void Hide()
         {
-            _dropletRemainder = 0f;
-            _refreshSettings = true;
-            if (_droplets != null)
-            {
-                _droplets.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
-            }
-
+            EndEmission();
+            ClearDroplets();
             if (_splash != null)
             {
                 _splash.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+            }
+        }
+
+        internal void EndEmission()
+        {
+            _dropletRemainder = 0f;
+            _refreshSettings = true;
+        }
+
+        internal void ClearDroplets()
+        {
+            if (_droplets != null)
+            {
+                _droplets.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
             }
         }
     }

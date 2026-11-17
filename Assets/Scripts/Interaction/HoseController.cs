@@ -32,7 +32,7 @@ namespace FireSlop.Interaction
             _input = input;
             if (isActiveAndEnabled)
             {
-                _input.HoseStopped += ResetStream;
+                _input.HoseStopped += StopEmission;
             }
         }
 
@@ -55,7 +55,7 @@ namespace FireSlop.Interaction
         {
             if (_input != null)
             {
-                _input.HoseStopped += ResetStream;
+                _input.HoseStopped += StopEmission;
             }
         }
 
@@ -63,7 +63,7 @@ namespace FireSlop.Interaction
         {
             if (_input != null)
             {
-                _input.HoseStopped -= ResetStream;
+                _input.HoseStopped -= StopEmission;
             }
 
             ResetStream();
@@ -79,9 +79,25 @@ namespace FireSlop.Interaction
             }
         }
 
+        private void StopEmission()
+        {
+            if (_packetCount > 0)
+            {
+                _packets[_packetCount - 1].UpdateEmissionEnd(
+                    _nozzle.position, _aim.forward * _config.LaunchSpeed, Time.timeAsDouble, true);
+            }
+
+            for (var index = 0; index < _packetCount; index++)
+            {
+                _packets[index].AffectsTargets = false;
+            }
+
+            _stream.EndEmission();
+        }
+
         private void FixedUpdate()
         {
-            if (_input == null || !_input.HoseActive)
+            if (_input == null || (!_input.HoseActive && _packetCount == 0))
             {
                 return;
             }
@@ -90,15 +106,21 @@ namespace FireSlop.Interaction
             {
                 var time = Time.fixedTimeAsDouble;
                 var sampleDuration = Time.fixedDeltaTime * _stepsBetweenSamples;
-                var launch = _stepsUntilLaunch == 0;
-                AdvancePackets(time, sampleDuration, launch);
-                if (launch)
+                var advance = _stepsUntilLaunch == 0;
+                AdvancePackets(time, sampleDuration, advance);
+                if (advance && _input.HoseActive)
                 {
-                    _stepsUntilLaunch = _stepsBetweenSamples;
                     LaunchPacket(time, sampleDuration);
                 }
 
-                _stepsUntilLaunch--;
+                if (!_input.HoseActive && _packetCount == 0)
+                {
+                    _stream.ClearDroplets();
+                    _stepsUntilLaunch = 0;
+                    return;
+                }
+
+                _stepsUntilLaunch = advance ? _stepsBetweenSamples - 1 : _stepsUntilLaunch - 1;
             }
         }
 
@@ -192,7 +214,12 @@ namespace FireSlop.Interaction
             packet.HasPendingImpact = false;
             packet.HasImpacted = true;
             var direction = packet.VelocityAt(age, _gravity).normalized;
-            ApplyImpact(hit, direction, sampleDuration);
+            if (packet.AffectsTargets)
+            {
+                ApplyImpact(hit, direction, sampleDuration);
+            }
+
+            _stream.Splash(hit.point, hit.normal, sampleDuration);
         }
 
         private bool FindImpact(HoseWaterPacket packet, LayerMask mask, out RaycastHit hit, out float age)
@@ -218,7 +245,8 @@ namespace FireSlop.Interaction
 
             var origin = _nozzle.position;
             var toNozzle = origin - _aim.position;
-            if (Cast(_aim.position, toNozzle, _config.CollisionMask, out var obstruction))
+            var obstructed = Cast(_aim.position, toNozzle, _config.CollisionMask, out var obstruction);
+            if (obstructed)
             {
                 // A nozzle clipping a wall must emit from the player's side.
                 origin = _aim.position + toNozzle.normalized * Mathf.Max(0f, obstruction.distance - SurfaceClearance);
@@ -226,7 +254,13 @@ namespace FireSlop.Interaction
 
             var velocity = _aim.forward * _config.LaunchSpeed;
             var packet = new HoseWaterPacket(origin, velocity, time, _flightLimit);
+            packet.NozzleObstructed = obstructed;
             packet.DropletCount = _stream.TakeDroplets(sampleDuration);
+            if (_packetCount > 0)
+            {
+                _packets[_packetCount - 1].UpdateEmissionEnd(origin, velocity, time, true);
+            }
+
             PreviewSegment(ref packet, sampleDuration);
             _packets[_packetCount] = packet;
             _packetCount++;
@@ -256,13 +290,11 @@ namespace FireSlop.Interaction
                     body.AddForceAtPosition(direction * (_config.Force * sampleDuration), hit.point, ForceMode.Impulse);
                 }
             }
-
-            _stream.Splash(hit.point, hit.normal, sampleDuration);
         }
 
         private void LateUpdate()
         {
-            if (_input == null || !_input.HoseActive)
+            if (_packetCount == 0)
             {
                 return;
             }
@@ -275,6 +307,11 @@ namespace FireSlop.Interaction
                 for (var index = _packetCount - 1; index >= 0; index--)
                 {
                     var packet = _packets[index];
+                    if (index == _packetCount - 1 && _input.HoseActive)
+                    {
+                        packet.UpdateEmissionEnd(_nozzle.position, _aim.forward * _config.LaunchSpeed, time, false);
+                    }
+
                     var age = (float)(time - packet.LaunchTime);
                     _stream.DrawPacket(packet, _gravity, age, sampleDuration);
                 }
