@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba1f763f8cac441708db274e08b22b8c, type: 3}
-  m_Name: HoseTestFire
+  m_Name: FireSource
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.WaterFireConfigSO
   _secondsToExtinguish: 1.6
