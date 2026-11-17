@@ -7,8 +7,11 @@ namespace FireSlop.Interaction
         [SerializeField] private WindowSectionView _upperGlass;
         [SerializeField] private WindowSectionView _lowerGlass;
         [SerializeField] private WindowSectionView _wood;
+        [SerializeField] private Collider _entryGuard;
 
         private readonly BreakableWindowModel _state = new BreakableWindowModel();
+
+        public bool IsOpen => _state.IsOpen;
 
         internal void Hit(WindowSectionView section, Vector3 direction, InteractionConfigSO config)
         {
@@ -41,6 +44,11 @@ namespace FireSlop.Interaction
             if ((broken & WindowSectionKind.LowerGlass) != 0)
             {
                 _lowerGlass.ReleaseFragments(transform, direction, config);
+            }
+
+            if (IsOpen)
+            {
+                _entryGuard.isTrigger = true;
             }
         }
     }

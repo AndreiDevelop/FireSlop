@@ -49,6 +49,7 @@ MonoBehaviour:
   _upperGlass: {fileID: 7747827380037384414}
   _lowerGlass: {fileID: 2888951932271562776}
   _wood: {fileID: 983350147038307934}
+  _entryGuard: {fileID: 5578734425752352082}
 --- !u!1 &8374669640030217742
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +443,6 @@ MonoBehaviour:
   _surface: {fileID: 4199000078315123523}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &537130801502839155 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 416909646546363888, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -468,7 +468,6 @@ MonoBehaviour:
   _surface: {fileID: 1972161204658781549}
   _solid: {fileID: 0}
   _restHeight: 0.00017500005
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1313313099220529704 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8033084946769561941, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -489,7 +488,6 @@ MonoBehaviour:
   _surface: {fileID: 9141301183245375403}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1972161204658781549 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7357779351136028178, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -515,7 +513,6 @@ MonoBehaviour:
   _surface: {fileID: 7699856739432085990}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &2092965308548637111 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2285251735753254196, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -568,7 +565,6 @@ MonoBehaviour:
   _surface: {fileID: 2092965308548637111}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &2493719902488132404 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2316562743354425271, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -604,7 +600,6 @@ MonoBehaviour:
   _surface: {fileID: 7012798956680092204}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &4199000078315123523 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4105229872427988928, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -630,7 +625,6 @@ MonoBehaviour:
   _surface: {fileID: 2556324312188424386}
   _solid: {fileID: 0}
   _restHeight: 0.00017500005
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &4616452377971119277 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4804639837633302574, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -671,7 +665,6 @@ MonoBehaviour:
   _surface: {fileID: 2493719902488132404}
   _solid: {fileID: 0}
   _restHeight: 0.00017500005
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &7012798956680092204 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7201005104819773103, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -702,7 +695,6 @@ MonoBehaviour:
   _surface: {fileID: 4631255151371666878}
   _solid: {fileID: 0}
   _restHeight: 0.00017500005
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &7699856739432085990 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7522716083708771685, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -728,7 +720,6 @@ MonoBehaviour:
   _surface: {fileID: 7129177958853456665}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7846701364640387155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1272132951120964400, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -844,7 +835,6 @@ MonoBehaviour:
   _surface: {fileID: 6706839639216418555}
   _solid: {fileID: 0}
   _restHeight: 0.00017500005
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8395886759216683484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -704459276035351201, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -865,7 +855,6 @@ MonoBehaviour:
   _surface: {fileID: 181072102080068786}
   _solid: {fileID: 0}
   _restHeight: 0.00017500005
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8695397065314966591 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8795861080816064700, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}
@@ -886,7 +875,6 @@ MonoBehaviour:
   _surface: {fileID: 4616452377971119277}
   _solid: {fileID: 0}
   _restHeight: 0.000627
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &9141301183245375403 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -260926765724478680, guid: e93b0b7ba5da94331bb3919dff2da199, type: 3}

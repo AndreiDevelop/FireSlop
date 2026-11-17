@@ -1,3 +1,4 @@
+using FireSlop.Interaction;
 using FireSlop.MissionHud;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,12 @@ namespace FireSlop.Firefighter
         private bool _waitForNeutral;
         private bool _focused;
         private bool _captureMouseOnFocus = true;
+        private float _standingHeight;
+        private Vector3 _standingCenter;
+        private Vector3 _standingEyes;
+        private bool _tucked;
+        private float _jumpRequested;
+        private float _jumpCameraVelocity;
 
         [Inject]
         public void Construct(MissionInputModel input, MovementConfigSO config, ToolSelectionModel tools)
@@ -31,12 +38,18 @@ namespace FireSlop.Firefighter
         private void Awake()
         {
             _body = GetComponent<CharacterController>();
+            _standingHeight = _body.height;
+            _standingCenter = _body.center;
+            _standingEyes = _eyes.localPosition;
             _focused = Application.isFocused;
         }
 
         private void OnDisable()
         {
             ReleaseInput();
+            RestoreStandingPose();
+            _eyes.localPosition = _standingEyes;
+            _jumpCameraVelocity = 0f;
         }
 
         private void OnApplicationFocus(bool hasFocus)
@@ -63,6 +76,7 @@ namespace FireSlop.Firefighter
         private void ReleaseInput()
         {
             _input?.Cancel();
+            _jumpRequested = 0f;
             _waitForNeutral = true;
             _captureMouseOnFocus = false;
             Cursor.lockState = CursorLockMode.None;
@@ -123,14 +137,104 @@ namespace FireSlop.Firefighter
 
             movement = Vector2.ClampMagnitude(movement + _input.Movement, 1f);
             var velocity = (transform.right * movement.x + transform.forward * movement.y) * _config.Speed;
-            if (_body.isGrounded && _verticalSpeed < 0f)
+            _jumpRequested = Mathf.Max(0f, _jumpRequested - Time.deltaTime);
+            if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
             {
-                _verticalSpeed = 0f;
+                _jumpRequested = _config.JumpInputBuffer;
+            }
+
+            if (_body.isGrounded)
+            {
+                _verticalSpeed = Mathf.Max(0f, _verticalSpeed);
+                if (_tucked && CanStand())
+                {
+                    RestoreStandingPose();
+                }
+
+                if (_jumpRequested > 0f)
+                {
+                    _jumpRequested = 0f;
+                    Jump();
+                }
             }
 
             _verticalSpeed -= _config.Gravity * Time.deltaTime;
             velocity.y = _verticalSpeed;
-            _body.Move(velocity * Time.deltaTime);
+            var collision = _body.Move(velocity * Time.deltaTime);
+            if ((collision & CollisionFlags.Above) != 0 && _verticalSpeed > 0f)
+            {
+                _verticalSpeed = 0f;
+            }
+
+            UpdateJumpCamera();
+        }
+
+        private void Jump()
+        {
+            if (!_tucked && FacesOpenWindow())
+            {
+                var height = Mathf.Clamp(_config.WindowJumpCapsuleHeight, _body.radius * 2f, _standingHeight);
+                var drop = _standingHeight - height;
+                _body.height = height;
+                _body.center = _standingCenter - Vector3.up * (drop * 0.5f);
+                _tucked = true;
+            }
+
+            _verticalSpeed = Mathf.Sqrt(2f * _config.Gravity * _config.JumpHeight);
+        }
+
+        private bool FacesOpenWindow()
+        {
+            var origin = transform.TransformPoint(_standingCenter);
+            if (!Physics.Raycast(origin, transform.forward, out var hit, _config.WindowJumpReach,
+                    _config.WindowOpeningMask, QueryTriggerInteraction.Collide))
+            {
+                return false;
+            }
+
+            var window = hit.collider.GetComponentInParent<BreakableWindowView>();
+            return window != null && window.IsOpen;
+        }
+
+        private bool CanStand()
+        {
+            var center = transform.TransformPoint(_standingCenter);
+            var endOffset = Vector3.up * (_standingHeight * 0.5f - _body.radius);
+            var solidLayers = Physics.DefaultRaycastLayers & ~(1 << gameObject.layer);
+            return !Physics.CheckCapsule(center - endOffset, center + endOffset, _body.radius - _body.skinWidth,
+                solidLayers, QueryTriggerInteraction.Ignore);
+        }
+
+        private void RestoreStandingPose()
+        {
+            if (!_tucked)
+            {
+                return;
+            }
+
+            _body.height = _standingHeight;
+            _body.center = _standingCenter;
+            _tucked = false;
+        }
+
+        private void UpdateJumpCamera()
+        {
+            var target = _standingEyes.y - (_standingHeight - _body.height);
+            var position = _eyes.localPosition;
+            if (Mathf.Abs(position.y - target) < 0.001f)
+            {
+                if (position.y != target)
+                {
+                    position.y = target;
+                    _eyes.localPosition = position;
+                }
+
+                _jumpCameraVelocity = 0f;
+                return;
+            }
+
+            position.y = Mathf.SmoothDamp(position.y, target, ref _jumpCameraVelocity, _config.JumpCameraSmoothTime);
+            _eyes.localPosition = position;
         }
 
         private static Vector2 ReadKeyboard(Keyboard keyboard)
