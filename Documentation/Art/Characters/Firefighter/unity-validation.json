@@ -1,0 +1,23 @@
+{
+  "missingMaterials": 0,
+  "invalidShaders": 0,
+  "meshes": 29,
+  "bounds": "(1.93, 2.07, 0.80)",
+  "triangles": 3616,
+  "visualConnected": "Assets/Prefabs/Characters/FirefighterVisual.prefab",
+  "oldResidentVisualCount": 0,
+  "shadowModes": [
+    "ShadowsOnly"
+  ],
+  "playerComponents": [
+    "Transform",
+    "CapsuleCollider",
+    "CharacterController",
+    "FirefighterController",
+    "HoseController",
+    "HammerController"
+  ],
+  "animatorCount": 1,
+  "humanoidAvatar": "FirefighterAvatar",
+  "supersedingValidation": "humanoid-unity-validation.json"
+}

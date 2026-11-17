@@ -1,0 +1,43 @@
+[
+  {
+    "path": "Assets/Prefabs/Characters/Resident.prefab",
+    "avatar": "ResidentAvatar",
+    "animatorCount": 1,
+    "allSkinned": true,
+    "playerShadows": true,
+    "animatorLocalRotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "applyRootMotion": false
+  },
+  {
+    "path": "Assets/Prefabs/Characters/FirefighterVisual.prefab",
+    "avatar": "FirefighterAvatar",
+    "animatorCount": 1,
+    "allSkinned": true,
+    "playerShadows": true,
+    "animatorLocalRotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "applyRootMotion": false
+  },
+  {
+    "path": "Assets/Prefabs/Characters/Firefighter.prefab",
+    "avatar": "FirefighterAvatar",
+    "animatorCount": 1,
+    "allSkinned": true,
+    "playerShadows": true,
+    "animatorLocalRotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "applyRootMotion": false
+  },
+  {
+    "scene": "Assets/Scenes/Main.unity",
+    "residentCount": 1,
+    "visual": "Resident",
+    "visualRotation": "(17.00, 0.00, 0.00)",
+    "standingRotation": "(0.00, 0.00, 0.00)",
+    "allReferencesPresent": true,
+    "avatarValid": true,
+    "carryStillSeparate": "ResidentCarryRig",
+    "carryAnimatorCount": 0
+  }
+]

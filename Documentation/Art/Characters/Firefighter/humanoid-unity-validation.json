@@ -1,0 +1,17 @@
+{
+  "subject": "Firefighter",
+  "avatarValid": true,
+  "humanoid": true,
+  "mappedBones": 21,
+  "sharedClipIsHumanMotion": true,
+  "sampleCount": 31,
+  "handMovement": 0.265018076,
+  "footMovement": 0.2126746,
+  "maximumVertexMovement": 0.538634241,
+  "invalidVertices": 0,
+  "rootPosition": "(0.00, 0.00, 0.00)",
+  "rootScale": "(1.00, 1.00, 1.00)",
+  "rootRotation": "(0.00, 0.00, 0.00)",
+  "missingMaterials": 0,
+  "note": "In-memory Humanoid probe clip; no Mixamo clips downloaded or installed."
+}

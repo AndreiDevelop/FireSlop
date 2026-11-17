@@ -1,0 +1,13 @@
+{
+  "meshes": 1,
+  "triangles": 2540,
+  "armatures": 1,
+  "bones": 21,
+  "unweightedVertices": 0,
+  "degeneratePolygons": 0,
+  "dimensionsMeters": [
+    1.9273,
+    0.693,
+    1.848
+  ]
+}

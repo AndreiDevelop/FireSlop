@@ -2,7 +2,7 @@
 
 Updated: 2026-11-16. Status: models imported and visually verified in Unity.
 
-Eleven colored low-poly model subjects plus a pre-cut door variant. Blender sources and [colored concept sheets](../ModelingSketches.md) are maintained by subject. One Blender unit equals one meter. All characters are static meshes without skeletons; the resident is in a T-pose.
+Eleven colored low-poly model subjects plus a pre-cut door variant. Blender sources and [colored concept sheets](../ModelingSketches.md) are maintained by subject. One Blender unit equals one meter. Resident and Firefighter use skinned Humanoid rigs in a T-pose. Cat remains a static mesh.
 
 ## Assets
 
@@ -16,7 +16,8 @@ Eleven colored low-poly model subjects plus a pre-cut door variant. Blender sour
 | Cat | 2,362 | [Source](../Characters/Cat/source.blend) | [Prefab](../../../Assets/Prefabs/Characters/Cat.prefab) |
 | RescueDrone | 2,000 | [Source](../Vehicles/RescueDrone/source.blend) | [Prefab](../../../Assets/Prefabs/RescueDrone.prefab) |
 | BaseHouse | 20,532 | [Source](../Environments/BaseHouse/source.blend) | [Prefab](../../../Assets/Prefabs/BaseHouse.prefab) |
-| Resident | 2,248 | [Source](../Characters/Resident/source.blend) | [Prefab](../../../Assets/Prefabs/Characters/Resident.prefab) |
+| Resident | 2,540 | [Source](../Characters/Resident/source.blend) | [Prefab](../../../Assets/Prefabs/Characters/Resident.prefab) |
+| Firefighter | 3,616 | [Source](../Characters/Firefighter/source.blend) | [Visual prefab](../../../Assets/Prefabs/Characters/FirefighterVisual.prefab) |
 | Sofa | 616 | [Source](../Props/Sofa/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Sofa.prefab) |
 | Armchair | 440 | [Source](../Props/Armchair/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Armchair.prefab) |
 | DoorFractured | 3,860 | [Source](../Props/Door/fractured.blend) | [Prefab](../../../Assets/Prefabs/Props/DoorFractured.prefab) |
@@ -49,9 +50,9 @@ A temporary CharacterController probe (height 1.86 m, radius 0.34 m, slope limit
 
 ## Verification
 
-- [Blender validation](blender-validation.json): twelve source variants, finite vertices, no degenerate polygons, zero bones.
-- [FBX round-trip](fbx-validation.json): all eleven primary exports match source dimensions and material slots.
-- [Unity imports](unity-import.json): 36 FBX assets, no missing or non-URP material assignments, no character Animator components.
+- [Original Blender validation](blender-validation.json): pre-rig model-production snapshot. Current Resident and Firefighter checks are linked under Humanoid rigs below.
+- [Original FBX round-trip](fbx-validation.json): pre-rig exports matched source dimensions and material slots. Current character exports are checked separately below.
+- [Original Unity imports](unity-import.json): pre-rig import snapshot. Resident and Firefighter now have Animator components and Humanoid Avatars.
 - [Assembly checks](unity-assembly.json): nested modular assemblies match combined FBX bounds within 0.01 m.
 - [Saved-prefab checks](unity-prefab-validation.json): shared materials and connected nested roots.
 - [Reopened scene check](unity-scene-validation.json): twelve connected prefab instances, no duplicate asset roots.
@@ -113,3 +114,43 @@ A temporary CharacterController probe (height 1.86 m, radius 0.34 m, slope limit
 ![Door fragments assembled](UnityPreviews/DoorFractured.png)
 
 [Exploded fragment view](../Props/Door/fractured-exploded-preview.png) shows the individual pieces; assembled geometry intentionally looks intact.
+
+## Firefighter
+
+Updated 2026-11-17: the firefighter is derived from the resident Blender mesh and the red-helmet firefighters in the [Consepts Canvas reference](../../../FireSlop/FireSlop/Screens/Pasted%20image%2020261113145349.png). The original face, proportions and T-pose are retained. Added a red helmet with shield 67, neck protection, tan turnout clothing, reflective bands, dark gloves and boots. The editable source keeps equipment as separate meshes. The FBX now includes a 21-bone Humanoid skeleton and skin weights; animation clips are not included.
+
+The existing gameplay Firefighter prefab now contains the connected FirefighterVisual prefab. Its first-person `ShadowsOnly` rendering, camera, controller and tools are preserved. Use FirefighterVisual for visible asset inspection. [Unity validation](../Characters/Firefighter/unity-validation.json) checks materials, prefab connectivity and component retention.
+
+![Firefighter in Unity](../Characters/Firefighter/unity-preview.png)
+
+## Humanoid rigs
+
+Updated 2026-11-17. Resident and Firefighter share a 21-bone layout with Hips, Spine, Chest, Neck, Head, shoulders, upper/lower arms, hands, upper/lower legs, feet and toes. All vertices have normalized weights with at most two influences. Additional elbow, knee and torso loops support deformation. Helmets and facial parts follow Head rigidly. The mitten-style hands have no individual finger rig or facial animation rig.
+
+The maintained Blender sources and existing FBX GUIDs are preserved. Unity imports both as **Humanoid / Create From This Model**, with all 21 bones explicitly mapped and valid human Avatars. The model roots have unit scale and identity rotation. The existing prefab hierarchy contains one Animator per visible character model, with Apply Root Motion disabled. No animation controller or downloaded clips were added.
+
+Resident's existing scene visual tilt and standing-restoration rotation were adapted to the normalized model axes. Its `ResidentCarryRig` mesh and `ResidentCarryRagdoll` prefab are unchanged: the separate physical carry representation remains independent of locomotion animation. The gameplay Firefighter keeps ShadowsOnly on its body; inspect FirefighterVisual when a visible full-body model is needed.
+
+### Using Mixamo Idle and Run
+
+1. Select Idle and Run on a Mixamo library character and download FBX animations. Use **Without Skin** for animation-only downloads and **In Place** for Run when available, because the current game controller owns movement.
+2. Import each animation FBX into Unity as **Humanoid / Create From This Model** and check its bone mapping. Use the source animation's own Avatar; do not copy ResidentAvatar or FirefighterAvatar onto a different Mixamo skeleton.
+3. Enable **Loop Time** for looping clips and assign them to an Animator Controller on the model's Animator. Keep the target model's own Avatar assigned and Apply Root Motion disabled. Movement-driven Idle/Run transitions remain a separate implementation step.
+4. Preview each chosen animation on both characters and adjust hand/foot contacts for these short, large-headed proportions if needed.
+
+Unity supports sharing clips between configured Humanoid Avatars: [Unity retargeting documentation](https://docs.unity3d.com/6000.0/Documentation/Manual/Retargeting.html). Uploading these models to Mixamo is not required for this workflow. [Adobe's rigged-character workflow](https://helpx.adobe.com/creative-cloud/help/mixamo-rigging-animation.html) is an alternative; upload compatibility has not been tested here.
+
+### Current verification
+
+- [Resident source](../Characters/Resident/humanoid-source-validation.json) and [FBX round-trip](../Characters/Resident/fbx-validation.json).
+- [Firefighter source](../Characters/Firefighter/humanoid-source-validation.json) and [FBX round-trip](../Characters/Firefighter/fbx-validation.json).
+- [Resident Animator playback](../Characters/Resident/humanoid-unity-validation.json) and [Firefighter Animator playback](../Characters/Firefighter/humanoid-unity-validation.json): the same temporary Humanoid muscle clip evaluated at 31 samples on each Avatar, with moving hands/feet, changing skinned vertices, finite output and stable roots. Foot IK was disabled for this isolated probe. No Mixamo animation was used in this check.
+- [Saved prefabs and Main scene](humanoid-prefab-validation.json): valid assigned Avatars, preserved references, one resident, separate unchanged carry rig and retained first-person shadow rendering.
+
+The following are baked Unity Humanoid test-pose snapshots, not downloaded Idle/Run animations:
+
+![Resident standing test pose](../Characters/Resident/humanoid-idle.png)
+
+![Resident running test pose](../Characters/Resident/humanoid-run.png)
+
+![Firefighter running test pose](../Characters/Firefighter/humanoid-run.png)
