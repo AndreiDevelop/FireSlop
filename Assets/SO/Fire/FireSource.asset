@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: FireSource
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.WaterFireConfigSO
   _secondsToExtinguish: 1.6
+  _initialIntensity: 1
+  _passageOpenIntensity: 0.35

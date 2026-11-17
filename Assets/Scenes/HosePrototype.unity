@@ -785,6 +785,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 674726712960267285, guid: d3a30ea7089ff458aa1cb61b12b7c8ef, type: 3}
+      propertyPath: _contentId
+      value: hose-prototype-test-fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 674726712960267285, guid: d3a30ea7089ff458aa1cb61b12b7c8ef, type: 3}
+      propertyPath: _blocksPassage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1227374628869107109, guid: d3a30ea7089ff458aa1cb61b12b7c8ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -823,6 +831,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227374628869107109, guid: d3a30ea7089ff458aa1cb61b12b7c8ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410116193981438517, guid: d3a30ea7089ff458aa1cb61b12b7c8ef, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6306597661408971623, guid: d3a30ea7089ff458aa1cb61b12b7c8ef, type: 3}
