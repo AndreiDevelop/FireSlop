@@ -1,3 +1,4 @@
+using FireSlop.Interaction;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -12,11 +13,13 @@ namespace FireSlop.MissionHud
         [SerializeField] private GameObject _hammerSelection;
 
         private ToolSelectionModel _model;
+        private InteractionModel _interaction;
 
         [Inject]
-        public void Construct(ToolSelectionModel model)
+        public void Construct(ToolSelectionModel model, InteractionModel interaction)
         {
             _model = model;
+            _interaction = interaction;
             if (isActiveAndEnabled)
             {
                 Bind();
@@ -41,6 +44,7 @@ namespace FireSlop.MissionHud
             _hose.onClick.RemoveListener(SelectHose);
             _hammer.onClick.RemoveListener(SelectHammer);
             _model.Changed -= Render;
+            _interaction.ContextChanged -= Render;
         }
 
         private void Bind()
@@ -48,6 +52,7 @@ namespace FireSlop.MissionHud
             _hose.onClick.AddListener(SelectHose);
             _hammer.onClick.AddListener(SelectHammer);
             _model.Changed += Render;
+            _interaction.ContextChanged += Render;
             Render();
         }
 
@@ -63,6 +68,9 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
+            var showSlots = !_interaction.IsPilotingDrone;
+            _hose.gameObject.SetActive(showSlots);
+            _hammer.gameObject.SetActive(showSlots);
             _hoseSelection.SetActive(_model.Selected == 0);
             _hammerSelection.SetActive(_model.Selected == 1);
         }

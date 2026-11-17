@@ -1,3 +1,4 @@
+using FireSlop.Drone;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -13,12 +14,14 @@ namespace FireSlop.Interaction
 
         private Camera _camera;
         private InteractionModel _model;
+        private DroneController _drone;
 
         [Inject]
-        public void Construct(Camera camera, InteractionModel model)
+        public void Construct(Camera camera, InteractionModel model, [InjectOptional] DroneController drone)
         {
             _camera = camera;
             _model = model;
+            _drone = drone;
             if (isActiveAndEnabled)
             {
                 Subscribe();
@@ -122,6 +125,12 @@ namespace FireSlop.Interaction
 
         private void Interact()
         {
+            if (_model.HasDroneAction && _drone != null)
+            {
+                _drone.TogglePilot();
+                return;
+            }
+
             var target = FindTarget();
             var door = FindDoor(target);
             if (door == null || door.Door.IsBroken)

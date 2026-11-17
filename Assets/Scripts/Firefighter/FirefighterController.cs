@@ -1,3 +1,4 @@
+using FireSlop.Drone;
 using FireSlop.Interaction;
 using FireSlop.MissionHud;
 using UnityEngine;
@@ -12,6 +13,12 @@ namespace FireSlop.Firefighter
         [SerializeField] private Transform _eyes;
 
         private CharacterController _body;
+        private DroneController _drone;
+        private DroneModel _flight;
+        private Transform _camera;
+        private Vector3 _cameraLocalPosition;
+        private Vector3[] _cameraChildPositions;
+        private bool _wasPiloting;
         private MissionInputModel _input;
         private MovementConfigSO _config;
         private ToolSelectionModel _tools;
@@ -22,17 +29,30 @@ namespace FireSlop.Firefighter
         private bool _captureMouseOnFocus = true;
         private float _standingHeight;
         private Vector3 _standingCenter;
+        private float _standingStepOffset;
         private Vector3 _standingEyes;
         private bool _windowJumpTuck;
         private float _jumpRequested;
         private float _jumpCameraVelocity;
 
         [Inject]
-        public void Construct(MissionInputModel input, MovementConfigSO config, ToolSelectionModel tools)
+        public void Construct(MissionInputModel input, MovementConfigSO config, ToolSelectionModel tools,
+            DroneModel flight, Camera camera, [InjectOptional] DroneController drone)
         {
             _input = input;
             _config = config;
             _tools = tools;
+            _flight = flight;
+            _drone = drone;
+            _camera = camera.transform;
+            _cameraLocalPosition = _camera.localPosition;
+            _cameraChildPositions = new Vector3[_camera.childCount];
+            for (var index = 0; index < _cameraChildPositions.Length; index++)
+            {
+                _cameraChildPositions[index] = _camera.GetChild(index).localPosition;
+            }
+
+            _flight.ContextChanged += RefreshFlightCamera;
         }
 
         private void Awake()
@@ -40,8 +60,43 @@ namespace FireSlop.Firefighter
             _body = GetComponent<CharacterController>();
             _standingHeight = _body.height;
             _standingCenter = _body.center;
+            _standingStepOffset = _body.stepOffset;
             _standingEyes = _eyes.localPosition;
             _focused = Application.isFocused;
+        }
+
+        private void OnDestroy()
+        {
+            if (_flight != null)
+            {
+                _flight.ContextChanged -= RefreshFlightCamera;
+            }
+        }
+
+        private void RefreshFlightCamera()
+        {
+            if (_wasPiloting != _flight.IsPiloted)
+            {
+                _wasPiloting = _flight.IsPiloted;
+                ApplyFlightCamera();
+            }
+        }
+
+        private void ApplyFlightCamera()
+        {
+            _camera.localPosition = _cameraLocalPosition;
+            var cameraOffset = Vector3.zero;
+            if (_flight.IsPiloted)
+            {
+                _camera.position = _drone.GetCameraPosition(_camera, _body);
+                cameraOffset = _camera.InverseTransformVector(_camera.parent.TransformVector(
+                    _camera.localPosition - _cameraLocalPosition));
+            }
+
+            for (var index = 0; index < _cameraChildPositions.Length; index++)
+            {
+                _camera.GetChild(index).localPosition = _cameraChildPositions[index] - cameraOffset;
+            }
         }
 
         private void OnDisable()
@@ -137,6 +192,20 @@ namespace FireSlop.Firefighter
             }
 
             movement = Vector2.ClampMagnitude(movement + _input.Movement, 1f);
+            if (_flight.IsPiloted)
+            {
+                _verticalSpeed = 0f;
+                _jumpRequested = 0f;
+                _windowJumpTuck = false;
+                UpdateStance(false);
+                var up = keyboard != null && keyboard.spaceKey.isPressed;
+                var down = keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed);
+                var vertical = Mathf.Clamp(_input.DroneElevation + (up ? 1f : 0f) - (down ? 1f : 0f), -1f, 1f);
+                _drone.Fly(_body, movement, vertical, transform.eulerAngles.y, Time.deltaTime);
+                ApplyFlightCamera();
+                return;
+            }
+
             _jumpRequested = Mathf.Max(0f, _jumpRequested - Time.deltaTime);
             if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
             {
@@ -156,48 +225,66 @@ namespace FireSlop.Firefighter
             }
 
             var crouchHeld = keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed);
-            UpdateStance(crouchHeld);
+            var direction = transform.right * movement.x + transform.forward * movement.y;
+            var opening = FindOpenWindow(direction);
+            var dockedWindow = opening != null && _drone != null && _drone.IsDockedAtWindow(opening);
+            UpdateStance(crouchHeld, dockedWindow);
             var speed = _config.Speed;
             if (crouchHeld || (!_windowJumpTuck && _body.height < _standingHeight))
             {
                 speed *= _config.CrouchSpeedMultiplier;
             }
 
-            var velocity = (transform.right * movement.x + transform.forward * movement.y) * speed;
+            var velocity = direction * speed;
             _verticalSpeed -= _config.Gravity * Time.deltaTime;
             velocity.y = _verticalSpeed;
+            var needsSillStep = dockedWindow && opening.bounds.min.y - _body.bounds.min.y > _standingStepOffset;
+            if (needsSillStep)
+            {
+                _body.stepOffset = Mathf.Min(_config.JumpHeight, _body.height - _body.skinWidth);
+            }
+
             var collision = _body.Move(velocity * Time.deltaTime);
+            if (needsSillStep)
+            {
+                _body.stepOffset = _standingStepOffset;
+            }
             if ((collision & CollisionFlags.Above) != 0 && _verticalSpeed > 0f)
             {
                 _verticalSpeed = 0f;
             }
 
             UpdateStanceCamera();
+            if (_drone != null)
+            {
+                _flight.SetOnPlatform(_drone.IsStandingOnDeck(_body));
+            }
         }
 
         private void Jump()
         {
-            _windowJumpTuck = FacesOpenWindow();
+            _windowJumpTuck = FindOpenWindow(transform.forward) != null;
             _verticalSpeed = Mathf.Sqrt(2f * _config.Gravity * _config.JumpHeight);
         }
 
-        private bool FacesOpenWindow()
+        private Collider FindOpenWindow(Vector3 direction)
         {
             var origin = transform.TransformPoint(_standingCenter);
-            if (!Physics.Raycast(origin, transform.forward, out var hit, _config.WindowJumpReach,
+            if (direction.sqrMagnitude <= 0f ||
+                !Physics.Raycast(origin, direction, out var hit, _config.WindowJumpReach,
                     _config.WindowOpeningMask, QueryTriggerInteraction.Collide))
             {
-                return false;
+                return null;
             }
 
             var window = hit.collider.GetComponentInParent<BreakableWindowView>();
-            return window != null && window.IsOpen;
+            return window != null && window.IsOpen ? hit.collider : null;
         }
 
-        private void UpdateStance(bool crouchHeld)
+        private void UpdateStance(bool crouchHeld, bool walkingThroughWindow = false)
         {
             var height = crouchHeld ? _config.CrouchHeight : _standingHeight;
-            if (_windowJumpTuck)
+            if (_windowJumpTuck || walkingThroughWindow)
             {
                 height = Mathf.Min(height, _config.WindowJumpCapsuleHeight);
             }

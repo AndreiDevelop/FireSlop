@@ -66,9 +66,10 @@ namespace FireSlop.MissionHud
             }
 
             var action = GetActionLabel();
-            var hasAction = _model.CanInteractWithDoor || _model.RescueAction != RescueContext.None;
+            var hasAction = _model.HasDroneAction || _model.CanInteractWithDoor ||
+                            _model.RescueAction != RescueContext.None;
             _hint.text = "E  " + action;
-            if (_model.IsCarryingResident && !touch)
+            if (_model.IsCarryingResident && !_model.IsPilotingDrone && !touch)
             {
                 _hint.text += "   |   LMB  Throw";
             }
@@ -86,6 +87,11 @@ namespace FireSlop.MissionHud
 
         private string GetActionLabel()
         {
+            if (_model.HasDroneAction)
+            {
+                return _model.IsPilotingDrone ? "Exit flight" : "Pilot drone";
+            }
+
             if (_model.CanInteractWithDoor)
             {
                 return _model.ShouldCloseDoor ? "Close door" : "Open door";

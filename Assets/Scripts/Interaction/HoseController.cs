@@ -18,6 +18,7 @@ namespace FireSlop.Interaction
 
         private readonly HoseWaterPacket[] _packets = new HoseWaterPacket[MaxPackets];
         private Transform _aim;
+        private Vector3 _eyeOffset;
         private InteractionModel _input;
         private Vector3 _gravity;
         private float _flightLimit;
@@ -29,6 +30,7 @@ namespace FireSlop.Interaction
         public void Construct(Camera camera, InteractionModel input)
         {
             _aim = camera.transform;
+            _eyeOffset = _aim.localPosition;
             _input = input;
             if (isActiveAndEnabled)
             {
@@ -84,7 +86,7 @@ namespace FireSlop.Interaction
             if (_packetCount > 0)
             {
                 _packets[_packetCount - 1].UpdateEmissionEnd(
-                    _nozzle.position, _aim.forward * _config.LaunchSpeed, Time.timeAsDouble, true);
+                    _nozzle.position, GetLaunchVelocity(), Time.timeAsDouble, true);
             }
 
             for (var index = 0; index < _packetCount; index++)
@@ -244,15 +246,16 @@ namespace FireSlop.Interaction
             }
 
             var origin = _nozzle.position;
-            var toNozzle = origin - _aim.position;
-            var obstructed = Cast(_aim.position, toNozzle, _config.CollisionMask, out var obstruction);
+            var eyePosition = _input.IsPilotingDrone ? _aim.parent.TransformPoint(_eyeOffset) : _aim.position;
+            var toNozzle = origin - eyePosition;
+            var obstructed = Cast(eyePosition, toNozzle, _config.CollisionMask, out var obstruction);
             if (obstructed)
             {
                 // A nozzle clipping a wall must emit from the player's side.
-                origin = _aim.position + toNozzle.normalized * Mathf.Max(0f, obstruction.distance - SurfaceClearance);
+                origin = eyePosition + toNozzle.normalized * Mathf.Max(0f, obstruction.distance - SurfaceClearance);
             }
 
-            var velocity = _aim.forward * _config.LaunchSpeed;
+            var velocity = GetLaunchVelocity();
             var packet = new HoseWaterPacket(origin, velocity, time, _flightLimit);
             packet.NozzleObstructed = obstructed;
             packet.DropletCount = _stream.TakeDroplets(sampleDuration);
@@ -292,6 +295,24 @@ namespace FireSlop.Interaction
             }
         }
 
+        private Vector3 GetLaunchVelocity()
+        {
+            var direction = _aim.forward;
+            if (_input.IsPilotingDrone)
+            {
+                var target = _aim.position + direction * _config.Range;
+                if (Physics.Raycast(_aim.position, direction, out var hit, _config.Range,
+                        _config.CollisionMask, QueryTriggerInteraction.Ignore))
+                {
+                    target = hit.point;
+                }
+
+                direction = (target - _nozzle.position).normalized;
+            }
+
+            return direction * _config.LaunchSpeed;
+        }
+
         private void LateUpdate()
         {
             if (_packetCount == 0)
@@ -309,7 +330,7 @@ namespace FireSlop.Interaction
                     var packet = _packets[index];
                     if (index == _packetCount - 1 && _input.HoseActive)
                     {
-                        packet.UpdateEmissionEnd(_nozzle.position, _aim.forward * _config.LaunchSpeed, time, false);
+                        packet.UpdateEmissionEnd(_nozzle.position, GetLaunchVelocity(), time, false);
                     }
 
                     var age = (float)(time - packet.LaunchTime);

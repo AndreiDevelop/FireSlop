@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ef12106ab934784866a761e91fe9df, type: 3}
+  m_Name: Flight
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Drone.DroneConfigSO
+  _hoverAfterExitSeconds: 10
+  _horizontalSpeed: 4
+  _verticalSpeed: 2.5
+  _descentSpeed: 1.1
+  _flightRadius: 45
+  _flightHeight: 16
+  _cameraDistance: 3.5
+  _cameraHeight: 0.75
+  _windowDockTolerance: 0.4

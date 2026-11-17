@@ -11,14 +11,17 @@ namespace FireSlop.Firefighter
         [SerializeField] private GameObject _hammer;
 
         private ToolSelectionModel _tools;
-
         private InteractionModel _interaction;
+        private Renderer[] _hoseRenderers;
+        private Renderer[] _hammerRenderers;
 
         [Inject]
         public void Construct(ToolSelectionModel tools, InteractionModel interaction)
         {
             _tools = tools;
             _interaction = interaction;
+            _hoseRenderers = _hose.GetComponentsInChildren<Renderer>(true);
+            _hammerRenderers = _hammer.GetComponentsInChildren<Renderer>(true);
             if (isActiveAndEnabled)
             {
                 Subscribe();
@@ -39,6 +42,7 @@ namespace FireSlop.Firefighter
             {
                 _tools.Changed -= Render;
                 _interaction.CarryingChanged -= Render;
+                _interaction.ContextChanged -= Render;
             }
         }
 
@@ -46,6 +50,7 @@ namespace FireSlop.Firefighter
         {
             _tools.Changed += Render;
             _interaction.CarryingChanged += Render;
+            _interaction.ContextChanged += Render;
             Render();
         }
 
@@ -53,6 +58,17 @@ namespace FireSlop.Firefighter
         {
             _hose.SetActive(!_interaction.IsCarryingResident && _tools.Selected == 0);
             _hammer.SetActive(!_interaction.IsCarryingResident && _tools.Selected == 1);
+            var hideTools = _interaction.IsPilotingDrone;
+            SetRenderersHidden(_hoseRenderers, hideTools);
+            SetRenderersHidden(_hammerRenderers, hideTools);
+        }
+
+        private static void SetRenderersHidden(Renderer[] renderers, bool hidden)
+        {
+            foreach (var renderer in renderers)
+            {
+                renderer.forceRenderingOff = hidden;
+            }
         }
     }
 }

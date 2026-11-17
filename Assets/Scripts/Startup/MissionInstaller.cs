@@ -1,3 +1,4 @@
+using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.Interaction;
 using FireSlop.Mission;
@@ -9,6 +10,7 @@ namespace FireSlop.Startup
 {
     public sealed class MissionInstaller : MonoInstaller
     {
+        [SerializeField] private DroneController _drone;
         [SerializeField] private ResidentView _resident;
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _entrance;
@@ -22,6 +24,12 @@ namespace FireSlop.Startup
                 Container.Bind<ResidentView>().FromInstance(_resident);
                 Container.Bind<MissionModel>().FromInstance(new MissionModel(_resident.ContentId));
                 Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();
+            }
+
+            Container.Bind<DroneModel>().AsSingle();
+            if (_drone != null)
+            {
+                Container.Bind<DroneController>().FromInstance(_drone);
             }
 
             Container.Bind<MovementConfigSO>().FromInstance(_movement);
