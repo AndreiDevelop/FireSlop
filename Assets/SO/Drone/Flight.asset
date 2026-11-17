@@ -20,4 +20,5 @@ MonoBehaviour:
   _flightHeight: 16
   _cameraDistance: 3.5
   _cameraHeight: 0.75
+  _cameraTransitionSeconds: 0.45
   _windowDockTolerance: 0.4

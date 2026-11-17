@@ -3,6 +3,7 @@ using FireSlop.Interaction;
 using FireSlop.MissionHud;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using Zenject;
 
 namespace FireSlop.Firefighter
@@ -22,10 +23,15 @@ namespace FireSlop.Firefighter
         private Transform _camera;
         private Vector3 _cameraLocalPosition;
         private Vector3[] _cameraChildPositions;
-        private bool _wasPiloting;
+        private Renderer[] _bodyRenderers;
+        private ShadowCastingMode[] _bodyShadowModes;
+        private bool _isBodyVisible;
+        private float _flightCameraProgress;
         private MissionInputModel _input;
         private MovementConfigSO _config;
         private ToolSelectionModel _tools;
+        private InteractionModel _interaction;
+        private HoseFlightModel _hoseFlight;
         private float _verticalSpeed;
         private float _pitch;
         private bool _waitForNeutral;
@@ -41,11 +47,14 @@ namespace FireSlop.Firefighter
 
         [Inject]
         public void Construct(MissionInputModel input, MovementConfigSO config, ToolSelectionModel tools,
-            DroneModel flight, Camera camera, [InjectOptional] DroneController drone)
+            DroneModel flight, Camera camera, InteractionModel interaction, HoseFlightModel hoseFlight,
+            [InjectOptional] DroneController drone)
         {
             _input = input;
             _config = config;
             _tools = tools;
+            _interaction = interaction;
+            _hoseFlight = hoseFlight;
             _flight = flight;
             _drone = drone;
             _camera = camera.transform;
@@ -55,8 +64,6 @@ namespace FireSlop.Firefighter
             {
                 _cameraChildPositions[index] = _camera.GetChild(index).localPosition;
             }
-
-            _flight.ContextChanged += RefreshFlightCamera;
         }
 
         private void Awake()
@@ -67,36 +74,56 @@ namespace FireSlop.Firefighter
             _standingStepOffset = _body.stepOffset;
             _standingEyes = _eyes.localPosition;
             _focused = Application.isFocused;
-        }
 
-        private void OnDestroy()
-        {
-            if (_flight != null)
+            if (_locomotionAnimator != null)
             {
-                _flight.ContextChanged -= RefreshFlightCamera;
+                _bodyRenderers = _locomotionAnimator.GetComponentsInChildren<Renderer>(true);
+                _bodyShadowModes = new ShadowCastingMode[_bodyRenderers.Length];
+                for (var index = 0; index < _bodyRenderers.Length; index++)
+                {
+                    _bodyShadowModes[index] = _bodyRenderers[index].shadowCastingMode;
+                }
             }
         }
 
-        private void RefreshFlightCamera()
+        private void SetFlightBodyVisible(bool visible)
         {
-            if (_wasPiloting != _flight.IsPiloted)
+            if (_bodyRenderers == null || _isBodyVisible == visible)
             {
-                _wasPiloting = _flight.IsPiloted;
-                ApplyFlightCamera();
+                return;
+            }
+
+            _isBodyVisible = visible;
+            for (var index = 0; index < _bodyRenderers.Length; index++)
+            {
+                if (_bodyShadowModes[index] == ShadowCastingMode.ShadowsOnly)
+                {
+                    _bodyRenderers[index].shadowCastingMode =
+                        visible ? ShadowCastingMode.On : _bodyShadowModes[index];
+                }
             }
         }
 
-        private void ApplyFlightCamera()
+        private void LateUpdate()
         {
+            if (_drone == null || (!_flight.IsPiloted && _flightCameraProgress == 0f))
+            {
+                return;
+            }
+
+            var target = _flight.IsPiloted ? 1f : 0f;
+            var step = Time.deltaTime / _drone.CameraTransitionSeconds;
+            _flightCameraProgress = Mathf.MoveTowards(_flightCameraProgress, target, step);
+            var blend = Mathf.SmoothStep(0f, 1f, _flightCameraProgress);
             _camera.localPosition = _cameraLocalPosition;
-            var cameraOffset = Vector3.zero;
-            if (_flight.IsPiloted)
+            var eyePosition = _camera.position;
+            if (blend > 0f)
             {
-                _camera.position = _drone.GetCameraPosition(_camera, _body);
-                cameraOffset = _camera.InverseTransformVector(_camera.parent.TransformVector(
-                    _camera.localPosition - _cameraLocalPosition));
+                _camera.position = _drone.GetCameraPosition(_camera, _body, blend);
             }
 
+            var cameraOffset = _camera.InverseTransformVector(_camera.position - eyePosition);
+            SetFlightBodyVisible(cameraOffset.z < -_body.radius);
             for (var index = 0; index < _cameraChildPositions.Length; index++)
             {
                 _camera.GetChild(index).localPosition = _cameraChildPositions[index] - cameraOffset;
@@ -106,6 +133,7 @@ namespace FireSlop.Firefighter
         private void OnDisable()
         {
             ReleaseInput();
+            _hoseFlight?.Reset();
             SetHeight(_standingHeight);
             _windowJumpTuck = false;
             _eyes.localPosition = _standingEyes;
@@ -202,6 +230,7 @@ namespace FireSlop.Firefighter
             {
                 SetRunning(false);
                 _verticalSpeed = 0f;
+                _hoseFlight.Reset();
                 _jumpRequested = 0f;
                 _windowJumpTuck = false;
                 UpdateStance(false);
@@ -209,12 +238,28 @@ namespace FireSlop.Firefighter
                 var down = keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed);
                 var vertical = Mathf.Clamp(_input.DroneElevation + (up ? 1f : 0f) - (down ? 1f : 0f), -1f, 1f);
                 _drone.Fly(_body, movement, vertical, transform.eulerAngles.y, Time.deltaTime);
-                ApplyFlightCamera();
                 return;
             }
 
-            _jumpRequested = Mathf.Max(0f, _jumpRequested - Time.deltaTime);
-            if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
+            MoveOnFoot(movement, keyboard, Time.deltaTime);
+        }
+
+        private void MoveOnFoot(Vector2 movement, Keyboard keyboard, float deltaTime)
+        {
+            if (deltaTime <= 0f)
+            {
+                return;
+            }
+
+            var hasHoseThrust = TryGetHoseThrust(out var steeringVelocity);
+            if (hasHoseThrust && !_hoseFlight.IsAirborne)
+            {
+                _hoseFlight.Start(_body.bounds.min.y);
+                _jumpRequested = 0f;
+            }
+
+            _jumpRequested = Mathf.Max(0f, _jumpRequested - deltaTime);
+            if (!_hoseFlight.IsAirborne && keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
             {
                 _jumpRequested = _config.JumpInputBuffer;
             }
@@ -233,9 +278,17 @@ namespace FireSlop.Firefighter
 
             var crouchHeld = keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed);
             var direction = transform.right * movement.x + transform.forward * movement.y;
-            var opening = FindOpenWindow(direction);
-            var dockedWindow = opening != null && _drone != null && _drone.IsDockedAtWindow(opening);
-            UpdateStance(crouchHeld, dockedWindow);
+            if (_hoseFlight.IsAirborne)
+            {
+                _hoseFlight.Advance(_body.bounds.min.y, hasHoseThrust, steeringVelocity, deltaTime);
+                direction = Vector3.ProjectOnPlane(_hoseFlight.Velocity, Vector3.up);
+            }
+
+            var opening = FindOpenWindow(direction.normalized);
+            var dockedWindow = !_hoseFlight.IsAirborne && opening != null && _drone != null &&
+                _drone.IsDockedAtWindow(opening);
+            var flyingThroughWindow = _hoseFlight.IsAirborne && opening != null;
+            UpdateStance(crouchHeld, dockedWindow || flyingThroughWindow);
             var speed = _config.Speed;
             if (crouchHeld || (!_windowJumpTuck && _body.height < _standingHeight))
             {
@@ -243,15 +296,28 @@ namespace FireSlop.Firefighter
             }
 
             var velocity = direction * speed;
-            _verticalSpeed -= _config.Gravity * Time.deltaTime;
-            velocity.y = _verticalSpeed;
+            if (_hoseFlight.IsAirborne)
+            {
+                velocity = _hoseFlight.Velocity;
+                _verticalSpeed = 0f;
+            }
+            else
+            {
+                _verticalSpeed -= _config.Gravity * deltaTime;
+                velocity.y = _verticalSpeed;
+            }
             var needsSillStep = dockedWindow && opening.bounds.min.y - _body.bounds.min.y > _standingStepOffset;
             if (needsSillStep)
             {
                 _body.stepOffset = Mathf.Min(_config.JumpHeight, _body.height - _body.skinWidth);
             }
 
-            var collision = _body.Move(velocity * Time.deltaTime);
+            var collision = _body.Move(velocity * deltaTime);
+            if (_hoseFlight.IsAirborne)
+            {
+                _hoseFlight.StopAtCollision(collision);
+            }
+
             var actualVelocity = _body.velocity;
             actualVelocity.y = 0f;
             SetRunning(movement != Vector2.zero && _body.isGrounded &&
@@ -271,6 +337,33 @@ namespace FireSlop.Firefighter
             {
                 _flight.SetOnPlatform(_drone.IsStandingOnDeck(_body));
             }
+        }
+
+        private bool TryGetHoseThrust(out Vector3 steeringVelocity)
+        {
+            steeringVelocity = Vector3.zero;
+            if (!_interaction.HoseActive || (!_hoseFlight.IsAirborne && !_body.isGrounded))
+            {
+                return false;
+            }
+
+            var aim = _camera.forward;
+            var down = Vector3.Dot(aim, Vector3.down);
+            var launchDown = Mathf.Cos(_config.HoseLaunchAngle * Mathf.Deg2Rad);
+            var steeringDown = Mathf.Cos(_config.HoseSteeringAngle * Mathf.Deg2Rad);
+            var requiredDown = _hoseFlight.IsAirborne ? steeringDown : launchDown;
+            if (down < requiredDown ||
+                !Physics.Raycast(_camera.position, aim, out var hit, _config.HoseSupportRange,
+                    _config.HoseSupportMask, QueryTriggerInteraction.Ignore) ||
+                hit.normal.y < _config.HoseSupportMinUp)
+            {
+                return false;
+            }
+
+            var tilt = Mathf.InverseLerp(launchDown, steeringDown, down);
+            var horizontalAim = Vector3.ProjectOnPlane(aim, Vector3.up);
+            steeringVelocity = -horizontalAim.normalized * (tilt * _config.HoseSteeringSpeed);
+            return true;
         }
 
         private void SetRunning(bool isRunning)

@@ -51,8 +51,7 @@ namespace FireSlop.Interaction
 
         public void BeginPrimary(PrimaryInputSource source)
         {
-            if (!_enabled || _primarySource.HasValue ||
-                (_flight.IsPiloted && (IsCarryingResident || _tools.Selected != 0)))
+            if (!_enabled || _primarySource.HasValue || _flight.IsPiloted)
             {
                 return;
             }

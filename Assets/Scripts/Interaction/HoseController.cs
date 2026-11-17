@@ -18,7 +18,7 @@ namespace FireSlop.Interaction
 
         private readonly HoseWaterPacket[] _packets = new HoseWaterPacket[MaxPackets];
         private Transform _aim;
-        private Vector3 _eyeOffset;
+        private Vector3 _eyeLocalPosition;
         private InteractionModel _input;
         private Vector3 _gravity;
         private float _flightLimit;
@@ -30,7 +30,7 @@ namespace FireSlop.Interaction
         public void Construct(Camera camera, InteractionModel input)
         {
             _aim = camera.transform;
-            _eyeOffset = _aim.localPosition;
+            _eyeLocalPosition = _aim.localPosition;
             _input = input;
             if (isActiveAndEnabled)
             {
@@ -246,7 +246,7 @@ namespace FireSlop.Interaction
             }
 
             var origin = _nozzle.position;
-            var eyePosition = _input.IsPilotingDrone ? _aim.parent.TransformPoint(_eyeOffset) : _aim.position;
+            var eyePosition = _aim.parent.TransformPoint(_eyeLocalPosition);
             var toNozzle = origin - eyePosition;
             var obstructed = Cast(eyePosition, toNozzle, _config.CollisionMask, out var obstruction);
             if (obstructed)
@@ -303,20 +303,7 @@ namespace FireSlop.Interaction
 
         private Vector3 GetLaunchVelocity()
         {
-            var direction = _aim.forward;
-            if (_input.IsPilotingDrone)
-            {
-                var target = _aim.position + direction * _config.Range;
-                if (Physics.Raycast(_aim.position, direction, out var hit, _config.Range,
-                        _config.CollisionMask, QueryTriggerInteraction.Ignore))
-                {
-                    target = hit.point;
-                }
-
-                direction = (target - _nozzle.position).normalized;
-            }
-
-            return direction * _config.LaunchSpeed;
+            return _aim.forward * _config.LaunchSpeed;
         }
 
         private void LateUpdate()

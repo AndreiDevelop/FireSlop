@@ -68,7 +68,9 @@ namespace FireSlop.MissionHud
             var action = GetActionLabel();
             var hasAction = _model.HasDroneAction || _model.CanInteractWithDoor ||
                             _model.RescueAction != RescueContext.None;
-            _hint.text = "E  " + action;
+            _hint.text = _model.HasDroneAction && _model.IsPilotingDrone
+                ? "Arrows  Move   |   Space  Up   |   Ctrl  Down   |   E  Exit flight"
+                : "E  " + action;
             if (_model.IsCarryingResident && !_model.IsPilotingDrone && !touch)
             {
                 _hint.text += "   |   LMB  Throw";

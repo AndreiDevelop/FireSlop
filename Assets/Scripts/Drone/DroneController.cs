@@ -21,6 +21,7 @@ namespace FireSlop.Drone
         private Vector3 _origin;
 
         public string ContentId => _contentId;
+        public float CameraTransitionSeconds => _config.CameraTransitionSeconds;
 
         [Inject]
         public void Construct(DroneModel model, MissionInputModel input)
@@ -53,8 +54,8 @@ namespace FireSlop.Drone
 
         public void TogglePilot()
         {
-            _model.TogglePilot(Time.time, _config.HoverAfterExitSeconds);
             _input.Cancel();
+            _model.TogglePilot(Time.time, _config.HoverAfterExitSeconds);
         }
 
         public void Fly(CharacterController pilot, Vector2 move, float vertical, float yaw, float deltaTime)
@@ -84,12 +85,11 @@ namespace FireSlop.Drone
             pilot.enabled = wasEnabled;
         }
 
-        public Vector3 GetCameraPosition(Transform eyes, CharacterController pilot)
+        public Vector3 GetCameraPosition(Transform eyes, CharacterController pilot, float blend)
         {
-            var focus = eyes.position + Vector3.up * _config.CameraHeight;
-            var offset = -eyes.forward * _config.CameraDistance;
-            var distance = GetClearDistance(focus, Vector3.one * Clearance, offset, pilot, Quaternion.identity);
-            return focus + offset.normalized * distance;
+            var offset = (Vector3.up * _config.CameraHeight - eyes.forward * _config.CameraDistance) * blend;
+            var distance = GetClearDistance(eyes.position, Vector3.one * Clearance, offset, pilot, Quaternion.identity);
+            return eyes.position + offset.normalized * distance;
         }
 
         private void LateUpdate()
