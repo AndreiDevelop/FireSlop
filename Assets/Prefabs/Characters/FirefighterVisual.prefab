@@ -53,6 +53,14 @@ PrefabInstance:
       value: FirefighterVisual
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 023f24539d8064257aa3835dbb7f57cc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 388d5e1e4b956421fb1d14e2cc39289b, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 023f24539d8064257aa3835dbb7f57cc, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 023f24539d8064257aa3835dbb7f57cc, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}

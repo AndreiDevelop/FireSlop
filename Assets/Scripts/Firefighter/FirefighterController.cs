@@ -10,7 +10,11 @@ namespace FireSlop.Firefighter
     [RequireComponent(typeof(CharacterController))]
     public sealed class FirefighterController : MonoBehaviour
     {
+        private const float MinimumRunningSpeed = 0.05f;
+        private static readonly int IsRunningParameter = Animator.StringToHash("IsRunning");
+
         [SerializeField] private Transform _eyes;
+        [SerializeField] private Animator _locomotionAnimator;
 
         private CharacterController _body;
         private DroneController _drone;
@@ -131,6 +135,7 @@ namespace FireSlop.Firefighter
 
         private void ReleaseInput()
         {
+            SetRunning(false);
             _input?.Cancel();
             _jumpRequested = 0f;
             _waitForNeutral = true;
@@ -142,6 +147,7 @@ namespace FireSlop.Firefighter
         {
             if (_input == null || !_input.IsEnabled || !_focused)
             {
+                SetRunning(false);
                 return;
             }
 
@@ -194,6 +200,7 @@ namespace FireSlop.Firefighter
             movement = Vector2.ClampMagnitude(movement + _input.Movement, 1f);
             if (_flight.IsPiloted)
             {
+                SetRunning(false);
                 _verticalSpeed = 0f;
                 _jumpRequested = 0f;
                 _windowJumpTuck = false;
@@ -245,6 +252,11 @@ namespace FireSlop.Firefighter
             }
 
             var collision = _body.Move(velocity * Time.deltaTime);
+            var actualVelocity = _body.velocity;
+            actualVelocity.y = 0f;
+            SetRunning(movement != Vector2.zero && _body.isGrounded &&
+                actualVelocity.sqrMagnitude > MinimumRunningSpeed * MinimumRunningSpeed);
+
             if (needsSillStep)
             {
                 _body.stepOffset = _standingStepOffset;
@@ -258,6 +270,14 @@ namespace FireSlop.Firefighter
             if (_drone != null)
             {
                 _flight.SetOnPlatform(_drone.IsStandingOnDeck(_body));
+            }
+        }
+
+        private void SetRunning(bool isRunning)
+        {
+            if (_locomotionAnimator != null)
+            {
+                _locomotionAnimator.SetBool(IsRunningParameter, isRunning);
             }
         }
 

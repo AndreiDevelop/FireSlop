@@ -30,7 +30,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 298
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000u
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -88,25 +117,453 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
-    armTwist: 0.5
-    foreArmTwist: 0.5
-    upperLegTwist: 0.5
-    legTwist: 0.5
-    armStretch: 0.05
-    legStretch: 0.05
+    human:
+    - boneName: Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftUpperLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightUpperLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftLowerLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightLowerLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftUpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightUpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftLowerArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightLowerArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftToes
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightToes
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Firefighter(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GloveCuff-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.755, y: 0.99, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GloveCuff1
+      parentName: Firefighter(Clone)
+      position: {x: -0.755, y: 0.99, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetBrim
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetNumber67
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 1.84, z: 0.343}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetRearGuard
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 1.57, z: -0.257}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetShell
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetShield
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 1.88, z: 0.304}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetShieldInset
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 1.88, z: 0.331}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetSideGuard-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.32, y: 1.57, z: -0.055}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HelmetSideGuard1
+      parentName: Firefighter(Clone)
+      position: {x: -0.32, y: 1.57, z: -0.055}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HumanoidRig
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips
+      parentName: HumanoidRig
+      position: {x: 0, y: 0, z: 0.49721006}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Spine
+      parentName: Hips
+      position: {x: -0, y: 0.099999964, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999984, z: 0.9999984}
+    - name: Chest
+      parentName: Spine
+      position: {x: -0, y: 0.13999999, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000005, z: 1.0000005}
+    - name: Neck
+      parentName: Chest
+      position: {x: -0, y: 0.15000004, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Head
+      parentName: Neck
+      position: {x: -0, y: 0.09000003, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: LeftShoulder
+      parentName: Chest
+      position: {x: -0.1, y: 0.15000004, z: 0}
+      rotation: {x: 0.50000006, y: -0.5, z: -0.5, w: -0.50000006}
+      scale: {x: 1.0000029, y: 1.0000027, z: 1.0000029}
+    - name: LeftUpperArm
+      parentName: LeftShoulder
+      position: {x: -0, y: 0.20000003, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000082, y: 1.0000058, z: 1.0000085}
+    - name: LeftLowerArm
+      parentName: LeftUpperArm
+      position: {x: -0, y: 0.23500004, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000067, y: 1.000006, z: 1.0000066}
+    - name: LeftHand
+      parentName: LeftLowerArm
+      position: {x: -0, y: 0.22500002, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.000006, y: 1.000006, z: 1.000006}
+    - name: RightShoulder
+      parentName: Chest
+      position: {x: 0.1, y: 0.15000004, z: 0}
+      rotation: {x: 0.50000006, y: 0.5, z: 0.5, w: -0.50000006}
+      scale: {x: 1.0000029, y: 1.0000027, z: 1.0000029}
+    - name: RightUpperArm
+      parentName: RightShoulder
+      position: {x: -0, y: 0.20000003, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000082, y: 1.0000058, z: 1.0000083}
+    - name: RightLowerArm
+      parentName: RightUpperArm
+      position: {x: -0, y: 0.23500004, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000067, y: 1.000006, z: 1.0000067}
+    - name: RightHand
+      parentName: RightLowerArm
+      position: {x: -0, y: 0.22500002, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.000006, y: 1.000006, z: 1.000006}
+    - name: LeftUpperLeg
+      parentName: Hips
+      position: {x: -0.16, y: 0, z: 0}
+      rotation: {x: 0.9995666, y: -0.020815294, z: -0.020815276, w: -0.00043350458}
+      scale: {x: 0.9999969, y: 1.0000086, z: 1.0000082}
+    - name: LeftLowerLeg
+      parentName: LeftUpperLeg
+      position: {x: 0.0000000037252903, y: 0.24020822, z: 6.4028427e-10}
+      rotation: {x: 0.00019031737, y: -0.0041578705, z: 0.004153538, w: 0.9999828}
+      scale: {x: 1.0000002, y: 1.0000256, z: 1.000024}
+    - name: LeftFoot
+      parentName: LeftLowerLeg
+      position: {x: 0.0000000055885176, y: 0.20024979, z: -1.9208529e-10}
+      rotation: {x: -0.52593386, y: 0.034366626, z: -0.0081128795, w: 0.8497921}
+      scale: {x: 1.000001, y: 0.9999991, z: 0.99999803}
+    - name: LeftToes
+      parentName: LeftFoot
+      position: {x: 0.000000008696513, y: 0.20124613, z: 0.0000000023076685}
+      rotation: {x: -0, y: 0.9732491, z: -0.22975278, w: 0.00000007636843}
+      scale: {x: 1.0000249, y: 1.0000278, z: 1.000003}
+    - name: RightUpperLeg
+      parentName: Hips
+      position: {x: 0.16, y: 0, z: 0}
+      rotation: {x: 0.9995666, y: 0.020815294, z: 0.020815276, w: -0.00043350458}
+      scale: {x: 0.9999969, y: 1.0000086, z: 1.0000082}
+    - name: RightLowerLeg
+      parentName: RightUpperLeg
+      position: {x: -0.0000000037252903, y: 0.24020822, z: 6.4028427e-10}
+      rotation: {x: 0.00019031737, y: 0.0041578705, z: -0.004153538, w: 0.9999828}
+      scale: {x: 1.0000002, y: 1.0000256, z: 1.000024}
+    - name: RightFoot
+      parentName: RightLowerLeg
+      position: {x: -0.0000000055885176, y: 0.20024979, z: -1.9208529e-10}
+      rotation: {x: -0.52593386, y: -0.034366626, z: 0.0081128795, w: 0.8497921}
+      scale: {x: 1.000001, y: 0.9999991, z: 0.99999803}
+    - name: RightToes
+      parentName: RightFoot
+      position: {x: -0.000000008696513, y: 0.20124613, z: 0.0000000023076685}
+      rotation: {x: -0, y: 0.9732491, z: -0.22975278, w: -0.00000007636843}
+      scale: {x: 1.0000249, y: 1.0000278, z: 1.000003}
+    - name: JacketClasp
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0.76, z: 0.224}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketClasp.001
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0.89, z: 0.224}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketClasp.002
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 1, z: 0.224}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketFastening
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0.875, z: 0.203}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketHemReflector
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0.65, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketHemSilver
+      parentName: Firefighter(Clone)
+      position: {x: -0, y: 0.65, z: 0.198}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketPocket-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.17, y: 0.77, z: 0.202}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JacketPocket1
+      parentName: Firefighter(Clone)
+      position: {x: -0.17, y: 0.77, z: 0.202}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PocketFlap-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.17, y: 0.83, z: 0.229}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PocketFlap1
+      parentName: Firefighter(Clone)
+      position: {x: -0.17, y: 0.83, z: 0.229}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RaisedCollar-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.187, y: 1.08, z: 0.06}
+      rotation: {x: -0.7045539, y: -0.060031723, z: 0.06003172, w: 0.7045539}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RaisedCollar1
+      parentName: Firefighter(Clone)
+      position: {x: -0.187, y: 1.08, z: 0.06}
+      rotation: {x: -0.7045539, y: 0.060031723, z: -0.06003172, w: 0.7045539}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SleeveReflector-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.64, y: 0.99, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SleeveReflector1
+      parentName: Firefighter(Clone)
+      position: {x: -0.64, y: 0.99, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TrouserReflector-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.17, y: 0.31, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TrouserReflector1
+      parentName: Firefighter(Clone)
+      position: {x: -0.17, y: 0.31, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TrouserSilver-1
+      parentName: Firefighter(Clone)
+      position: {x: 0.17, y: 0.31, z: 0.139}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TrouserSilver1
+      parentName: Firefighter(Clone)
+      position: {x: -0.17, y: 0.31, z: 0.139}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0
+    foreArmTwist: 0
+    upperLegTwist: 0
+    legTwist: 0
+    armStretch: 0
+    legStretch: 0
     feetSpacing: 0
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 023f24539d8064257aa3835dbb7f57cc, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
