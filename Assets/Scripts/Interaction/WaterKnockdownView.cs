@@ -34,8 +34,12 @@ namespace FireSlop.Interaction
 
         public void ApplyWater(Vector3 direction)
         {
-            if ((_resident != null && !_resident.CanBeKnockedDown) ||
-                !_model.TryFall(Time.timeAsDouble, _config.FallSeconds))
+            if (!_model.IsDown && _resident != null && !_resident.CanBeKnockedDown)
+            {
+                return;
+            }
+
+            if (!_model.ApplyWater(Time.timeAsDouble, _config.FallSeconds))
             {
                 return;
             }

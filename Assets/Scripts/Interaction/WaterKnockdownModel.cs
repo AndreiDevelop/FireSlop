@@ -8,16 +8,17 @@ namespace FireSlop.Interaction
 
         public bool IsDown { get; private set; }
 
-        public bool TryFall(double now, float fallSeconds)
+        public bool ApplyWater(double now, float fallSeconds)
         {
-            if (IsDown || now < _nextHitAt)
+            if (now < _nextHitAt)
             {
                 return false;
             }
 
+            var startsFall = !IsDown;
             IsDown = true;
             _standAt = now + fallSeconds;
-            return true;
+            return startsFall;
         }
 
         public bool CanStand(double now)

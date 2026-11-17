@@ -287,10 +287,10 @@ namespace FireSlop.Interaction
             }
             else if ((_config.PushMask.value & layerBit) != 0)
             {
-                if (hit.collider.TryGetComponent<WaterKnockdownView>(out var character))
+                var character = hit.collider.GetComponentInParent<WaterKnockdownView>();
+                if (character != null)
                 {
                     character.ApplyWater(direction);
-                    return;
                 }
 
                 var body = hit.rigidbody;

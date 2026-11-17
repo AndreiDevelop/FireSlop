@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.WaterKnockdownConfigSO
   _knockbackSpeed: 3.2
   _tipSpeed: 3
-  _fallSeconds: 1.45
+  _fallSeconds: 3
   _standSeconds: 0.65
   _graceSeconds: 0.65
   _groundMask:
