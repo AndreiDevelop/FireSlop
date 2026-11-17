@@ -21,4 +21,5 @@ MonoBehaviour:
   _debrisTravel: 0.68
   _aimCollisionMask:
     serializedVersion: 2
-    m_Bits: 4294950139
+    m_Bits: 4294753531
+  _debrisLayer: 16

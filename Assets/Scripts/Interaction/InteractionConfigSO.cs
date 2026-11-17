@@ -12,6 +12,7 @@ namespace FireSlop.Interaction
         [SerializeField, Min(0.01f)] private float _debrisSettleSeconds = 0.62f;
         [SerializeField, Min(0f)] private float _debrisTravel = 0.68f;
         [SerializeField] private LayerMask _aimCollisionMask;
+        [SerializeField, Range(0, 31)] private int _debrisLayer = 2;
 
         public float ContextRange => _contextRange;
         public float DoorSwingDuration => _doorSwingDuration;
@@ -21,5 +22,6 @@ namespace FireSlop.Interaction
         public float DebrisSettleSeconds => _debrisSettleSeconds;
         public float DebrisTravel => _debrisTravel;
         public LayerMask AimCollisionMask => _aimCollisionMask;
+        public int DebrisLayer => _debrisLayer;
     }
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   _fixedStepsPerSample: 8
   _collisionMask:
     serializedVersion: 2
-    m_Bits: 15361
+    m_Bits: 48129
   _movingCollisionMask:
     serializedVersion: 2
     m_Bits: 11264

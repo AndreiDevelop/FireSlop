@@ -15,6 +15,8 @@ namespace FireSlop.Interaction
 
         private bool _detached;
 
+        internal Collider Solid => _solid;
+
         internal void Reveal()
         {
             _surface.enabled = true;
@@ -33,6 +35,7 @@ namespace FireSlop.Interaction
                 _solid.enabled = false;
             }
 
+            gameObject.layer = config.DebrisLayer;
             Reveal();
             transform.SetParent(owner, true);
             StartCoroutine(Settle(direction, config.DebrisSettleSeconds, config.DebrisTravel));
@@ -46,7 +49,8 @@ namespace FireSlop.Interaction
             var side = Vector3.Cross(Vector3.up, forward);
             var scatter = Random.Range(-0.65f, 0.65f);
             var travel = (forward + side * scatter) * (distance * Random.Range(0.45f, 1f));
-            var end = FindLanding(start, travel);
+            var restHeight = _restHeight * transform.TransformVector(Vector3.up).magnitude;
+            var end = FindLanding(start, travel, restHeight);
             var restRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
             var elapsed = 0f;
             while (elapsed < seconds)
@@ -62,7 +66,7 @@ namespace FireSlop.Interaction
             transform.SetPositionAndRotation(end, restRotation);
         }
 
-        private Vector3 FindLanding(Vector3 start, Vector3 travel)
+        private static Vector3 FindLanding(Vector3 start, Vector3 travel, float restHeight)
         {
             var distance = travel.magnitude;
             if (distance > 0f && Physics.Raycast(start, travel / distance, out var wall, distance,
@@ -75,7 +79,7 @@ namespace FireSlop.Interaction
             if (Physics.Raycast(end + Vector3.up * FloorClearance, Vector3.down, out var floor,
                     FloorSearchDistance, GroundMask, QueryTriggerInteraction.Ignore))
             {
-                end.y = floor.point.y + _restHeight * Mathf.Abs(transform.lossyScale.y) + FloorClearance;
+                end.y = floor.point.y + restHeight + FloorClearance;
             }
 
             return end;

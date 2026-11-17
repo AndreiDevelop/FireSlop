@@ -11,6 +11,7 @@ namespace FireSlop.Interaction
         [SerializeField] private Quaternion _openLocalRotation;
         [SerializeField] private string _contentId;
         [SerializeField] private Renderer _intactLeaf;
+        [SerializeField] private Collider _intactSolid;
         [SerializeField] private BreakableFragment[] _fragments;
 
         private Quaternion _closedLocalRotation;
@@ -41,6 +42,44 @@ namespace FireSlop.Interaction
         public bool IsLeafHit(Transform hit)
         {
             return hit.IsChildOf(_leaf);
+        }
+
+        internal void HitIntact(Collider hit, Ray ray, InteractionConfigSO config)
+        {
+            if (hit != _intactSolid || Door.DamageHits != 0)
+            {
+                return;
+            }
+
+            _intactSolid.enabled = false;
+            foreach (var piece in _fragments)
+            {
+                piece.Solid.enabled = true;
+            }
+
+            Physics.SyncTransforms();
+            BreakableFragment struck = null;
+            var distance = config.HammerReach;
+            foreach (var piece in _fragments)
+            {
+                if (piece.Solid.Raycast(ray, out var pieceHit, distance))
+                {
+                    struck = piece;
+                    distance = pieceHit.distance;
+                }
+            }
+
+            if (struck != null)
+            {
+                Hit(struck, ray.direction, config);
+                return;
+            }
+
+            _intactSolid.enabled = true;
+            foreach (var piece in _fragments)
+            {
+                piece.Solid.enabled = false;
+            }
         }
 
         internal void Hit(BreakableFragment fragment, Vector3 direction, InteractionConfigSO config)

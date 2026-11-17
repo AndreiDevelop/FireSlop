@@ -104,9 +104,16 @@ namespace FireSlop.Interaction
         private void Strike()
         {
             var view = _camera.transform;
-            if (!Physics.Raycast(view.position, view.forward, out var hit, _config.HammerReach, _config.AimCollisionMask,
+            var ray = new Ray(view.position, view.forward);
+            if (!Physics.Raycast(ray, out var hit, _config.HammerReach, _config.AimCollisionMask,
                     QueryTriggerInteraction.Ignore))
             {
+                return;
+            }
+
+            if (hit.collider.TryGetComponent<WindowSectionView>(out var section))
+            {
+                section.Window.Hit(section, ray.direction, _config);
                 return;
             }
 
@@ -124,6 +131,13 @@ namespace FireSlop.Interaction
             if (hit.collider.TryGetComponent<BreakableWallView>(out var wall))
             {
                 wall.Hit(view.forward, _config);
+                return;
+            }
+
+            var intactDoor = hit.collider.GetComponentInParent<DoorView>();
+            if (intactDoor != null)
+            {
+                intactDoor.HitIntact(hit.collider, ray, _config);
             }
         }
     }
