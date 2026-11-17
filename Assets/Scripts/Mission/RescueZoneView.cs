@@ -1,3 +1,4 @@
+using System;
 using FireSlop.Interaction;
 using UnityEngine;
 using Zenject;
@@ -23,7 +24,7 @@ namespace FireSlop.Mission
             _resident = resident;
             if (_volume == null || !_volume.isTrigger || string.IsNullOrWhiteSpace(_contentId))
             {
-                throw new System.InvalidOperationException("Rescue zone requires an ID and trigger volume.");
+                throw new InvalidOperationException("Rescue zone requires an ID and trigger volume.");
             }
         }
 

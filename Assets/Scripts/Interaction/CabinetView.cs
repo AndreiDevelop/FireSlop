@@ -19,8 +19,15 @@ namespace FireSlop.Interaction
         private Quaternion _leftOpen;
         private Quaternion _rightOpen;
 
-        public bool IsOpen { get; private set; }
-        public Collider Target => _target;
+        private Coroutine _swing;
+        private float _openness;
+
+        public bool IsOpen => _model.CabinetOpened && _openness >= 1f;
+
+        public bool IsHit(Collider target)
+        {
+            return target != null && target.transform.IsChildOf(transform);
+        }
 
         [Inject]
         public void Construct(InteractionModel model)
@@ -30,35 +37,67 @@ namespace FireSlop.Interaction
             _rightClosed = _rightLeaf.localRotation;
             _leftOpen = _leftClosed * Quaternion.Euler(_leftOpenEuler);
             _rightOpen = _rightClosed * Quaternion.Euler(_rightOpenEuler);
-            _model.CabinetRevealed += Open;
+            _model.CabinetChanged += Render;
         }
 
-        private void Open()
+        private void Render()
         {
-            _target.enabled = false;
-            StartCoroutine(SwingOpen());
-        }
-
-        private IEnumerator SwingOpen()
-        {
-            var openness = 0f;
-            while (openness < 1f)
+            if (_swing != null)
             {
-                yield return null;
-                openness = Mathf.MoveTowards(openness, 1f, Time.deltaTime / _config.DoorSwingDuration);
-                var eased = Mathf.SmoothStep(0f, 1f, openness);
-                _leftLeaf.localRotation = Quaternion.Slerp(_leftClosed, _leftOpen, eased);
-                _rightLeaf.localRotation = Quaternion.Slerp(_rightClosed, _rightOpen, eased);
+                StopCoroutine(_swing);
+                _swing = null;
             }
 
-            IsOpen = true;
+            var target = _model.CabinetOpened ? 1f : 0f;
+            _target.enabled = false;
+            if (_openness == target || !isActiveAndEnabled)
+            {
+                SetOpenness(target);
+                _target.enabled = !_model.CabinetOpened;
+                return;
+            }
+
+            _swing = StartCoroutine(SwingTo(target));
+        }
+
+        private IEnumerator SwingTo(float target)
+        {
+            while (_openness != target)
+            {
+                yield return null;
+                SetOpenness(Mathf.MoveTowards(_openness, target, Time.deltaTime / _config.DoorSwingDuration));
+            }
+
+            _target.enabled = !_model.CabinetOpened;
+            _swing = null;
+        }
+
+        private void SetOpenness(float openness)
+        {
+            _openness = openness;
+            var eased = Mathf.SmoothStep(0f, 1f, openness);
+            _leftLeaf.localRotation = Quaternion.Slerp(_leftClosed, _leftOpen, eased);
+            _rightLeaf.localRotation = Quaternion.Slerp(_rightClosed, _rightOpen, eased);
+        }
+
+        private void OnDisable()
+        {
+            if (_swing == null)
+            {
+                return;
+            }
+
+            StopCoroutine(_swing);
+            _swing = null;
+            SetOpenness(_model.CabinetOpened ? 1f : 0f);
+            _target.enabled = !_model.CabinetOpened;
         }
 
         private void OnDestroy()
         {
             if (_model != null)
             {
-                _model.CabinetRevealed -= Open;
+                _model.CabinetChanged -= Render;
             }
         }
     }

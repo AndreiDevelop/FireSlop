@@ -1,7 +1,7 @@
 using FireSlop.Firefighter;
 using FireSlop.Interaction;
-using FireSlop.MissionHud;
 using FireSlop.Mission;
+using FireSlop.MissionHud;
 using UnityEngine;
 using Zenject;
 
@@ -16,9 +16,14 @@ namespace FireSlop.Startup
 
         public override void InstallBindings()
         {
-            Container.Bind<ResidentView>().FromInstance(_resident);
-            Container.Bind<MissionModel>().FromInstance(new MissionModel(_resident.ContentId));
-            Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();
+            // Tool-only prototype scenes do not contain a rescue mission.
+            if (_resident != null)
+            {
+                Container.Bind<ResidentView>().FromInstance(_resident);
+                Container.Bind<MissionModel>().FromInstance(new MissionModel(_resident.ContentId));
+                Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();
+            }
+
             Container.Bind<MovementConfigSO>().FromInstance(_movement);
             Container.Bind<MissionInputModel>().AsSingle();
             Container.Bind<ToolSelectionModel>().AsSingle();

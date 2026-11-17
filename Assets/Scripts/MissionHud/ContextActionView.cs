@@ -65,23 +65,40 @@ namespace FireSlop.MissionHud
                 ClearClosed();
             }
 
-            var action = _model.RescueAction switch
-            {
-                RescueContext.OpenCabinet => "Open cabinet",
-                RescueContext.PickUp => "Pick up",
-                RescueContext.PutDown => "Put down",
-                _ => _model.ShouldCloseDoor ? "Close door" : "Open door"
-            };
+            var action = GetActionLabel();
             var hasAction = _model.CanInteractWithDoor || _model.RescueAction != RescueContext.None;
-            _hint.text = _closedMessage != null ? "Closed" : "E  " + action;
+            _hint.text = "E  " + action;
             if (_model.IsCarryingResident && !touch)
             {
-                _hint.text = "E  Put down   |   LMB  Throw";
+                _hint.text += "   |   LMB  Throw";
             }
+
+            if (_closedMessage != null)
+            {
+                _hint.text = "Closed";
+            }
+
             _hint.gameObject.SetActive(_closedMessage != null || (hasAction && !touch));
             _touchLabel.text = action;
             _touchButton.gameObject.SetActive(hasAction && touch);
             _objective.text = _model.IsEntrancePassable ? "Enter the building" : "Reach the entrance";
+        }
+
+        private string GetActionLabel()
+        {
+            if (_model.CanInteractWithDoor)
+            {
+                return _model.ShouldCloseDoor ? "Close door" : "Open door";
+            }
+
+            return _model.RescueAction switch
+            {
+                RescueContext.OpenCabinet => "Open cabinet",
+                RescueContext.CloseCabinet => "Close cabinet",
+                RescueContext.PickUp => "Pick up",
+                RescueContext.PutDown => "Put down",
+                _ => string.Empty
+            };
         }
 
         private void ShowClosed()

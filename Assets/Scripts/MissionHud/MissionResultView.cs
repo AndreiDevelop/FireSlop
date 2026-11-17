@@ -18,8 +18,14 @@ namespace FireSlop.MissionHud
         private MissionController _controller;
 
         [Inject]
-        public void Construct(MissionModel model, MissionController controller)
+        public void Construct([InjectOptional] MissionModel model, [InjectOptional] MissionController controller)
         {
+            if (model == null)
+            {
+                _panel.SetActive(false);
+                return;
+            }
+
             _model = model;
             _controller = controller;
             if (isActiveAndEnabled)

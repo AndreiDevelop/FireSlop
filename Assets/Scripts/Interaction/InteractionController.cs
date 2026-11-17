@@ -123,18 +123,15 @@ namespace FireSlop.Interaction
         private void Interact()
         {
             var target = FindTarget();
-            if (_rescue != null)
-            {
-                _rescue.SetTarget(target);
-                if (_rescue.TryInteract())
-                {
-                    return;
-                }
-            }
-
             var door = FindDoor(target);
             if (door == null || door.Door.IsBroken)
             {
+                if (_rescue != null)
+                {
+                    _rescue.SetTarget(target);
+                    _rescue.TryInteract();
+                }
+
                 return;
             }
 

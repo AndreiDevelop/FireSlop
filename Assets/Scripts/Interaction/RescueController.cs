@@ -29,15 +29,15 @@ namespace FireSlop.Interaction
         public void SetTarget(Collider target)
         {
             var context = RescueContext.None;
-            if (_model.IsCarryingResident)
+            if (_cabinet.IsHit(target))
+            {
+                context = _model.CabinetOpened ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
+            }
+            else if (_model.IsCarryingResident)
             {
                 context = RescueContext.PutDown;
             }
-            else if (!_model.CabinetOpened && target == _cabinet.Target)
-            {
-                context = RescueContext.OpenCabinet;
-            }
-            else if (_cabinet.IsOpen && target == _resident.Capsule)
+            else if (target == _resident.Capsule && (_cabinet.IsOpen || _resident.IsFree))
             {
                 context = RescueContext.PickUp;
             }
@@ -50,7 +50,10 @@ namespace FireSlop.Interaction
             switch (_model.RescueAction)
             {
                 case RescueContext.OpenCabinet:
-                    _model.OpenCabinet();
+                case RescueContext.CloseCabinet:
+                    _model.ToggleCabinet();
+                    _model.SetRescueContext(
+                        _model.CabinetOpened ? RescueContext.CloseCabinet : RescueContext.OpenCabinet);
                     return true;
                 case RescueContext.PickUp:
                     _resident.Attach(_shoulder);

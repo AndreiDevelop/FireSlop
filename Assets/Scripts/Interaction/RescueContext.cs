@@ -5,6 +5,7 @@ namespace FireSlop.Interaction
         None,
         OpenCabinet,
         PickUp,
-        PutDown
+        PutDown,
+        CloseCabinet
     }
 }

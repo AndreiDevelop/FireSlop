@@ -22,6 +22,7 @@ namespace FireSlop.Interaction
 
         public string ContentId => _contentId;
         public CapsuleCollider Capsule => _capsule;
+        public bool IsFree => !_body.isKinematic;
 
         [Inject]
         public void Construct(InteractionModel model, MissionModel mission)
