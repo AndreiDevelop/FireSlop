@@ -2,14 +2,20 @@ using UnityEngine;
 
 namespace FireSlop.Interaction
 {
-    public sealed class WindowSectionView : MonoBehaviour
+    public sealed class WindowSectionView : MonoBehaviour, IHitTarget
     {
         [SerializeField] private BreakableWindowView _window;
         [SerializeField] private Renderer _intactSurface;
         [SerializeField] private Collider _solid;
         [SerializeField] private BreakableFragment[] _fragments;
 
-        public BreakableWindowView Window => _window;
+        public void ApplyHit(Ray ray, RaycastHit hit, InteractionConfigSO config)
+        {
+            if (hit.collider == _solid)
+            {
+                _window.Hit(this, ray.direction, config);
+            }
+        }
 
         internal void ReleaseFragments(Transform owner, Vector3 direction, InteractionConfigSO config)
         {

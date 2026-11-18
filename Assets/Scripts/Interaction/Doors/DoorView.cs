@@ -4,7 +4,7 @@ using Zenject;
 
 namespace FireSlop.Interaction
 {
-    public sealed class DoorView : MonoBehaviour
+    public sealed class DoorView : MonoBehaviour, IHitTarget
     {
         [SerializeField] private Transform _leaf;
         [SerializeField] private ClickableObject _clickableObject;
@@ -46,9 +46,15 @@ namespace FireSlop.Interaction
             return hit.IsChildOf(_leaf);
         }
 
-        internal void HitIntact(Collider hit, Ray ray, InteractionConfigSO config)
+        public void ApplyHit(Ray ray, RaycastHit hit, InteractionConfigSO config)
         {
-            if (hit != _intactSolid || _door.DamageHits != 0)
+            if (hit.collider.TryGetComponent<BreakableFragment>(out var fragment))
+            {
+                Hit(fragment, ray.direction, config);
+                return;
+            }
+
+            if (hit.collider != _intactSolid || _door.DamageHits != 0)
             {
                 return;
             }
@@ -60,7 +66,7 @@ namespace FireSlop.Interaction
             }
         }
 
-        internal void Hit(BreakableFragment fragment, Vector3 direction, InteractionConfigSO config)
+        private void Hit(BreakableFragment fragment, Vector3 direction, InteractionConfigSO config)
         {
             if (!IsLeafHit(fragment.transform) || !_door.RegisterHit(config.DoorHitsToBreak))
             {
