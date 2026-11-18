@@ -1522,7 +1522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144657163801538436, guid: ca01d29ed97e4472bb5cb3eba250a0bc, type: 3}
       propertyPath: m_Name
-      value: Use Tool Tips
+      value: UseToolTips
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
