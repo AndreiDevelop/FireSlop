@@ -14,7 +14,7 @@ namespace FireSlop.MissionHud
             _hint.text = closed ? label : "<sprite name=\"E\">  " + label;
             if (!closed && Model.IsCarrying && !Model.IsPilotingDrone)
             {
-                _hint.text += "   |   LMB  " + Actions.Get(HudActionId.Throw).Label;
+                _hint.text += "   |   <sprite name=\"MouseLeft\">  " + Actions.Get(HudActionId.Throw).Label;
             }
 
             _hint.gameObject.SetActive(action != null && !Model.IsPilotingDrone);
