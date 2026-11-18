@@ -9,6 +9,7 @@ namespace FireSlop.Firefighter
         private bool _mouseLookRequested;
         private bool _droneUp;
         private bool _droneDown;
+        private bool _jumpRequested;
 
         private bool _enabled = true;
         private bool _suspended;
@@ -34,6 +35,7 @@ namespace FireSlop.Firefighter
         }
 
         public Vector2 Movement { get; private set; }
+        public bool CrouchHeld { get; private set; }
         public float DroneElevation => (_droneUp ? 1f : 0f) - (_droneDown ? 1f : 0f);
         public event Action Cancelled;
 
@@ -52,6 +54,23 @@ namespace FireSlop.Firefighter
         public void SetMovement(Vector2 movement)
         {
             Movement = IsEnabled ? Vector2.ClampMagnitude(movement, 1f) : Vector2.zero;
+        }
+
+        public void RequestJump()
+        {
+            _jumpRequested = IsEnabled;
+        }
+
+        public bool ConsumeJumpRequest()
+        {
+            var requested = _jumpRequested;
+            _jumpRequested = false;
+            return requested;
+        }
+
+        public void SetCrouchHeld(bool held)
+        {
+            CrouchHeld = IsEnabled && held;
         }
 
         public void AddLook(Vector2 screenDelta)
@@ -86,6 +105,8 @@ namespace FireSlop.Firefighter
             Movement = Vector2.zero;
             _droneUp = false;
             _droneDown = false;
+            _jumpRequested = false;
+            CrouchHeld = false;
             _lookDelta = Vector2.zero;
             _mouseLookRequested = false;
             Cancelled?.Invoke();

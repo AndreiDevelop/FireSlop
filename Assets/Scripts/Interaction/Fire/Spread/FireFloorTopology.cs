@@ -10,16 +10,19 @@ namespace FireSlop.Interaction
         private const int InitialOverlapCapacity = 8;
         private readonly Vector3[] _positions;
 
-        private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, FireSpreadLink[] doorLinks, int seedIndex)
+        private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, FireSpreadLink[] doorLinks,
+            int seedIndex, int additionalSeedIndex)
         {
             _positions = positions;
             Links = links;
             DoorLinks = doorLinks;
             SeedIndex = seedIndex;
+            AdditionalSeedIndex = additionalSeedIndex;
         }
 
         public int CellCount => _positions.Length;
         public int SeedIndex { get; }
+        public int AdditionalSeedIndex { get; }
         public IReadOnlyList<FireSpreadLink> Links { get; }
         public IReadOnlyList<FireSpreadLink> DoorLinks { get; }
 
@@ -28,7 +31,8 @@ namespace FireSlop.Interaction
             return _positions[index];
         }
 
-        public static FireFloorTopology Build(Vector3 seed, Collider[] floors, FireSpreadConfigSO config)
+        public static FireFloorTopology Build(Vector3 seed, Vector3? additionalSeed, Collider[] floors,
+            FireSpreadConfigSO config)
         {
             var bounds = floors[0].bounds;
             foreach (var floor in floors)
@@ -64,6 +68,23 @@ namespace FireSlop.Interaction
                 return null;
             }
 
+            var additionalSeedIndex = -1;
+            if (additionalSeed.HasValue)
+            {
+                if (!TryGetFloor(additionalSeed.Value, floors, bounds, out var position))
+                {
+                    return null;
+                }
+
+                additionalSeedIndex = FindClosestCell(positions, position, spacing);
+                if (additionalSeedIndex < 0 || additionalSeedIndex == seedIndex)
+                {
+                    return null;
+                }
+
+                positions[additionalSeedIndex] = position;
+            }
+
             var links = new List<FireSpreadLink>(cells.Count * 2);
             var overlaps = new Collider[InitialOverlapCapacity];
             foreach (var cell in cells)
@@ -79,7 +100,7 @@ namespace FireSlop.Interaction
                 var random = new Random();
                 for (var index = 0; index < spreadPositions.Length; index++)
                 {
-                    if (index != seedIndex)
+                    if (index != seedIndex && index != additionalSeedIndex)
                     {
                         spreadPositions[index] = ScatterPatch(positions[index], floors, bounds, config, random);
                     }
@@ -87,7 +108,25 @@ namespace FireSlop.Interaction
             }
 
             var doorLinks = links.FindAll(link => link.HasDoor);
-            return new FireFloorTopology(spreadPositions, links.ToArray(), doorLinks.ToArray(), seedIndex);
+            return new FireFloorTopology(spreadPositions, links.ToArray(), doorLinks.ToArray(),
+                seedIndex, additionalSeedIndex);
+        }
+
+        private static int FindClosestCell(List<Vector3> positions, Vector3 position, float spacing)
+        {
+            var closest = -1;
+            var maxSquaredDistance = spacing * spacing * 0.5f;
+            for (var index = 0; index < positions.Count; index++)
+            {
+                var squaredDistance = (positions[index] - position).sqrMagnitude;
+                if (squaredDistance < maxSquaredDistance)
+                {
+                    maxSquaredDistance = squaredDistance;
+                    closest = index;
+                }
+            }
+
+            return closest;
         }
 
         private static Vector3 ScatterPatch(Vector3 anchor, Collider[] floors, Bounds bounds,

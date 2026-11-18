@@ -254,7 +254,8 @@ namespace FireSlop.Firefighter
             }
 
             _jumpRequested = Mathf.Max(0f, _jumpRequested - deltaTime);
-            if (!_hoseFlight.IsAirborne && keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
+            var jumpPressed = _input.ConsumeJumpRequest() || (keyboard != null && keyboard.spaceKey.wasPressedThisFrame);
+            if (!_hoseFlight.IsAirborne && jumpPressed)
             {
                 _jumpRequested = _config.JumpInputBuffer;
             }
@@ -272,7 +273,8 @@ namespace FireSlop.Firefighter
                 }
             }
 
-            var crouchHeld = keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed);
+            var crouchHeld = _input.CrouchHeld ||
+                (keyboard != null && (keyboard.leftCtrlKey.isPressed || keyboard.rightCtrlKey.isPressed));
             var direction = transform.right * movement.x + transform.forward * movement.y;
             if (_hoseFlight.IsAirborne)
             {
@@ -394,7 +396,7 @@ namespace FireSlop.Firefighter
         private bool TryGetHoseThrust(out Vector3 steeringVelocity)
         {
             steeringVelocity = Vector3.zero;
-            if (!_interaction.HoseActive || (!_hoseFlight.IsAirborne && !_body.isGrounded))
+            if (!_interaction.IsHoseInUseManually || (!_hoseFlight.IsAirborne && !_body.isGrounded))
             {
                 return false;
             }

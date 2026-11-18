@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3700354028831860581}
   - component: {fileID: 5614527206412213311}
   - component: {fileID: 7099632283768930253}
+  - component: {fileID: 3838928524605178091}
   m_Layer: 0
   m_Name: RescueDrone
   m_TagString: Untagged
@@ -77,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Drone.DroneController
   _config: {fileID: 11400000, guid: 136054adf43174cfca1b8a648500b1dc, type: 2}
+  _clickableObject: {fileID: 3838928524605178091}
   _deck: {fileID: 4840215369267860302}
   _flightBounds: {fileID: 1029847268763444372}
   _landingBounds: {fileID: 5846865335984607482}
@@ -232,6 +234,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Audio.AudioOutputView
   _isMusic: 0
+--- !u!114 &3838928524605178091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549542354018320090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e09eb7ecbba4de4abc19dfdee1954c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.ClickableObject
+  _actionIcon: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}
 --- !u!1 &2390738264207844112
 GameObject:
   m_ObjectHideFlags: 0

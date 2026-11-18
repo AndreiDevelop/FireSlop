@@ -21,6 +21,7 @@ namespace FireSlop.Interaction
             EmissionDuration = 0f;
             IsEmissionSealed = false;
             AffectsTargets = true;
+            CanPush = false;
             NozzleObstructed = false;
         }
 
@@ -39,6 +40,7 @@ namespace FireSlop.Interaction
         public float EmissionDuration { get; private set; }
         public bool IsEmissionSealed { get; private set; }
         public bool AffectsTargets { get; set; }
+        public bool CanPush { get; set; }
         public bool NozzleObstructed { get; set; }
 
         public void UpdateEmissionEnd(Vector3 origin, Vector3 velocity, double time, bool seal)

@@ -1,8 +1,7 @@
 using FireSlop.Interaction;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 using Zenject;
 
@@ -10,29 +9,43 @@ namespace FireSlop.MissionHud
 {
     public sealed class HoldActionView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private Text _label;
+        [SerializeField] private TMP_Text _label;
+        [SerializeField] private Image _icon;
+        [SerializeField] private GameObject _desktopHint;
 
         private InteractionModel _model;
+        private ToolSelectionModel _tools;
         private int? _pointer;
 
         [Inject]
-        public void Construct(InteractionModel model)
+        public void Construct(InteractionModel model, ToolSelectionModel tools)
         {
+            if (_label == null || _icon == null || _desktopHint == null)
+            {
+                Debug.LogError("Use Tool requires a label, tool icon, and desktop hint.", this);
+                gameObject.SetActive(false);
+                return;
+            }
+
             _model = model;
+            _tools = tools;
             _model.CarryingChanged += Render;
             _model.ContextChanged += RenderVisibility;
+            _tools.SelectionChanged += OnToolChanged;
             Render();
             RenderVisibility();
         }
 
         private void Render()
         {
-            if (_label != null)
-            {
-                var action = _model.IsCarryingResident ? "Throw" : "Use tool";
-                var showMouseHint = !Application.isMobilePlatform && Mouse.current != null;
-                _label.text = showMouseHint ? "LMB  " + action : action;
-            }
+            _label.text = _model.IsCarryingResident ? "Throw" : "Use tool";
+            _icon.sprite = _tools.SelectedIcon;
+            _icon.enabled = !_model.IsCarryingResident;
+        }
+
+        private void OnToolChanged(string selectedId)
+        {
+            Render();
         }
 
         private void OnDestroy()
@@ -41,18 +54,21 @@ namespace FireSlop.MissionHud
             {
                 _model.CarryingChanged -= Render;
                 _model.ContextChanged -= RenderVisibility;
+                _tools.SelectionChanged -= OnToolChanged;
             }
         }
 
         private void RenderVisibility()
         {
-            var touch = Application.isMobilePlatform || Touchscreen.current != null;
-            gameObject.SetActive(touch && !_model.IsPilotingDrone);
+            var touch = MissionHudPlatform.UsesTouchControls;
+            var visible = !_model.IsPilotingDrone;
+            _desktopHint.SetActive(visible && !touch);
+            gameObject.SetActive(visible && touch);
         }
 
         public void OnPointerDown(PointerEventData data)
         {
-            if (_pointer.HasValue || data is not ExtendedPointerEventData { pointerType: UIPointerType.Touch })
+            if (_model == null || _pointer.HasValue || data.button != PointerEventData.InputButton.Left)
             {
                 return;
             }

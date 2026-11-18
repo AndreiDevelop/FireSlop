@@ -78,6 +78,7 @@ namespace FireSlop.Interaction
             {
                 _input.HoseStarted -= StartSprayAudio;
                 _input.HoseStopped -= StopEmission;
+                _input.SetHoseAim(false);
             }
 
             StopSprayAudio();
@@ -129,7 +130,7 @@ namespace FireSlop.Interaction
 
         private void FixedUpdate()
         {
-            if (_input == null || (!_input.HoseActive && _packetCount == 0))
+            if (_input == null)
             {
                 return;
             }
@@ -138,6 +139,13 @@ namespace FireSlop.Interaction
             {
                 var time = Time.fixedTimeAsDouble;
                 var sampleDuration = Time.fixedDeltaTime * _stepsBetweenSamples;
+                var canAim = _input.CanSprayHose && Application.isFocused;
+                _input.SetHoseAim(canAim && IsAimingAtFire(sampleDuration));
+                if (!_input.HoseActive && _packetCount == 0)
+                {
+                    return;
+                }
+
                 var advance = _stepsUntilLaunch == 0;
                 AdvancePackets(time, sampleDuration, advance);
                 if (advance && _input.HoseActive)
@@ -252,7 +260,7 @@ namespace FireSlop.Interaction
             var direction = packet.VelocityAt(age, _gravity).normalized;
             if (packet.AffectsTargets)
             {
-                ApplyImpact(hit, direction, sampleDuration);
+                ApplyImpact(hit, direction, sampleDuration, packet.CanPush);
             }
 
             _stream.Splash(hit.point, hit.normal, sampleDuration);
@@ -279,6 +287,37 @@ namespace FireSlop.Interaction
                 return;
             }
 
+            var packet = CreatePacket(time);
+            packet.CanPush = _input.IsHoseInUseManually;
+            packet.DropletCount = _stream.TakeDroplets(sampleDuration);
+            if (_packetCount > 0)
+            {
+                _packets[_packetCount - 1].UpdateEmissionEnd(packet.Origin, packet.LaunchVelocity, time, true);
+            }
+
+            PreviewSegment(ref packet, sampleDuration);
+            _packets[_packetCount] = packet;
+            _packetCount++;
+        }
+
+        private bool IsAimingAtFire(float sampleDuration)
+        {
+            var packet = CreatePacket(Time.fixedTimeAsDouble);
+            while (packet.CheckedAge < _flightLimit)
+            {
+                packet.SegmentStartAge = packet.CheckedAge;
+                packet.CheckedAge = Mathf.Min(packet.CheckedAge + sampleDuration, _flightLimit);
+                if (FindImpact(packet, _config.CollisionMask, out var hit, out _))
+                {
+                    return TryGetFire(hit.collider, out var fire) && fire.isActiveAndEnabled && fire.Intensity > 0f;
+                }
+            }
+
+            return false;
+        }
+
+        private HoseWaterPacket CreatePacket(double time)
+        {
             var origin = _nozzle.position;
             var eyePosition = _aim.parent.TransformPoint(_eyeLocalPosition);
             var toNozzle = origin - eyePosition;
@@ -289,18 +328,10 @@ namespace FireSlop.Interaction
                 origin = eyePosition + toNozzle.normalized * Mathf.Max(0f, obstruction.distance - SurfaceClearance);
             }
 
-            var velocity = GetLaunchVelocity();
-            var packet = new HoseWaterPacket(origin, velocity, time, _flightLimit);
-            packet.NozzleObstructed = obstructed;
-            packet.DropletCount = _stream.TakeDroplets(sampleDuration);
-            if (_packetCount > 0)
+            return new HoseWaterPacket(origin, GetLaunchVelocity(), time, _flightLimit)
             {
-                _packets[_packetCount - 1].UpdateEmissionEnd(origin, velocity, time, true);
-            }
-
-            PreviewSegment(ref packet, sampleDuration);
-            _packets[_packetCount] = packet;
-            _packetCount++;
+                NozzleObstructed = obstructed
+            };
         }
 
         private bool Cast(Vector3 origin, Vector3 travel, LayerMask mask, out RaycastHit hit)
@@ -311,15 +342,21 @@ namespace FireSlop.Interaction
                 mask, QueryTriggerInteraction.Collide);
         }
 
-        private void ApplyImpact(RaycastHit hit, Vector3 direction, float sampleDuration)
+        private bool TryGetFire(Collider collider, out WaterFireTarget fire)
+        {
+            fire = null;
+            return (_config.FireMask.value & (1 << collider.gameObject.layer)) != 0 &&
+                   collider.TryGetComponent(out fire);
+        }
+
+        private void ApplyImpact(RaycastHit hit, Vector3 direction, float sampleDuration, bool canPush)
         {
             var layerBit = 1 << hit.collider.gameObject.layer;
-            if ((_config.FireMask.value & layerBit) != 0 &&
-                hit.collider.TryGetComponent<WaterFireTarget>(out var fire))
+            if (TryGetFire(hit.collider, out var fire))
             {
                 fire.ApplyWater(sampleDuration);
             }
-            else if ((_config.PushMask.value & layerBit) != 0)
+            else if (canPush && (_config.PushMask.value & layerBit) != 0)
             {
                 var character = hit.collider.GetComponentInParent<WaterKnockdownView>();
                 if (character != null)

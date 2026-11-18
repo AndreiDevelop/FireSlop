@@ -9,6 +9,7 @@ namespace FireSlop.Interaction
         private static readonly ProfilerMarker SpreadMarker = new ProfilerMarker("Fire.Spread");
 
         [SerializeField] private WaterFireTarget _seed;
+        [SerializeField] private WaterFireTarget _additionalSeed;
         [SerializeField] private WaterFireTarget _firePrefab;
         [SerializeField] private Collider[] _floors;
         [SerializeField] private FireSpreadConfigSO _config;
@@ -38,10 +39,11 @@ namespace FireSlop.Interaction
             }
 
             Physics.SyncTransforms();
-            _floor = FireFloorTopology.Build(_seed.transform.position, _floors, _config);
+            Vector3? additionalPosition = _additionalSeed != null ? _additionalSeed.transform.position : null;
+            _floor = FireFloorTopology.Build(_seed.transform.position, additionalPosition, _floors, _config);
             if (_floor == null)
             {
-                Debug.LogError("The fire spread seed must be above one of the assigned floor colliders.", this);
+                Debug.LogError("Fire spread seeds must occupy distinct cells on the assigned floor colliders.", this);
                 enabled = false;
                 return;
             }
@@ -50,14 +52,26 @@ namespace FireSlop.Interaction
             _views[_floor.SeedIndex] = _seed;
             _seed.EnableReignition(_config.ReignitionDelay);
             _model.Initialize(_floor.CellCount, _floor.SeedIndex, _seed.Fire);
+            if (_additionalSeed != null)
+            {
+                _views[_floor.AdditionalSeedIndex] = _additionalSeed;
+                _additionalSeed.EnableReignition(_config.ReignitionDelay);
+                _model.AddStartingFire(_floor.AdditionalSeedIndex, _additionalSeed.Fire);
+            }
+
             _nextTick = Time.timeAsDouble + _config.SpreadInterval;
         }
 
         private bool HasValidSceneReferences()
         {
-            if (_model == null || _seed == null || _seed.Fire == null || _firePrefab == null ||
-                _firePrefab.Settings != _seed.Settings || _config == null || !_config.IsValid ||
+            if (_model == null || _firePrefab == null || !IsValidSeed(_seed) ||
+                _config == null || !_config.IsValid ||
                 _floors == null || _floors.Length == 0)
+            {
+                return false;
+            }
+
+            if (_additionalSeed != null && (_additionalSeed == _seed || !IsValidSeed(_additionalSeed)))
             {
                 return false;
             }
@@ -71,6 +85,11 @@ namespace FireSlop.Interaction
             }
 
             return true;
+        }
+
+        private bool IsValidSeed(WaterFireTarget seed)
+        {
+            return seed != null && seed.Fire != null && seed.Settings == _firePrefab.Settings;
         }
 
         private void Update()

@@ -1,7 +1,7 @@
 using System.Collections;
 using FireSlop.Interaction;
+using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Zenject;
 
@@ -14,11 +14,20 @@ namespace FireSlop.MissionHud
         [SerializeField] private Text _hint;
         [SerializeField] private GameObject _droneControls;
         [SerializeField] private Button _touchButton;
-        [SerializeField] private Text _touchLabel;
+        [SerializeField] private TMP_Text _touchLabel;
+        [SerializeField] private Image _touchIcon;
         [SerializeField, Min(0.1f)] private float _closedMessageSeconds = 1.25f;
 
         private InteractionModel _model;
         private Coroutine _closedMessage;
+
+        private void Awake()
+        {
+            if (_model == null)
+            {
+                _touchButton.gameObject.SetActive(false);
+            }
+        }
 
         [Inject]
         public void Construct(InteractionModel model)
@@ -61,8 +70,8 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
-            var touch = Application.isMobilePlatform || Touchscreen.current != null;
-            if (!_model.CanInteractWithDoor)
+            var touch = MissionHudPlatform.UsesTouchControls;
+            if (!_model.CanInteractWithDoor || _model.HasDroneAction)
             {
                 ClearClosed();
             }
@@ -83,18 +92,28 @@ namespace FireSlop.MissionHud
                 _hint.text = "Closed";
             }
 
-            _hint.gameObject.SetActive(_closedMessage != null || (hasAction && !touch && !showDroneControls));
+            _hint.gameObject.SetActive(!touch && (_closedMessage != null || (hasAction && !showDroneControls)));
             _droneControls.SetActive(showDroneControls);
-            var showFlightKey = _model.IsPilotingDrone && !Application.isMobilePlatform && Keyboard.current != null;
-            _touchLabel.text = showFlightKey ? InteractKeyPrefix + action : action;
-            _touchButton.gameObject.SetActive(hasAction && touch);
+            RenderTouchAction(hasAction && touch, action);
+        }
+
+        private void RenderTouchAction(bool visible, string action)
+        {
+            if (visible)
+            {
+                _touchLabel.text = _closedMessage != null ? "Closed" : action;
+                _touchIcon.sprite = _model.ContextIcon;
+                _touchIcon.enabled = _touchIcon.sprite != null;
+            }
+
+            _touchButton.gameObject.SetActive(visible);
         }
 
         private string GetActionLabel()
         {
             if (_model.HasDroneAction)
             {
-                return _model.IsPilotingDrone ? "Exit flight" : "Pilot drone";
+                return _model.IsPilotingDrone ? "Exit flight" : "Use drone";
             }
 
             if (_model.CanInteractWithDoor)

@@ -3,6 +3,7 @@ using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.MissionHud;
 using FireSlop.Tools;
+using UnityEngine;
 
 namespace FireSlop.Interaction
 {
@@ -12,8 +13,11 @@ namespace FireSlop.Interaction
         private readonly MissionInputModel _input;
         private readonly DroneModel _flight;
         private PrimaryInputSource? _primarySource;
+        private bool _autoHoseActive;
         private bool _enabled = true;
         private bool _doorInSight;
+        private Sprite _doorIcon;
+        private Sprite _droneIcon;
 
         public InteractionModel(ToolSelectionModel tools, MissionInputModel input, DroneModel flight)
         {
@@ -37,11 +41,26 @@ namespace FireSlop.Interaction
         public event Action CarryingChanged;
 
         public bool HoseActive { get; private set; }
+        public bool CanSprayHose => CanUsePrimary && !IsCarryingResident && _tools.SelectedAction == ToolAction.Hose;
+        public bool IsHoseInUseManually => _primarySource.HasValue && CanSprayHose;
         public bool IsEntrancePassable { get; private set; }
         public bool CanInteractWithDoor => _enabled && !_flight.IsPiloted && _doorInSight;
         public bool HasDroneAction => _enabled && (_flight.IsPiloted || _flight.IsOnPlatform);
         public bool IsPilotingDrone => _flight.IsPiloted;
         public bool ShouldCloseDoor { get; private set; }
+        public Sprite ContextIcon
+        {
+            get
+            {
+                if (HasDroneAction)
+                {
+                    return _droneIcon;
+                }
+
+                return CanInteractWithDoor ? _doorIcon : null;
+            }
+        }
+
         public event Action HammerPressed;
         public event Action HammerInterrupted;
         public event Action HoseStarted;
@@ -50,9 +69,11 @@ namespace FireSlop.Interaction
         public event Action ContextRequested;
         public event Action ClosedDoor;
 
+        private bool CanUsePrimary => _enabled && _input.IsEnabled && !_flight.IsPiloted;
+
         public void BeginPrimary(PrimaryInputSource source)
         {
-            if (!_enabled || !_input.IsEnabled || _primarySource.HasValue || _flight.IsPiloted)
+            if (!CanUsePrimary || _primarySource.HasValue)
             {
                 return;
             }
@@ -64,8 +85,7 @@ namespace FireSlop.Interaction
             }
             else if (_tools.SelectedAction == ToolAction.Hose)
             {
-                HoseActive = true;
-                HoseStarted?.Invoke();
+                UpdateHoseState();
             }
             else if (_tools.SelectedAction == ToolAction.Hammer)
             {
@@ -77,20 +97,34 @@ namespace FireSlop.Interaction
         {
             if (_primarySource == source)
             {
-                CancelPrimary();
+                _primarySource = null;
+                UpdateHoseState();
             }
         }
 
-        private void CancelPrimary()
+        public void SetHoseAim(bool hasReachableFire)
         {
-            _primarySource = null;
-            if (!HoseActive)
+            _autoHoseActive = hasReachableFire && CanSprayHose;
+            UpdateHoseState();
+        }
+
+        private void UpdateHoseState()
+        {
+            var active = _autoHoseActive || IsHoseInUseManually;
+            if (HoseActive == active)
             {
                 return;
             }
 
-            HoseActive = false;
-            HoseStopped?.Invoke();
+            HoseActive = active;
+            if (active)
+            {
+                HoseStarted?.Invoke();
+            }
+            else
+            {
+                HoseStopped?.Invoke();
+            }
         }
 
         private void OnToolSelectionChanged(string selectedId)
@@ -100,7 +134,9 @@ namespace FireSlop.Interaction
 
         private void InterruptPrimary()
         {
-            CancelPrimary();
+            _primarySource = null;
+            _autoHoseActive = false;
+            UpdateHoseState();
             HammerInterrupted?.Invoke();
         }
 
@@ -116,17 +152,30 @@ namespace FireSlop.Interaction
             ContextChanged?.Invoke();
         }
 
-        public void SetDoorInSight(DoorModel door)
+        public void SetDoorInSight(DoorModel door, Sprite icon = null)
         {
             var visible = door != null && !door.IsBroken;
             var shouldCloseDoor = visible && door.IsOpen;
-            if (_doorInSight == visible && ShouldCloseDoor == shouldCloseDoor)
+            var doorIcon = visible ? icon : null;
+            if (_doorInSight == visible && ShouldCloseDoor == shouldCloseDoor && _doorIcon == doorIcon)
             {
                 return;
             }
 
             _doorInSight = visible;
             ShouldCloseDoor = shouldCloseDoor;
+            _doorIcon = doorIcon;
+            ContextChanged?.Invoke();
+        }
+
+        public void SetDroneIcon(Sprite icon)
+        {
+            if (_droneIcon == icon)
+            {
+                return;
+            }
+
+            _droneIcon = icon;
             ContextChanged?.Invoke();
         }
 
@@ -194,6 +243,11 @@ namespace FireSlop.Interaction
 
         private void NotifyContextChanged()
         {
+            if (_flight.IsPiloted && (_primarySource.HasValue || _autoHoseActive))
+            {
+                InterruptPrimary();
+            }
+
             ContextChanged?.Invoke();
         }
 

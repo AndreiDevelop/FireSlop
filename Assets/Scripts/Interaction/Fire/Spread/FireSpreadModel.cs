@@ -12,9 +12,18 @@ namespace FireSlop.Interaction
         {
             _fires = new WaterFireModel[count];
             _seed = seed;
-            _fires[seedIndex] = seed;
-            _burningCount = 1;
-            seed.Extinguished += OnExtinguished;
+            AddStartingFire(seedIndex, seed);
+        }
+
+        public void AddStartingFire(int index, WaterFireModel fire)
+        {
+            _fires[index] = fire;
+            if (fire.IsBurning)
+            {
+                _burningCount++;
+            }
+
+            fire.Extinguished += OnExtinguished;
         }
 
         public bool CanSpread(int index, double time)

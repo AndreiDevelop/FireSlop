@@ -7,6 +7,7 @@ namespace FireSlop.Interaction
     public sealed class DoorView : MonoBehaviour
     {
         [SerializeField] private Transform _leaf;
+        [SerializeField] private ClickableObject _clickableObject;
         [SerializeField] private bool _isLocked = true;
         [SerializeField] private Quaternion _openLocalRotation;
         [SerializeField] private string _contentId;
@@ -22,6 +23,7 @@ namespace FireSlop.Interaction
         private float _openness;
 
         public DoorModel Door { get; private set; }
+        public Sprite ActionIcon => _clickableObject != null ? _clickableObject.ActionIcon : null;
         public string ContentId => _contentId;
         public event Action Broken;
 
