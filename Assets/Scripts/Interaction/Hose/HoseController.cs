@@ -309,7 +309,7 @@ namespace FireSlop.Interaction
                 packet.CheckedAge = Mathf.Min(packet.CheckedAge + sampleDuration, _flightLimit);
                 if (FindImpact(packet, _config.CollisionMask, out var hit, out _))
                 {
-                    return TryGetFire(hit.collider, out var fire) && fire.isActiveAndEnabled && fire.Intensity > 0f;
+                    return TryGetAutoSprayTarget(hit.collider, out var target) && target.RequestsAutoSpray;
                 }
             }
 
@@ -342,33 +342,38 @@ namespace FireSlop.Interaction
                 mask, QueryTriggerInteraction.Collide);
         }
 
-        private bool TryGetFire(Collider collider, out WaterFireTarget fire)
+        private bool TryGetAutoSprayTarget(Collider collider, out IAutoSprayTarget target)
         {
-            fire = null;
+            target = null;
             return (_config.FireMask.value & (1 << collider.gameObject.layer)) != 0 &&
-                   collider.TryGetComponent(out fire);
+                collider.TryGetComponent(out target);
         }
 
         private void ApplyImpact(RaycastHit hit, Vector3 direction, float sampleDuration, bool canPush)
         {
             var layerBit = 1 << hit.collider.gameObject.layer;
-            if (TryGetFire(hit.collider, out var fire))
+            var impulse = canPush && (_config.PushMask.value & layerBit) != 0 ? _config.Force * sampleDuration : 0f;
+            var impact = new WaterImpact(hit, direction, sampleDuration, impulse);
+            if ((_config.FireMask.value & layerBit) != 0 && hit.collider.TryGetComponent<IWaterTarget>(out var target))
             {
-                fire.ApplyWater(sampleDuration);
+                target.ApplyWater(impact);
+                return;
             }
-            else if (canPush && (_config.PushMask.value & layerBit) != 0)
-            {
-                var character = hit.collider.GetComponentInParent<WaterKnockdownView>();
-                if (character != null)
-                {
-                    character.ApplyWater(direction);
-                }
 
-                var body = hit.rigidbody;
-                if (body != null && !body.isKinematic)
-                {
-                    body.AddForceAtPosition(direction * (_config.Force * sampleDuration), hit.point, ForceMode.Impulse);
-                }
+            if (impulse <= 0f)
+            {
+                return;
+            }
+
+            target = hit.collider.GetComponentInParent<IWaterTarget>();
+            if (target != null)
+            {
+                target.ApplyWater(impact);
+            }
+            else
+            {
+                // A dynamic body on a push layer also responds without a custom target.
+                WaterPushable.PushHitBody(impact);
             }
         }
 

@@ -4,7 +4,7 @@ using Zenject;
 
 namespace FireSlop.Interaction
 {
-    public sealed class WaterFireTarget : MonoBehaviour
+    public sealed class WaterFireTarget : MonoBehaviour, IAutoSprayTarget
     {
         [SerializeField] private string _contentId;
         [SerializeField] private Collider _waterTarget;
@@ -24,6 +24,7 @@ namespace FireSlop.Interaction
 
         public string ContentId => _contentId;
         public float Intensity => _fire?.Intensity ?? (_settings != null ? _settings.InitialIntensity : 0f);
+        public bool RequestsAutoSpray => isActiveAndEnabled && Intensity > 0f;
         internal WaterFireModel Fire => _fire;
         internal WaterFireConfigSO Settings => _settings;
 
@@ -65,8 +66,9 @@ namespace FireSlop.Interaction
             _reignitionDelay = delay;
         }
 
-        public void ApplyWater(float seconds)
+        public void ApplyWater(in WaterImpact impact)
         {
+            var seconds = impact.Duration;
             if (!isActiveAndEnabled || !_fire.IsBurning || !(seconds > 0f))
             {
                 return;

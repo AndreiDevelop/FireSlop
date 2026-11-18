@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FireSlop.Interaction
 {
     [RequireComponent(typeof(Rigidbody))]
-    public sealed class Movable : MonoBehaviour
+    public sealed class Movable : WaterPushable
     {
         [SerializeField] private FurniturePhysicsSO _settings;
         [SerializeField] private string _contentId;

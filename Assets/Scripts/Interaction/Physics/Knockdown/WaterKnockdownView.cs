@@ -3,7 +3,7 @@ using Zenject;
 
 namespace FireSlop.Interaction
 {
-    public sealed class WaterKnockdownView : MonoBehaviour
+    public sealed class WaterKnockdownView : WaterPushable
     {
         [SerializeField] private WaterKnockdownConfigSO _config;
         [SerializeField] private Animator _animator;
@@ -32,7 +32,18 @@ namespace FireSlop.Interaction
             enabled = false;
         }
 
-        public void ApplyWater(Vector3 direction)
+        public override void ApplyWater(in WaterImpact impact)
+        {
+            if (impact.Impulse <= 0f)
+            {
+                return;
+            }
+
+            TryKnockDown(impact.Direction);
+            base.ApplyWater(impact);
+        }
+
+        private void TryKnockDown(Vector3 direction)
         {
             if (!_model.IsDown && _resident != null && !_resident.CanBeKnockedDown)
             {
