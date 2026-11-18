@@ -12,7 +12,6 @@ namespace FireSlop.MissionHud
         [SerializeField] private GameObject _panel;
         [SerializeField] private TMP_Text _time;
         [SerializeField] private Button _restart;
-        [SerializeField] private GameObject[] _gameplayControls;
 
         private MissionModel _model;
         private MissionController _controller;
@@ -55,11 +54,6 @@ namespace FireSlop.MissionHud
             if (!_model.IsWon)
             {
                 return;
-            }
-
-            foreach (var control in _gameplayControls)
-            {
-                control.SetActive(false);
             }
 
             var duration = TimeSpan.FromSeconds(_model.ElapsedSeconds);

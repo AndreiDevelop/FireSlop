@@ -447,14 +447,6 @@ MonoBehaviour:
   _panel: {fileID: 7136336508589546487}
   _time: {fileID: 2881073596077786418}
   _restart: {fileID: 2696673363713466644}
-  _gameplayControls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &6841001803552665690
 GameObject:
   m_ObjectHideFlags: 0

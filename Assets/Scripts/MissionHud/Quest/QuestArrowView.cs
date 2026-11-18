@@ -10,6 +10,7 @@ namespace FireSlop.MissionHud
     {
         public const string EntranceId = "QuestEntrance";
 
+        [SerializeField] private GameObject _body;
         [SerializeField] private RectTransform _arrow;
         [SerializeField] private Text _objective;
         [SerializeField] private string _entranceText;
@@ -65,6 +66,7 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
+            _body.SetActive(_quest.Step != QuestStep.Complete);
             switch (_quest.Step)
             {
                 case QuestStep.ReachEntrance:
@@ -88,7 +90,7 @@ namespace FireSlop.MissionHud
                     _target = _rescueZone;
                     break;
                 case QuestStep.Complete:
-                    gameObject.SetActive(false);
+                    _target = null;
                     break;
             }
         }

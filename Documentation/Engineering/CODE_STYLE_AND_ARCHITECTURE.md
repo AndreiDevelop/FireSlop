@@ -117,6 +117,25 @@ These are mandatory shared design rules for all projects using this baseline.
 - Do not conceal a monolithic class by splitting it into partial files, moving methods into static helpers or forwarding every child field through the parent. Conversely, do not fragment a cohesive operation into trivial classes or introduce deep component hierarchies only to satisfy a pattern.
 - Keep business state and decisions in the Model/Controller responsibilities; Views display state and forward user intent through explicit dependencies. Preserve existing authored UI layout rules, prefab composition, GUIDs, serialized references and callbacks during an authorized refactor. Documentation integration alone records existing responsibility gaps and does not refactor code or mutate UI assets.
 
+### UI hierarchy and panel ownership
+
+Group authored UI by where it is used, then by the feature that owns its input and presentation. Use the branches a screen actually needs. A cross-platform gameplay HUD typically has the following structure:
+
+```text
+HUD
+├── Gameplay
+│   └── Body
+│       ├── Touch Actions    (touch movement, gestures and action buttons)
+│       ├── PC Controls      (mouse/keyboard controls and shortcut hints)
+│       └── Common UI        (shared status, objectives and selectors)
+└── Overlays                 (settings, results and other modal panels)
+```
+
+- Give each independently shown or hidden panel an active root carrying its View and a serialized child named `Body`. Place the panel graphics, layout and input targets under `Body`. Toggle the body so the View can receive the event that shows it again. When a parent branch reopens, render from current model state. Simple leaf controls can retain their own pointer handlers.
+- Within each platform branch, group controls by action and gameplay mode. For example, ground movement owns jump and crouch, and flight owns elevation. Each panel holds references to its own controls. A platform or screen coordinator switches whole branches. An input surface used by multiple platforms belongs at their common ancestor, below interactive controls in draw order.
+- Models own shared state and availability. Controllers receive input intent and perform operations. Inject the relevant models into Views and Controllers through Zenject. A View renders its panel and forwards intent. Two presentations of one action observe the same state and invoke the same operation. A result overlay observes the outcome; the gameplay branch owns hiding its controls.
+- Save the hierarchy and local references in the owning prefab. Verify prefab connections and placement in Edit Mode. In Play Mode, switch supported input schemes and gameplay modes, hide and reopen panels, and open and close overlays. Check visibility, draw order, input blocking, release of held inputs and a single response per action after repeated switches.
+
 ## Unity lifecycle and references
 
 - Use Awake for local initialization/cache, OnEnable/OnDisable for a symmetric subscription lifecycle and explicit initialization for dependencies whose readiness matters. Do not rely on accidental Start ordering or mix duplicate Start/OnEnable subscriptions.

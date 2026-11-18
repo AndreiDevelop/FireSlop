@@ -13,21 +13,11 @@ namespace FireSlop.MissionHud
         private MissionInputModel _input;
         private int? _pointer;
 
-        private MissionHudPlatform _platform;
-
         [Inject]
-        public void Construct(MissionInputModel input, MissionHudPlatform platform)
+        public void Construct(MissionInputModel input)
         {
             _input = input;
             _input.Cancelled += ResetPointer;
-            _platform = platform;
-            _platform.Changed += RenderVisibility;
-            RenderVisibility();
-        }
-
-        private void RenderVisibility()
-        {
-            gameObject.SetActive(_platform.UsesTouchControls);
         }
 
         public void OnPointerDown(PointerEventData data)
@@ -75,7 +65,6 @@ namespace FireSlop.MissionHud
             if (_input != null)
             {
                 _input.Cancelled -= ResetPointer;
-                _platform.Changed -= RenderVisibility;
             }
         }
 

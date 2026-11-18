@@ -11,7 +11,6 @@ namespace FireSlop.MissionHud
     public sealed class SettingsView : MonoBehaviour
     {
         [SerializeField] private GameObject _modal;
-        [SerializeField] private Button _open;
         [SerializeField] private Button _close;
         [SerializeField] private Slider _music;
         [SerializeField] private Slider _effects;
@@ -44,7 +43,6 @@ namespace FireSlop.MissionHud
 
             _subscribed = true;
             _controller.VisibilityChanged += RenderVisibility;
-            _open.onClick.AddListener(_controller.Toggle);
             _close.onClick.AddListener(_controller.Toggle);
             RenderVisibility();
         }
@@ -100,7 +98,6 @@ namespace FireSlop.MissionHud
             _controller.Close(resumeMouseLook: false);
             UnsubscribeFromLevels();
             _controller.VisibilityChanged -= RenderVisibility;
-            _open.onClick.RemoveListener(_controller.Toggle);
             _close.onClick.RemoveListener(_controller.Toggle);
             _subscribed = false;
         }

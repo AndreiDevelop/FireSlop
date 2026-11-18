@@ -7,6 +7,7 @@ namespace FireSlop.MissionHud
 {
     public sealed class ToolPanelView : MonoBehaviour
     {
+        [SerializeField] private RectTransform _body;
         [SerializeField] private ToolButtonView _buttonPrefab;
 
         private readonly List<ToolButtonView> _buttons = new();
@@ -30,7 +31,7 @@ namespace FireSlop.MissionHud
 
             foreach (var tool in model.Tools)
             {
-                var button = Instantiate(_buttonPrefab, transform);
+                var button = Instantiate(_buttonPrefab, _body);
                 button.Initialize(tool, model.Select);
                 _buttons.Add(button);
             }
@@ -81,9 +82,9 @@ namespace FireSlop.MissionHud
         private void RenderVisibility()
         {
             var visible = !_interaction.IsPilotingDrone;
+            _body.gameObject.SetActive(visible);
             foreach (var button in _buttons)
             {
-                button.gameObject.SetActive(visible);
                 button.SetShortcutVisible(!_platform.UsesTouchControls);
             }
         }

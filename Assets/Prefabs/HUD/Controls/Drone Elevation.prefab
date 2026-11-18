@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4805599710242894807}
+  - component: {fileID: 4980494881798836352}
   m_Layer: 0
   m_Name: Drone Elevation
   m_TagString: Untagged
@@ -28,8 +29,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1207563379961479266}
-  - {fileID: 8975807905078571637}
+  - {fileID: 243284566180152250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -37,13 +37,64 @@ RectTransform:
   m_AnchoredPosition: {x: -37, y: 126}
   m_SizeDelta: {x: 188, y: 90}
   m_Pivot: {x: 1, y: 0}
+--- !u!114 &4980494881798836352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661180122723232812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea9f0110f34940ff9840d5a2b1d4894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FlightControlsView
+  _body: {fileID: 7569926847021222610}
+  _inFlight: 1
+--- !u!1 &7569926847021222610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243284566180152250}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &243284566180152250
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569926847021222610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1207563379961479266}
+  - {fileID: 8975807905078571637}
+  m_Father: {fileID: 4805599710242894807}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1001 &3789021893373643462
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4805599710242894807}
+    m_TransformParent: {fileID: 243284566180152250}
     m_Modifications:
     - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_text
@@ -186,7 +237,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4805599710242894807}
+    m_TransformParent: {fileID: 243284566180152250}
     m_Modifications:
     - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_text

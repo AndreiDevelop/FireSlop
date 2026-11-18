@@ -24,6 +24,8 @@ Follow the mandatory [shared architecture requirements](Documentation/Engineerin
 
 Follow [SOLID, KISS, DRY and YAGNI](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#solid-kiss-dry-and-yagni) and [cohesive UI components](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#cohesive-ui-components): one cohesive responsibility per class, focused child Views for independent screen blocks, and no speculative abstractions or duplicated ownership.
 
+Follow [UI hierarchy and panel ownership](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#ui-hierarchy-and-panel-ownership) for platform branches, panel `Body` ownership, Views, Controllers and Models.
+
 Follow [authored visual styling and Editor tools](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#authored-visual-styling-and-editor-tools): keep game appearance in authored assets; avoid Editor scripts that hard-code or regenerate styling. Runtime UI layout/style or hierarchy changes require an explicit user request; ordinary data/state updates remain UI behavior.
 
 Follow [UI anchors, text sizing and raycast targets](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#ui-anchors-text-sizing-and-raycast-targets): stretch panel/content anchors instead of fixed-resolution center-anchored wrappers, group related elements in meaningful containers with correct parent-relative anchors and attach individual elements/groups to the corresponding corner/edge/center, prohibit TMP Auto Size, and enable Raycast Target only where input or deliberate blocking requires it.
