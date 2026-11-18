@@ -8,13 +8,13 @@ namespace FireSlop.Audio
     {
         [SerializeField] private bool _isMusic;
 
-        private AudioSettingsModel _settings;
+        private SettingsModel _settings;
         private AudioSource _source;
         private float _authoredVolume;
         private bool _subscribed;
 
         [Inject]
-        public void Construct(AudioSettingsModel settings)
+        public void Construct(SettingsModel settings)
         {
             _settings = settings;
             Subscribe();

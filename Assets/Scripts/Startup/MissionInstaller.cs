@@ -40,8 +40,8 @@ namespace FireSlop.Startup
             Container.Bind<MovementConfigSO>().FromInstance(_movement);
             Container.Bind<HoseFlightModel>().AsSingle();
             Container.Bind<MissionInputModel>().AsSingle();
-            Container.Bind<AudioSettingsModel>().AsSingle();
-            Container.Bind<AudioSettingsController>().AsSingle().NonLazy();
+            Container.Bind<SettingsModel>().AsSingle();
+            Container.Bind<SettingsController>().AsSingle().NonLazy();
             Container.Bind<ToolBeltSO>().FromInstance(_toolBelt);
             Container.Bind<ToolSelectionModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();

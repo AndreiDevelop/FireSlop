@@ -5,18 +5,18 @@ using UnityEngine;
 
 namespace FireSlop.MissionHud
 {
-    public sealed class AudioSettingsController
+    public sealed class SettingsController
     {
         private const string MusicKey = "FireSlop.Audio.Music";
         private const string EffectsKey = "FireSlop.Audio.Effects";
 
-        private readonly AudioSettingsModel _settings;
+        private readonly SettingsModel _settings;
         private readonly MissionInputModel _input;
         private float _previousTimeScale;
         private bool _resumeMouseLook;
         private bool _hasUnsavedLevels;
 
-        public AudioSettingsController(AudioSettingsModel settings, MissionInputModel input)
+        public SettingsController(SettingsModel settings, MissionInputModel input)
         {
             _settings = settings;
             _input = input;

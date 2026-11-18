@@ -2,7 +2,7 @@ using System;
 
 namespace FireSlop.Audio
 {
-    public sealed class AudioSettingsModel
+    public sealed class SettingsModel
     {
         public float MusicVolume { get; private set; } = 1f;
         public float EffectsVolume { get; private set; } = 1f;

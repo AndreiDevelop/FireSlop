@@ -8,7 +8,7 @@ using Zenject;
 namespace FireSlop.MissionHud
 {
     [DefaultExecutionOrder(-100)]
-    public sealed class AudioSettingsView : MonoBehaviour
+    public sealed class SettingsView : MonoBehaviour
     {
         [SerializeField] private GameObject _modal;
         [SerializeField] private Button _open;
@@ -18,12 +18,12 @@ namespace FireSlop.MissionHud
         [SerializeField] private TMP_Text _musicPercent;
         [SerializeField] private TMP_Text _effectsPercent;
 
-        private AudioSettingsModel _settings;
-        private AudioSettingsController _controller;
+        private SettingsModel _settings;
+        private SettingsController _controller;
         private bool _subscribed;
 
         [Inject]
-        public void Construct(AudioSettingsModel settings, AudioSettingsController controller)
+        public void Construct(SettingsModel settings, SettingsController controller)
         {
             _settings = settings;
             _controller = controller;
