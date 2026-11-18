@@ -28,7 +28,7 @@ namespace FireSlop.MissionHud
         protected override void Display(string action, bool closed)
         {
             _touchLabel.text = action;
-            _touchIcon.sprite = Model.ContextIcon;
+            _touchIcon.sprite = Model.ContextPrompt.Icon;
             _touchIcon.enabled = _touchIcon.sprite != null;
             _touchButton.gameObject.SetActive(action.Length > 0);
         }

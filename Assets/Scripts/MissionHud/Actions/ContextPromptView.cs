@@ -27,7 +27,7 @@ namespace FireSlop.MissionHud
             if (Model != null)
             {
                 Model.ContextChanged += Render;
-                Model.ClosedDoor += ShowClosed;
+                Model.ActionBlocked += ShowClosed;
                 Render();
             }
         }
@@ -37,45 +37,24 @@ namespace FireSlop.MissionHud
             if (Model != null)
             {
                 Model.ContextChanged -= Render;
-                Model.ClosedDoor -= ShowClosed;
+                Model.ActionBlocked -= ShowClosed;
                 ClearClosed();
             }
         }
 
         private void Render()
         {
-            if (!Model.CanInteractWithDoor || Model.HasDroneAction)
+            if (Model.ContextPrompt.BlockedMessage == null)
             {
                 ClearClosed();
             }
 
-            var action = GetActionLabel();
-            Display(_closedMessage != null ? "Closed" : action, _closedMessage != null);
+            var prompt = Model.ContextPrompt;
+            var label = _closedMessage != null ? prompt.BlockedMessage : prompt.Label;
+            Display(label ?? string.Empty, _closedMessage != null);
         }
 
         protected abstract void Display(string action, bool closed);
-
-        private string GetActionLabel()
-        {
-            if (Model.HasDroneAction)
-            {
-                return Model.IsPilotingDrone ? "Exit flight" : "Use drone";
-            }
-
-            if (Model.CanInteractWithDoor)
-            {
-                return Model.ShouldCloseDoor ? "Close door" : "Open door";
-            }
-
-            return Model.RescueAction switch
-            {
-                RescueContext.OpenCabinet => "Open cabinet",
-                RescueContext.CloseCabinet => "Close cabinet",
-                RescueContext.PickUp => "Pick up",
-                RescueContext.PutDown => "Put down",
-                _ => string.Empty
-            };
-        }
 
         private void ShowClosed()
         {

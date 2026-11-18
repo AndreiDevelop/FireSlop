@@ -4,7 +4,7 @@ using Zenject;
 
 namespace FireSlop.Interaction
 {
-    public sealed class DoorView : MonoBehaviour, IHitTarget
+    public sealed class DoorView : MonoBehaviour, IHitTarget, IContextActionTarget
     {
         [SerializeField] private Transform _leaf;
         [SerializeField] private ClickableObject _clickableObject;
@@ -39,6 +39,22 @@ namespace FireSlop.Interaction
             {
                 _openable.Lock();
             }
+        }
+
+        public ContextActionPrompt GetPrompt(Collider hit)
+        {
+            if (IsBroken || !IsLeafHit(hit.transform))
+            {
+                return default;
+            }
+
+            var label = _openable.IsOpen ? "Close door" : "Open door";
+            return new ContextActionPrompt(label, ActionIcon, _openable.CanToggle ? null : "Closed");
+        }
+
+        public void Interact()
+        {
+            _openable.TryToggle();
         }
 
         public bool IsLeafHit(Transform hit)

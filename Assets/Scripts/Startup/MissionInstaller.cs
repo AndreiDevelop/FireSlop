@@ -31,6 +31,11 @@ namespace FireSlop.Startup
                 Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();
             }
 
+            if (TryGetComponent<RescueController>(out var carrier))
+            {
+                Container.Bind<RescueController>().FromInstance(carrier);
+            }
+
             Container.Bind<DroneModel>().AsSingle();
             if (_drone != null)
             {

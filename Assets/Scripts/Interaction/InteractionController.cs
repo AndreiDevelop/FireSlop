@@ -46,14 +46,19 @@ namespace FireSlop.Interaction
 
             _model.ContextRequested -= Interact;
             _entranceDoor.Broken -= RefreshEntrance;
-            _model.SetDoorInSight(false);
+            _entranceDoor.Openable.Toggled -= RefreshEntrance;
+            _model.SetAimedPrompt(default);
             _model.EndPrimary(PrimaryInputSource.Mouse);
         }
 
         private void Subscribe()
         {
+            _model.ContextRequested -= Interact;
+            _entranceDoor.Broken -= RefreshEntrance;
+            _entranceDoor.Openable.Toggled -= RefreshEntrance;
             _model.ContextRequested += Interact;
             _entranceDoor.Broken += RefreshEntrance;
+            _entranceDoor.Openable.Toggled += RefreshEntrance;
         }
 
         private void Update()
@@ -63,14 +68,7 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            var target = FindTarget();
-            var aimedDoor = FindDoor(target);
-            if (_rescue != null)
-            {
-                _rescue.SetTarget(aimedDoor == null ? target : null);
-            }
-
-            SetDoorInSight(aimedDoor);
+            ResolveTarget();
 
             var keyboard = Keyboard.current;
             if (keyboard != null && keyboard.eKey.wasPressedThisFrame)
@@ -108,15 +106,13 @@ namespace FireSlop.Interaction
             return hit.collider;
         }
 
-        private DoorView FindDoor(Collider target)
+        private IContextActionTarget ResolveTarget()
         {
-            if (target == null)
-            {
-                return null;
-            }
-
-            var door = target.GetComponentInParent<DoorView>();
-            return door != null && door.IsLeafHit(target.transform) ? door : null;
+            var hit = FindTarget();
+            var target = hit != null ? hit.GetComponentInParent<IContextActionTarget>() : null;
+            var prompt = target != null ? target.GetPrompt(hit) : default;
+            _model.SetAimedPrompt(prompt);
+            return prompt.IsAvailable ? target : null;
         }
 
         private void Interact()
@@ -127,47 +123,28 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            var target = FindTarget();
-            var door = FindDoor(target);
-            if (door == null || door.IsBroken)
+            var target = ResolveTarget();
+            if (_model.ContextPrompt.BlockedMessage != null)
             {
-                if (_rescue != null)
-                {
-                    _rescue.SetTarget(target);
-                    _rescue.TryInteract();
-                }
-
+                _model.ReportActionBlocked();
                 return;
             }
 
-            if (!door.Openable.TryToggle())
+            if (target != null)
             {
-                _model.ReportClosedDoor();
-                return;
+                target.Interact();
+            }
+            else if (_model.IsCarrying && _rescue != null)
+            {
+                _rescue.PutDown();
             }
 
-            SetDoorInSight(door);
-            if (door == _entranceDoor)
-            {
-                _model.SetEntrancePassable(door.IsPassable);
-            }
+            ResolveTarget();
         }
 
         private void RefreshEntrance()
         {
-            _model.SetDoorInSight(false);
-            _model.SetEntrancePassable(true);
-        }
-
-        private void SetDoorInSight(DoorView door)
-        {
-            if (door == null || door.IsBroken)
-            {
-                _model.SetDoorInSight(false);
-                return;
-            }
-
-            _model.SetDoorInSight(true, door.Openable.IsOpen, door.ActionIcon);
+            _model.SetEntrancePassable(_entranceDoor.IsPassable);
         }
     }
 }

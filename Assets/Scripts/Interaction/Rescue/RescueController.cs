@@ -13,10 +13,8 @@ namespace FireSlop.Interaction
 
         private Camera _camera;
         private InteractionModel _model;
-        private Carryable _aimedCarryable;
         private Carryable _carried;
         private Openable _rescueCabinet;
-        private Openable _aimedCabinet;
 
         public string CabinetContentId => _cabinetContentId;
 
@@ -31,78 +29,30 @@ namespace FireSlop.Interaction
                 Debug.LogError("The rescue cabinet requires an Openable component.", this);
             }
 
+            if (_rescueCabinet != null)
+            {
+                _rescueCabinet.Toggled += OnCabinetToggled;
+            }
+
             _model.ThrowRequested += Throw;
         }
 
-        public void SetTarget(Collider target)
+        private void OnCabinetToggled()
         {
-            _aimedCarryable = target != null ? target.GetComponentInParent<Carryable>() : null;
-            if (_aimedCarryable != null && target != _aimedCarryable.PickupCollider)
-            {
-                _aimedCarryable = null;
-            }
-
-            _aimedCabinet = target != null && _aimedCarryable == null
-                ? target.GetComponentInParent<Openable>()
-                : null;
-            var context = RescueContext.None;
-            if (_aimedCabinet != null && _aimedCabinet.CanToggle)
-            {
-                context = _aimedCabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
-            }
-            else if (_model.IsCarrying)
-            {
-                context = RescueContext.PutDown;
-            }
-            else if (CanPickUpTarget())
-            {
-                context = RescueContext.PickUp;
-            }
-
-            _model.SetRescueContext(context);
-        }
-
-        public bool TryInteract()
-        {
-            switch (_model.RescueAction)
-            {
-                case RescueContext.OpenCabinet:
-                case RescueContext.CloseCabinet:
-                    return TryToggleAimedCabinet();
-                case RescueContext.PickUp:
-                    return TryPickUp();
-                case RescueContext.PutDown:
-                    return TryRelease(false);
-                default:
-                    return false;
-            }
-        }
-
-        private bool TryToggleAimedCabinet()
-        {
-            var cabinet = _aimedCabinet;
-            if (cabinet == null || !cabinet.TryToggle())
-            {
-                return false;
-            }
-
-            if (cabinet == _rescueCabinet && cabinet.IsOpen)
+            if (_rescueCabinet.IsOpen)
             {
                 _model.RevealResident();
             }
-
-            _model.SetRescueContext(cabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet);
-            return true;
         }
 
-        private bool CanPickUpTarget()
+        internal bool CanPickUp(Carryable target)
         {
-            if (_model.IsCarrying || _aimedCarryable == null || !_aimedCarryable.CanPickUp)
+            if (_model.IsCarrying || !target.CanPickUp)
             {
                 return false;
             }
 
-            if (_aimedCarryable != _resident)
+            if (target != _resident)
             {
                 return true;
             }
@@ -111,17 +61,19 @@ namespace FireSlop.Interaction
             return !_resident.IsRescued && (_resident.IsFree || cabinetOpen);
         }
 
-        private bool TryPickUp()
+        internal void TryPickUp(Carryable target)
         {
-            if (!CanPickUpTarget())
+            if (CanPickUp(target))
             {
-                return false;
+                _carried = target;
+                _carried.Attach(_shoulder);
+                _model.StartCarrying(_carried.ContentId);
             }
+        }
 
-            _carried = _aimedCarryable;
-            _carried.Attach(_shoulder);
-            _model.StartCarrying(_carried.ContentId);
-            return true;
+        internal void PutDown()
+        {
+            TryRelease(false);
         }
 
         private void Throw()
@@ -156,6 +108,11 @@ namespace FireSlop.Interaction
 
         private void OnDestroy()
         {
+            if (_rescueCabinet != null)
+            {
+                _rescueCabinet.Toggled -= OnCabinetToggled;
+            }
+
             if (_model != null)
             {
                 _model.ThrowRequested -= Throw;

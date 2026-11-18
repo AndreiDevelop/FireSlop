@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,6 +15,8 @@ namespace FireSlop.Interaction
 
         private OpenableModel _model;
         private Coroutine _swing;
+
+        public event Action Toggled;
 
         public bool CanToggle => isActiveAndEnabled && _model != null && !_model.IsLocked;
         public bool IsOpen => _model != null && _model.IsOpen;
@@ -50,6 +53,7 @@ namespace FireSlop.Interaction
 
             SetBlocking(false);
             _swing = StartCoroutine(SwingTo(IsOpen));
+            Toggled?.Invoke();
             return true;
         }
 

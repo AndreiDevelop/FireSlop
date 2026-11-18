@@ -15,8 +15,7 @@ namespace FireSlop.Interaction
         private PrimaryInputSource? _primarySource;
         private bool _autoHoseActive;
         private bool _enabled = true;
-        private bool _doorInSight;
-        private Sprite _doorIcon;
+        private ContextActionPrompt _aimedPrompt;
         private Sprite _droneIcon;
 
         public InteractionModel(ToolSelectionModel tools, MissionInputModel input, DroneModel flight)
@@ -29,12 +28,9 @@ namespace FireSlop.Interaction
             _input.Cancelled += InterruptPrimary;
         }
 
-        private RescueContext _rescueContext;
-
         public bool HasRevealedResident { get; private set; }
         public string CarriedContentId { get; private set; }
         public bool IsCarrying => CarriedContentId != null;
-        public RescueContext RescueAction => _enabled ? _rescueContext : RescueContext.None;
         public event Action ThrowRequested;
         public event Action CabinetRevealed;
         public event Action CarryingChanged;
@@ -43,20 +39,28 @@ namespace FireSlop.Interaction
         public bool CanSprayHose => CanUsePrimary && !IsCarrying && _tools.SelectedAction == ToolAction.Hose;
         public bool IsHoseInUseManually => _primarySource.HasValue && CanSprayHose;
         public bool IsEntrancePassable { get; private set; }
-        public bool CanInteractWithDoor => _enabled && !_flight.IsPiloted && _doorInSight;
         public bool HasDroneAction => _enabled && (_flight.IsPiloted || _flight.IsOnPlatform);
         public bool IsPilotingDrone => _flight.IsPiloted;
-        public bool ShouldCloseDoor { get; private set; }
-        public Sprite ContextIcon
+        public ContextActionPrompt ContextPrompt
         {
             get
             {
-                if (HasDroneAction)
+                if (!_enabled)
                 {
-                    return _droneIcon;
+                    return default;
                 }
 
-                return CanInteractWithDoor ? _doorIcon : null;
+                if (HasDroneAction)
+                {
+                    return new ContextActionPrompt(IsPilotingDrone ? "Exit flight" : "Use drone", _droneIcon);
+                }
+
+                if (_aimedPrompt.IsAvailable)
+                {
+                    return _aimedPrompt;
+                }
+
+                return IsCarrying ? new ContextActionPrompt("Put down") : default;
             }
         }
 
@@ -67,7 +71,7 @@ namespace FireSlop.Interaction
         public event Action HoseStopped;
         public event Action ContextChanged;
         public event Action ContextRequested;
-        public event Action ClosedDoor;
+        public event Action ActionBlocked;
 
         private bool CanUsePrimary => _enabled && _input.IsEnabled && !_flight.IsPiloted;
 
@@ -161,17 +165,15 @@ namespace FireSlop.Interaction
             ContextChanged?.Invoke();
         }
 
-        public void SetDoorInSight(bool visible, bool shouldCloseDoor = false, Sprite icon = null)
+        internal void SetAimedPrompt(ContextActionPrompt prompt)
         {
-            var doorIcon = visible ? icon : null;
-            if (_doorInSight == visible && ShouldCloseDoor == shouldCloseDoor && _doorIcon == doorIcon)
+            if (_aimedPrompt.Label == prompt.Label && _aimedPrompt.Icon == prompt.Icon &&
+                _aimedPrompt.BlockedMessage == prompt.BlockedMessage)
             {
                 return;
             }
 
-            _doorInSight = visible;
-            ShouldCloseDoor = shouldCloseDoor;
-            _doorIcon = doorIcon;
+            _aimedPrompt = prompt;
             ContextChanged?.Invoke();
         }
 
@@ -188,21 +190,10 @@ namespace FireSlop.Interaction
 
         public void Interact()
         {
-            if (_input.IsEnabled && (HasDroneAction || CanInteractWithDoor || RescueAction != RescueContext.None))
+            if (_input.IsEnabled && ContextPrompt.IsAvailable)
             {
                 ContextRequested?.Invoke();
             }
-        }
-
-        public void SetRescueContext(RescueContext context)
-        {
-            if (_rescueContext == context)
-            {
-                return;
-            }
-
-            _rescueContext = context;
-            ContextChanged?.Invoke();
         }
 
         public void RevealResident()
@@ -221,19 +212,19 @@ namespace FireSlop.Interaction
             CarriedContentId = contentId;
             InterruptPrimary();
             CarryingChanged?.Invoke();
-            SetRescueContext(RescueContext.PutDown);
+            ContextChanged?.Invoke();
         }
 
         internal void StopCarrying()
         {
             CarriedContentId = null;
             CarryingChanged?.Invoke();
-            SetRescueContext(RescueContext.None);
+            ContextChanged?.Invoke();
         }
 
-        public void ReportClosedDoor()
+        public void ReportActionBlocked()
         {
-            ClosedDoor?.Invoke();
+            ActionBlocked?.Invoke();
         }
 
         public void SetEntrancePassable(bool isPassable)

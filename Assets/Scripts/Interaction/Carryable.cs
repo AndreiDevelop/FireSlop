@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace FireSlop.Interaction
 {
     [DisallowMultipleComponent]
-    public class Carryable : MonoBehaviour
+    public class Carryable : MonoBehaviour, IContextActionTarget
     {
         [SerializeField] private string _contentId;
         [FormerlySerializedAs("_capsule")]
         [SerializeField] private Collider _pickupCollider;
         [SerializeField] private Rigidbody _body;
 
+        private RescueController _carrier;
         private Transform _worldParent;
         private Vector3 _originalLocalScale;
         private CarryReleaseShape _releaseShape;
@@ -22,6 +24,27 @@ namespace FireSlop.Interaction
 
         internal bool CanPickUp => isActiveAndEnabled && _body != null && _pickupCollider != null && _pickupCollider.enabled &&
             !string.IsNullOrWhiteSpace(_contentId);
+
+        [Inject]
+        internal void BindCarrier([InjectOptional] RescueController carrier)
+        {
+            _carrier = carrier;
+        }
+
+        public ContextActionPrompt GetPrompt(Collider hit)
+        {
+            if (hit != _pickupCollider || _carrier == null || !_carrier.CanPickUp(this))
+            {
+                return default;
+            }
+
+            return new ContextActionPrompt("Pick up");
+        }
+
+        public void Interact()
+        {
+            _carrier.TryPickUp(this);
+        }
 
         internal void Attach(Transform shoulder)
         {
