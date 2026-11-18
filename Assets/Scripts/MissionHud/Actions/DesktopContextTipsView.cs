@@ -1,6 +1,5 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 namespace FireSlop.MissionHud
 {
@@ -10,7 +9,7 @@ namespace FireSlop.MissionHud
 
         protected override void Display(string action, bool closed)
         {
-            _hint.text = closed ? action : "E  " + action;
+            _hint.text = closed ? action : "<sprite name=\"E\">  " + action;
             if (!closed && Model.IsCarryingResident && !Model.IsPilotingDrone)
             {
                 _hint.text += "   |   LMB  Throw";
