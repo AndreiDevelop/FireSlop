@@ -1,3 +1,4 @@
+using FireSlop.Firefighter;
 using FireSlop.Interaction;
 using TMPro;
 using UnityEngine;
@@ -7,18 +8,19 @@ using Zenject;
 
 namespace FireSlop.MissionHud
 {
-    public sealed class HoldActionView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public sealed class HoldActionView : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
         [SerializeField] private TMP_Text _label;
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _desktopHint;
 
         private InteractionModel _model;
+        private MissionInputModel _input;
         private ToolSelectionModel _tools;
         private int? _pointer;
 
         [Inject]
-        public void Construct(InteractionModel model, ToolSelectionModel tools)
+        public void Construct(InteractionModel model, MissionInputModel input, ToolSelectionModel tools)
         {
             if (_label == null || _icon == null || _desktopHint == null)
             {
@@ -28,9 +30,11 @@ namespace FireSlop.MissionHud
             }
 
             _model = model;
+            _input = input;
             _tools = tools;
             _model.CarryingChanged += Render;
             _model.ContextChanged += RenderVisibility;
+            _input.Cancelled += ResetPointer;
             _tools.SelectionChanged += OnToolChanged;
             Render();
             RenderVisibility();
@@ -54,6 +58,7 @@ namespace FireSlop.MissionHud
             {
                 _model.CarryingChanged -= Render;
                 _model.ContextChanged -= RenderVisibility;
+                _input.Cancelled -= ResetPointer;
                 _tools.SelectionChanged -= OnToolChanged;
             }
         }
@@ -68,18 +73,28 @@ namespace FireSlop.MissionHud
 
         public void OnPointerDown(PointerEventData data)
         {
-            if (_model == null || _pointer.HasValue || data.button != PointerEventData.InputButton.Left)
+            if (_input == null || !_input.IsEnabled || _pointer.HasValue ||
+                data.button != PointerEventData.InputButton.Left)
             {
                 return;
             }
 
             _pointer = data.pointerId;
+            data.useDragThreshold = false;
             _model.BeginPrimary(PrimaryInputSource.Touch);
+        }
+
+        public void OnDrag(PointerEventData data)
+        {
+            if (_pointer == data.pointerId)
+            {
+                _input.AddLook(data.delta);
+            }
         }
 
         public void OnPointerUp(PointerEventData data)
         {
-            if (_pointer == data.pointerId)
+            if (_pointer == data.pointerId && data.button == PointerEventData.InputButton.Left)
             {
                 ResetPointer();
             }

@@ -131,14 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 1244947461995232341, guid: c42c243f619634c4dad24cb276b717c8, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244947461995232341, guid: c42c243f619634c4dad24cb276b717c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7900369396394221694, guid: c42c243f619634c4dad24cb276b717c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
