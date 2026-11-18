@@ -23,20 +23,20 @@ MonoBehaviour:
     _label: Throw
     _icon: {fileID: 21300000, guid: dfe81bb3707ac47d588b10fa41fb666f, type: 3}
   - _id: 4
-    _label: Open door
+    _label: Open
     _icon: {fileID: 21300000, guid: 602b1609309a54d23b8587b350cf4e96, type: 3}
   - _id: 5
-    _label: Close door
+    _label: Close
     _icon: {fileID: 21300000, guid: 602b1609309a54d23b8587b350cf4e96, type: 3}
   - _id: 6
     _label: Closed
     _icon: {fileID: 21300000, guid: 602b1609309a54d23b8587b350cf4e96, type: 3}
   - _id: 7
-    _label: Open cabinet
-    _icon: {fileID: 0}
+    _label: Open
+    _icon: {fileID: 21300000, guid: 602b1609309a54d23b8587b350cf4e96, type: 3}
   - _id: 8
-    _label: Close cabinet
-    _icon: {fileID: 0}
+    _label: Close
+    _icon: {fileID: 21300000, guid: 602b1609309a54d23b8587b350cf4e96, type: 3}
   - _id: 9
     _label: Use drone
     _icon: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}

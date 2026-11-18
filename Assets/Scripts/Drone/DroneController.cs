@@ -17,11 +17,31 @@ namespace FireSlop.Drone
 
         [SerializeField] private AudioSource _rotorAudio;
 
+        [SerializeField] private bool _requiresSignal;
+        [SerializeField] private Vector3 _flightOrigin;
+
         private readonly RaycastHit[] _hits = new RaycastHit[32];
         private readonly Collider[] _overlaps = new Collider[32];
         private DroneModel _model;
         private MissionInputModel _input;
         private Vector3 _origin;
+        private Vector3 _landingPoint;
+        private ArrivalPhase _arrival;
+        private enum ArrivalPhase
+        {
+            Available,
+            Waiting,
+            Climb,
+            Approach,
+            Descend
+        }
+
+        internal DroneConfigSO Config => _config;
+        internal bool WaitingForSignal => _arrival == ArrivalPhase.Waiting;
+        internal bool HasArrived => _arrival == ArrivalPhase.Available;
+        internal float LandingHeight => _landingBounds.bounds.min.y;
+        internal Vector3 Footprint => GetHalfSize(_flightBounds);
+        private float CruiseY => _origin.y + _config.ApproachHeight;
 
         public string ContentId => _contentId;
         public float CameraTransitionSeconds => _config.CameraTransitionSeconds;
@@ -31,11 +51,17 @@ namespace FireSlop.Drone
         {
             _model = model;
             _input = input;
-            _origin = transform.position;
+            _origin = _requiresSignal ? _flightOrigin : transform.position;
+            _arrival = _requiresSignal ? ArrivalPhase.Waiting : ArrivalPhase.Available;
         }
 
         public bool IsStandingOnDeck(CharacterController pilot)
         {
+            if (_arrival != ArrivalPhase.Available)
+            {
+                return false;
+            }
+
             var feet = pilot.bounds.center;
             feet.y = pilot.bounds.min.y;
             var localFeet = _deck.transform.InverseTransformPoint(feet) - _deck.center;
@@ -105,7 +131,15 @@ namespace FireSlop.Drone
 
             var deltaTime = Time.deltaTime;
             var isFlying = _model.IsPiloted;
-            if (!isFlying)
+            if (_arrival != ArrivalPhase.Available)
+            {
+                isFlying = _arrival != ArrivalPhase.Waiting;
+                if (isFlying)
+                {
+                    AdvanceArrival(deltaTime);
+                }
+            }
+            else if (!isFlying)
             {
                 if (_model.CanDescend(Time.time) && transform.position.y >= _origin.y - _config.FlightHeight)
                 {
@@ -123,6 +157,81 @@ namespace FireSlop.Drone
             if (isFlying && _rotorView != null)
             {
                 _rotorView.Spin(deltaTime);
+            }
+        }
+
+        internal bool CanLandAt(Vector3 point)
+        {
+            if (!WaitingForSignal || point.y >= CruiseY || Mathf.Abs(point.y - _origin.y) > _config.FlightHeight ||
+                Vector3.ProjectOnPlane(point - _origin, Vector3.up).sqrMagnitude > _config.FlightRadius * _config.FlightRadius)
+            {
+                return false;
+            }
+
+            var half = GetHalfSize(_landingBounds);
+            for (var x = -1; x <= 1; x += 2)
+            {
+                for (var z = -1; z <= 1; z += 2)
+                {
+                    var corner = point + transform.rotation * new Vector3(x * half.x, 0f, z * half.z);
+                    if (!Physics.Raycast(corner + Vector3.up * 0.15f, Vector3.down, out var hit, 0.3f,
+                            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore) || hit.normal.y < 0.95f)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            var above = new Vector3(point.x, CruiseY, point.z);
+            var start = new Vector3(transform.position.x, CruiseY, transform.position.z);
+            return ClearLeg(transform.position, start) && ClearLeg(start, above) && ClearLeg(above, point);
+        }
+
+        private bool ClearLeg(Vector3 start, Vector3 end)
+        {
+            var delta = end - start;
+            var rotation = transform.rotation;
+            var distance = delta.magnitude;
+            var upper = GetClearDistance(start + transform.TransformVector(_flightBounds.center),
+                GetHalfSize(_flightBounds), delta, null, rotation);
+            var lower = GetClearDistance(start + transform.TransformVector(_landingBounds.center),
+                GetHalfSize(_landingBounds), delta, null, rotation);
+            return Mathf.Min(upper, lower) + 0.002f >= distance;
+        }
+
+        internal void Dispatch(Vector3 point)
+        {
+            _landingPoint = point;
+            _arrival = ArrivalPhase.Climb;
+        }
+
+        private void AdvanceArrival(float deltaTime)
+        {
+            var target = _landingPoint;
+            var speed = _config.ApproachSpeed;
+            if (_arrival == ArrivalPhase.Climb)
+            {
+                target = new Vector3(transform.position.x, CruiseY, transform.position.z);
+            }
+            else if (_arrival == ArrivalPhase.Approach)
+            {
+                target.y = CruiseY;
+            }
+            else
+            {
+                speed = _config.ArrivalDescentSpeed;
+            }
+
+            var delta = Vector3.MoveTowards(transform.position, target, speed * deltaTime) - transform.position;
+            transform.position += delta.normalized * GetFlightDistance(delta, null);
+            if ((transform.position - target).sqrMagnitude < 0.000025f)
+            {
+                switch (_arrival)
+                {
+                    case ArrivalPhase.Climb: _arrival = ArrivalPhase.Approach; break;
+                    case ArrivalPhase.Approach: _arrival = ArrivalPhase.Descend; break;
+                    case ArrivalPhase.Descend: _arrival = ArrivalPhase.Available; break;
+                }
             }
         }
 

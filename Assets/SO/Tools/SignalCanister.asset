@@ -15,7 +15,8 @@ MonoBehaviour:
   _id: signal-canister
   _index: 2
   _displayName: Signal
-  _icon: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}
+  _icon: {fileID: 21300000, guid: 070369a0cab82498d9f405fd6bffb508, type: 3}
   _selectionKey: 43
   _action: 2
-  _singleUse: 1
+  _consumable: 1
+  _startingQuantity: 1

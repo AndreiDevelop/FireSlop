@@ -16,6 +16,20 @@ namespace FireSlop.Drone
         [SerializeField, Min(0.01f)] private float _cameraTransitionSeconds = 0.45f;
         [SerializeField, Min(0.05f)] private float _windowDockTolerance = 0.4f;
 
+        [SerializeField, Min(1f)] private float _approachSpeed = 12f;
+        [SerializeField, Min(0.1f)] private float _arrivalDescentSpeed = 3f;
+        [SerializeField, Min(1f)] private float _approachHeight = 21f;
+        [SerializeField, Min(1f)] private float _throwSpeed = 9f;
+        [SerializeField, Min(0f)] private float _throwLift = 2.5f;
+
+        [SerializeField] private Vector3 _throwOffset = new Vector3(0.20f, -0.16f, 0.30f);
+
+        public Vector3 ThrowOffset => _throwOffset;
+        public float ApproachSpeed => _approachSpeed;
+        public float ArrivalDescentSpeed => _arrivalDescentSpeed;
+        public float ApproachHeight => _approachHeight;
+        public float ThrowSpeed => _throwSpeed;
+        public float ThrowLift => _throwLift;
         public float HoverAfterExitSeconds => _hoverAfterExitSeconds;
         public float HorizontalSpeed => _horizontalSpeed;
         public float VerticalSpeed => _verticalSpeed;

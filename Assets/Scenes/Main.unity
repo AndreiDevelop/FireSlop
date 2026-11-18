@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &137089212
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131890236167165916, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824935902443141447, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
+      propertyPath: m_Name
+      value: SignalThrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c78448ab887c4143a5631c49877f34b, type: 3}
 --- !u!4 &145941248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6826867558324150404, guid: f071fb42c8be84f899e6c5c13791d8ee, type: 3}
@@ -533,15 +590,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 248459531129846468, guid: 76a9d4d491167444194a175f0466f051, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.28
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 248459531129846468, guid: 76a9d4d491167444194a175f0466f051, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.11
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 248459531129846468, guid: 76a9d4d491167444194a175f0466f051, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.499999
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 248459531129846468, guid: 76a9d4d491167444194a175f0466f051, type: 3}
       propertyPath: m_LocalRotation.w
@@ -574,6 +631,22 @@ PrefabInstance:
     - target: {fileID: 1549542354018320090, guid: 76a9d4d491167444194a175f0466f051, type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992112473579747902, guid: 76a9d4d491167444194a175f0466f051, type: 3}
+      propertyPath: _flightOrigin.x
+      value: -11.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992112473579747902, guid: 76a9d4d491167444194a175f0466f051, type: 3}
+      propertyPath: _flightOrigin.y
+      value: -1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992112473579747902, guid: 76a9d4d491167444194a175f0466f051, type: 3}
+      propertyPath: _flightOrigin.z
+      value: 10.499999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992112473579747902, guid: 76a9d4d491167444194a175f0466f051, type: 3}
+      propertyPath: _requiresSignal
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2789,3 +2862,4 @@ SceneRoots:
   - {fileID: 1527383045}
   - {fileID: 652750367}
   - {fileID: 879240440}
+  - {fileID: 137089212}
