@@ -24,6 +24,8 @@ Follow the mandatory [shared architecture requirements](Documentation/Engineerin
 
 Follow [SOLID, KISS, DRY and YAGNI](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#solid-kiss-dry-and-yagni) and [cohesive UI components](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#cohesive-ui-components): one cohesive responsibility per class, focused child Views for independent screen blocks, and no speculative abstractions or duplicated ownership.
 
+For interaction changes, follow [capability contracts and dependency ownership](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#capability-contracts-and-dependency-ownership) and the [project interaction skill](.agents/skills/fireslop-interactions/SKILL.md).
+
 Follow [UI hierarchy and panel ownership](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#ui-hierarchy-and-panel-ownership) for platform branches, panel `Body` ownership, Views, Controllers and Models.
 
 Follow [authored visual styling and Editor tools](Documentation/Engineering/CODE_STYLE_AND_ARCHITECTURE.md#authored-visual-styling-and-editor-tools): keep game appearance in authored assets; avoid Editor scripts that hard-code or regenerate styling. Runtime UI layout/style or hierarchy changes require an explicit user request; ordinary data/state updates remain UI behavior.

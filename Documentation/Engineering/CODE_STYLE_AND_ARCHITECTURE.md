@@ -109,6 +109,14 @@ These are mandatory shared design rules for all projects using this baseline.
 - **DRY:** keep each domain rule, shared behavior and authored configuration under one authoritative owner. Reuse components and contracts for actual repeated responsibilities. Similar-looking code with different reasons to change does not automatically require one shared abstraction; do not centralize unrelated features merely to remove a few repeated lines.
 - **YAGNI:** implement confirmed current requirements. Do not add speculative interfaces, services, packages, caches, pools, settings, extension points or placeholder systems for possible future use. Required architecture remains mandatory, but a documented requirement does not authorize scaffolding unrelated systems.
 
+### Capability contracts and dependency ownership
+
+- Define an interface around an operation the caller needs when several receivers implement it differently. The controller decides when to dispatch and which receiver has priority. The receiver decides how to respond. A new implementation of an existing operation should work with the existing caller.
+- Compose independent capabilities on the object. Share a concrete component when its state transitions and timing are the same. If only the presentation varies, specialize that part in a child View or a small override.
+- Give each mutable value one owner. Models hold state and enforce its invariants, Controllers coordinate actions across objects, and Views expose intent and render the result. Bind dependencies through Zenject with the lifetime of their owner. For example, two independently operable objects need independent state even when both update the same HUD.
+- Inject dependencies that persist across calls. Pass facts that change per invocation as arguments, such as the selected part or contact point. Keep authored references beside the component that uses them. A receiving interface should require only the data needed for its operation.
+- When an action is advertised in the UI, derive its availability and execution from the same receiver. Recheck availability when the player acts. Input schemes share the same command path, including priority and fallback.
+
 ### Cohesive UI components
 
 - Compose complex screens from focused child Views/components for independently changing blocks, such as outcome presentation, reward/XP progress, level-up, rank, a portrait or navigation. These are illustrative responsibilities, not required project class names or a mandatory component per label.
