@@ -19,7 +19,6 @@ namespace FireSlop.Interaction
         private FireFloorTopology _floor;
         private WaterFireTarget[] _views;
         private double _nextTick;
-        private int _nextLink;
 
         [Inject]
         internal void Construct(FireSpreadModel model, IInstantiator instantiator)
@@ -111,37 +110,14 @@ namespace FireSlop.Interaction
         private void Spread(double time)
         {
             var links = _floor.Links;
-            var remaining = SpreadThroughBrokenDoors(time);
-            for (var checkedCount = 0; checkedCount < links.Count && remaining > 0; checkedCount++)
+            for (var index = 0; index < links.Count; index++)
             {
-                var link = links[_nextLink];
-                _nextLink = (_nextLink + 1) % links.Count;
-                if (TrySpread(link, time))
+                var link = links[index];
+                if (!TrySpread(link, link.First, link.Second, time))
                 {
-                    remaining--;
+                    TrySpread(link, link.Second, link.First, time);
                 }
             }
-        }
-
-        private int SpreadThroughBrokenDoors(double time)
-        {
-            var remaining = _config.IgnitionsPerTick;
-            var doorLinks = _floor.DoorLinks;
-            for (var index = 0; index < doorLinks.Count && remaining > 0; index++)
-            {
-                var link = doorLinks[index];
-                if (link.HasBrokenDoor() && TrySpread(link, time))
-                {
-                    remaining--;
-                }
-            }
-
-            return remaining;
-        }
-
-        private bool TrySpread(FireSpreadLink link, double time)
-        {
-            return TrySpread(link, link.First, link.Second, time) || TrySpread(link, link.Second, link.First, time);
         }
 
         private bool TrySpread(FireSpreadLink link, int source, int destination, double time)

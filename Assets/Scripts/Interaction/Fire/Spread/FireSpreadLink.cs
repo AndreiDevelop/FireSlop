@@ -17,20 +17,6 @@ namespace FireSlop.Interaction
 
         public int First { get; }
         public int Second { get; }
-        public bool HasDoor => _doors.Length > 0;
-
-        public bool HasBrokenDoor()
-        {
-            foreach (var door in _doors)
-            {
-                if (door != null && door.Door.IsBroken)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
         public bool IsOpen()
         {

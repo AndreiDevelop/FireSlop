@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 520f4d80ae0114fa6993599602aa454d, type: 3}
-  m_Name: FloorSpread
+  m_Name: FloorFireSpread
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.FireSpreadConfigSO
   _spreadInterval: 1
   _reignitionDelay: 8
@@ -19,7 +19,6 @@ MonoBehaviour:
   _patchOffsetFraction: 0.15
   _clearanceRadius: 0.25
   _clearanceHeight: 0.56
-  _ignitionsPerTick: 4
   _structureMask:
     serializedVersion: 2
     m_Bits: 172033

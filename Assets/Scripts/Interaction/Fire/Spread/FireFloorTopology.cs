@@ -10,12 +10,10 @@ namespace FireSlop.Interaction
         private const int InitialOverlapCapacity = 8;
         private readonly Vector3[] _positions;
 
-        private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, FireSpreadLink[] doorLinks,
-            int seedIndex, int additionalSeedIndex)
+        private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, int seedIndex, int additionalSeedIndex)
         {
             _positions = positions;
             Links = links;
-            DoorLinks = doorLinks;
             SeedIndex = seedIndex;
             AdditionalSeedIndex = additionalSeedIndex;
         }
@@ -24,7 +22,6 @@ namespace FireSlop.Interaction
         public int SeedIndex { get; }
         public int AdditionalSeedIndex { get; }
         public IReadOnlyList<FireSpreadLink> Links { get; }
-        public IReadOnlyList<FireSpreadLink> DoorLinks { get; }
 
         public Vector3 PositionAt(int index)
         {
@@ -85,12 +82,16 @@ namespace FireSlop.Interaction
                 positions[additionalSeedIndex] = position;
             }
 
-            var links = new List<FireSpreadLink>(cells.Count * 2);
+            var links = new List<FireSpreadLink>(cells.Count * 4);
             var overlaps = new Collider[InitialOverlapCapacity];
+            var upperRight = Vector2Int.right + Vector2Int.up;
+            var lowerRight = Vector2Int.right + Vector2Int.down;
             foreach (var cell in cells)
             {
                 AddLink(cell, Vector2Int.right, cells, positions, floors, bounds, config, links, ref overlaps);
                 AddLink(cell, Vector2Int.up, cells, positions, floors, bounds, config, links, ref overlaps);
+                AddLink(cell, upperRight, cells, positions, floors, bounds, config, links, ref overlaps);
+                AddLink(cell, lowerRight, cells, positions, floors, bounds, config, links, ref overlaps);
             }
 
             // Keep the checked routes through doorways and breaches, and scatter their ignition points.
@@ -107,9 +108,7 @@ namespace FireSlop.Interaction
                 }
             }
 
-            var doorLinks = links.FindAll(link => link.HasDoor);
-            return new FireFloorTopology(spreadPositions, links.ToArray(), doorLinks.ToArray(),
-                seedIndex, additionalSeedIndex);
+            return new FireFloorTopology(spreadPositions, links.ToArray(), seedIndex, additionalSeedIndex);
         }
 
         private static int FindClosestCell(List<Vector3> positions, Vector3 position, float spacing)

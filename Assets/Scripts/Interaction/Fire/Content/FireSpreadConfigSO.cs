@@ -11,7 +11,6 @@ namespace FireSlop.Interaction
         [SerializeField, Range(0f, 0.5f)] private float _patchOffsetFraction = 0.4f;
         [SerializeField, Min(0.01f)] private float _clearanceRadius;
         [SerializeField, Min(0.01f)] private float _clearanceHeight;
-        [SerializeField, Min(1)] private int _ignitionsPerTick;
         [SerializeField] private LayerMask _structureMask;
         [SerializeField] private LayerMask _movableObstructionMask;
 
@@ -22,13 +21,12 @@ namespace FireSlop.Interaction
         public float PatchOffsetFraction => _patchOffsetFraction;
         public float ClearanceRadius => _clearanceRadius;
         public float ClearanceHeight => _clearanceHeight;
-        public int IgnitionsPerTick => _ignitionsPerTick;
         public LayerMask StructureMask => _structureMask;
         public LayerMask MovableObstructionMask => _movableObstructionMask;
         public bool IsValid => _spreadInterval > 0f && _reignitionDelay > 0f && _cellSpacing > 0f &&
             _corridorLaneSpacing > 0f && _corridorLaneSpacing <= _cellSpacing &&
             _patchOffsetFraction >= 0f && _patchOffsetFraction <= 0.5f &&
             _clearanceRadius > 0f && _clearanceHeight > _clearanceRadius &&
-            _ignitionsPerTick > 0 && _structureMask.value != 0;
+            _structureMask.value != 0;
     }
 }
