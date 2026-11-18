@@ -11,6 +11,9 @@ namespace FireSlop.Interaction
 
         [SerializeField] private bool _allowGroundTraversal;
 
+        [SerializeField] private AudioSource _breakAudio;
+        [SerializeField] private AudioClip _woodBreak;
+
         private readonly BreakableWindowModel _state = new BreakableWindowModel();
 
         public bool IsOpen => _state.IsOpen;
@@ -49,9 +52,30 @@ namespace FireSlop.Interaction
                 _lowerGlass.ReleaseFragments(transform, direction, config);
             }
 
+            PlayBreakAudio(broken);
+
             if (IsOpen)
             {
                 _entryGuard.isTrigger = true;
+            }
+        }
+
+        private void PlayBreakAudio(WindowSectionKind broken)
+        {
+            if (_breakAudio == null)
+            {
+                return;
+            }
+
+            if ((broken & WindowSectionKind.Wood) != 0 && _woodBreak != null)
+            {
+                _breakAudio.PlayOneShot(_woodBreak);
+            }
+
+            if ((broken & (WindowSectionKind.UpperGlass | WindowSectionKind.LowerGlass)) != 0 &&
+                _breakAudio.clip != null)
+            {
+                _breakAudio.PlayOneShot(_breakAudio.clip);
             }
         }
     }

@@ -33,7 +33,10 @@ namespace FireSlop.Mission
 
         public void Tick()
         {
-            _mission.Advance(Time.unscaledDeltaTime);
+            if (Time.timeScale > 0f)
+            {
+                _mission.Advance(Time.unscaledDeltaTime);
+            }
         }
 
         private void Finish()

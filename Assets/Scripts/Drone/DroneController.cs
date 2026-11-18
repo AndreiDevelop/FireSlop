@@ -15,6 +15,8 @@ namespace FireSlop.Drone
         [SerializeField] private DroneRotorView _rotorView;
         [SerializeField] private string _contentId;
 
+        [SerializeField] private AudioSource _rotorAudio;
+
         private readonly RaycastHit[] _hits = new RaycastHit[32];
         private readonly Collider[] _overlaps = new Collider[32];
         private DroneModel _model;
@@ -97,6 +99,7 @@ namespace FireSlop.Drone
         {
             if (_input == null || !_input.IsEnabled)
             {
+                SetRotorAudio(false);
                 return;
             }
 
@@ -116,9 +119,32 @@ namespace FireSlop.Drone
                 }
             }
 
+            SetRotorAudio(isFlying);
             if (isFlying && _rotorView != null)
             {
                 _rotorView.Spin(deltaTime);
+            }
+        }
+
+        private void OnDisable()
+        {
+            SetRotorAudio(false);
+        }
+
+        private void SetRotorAudio(bool isFlying)
+        {
+            if (_rotorAudio == null || _rotorAudio.clip == null || _rotorAudio.isPlaying == isFlying)
+            {
+                return;
+            }
+
+            if (isFlying)
+            {
+                _rotorAudio.Play();
+            }
+            else
+            {
+                _rotorAudio.Stop();
             }
         }
 

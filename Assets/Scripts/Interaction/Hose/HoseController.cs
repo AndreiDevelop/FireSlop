@@ -16,6 +16,8 @@ namespace FireSlop.Interaction
         [SerializeField] private HoseStreamView _stream;
         [SerializeField] private HoseConfigSO _config;
 
+        [SerializeField] private AudioSource _sprayAudio;
+
         private readonly HoseWaterPacket[] _packets = new HoseWaterPacket[MaxPackets];
         private Transform _aim;
         private Vector3 _eyeLocalPosition;
@@ -32,10 +34,7 @@ namespace FireSlop.Interaction
             _aim = camera.transform;
             _eyeLocalPosition = _aim.localPosition;
             _input = input;
-            if (isActiveAndEnabled)
-            {
-                _input.HoseStopped += StopEmission;
-            }
+            SubscribeToHose();
         }
 
         private void Awake()
@@ -55,9 +54,21 @@ namespace FireSlop.Interaction
 
         private void OnEnable()
         {
-            if (_input != null)
+            SubscribeToHose();
+        }
+
+        private void SubscribeToHose()
+        {
+            if (_input == null || !isActiveAndEnabled)
             {
-                _input.HoseStopped += StopEmission;
+                return;
+            }
+
+            _input.HoseStarted += StartSprayAudio;
+            _input.HoseStopped += StopEmission;
+            if (_input.HoseActive)
+            {
+                StartSprayAudio();
             }
         }
 
@@ -65,9 +76,11 @@ namespace FireSlop.Interaction
         {
             if (_input != null)
             {
+                _input.HoseStarted -= StartSprayAudio;
                 _input.HoseStopped -= StopEmission;
             }
 
+            StopSprayAudio();
             ResetStream();
         }
 
@@ -81,8 +94,25 @@ namespace FireSlop.Interaction
             }
         }
 
+        private void StartSprayAudio()
+        {
+            if (_sprayAudio != null && _sprayAudio.clip != null)
+            {
+                _sprayAudio.Play();
+            }
+        }
+
+        private void StopSprayAudio()
+        {
+            if (_sprayAudio != null)
+            {
+                _sprayAudio.Stop();
+            }
+        }
+
         private void StopEmission()
         {
+            StopSprayAudio();
             if (_packetCount > 0)
             {
                 _packets[_packetCount - 1].UpdateEmissionEnd(

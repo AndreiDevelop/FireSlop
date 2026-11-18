@@ -27,6 +27,11 @@ namespace FireSlop.Interaction
             _solid.enabled = false;
             var debris = Instantiate(_debris, transform.position, transform.rotation, transform.parent);
             debris.Scatter(direction, _surface.sharedMaterial, config);
+            if (Wall != null)
+            {
+                Wall.PlayBrickBreak();
+            }
+
             gameObject.SetActive(false);
             return true;
         }

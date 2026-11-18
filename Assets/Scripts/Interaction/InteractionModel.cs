@@ -2,6 +2,7 @@ using System;
 using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.MissionHud;
+using FireSlop.Tools;
 
 namespace FireSlop.Interaction
 {
@@ -20,7 +21,7 @@ namespace FireSlop.Interaction
             _input = input;
             _flight = flight;
             _flight.ContextChanged += NotifyContextChanged;
-            _tools.Changed += InterruptPrimary;
+            _tools.SelectionChanged += OnToolSelectionChanged;
             _input.Cancelled += InterruptPrimary;
         }
 
@@ -51,7 +52,7 @@ namespace FireSlop.Interaction
 
         public void BeginPrimary(PrimaryInputSource source)
         {
-            if (!_enabled || _primarySource.HasValue || _flight.IsPiloted)
+            if (!_enabled || !_input.IsEnabled || _primarySource.HasValue || _flight.IsPiloted)
             {
                 return;
             }
@@ -61,12 +62,12 @@ namespace FireSlop.Interaction
             {
                 ThrowRequested?.Invoke();
             }
-            else if (_tools.Selected == 0)
+            else if (_tools.SelectedAction == ToolAction.Hose)
             {
                 HoseActive = true;
                 HoseStarted?.Invoke();
             }
-            else
+            else if (_tools.SelectedAction == ToolAction.Hammer)
             {
                 HammerPressed?.Invoke();
             }
@@ -90,6 +91,11 @@ namespace FireSlop.Interaction
 
             HoseActive = false;
             HoseStopped?.Invoke();
+        }
+
+        private void OnToolSelectionChanged(string selectedId)
+        {
+            InterruptPrimary();
         }
 
         private void InterruptPrimary()
@@ -126,7 +132,7 @@ namespace FireSlop.Interaction
 
         public void Interact()
         {
-            if (HasDroneAction || CanInteractWithDoor || RescueAction != RescueContext.None)
+            if (_input.IsEnabled && (HasDroneAction || CanInteractWithDoor || RescueAction != RescueContext.None))
             {
                 ContextRequested?.Invoke();
             }
@@ -193,7 +199,7 @@ namespace FireSlop.Interaction
 
         public void Dispose()
         {
-            _tools.Changed -= InterruptPrimary;
+            _tools.SelectionChanged -= OnToolSelectionChanged;
             _input.Cancelled -= InterruptPrimary;
             _flight.ContextChanged -= NotifyContextChanged;
         }

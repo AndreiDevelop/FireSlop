@@ -1,17 +1,15 @@
+using System.Collections.Generic;
 using FireSlop.Interaction;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace FireSlop.MissionHud
 {
     public sealed class ToolPanelView : MonoBehaviour
     {
-        [SerializeField] private Button _hose;
-        [SerializeField] private Button _hammer;
-        [SerializeField] private GameObject _hoseSelection;
-        [SerializeField] private GameObject _hammerSelection;
+        [SerializeField] private ToolButtonView _buttonPrefab;
 
+        private readonly List<ToolButtonView> _buttons = new();
         private ToolSelectionModel _model;
         private InteractionModel _interaction;
 
@@ -20,6 +18,20 @@ namespace FireSlop.MissionHud
         {
             _model = model;
             _interaction = interaction;
+
+            if (!_buttonPrefab)
+            {
+                Debug.LogError("Tool Panel requires a Tool Button prefab.", this);
+                return;
+            }
+
+            foreach (var tool in model.Tools)
+            {
+                var button = Instantiate(_buttonPrefab, transform);
+                button.Initialize(tool, model.Select);
+                _buttons.Add(button);
+            }
+
             if (isActiveAndEnabled)
             {
                 Bind();
@@ -28,7 +40,7 @@ namespace FireSlop.MissionHud
 
         private void OnEnable()
         {
-            if (_model != null)
+            if (_model != null && _buttonPrefab)
             {
                 Bind();
             }
@@ -41,38 +53,33 @@ namespace FireSlop.MissionHud
                 return;
             }
 
-            _hose.onClick.RemoveListener(SelectHose);
-            _hammer.onClick.RemoveListener(SelectHammer);
-            _model.Changed -= Render;
-            _interaction.ContextChanged -= Render;
+            _model.SelectionChanged -= RenderSelection;
+            _interaction.ContextChanged -= RenderVisibility;
         }
 
         private void Bind()
         {
-            _hose.onClick.AddListener(SelectHose);
-            _hammer.onClick.AddListener(SelectHammer);
-            _model.Changed += Render;
-            _interaction.ContextChanged += Render;
-            Render();
+            _model.SelectionChanged += RenderSelection;
+            _interaction.ContextChanged += RenderVisibility;
+            RenderSelection(_model.SelectedId);
+            RenderVisibility();
         }
 
-        private void SelectHose()
+        private void RenderSelection(string selectedId)
         {
-            _model.Select(0);
+            foreach (var button in _buttons)
+            {
+                button.RenderSelection(selectedId);
+            }
         }
 
-        private void SelectHammer()
+        private void RenderVisibility()
         {
-            _model.Select(1);
-        }
-
-        private void Render()
-        {
-            var showSlots = !_interaction.IsPilotingDrone;
-            _hose.gameObject.SetActive(showSlots);
-            _hammer.gameObject.SetActive(showSlots);
-            _hoseSelection.SetActive(_model.Selected == 0);
-            _hammerSelection.SetActive(_model.Selected == 1);
+            var visible = !_interaction.IsPilotingDrone;
+            foreach (var button in _buttons)
+            {
+                button.gameObject.SetActive(visible);
+            }
         }
     }
 }

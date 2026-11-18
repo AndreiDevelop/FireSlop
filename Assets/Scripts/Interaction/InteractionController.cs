@@ -72,11 +72,6 @@ namespace FireSlop.Interaction
             _model.SetDoorInSight(aimedDoor != null ? aimedDoor.Door : null);
 
             var keyboard = Keyboard.current;
-            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame)
-            {
-                return;
-            }
-
             if (keyboard != null && keyboard.eKey.wasPressedThisFrame)
             {
                 _model.Interact();

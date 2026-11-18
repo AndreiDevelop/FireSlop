@@ -6,6 +6,8 @@ namespace FireSlop.Interaction
     {
         [SerializeField] private string _contentId;
 
+        [SerializeField] private AudioSource _breakAudio;
+
         private BreakableBrickView[] _bricks;
 
         public string ContentId => _contentId;
@@ -13,6 +15,14 @@ namespace FireSlop.Interaction
         private void Awake()
         {
             _bricks = GetComponentsInChildren<BreakableBrickView>();
+        }
+
+        internal void PlayBrickBreak()
+        {
+            if (_breakAudio != null && _breakAudio.clip != null)
+            {
+                _breakAudio.Play();
+            }
         }
 
         internal float GetNextSillRise(float feetY, float previousRise, float clearance)

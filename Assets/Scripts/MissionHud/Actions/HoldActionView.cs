@@ -20,14 +20,18 @@ namespace FireSlop.MissionHud
         {
             _model = model;
             _model.CarryingChanged += Render;
+            _model.ContextChanged += RenderVisibility;
             Render();
+            RenderVisibility();
         }
 
         private void Render()
         {
             if (_label != null)
             {
-                _label.text = _model.IsCarryingResident ? "Throw" : "Use tool";
+                var action = _model.IsCarryingResident ? "Throw" : "Use tool";
+                var showMouseHint = !Application.isMobilePlatform && Mouse.current != null;
+                _label.text = showMouseHint ? "LMB  " + action : action;
             }
         }
 
@@ -36,12 +40,14 @@ namespace FireSlop.MissionHud
             if (_model != null)
             {
                 _model.CarryingChanged -= Render;
+                _model.ContextChanged -= RenderVisibility;
             }
         }
 
-        private void Start()
+        private void RenderVisibility()
         {
-            gameObject.SetActive(Application.isMobilePlatform || Touchscreen.current != null);
+            var touch = Application.isMobilePlatform || Touchscreen.current != null;
+            gameObject.SetActive(touch && !_model.IsPilotingDrone);
         }
 
         public void OnPointerDown(PointerEventData data)

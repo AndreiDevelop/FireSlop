@@ -92,16 +92,37 @@ namespace FireSlop.Interaction
         private void Spread(double time)
         {
             var links = _floor.Links;
-            var remaining = _config.IgnitionsPerTick;
+            var remaining = SpreadThroughBrokenDoors(time);
             for (var checkedCount = 0; checkedCount < links.Count && remaining > 0; checkedCount++)
             {
                 var link = links[_nextLink];
                 _nextLink = (_nextLink + 1) % links.Count;
-                if (TrySpread(link, link.First, link.Second, time) || TrySpread(link, link.Second, link.First, time))
+                if (TrySpread(link, time))
                 {
                     remaining--;
                 }
             }
+        }
+
+        private int SpreadThroughBrokenDoors(double time)
+        {
+            var remaining = _config.IgnitionsPerTick;
+            var doorLinks = _floor.DoorLinks;
+            for (var index = 0; index < doorLinks.Count && remaining > 0; index++)
+            {
+                var link = doorLinks[index];
+                if (link.HasBrokenDoor() && TrySpread(link, time))
+                {
+                    remaining--;
+                }
+            }
+
+            return remaining;
+        }
+
+        private bool TrySpread(FireSpreadLink link, double time)
+        {
+            return TrySpread(link, link.First, link.Second, time) || TrySpread(link, link.Second, link.First, time);
         }
 
         private bool TrySpread(FireSpreadLink link, int source, int destination, double time)

@@ -131,7 +131,6 @@ MonoBehaviour:
   _surface: {fileID: 4597233810833593126}
   _solid: {fileID: 6983013381681099638}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &894955622643129922
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +262,6 @@ MonoBehaviour:
   _surface: {fileID: 8761912961017723883}
   _solid: {fileID: 3352284137190029319}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &936224551186009515
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +444,6 @@ MonoBehaviour:
   _surface: {fileID: 4247016221874728692}
   _solid: {fileID: 7867736526030197915}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1458230793640076887
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +575,6 @@ MonoBehaviour:
   _surface: {fileID: 1700926422574267139}
   _solid: {fileID: 4784263859593810619}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2420133810757121900
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +706,6 @@ MonoBehaviour:
   _surface: {fileID: 2848579186007608301}
   _solid: {fileID: 3461263079063752031}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2444682534438461239
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +837,6 @@ MonoBehaviour:
   _surface: {fileID: 7569045699538057803}
   _solid: {fileID: 7176932907770226036}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2984465516109714227
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +968,6 @@ MonoBehaviour:
   _surface: {fileID: 8688508835540130729}
   _solid: {fileID: 4760421492854699807}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3218127938707766084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1099,6 @@ MonoBehaviour:
   _surface: {fileID: 8306795482978031712}
   _solid: {fileID: 7809501263444396628}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3244436647514772465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1230,6 @@ MonoBehaviour:
   _surface: {fileID: 7874619175620920354}
   _solid: {fileID: 8643476764498979134}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3302630518646833982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1361,6 @@ MonoBehaviour:
   _surface: {fileID: 7359523211017750130}
   _solid: {fileID: 5445420745190938690}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3350189035765840552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1492,6 @@ MonoBehaviour:
   _surface: {fileID: 8976227153447958065}
   _solid: {fileID: 8857970681171302024}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3536428677771793266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1623,6 @@ MonoBehaviour:
   _surface: {fileID: 8416082700769414135}
   _solid: {fileID: 9100224747913217846}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4077904609947841593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1754,6 @@ MonoBehaviour:
   _surface: {fileID: 3493011162229930609}
   _solid: {fileID: 871069125011317309}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4126979689410930641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1885,6 @@ MonoBehaviour:
   _surface: {fileID: 7248422293317211977}
   _solid: {fileID: 7149444823951101726}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5774868549655578516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +2017,6 @@ MonoBehaviour:
   _surface: {fileID: 7341742374072027613}
   _solid: {fileID: 4608452227796794939}
   _restHeight: 0.10000001
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5881812050867910048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,7 +2149,6 @@ MonoBehaviour:
   _surface: {fileID: 7581803554178540830}
   _solid: {fileID: 1551661705465192609}
   _restHeight: 0.13250001
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6392095678262796906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2159,8 @@ GameObject:
   m_Component:
   - component: {fileID: 505629590957156970}
   - component: {fileID: 3461801732838463318}
+  - component: {fileID: 6948238250993160986}
+  - component: {fileID: 6716136374713537742}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2237,6 +2223,118 @@ MonoBehaviour:
   - {fileID: 8352537233828944228}
   - {fileID: 1204396453122291742}
   - {fileID: 8521233775891357619}
+  _doorAudio: {fileID: 6948238250993160986}
+  _woodBreak: {fileID: 8300000, guid: e192d1f45b6be42a188a3a245f195890, type: 3}
+--- !u!82 &6948238250993160986
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392095678262796906}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 9014ce103763c477f8b20e57a67ffe89, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.65
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 110
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 12
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6716136374713537742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392095678262796906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e245c3d14c348da87126a02d66b605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Audio.AudioOutputView
+  _isMusic: 0
 --- !u!1 &6942140414098960065
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2466,6 @@ MonoBehaviour:
   _surface: {fileID: 2046994600677791797}
   _solid: {fileID: 6844921843888477945}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7325301662598123103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,7 +2597,6 @@ MonoBehaviour:
   _surface: {fileID: 9126398920448196920}
   _solid: {fileID: 6476323978109476157}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7565080852452906346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,7 +2729,6 @@ MonoBehaviour:
   _surface: {fileID: 8828480590601164597}
   _solid: {fileID: 5503517515208795591}
   _restHeight: 0.13250001
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7665279383649088759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,7 +2860,6 @@ MonoBehaviour:
   _surface: {fileID: 8386582200165155717}
   _solid: {fileID: 5773765924501323248}
   _restHeight: 0.070999995
-  _flatRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &7422527409959407789
 PrefabInstance:
   m_ObjectHideFlags: 0

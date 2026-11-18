@@ -1,8 +1,10 @@
+using FireSlop.Audio;
 using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.Interaction;
 using FireSlop.Mission;
 using FireSlop.MissionHud;
+using FireSlop.Tools;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +18,7 @@ namespace FireSlop.Startup
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _entrance;
         [SerializeField] private MovementConfigSO _movement;
+        [SerializeField] private ToolBeltSO _toolBelt;
 
         public override void InstallBindings()
         {
@@ -37,6 +40,9 @@ namespace FireSlop.Startup
             Container.Bind<MovementConfigSO>().FromInstance(_movement);
             Container.Bind<HoseFlightModel>().AsSingle();
             Container.Bind<MissionInputModel>().AsSingle();
+            Container.Bind<AudioSettingsModel>().AsSingle();
+            Container.Bind<AudioSettingsController>().AsSingle().NonLazy();
+            Container.Bind<ToolBeltSO>().FromInstance(_toolBelt);
             Container.Bind<ToolSelectionModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();
             Container.Bind<FireSpreadModel>().AsTransient();

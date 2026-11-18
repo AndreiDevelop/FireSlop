@@ -180,15 +180,12 @@ namespace FireSlop.Firefighter
             {
                 _traversal.Cancel();
                 SetRunning(false);
+                _jumpRequested = 0f;
+                _waitForNeutral = true;
                 return;
             }
 
             var keyboard = Keyboard.current;
-            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame)
-            {
-                ReleaseInput();
-                return;
-            }
 
             var mouse = Mouse.current;
             var captureMouse = _input.ConsumeMouseLookRequest();
@@ -219,15 +216,7 @@ namespace FireSlop.Firefighter
                 movement = Vector2.zero;
             }
 
-            if (keyboard != null && keyboard.digit1Key.wasPressedThisFrame)
-            {
-                _tools.Select(0);
-            }
-
-            if (keyboard != null && keyboard.digit2Key.wasPressedThisFrame)
-            {
-                _tools.Select(1);
-            }
+            ReadToolSelection(keyboard);
 
             movement = Vector2.ClampMagnitude(movement + _input.Movement, 1f);
             if (_flight.IsPiloted)
@@ -512,6 +501,24 @@ namespace FireSlop.Firefighter
 
             position.y = Mathf.SmoothDamp(position.y, target, ref _jumpCameraVelocity, _config.JumpCameraSmoothTime);
             _eyes.localPosition = position;
+        }
+
+        private void ReadToolSelection(Keyboard keyboard)
+        {
+            if (keyboard == null)
+            {
+                return;
+            }
+
+            var tools = _tools.Tools;
+            for (var i = 0; i < tools.Count; i++)
+            {
+                var tool = tools[i];
+                if (tool.SelectionKey != Key.None && keyboard[tool.SelectionKey].wasPressedThisFrame)
+                {
+                    _tools.Select(tool.Id);
+                }
+            }
         }
 
         private static Vector2 ReadKeyboard(Keyboard keyboard)

@@ -10,11 +10,23 @@ namespace FireSlop.Firefighter
         private bool _droneUp;
         private bool _droneDown;
 
-        public bool IsEnabled { get; private set; } = true;
+        private bool _enabled = true;
+        private bool _suspended;
+
+        public bool IsEnabled => _enabled && !_suspended;
+
+        public void SetSuspended(bool suspended)
+        {
+            _suspended = suspended;
+            if (suspended)
+            {
+                Cancel();
+            }
+        }
 
         public void SetEnabled(bool enabled)
         {
-            IsEnabled = enabled;
+            _enabled = enabled;
             if (!enabled)
             {
                 Cancel();

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2435888747763465471}
   - component: {fileID: 573023289642316039}
   m_Layer: 0
-  m_Name: Sledgehammer
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

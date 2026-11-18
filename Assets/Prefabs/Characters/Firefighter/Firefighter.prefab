@@ -184,8 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105dc28263ba54578bec365bf190ca16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.EquippedToolView
-  _hose: {fileID: 8074407024305464033}
-  _hammer: {fileID: 3862596054820306271}
+  _toolMount: {fileID: 3382859056979453007}
 --- !u!1 &7666233305786015964
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +445,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4360857970698112424, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2081614935845412250}
+    - targetCorrespondingSourceObject: {fileID: 4360857970698112424, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8201884634792040037}
   m_SourcePrefab: {fileID: 100100000, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
 --- !u!1 &3862596054820306271 stripped
 GameObject:
@@ -465,6 +467,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.HammerSwingView
   _swing: {fileID: 7400000, guid: 7ebfa6b75ca3746d8a0d7ec2d82b3853, type: 2}
+--- !u!114 &8201884634792040037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862596054820306271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b59def9b981411d9e646942e11c0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.EquippedToolModelView
+  _tool: {fileID: 11400000, guid: c60a1b71d857947c2800f7db16b6589d, type: 2}
 --- !u!4 &7005653362734226628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7505045369433926707, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
@@ -557,6 +572,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1223469966129940510}
+    - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8474600270594999035}
+    - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5899906427363880868}
   m_SourcePrefab: {fileID: 100100000, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
 --- !u!4 &1355092379467948173 stripped
 Transform:
@@ -622,6 +643,7 @@ MonoBehaviour:
   _nozzle: {fileID: 314311187692709026}
   _stream: {fileID: 3269234917642291008}
   _config: {fileID: 11400000, guid: ae31a67f9571a4088afea60f74ba2b26, type: 2}
+  _sprayAudio: {fileID: 8474600270594999035}
 --- !u!114 &1223469966129940510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +658,116 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HammerController
   _swing: {fileID: 2081614935845412250}
   _config: {fileID: 11400000, guid: 53f6a3a2d4a374297bbb5aadf69995bf, type: 2}
+--- !u!82 &8474600270594999035
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573718648985156242}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 8745d12cacd62408db0fa3fad08b1e98, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 110
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 6
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5899906427363880868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573718648985156242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e245c3d14c348da87126a02d66b605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Audio.AudioOutputView
+  _isMusic: 0
 --- !u!1001 &2481219664105722050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1189,7 +1321,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7963062417629429242, guid: 510d8a61c60b84424b7e1b13a619f064, type: 3}
       insertIndex: -1
       addedObject: {fileID: 314311187692709026}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6478475121221657236, guid: 510d8a61c60b84424b7e1b13a619f064, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7490867293266593650}
   m_SourcePrefab: {fileID: 100100000, guid: 510d8a61c60b84424b7e1b13a619f064, type: 3}
 --- !u!114 &3269234917642291008 stripped
 MonoBehaviour:
@@ -1212,3 +1347,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6478475121221657236, guid: 510d8a61c60b84424b7e1b13a619f064, type: 3}
   m_PrefabInstance: {fileID: 3019140890367754357}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7490867293266593650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074407024305464033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b59def9b981411d9e646942e11c0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.EquippedToolModelView
+  _tool: {fileID: 11400000, guid: 788c567ef443e427fb41cd7f1bc4cc44, type: 2}

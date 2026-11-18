@@ -14,6 +14,8 @@ namespace FireSlop.Interaction
         [SerializeField] private ParticleSystem _smoke;
         [SerializeField] private WaterFireConfigSO _settings;
 
+        [SerializeField] private AudioSource _fireAudio;
+
         private WaterFireModel _fire;
         private float _fullEmissionRate;
         private float _reignitionDelay;
@@ -76,8 +78,21 @@ namespace FireSlop.Interaction
             Render();
         }
 
+        private void OnEnable()
+        {
+            if (_fire != null)
+            {
+                UpdateFireAudio(_fire.IsBurning);
+            }
+        }
+
         private void OnDisable()
         {
+            if (_fireAudio != null)
+            {
+                _fireAudio.Stop();
+            }
+
             if (_smokeRoutine == null)
             {
                 return;
@@ -126,6 +141,7 @@ namespace FireSlop.Interaction
             emission.rateOverTimeMultiplier = _fullEmissionRate * Intensity;
             var burns = _fire.IsBurning;
             _waterTarget.enabled = burns;
+            UpdateFireAudio(burns);
             if (burns && !_flames.isEmitting)
             {
                 _flames.Play(false);
@@ -133,6 +149,23 @@ namespace FireSlop.Interaction
             else if (!burns && _flames.isEmitting)
             {
                 _flames.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            }
+        }
+
+        private void UpdateFireAudio(bool burns)
+        {
+            if (_fireAudio == null || _fireAudio.clip == null || _fireAudio.isPlaying == burns)
+            {
+                return;
+            }
+
+            if (burns && isActiveAndEnabled)
+            {
+                _fireAudio.Play();
+            }
+            else
+            {
+                _fireAudio.Stop();
             }
         }
     }

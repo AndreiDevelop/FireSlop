@@ -9,6 +9,8 @@ namespace FireSlop.MissionHud
 {
     public sealed class ContextActionView : MonoBehaviour
     {
+        private const string InteractKeyPrefix = "E  ";
+
         [SerializeField] private Text _hint;
         [SerializeField] private GameObject _droneControls;
         [SerializeField] private Button _touchButton;
@@ -70,7 +72,7 @@ namespace FireSlop.MissionHud
                             _model.RescueAction != RescueContext.None;
             var showDroneControls = _model.HasDroneAction && _model.IsPilotingDrone && !touch &&
                                     _closedMessage == null;
-            _hint.text = "E  " + action;
+            _hint.text = InteractKeyPrefix + action;
             if (_model.IsCarryingResident && !_model.IsPilotingDrone && !touch)
             {
                 _hint.text += "   |   LMB  Throw";
@@ -83,7 +85,8 @@ namespace FireSlop.MissionHud
 
             _hint.gameObject.SetActive(_closedMessage != null || (hasAction && !touch && !showDroneControls));
             _droneControls.SetActive(showDroneControls);
-            _touchLabel.text = action;
+            var showFlightKey = _model.IsPilotingDrone && !Application.isMobilePlatform && Keyboard.current != null;
+            _touchLabel.text = showFlightKey ? InteractKeyPrefix + action : action;
             _touchButton.gameObject.SetActive(hasAction && touch);
         }
 

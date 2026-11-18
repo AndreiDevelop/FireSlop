@@ -14,6 +14,9 @@ namespace FireSlop.Interaction
         [SerializeField] private Collider _intactSolid;
         [SerializeField] private BreakableFragment[] _fragments;
 
+        [SerializeField] private AudioSource _doorAudio;
+        [SerializeField] private AudioClip _woodBreak;
+
         private Quaternion _closedLocalRotation;
         private Coroutine _swing;
         private float _openness;
@@ -74,6 +77,11 @@ namespace FireSlop.Interaction
                 }
             }
 
+            if (_doorAudio != null && _woodBreak != null)
+            {
+                _doorAudio.PlayOneShot(_woodBreak);
+            }
+
             fragment.Detach(transform, direction, config);
             if (!Door.IsBroken)
             {
@@ -104,6 +112,11 @@ namespace FireSlop.Interaction
             {
                 SetOpenness(target);
                 return;
+            }
+
+            if (Door.IsOpen && _doorAudio != null && _doorAudio.clip != null)
+            {
+                _doorAudio.Play();
             }
 
             _swing = StartCoroutine(SwingTo(target, swingDuration));

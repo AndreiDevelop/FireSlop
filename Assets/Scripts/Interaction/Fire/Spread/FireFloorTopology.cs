@@ -10,16 +10,18 @@ namespace FireSlop.Interaction
         private const int InitialOverlapCapacity = 8;
         private readonly Vector3[] _positions;
 
-        private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, int seedIndex)
+        private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, FireSpreadLink[] doorLinks, int seedIndex)
         {
             _positions = positions;
             Links = links;
+            DoorLinks = doorLinks;
             SeedIndex = seedIndex;
         }
 
         public int CellCount => _positions.Length;
         public int SeedIndex { get; }
         public IReadOnlyList<FireSpreadLink> Links { get; }
+        public IReadOnlyList<FireSpreadLink> DoorLinks { get; }
 
         public Vector3 PositionAt(int index)
         {
@@ -84,7 +86,8 @@ namespace FireSlop.Interaction
                 }
             }
 
-            return new FireFloorTopology(spreadPositions, links.ToArray(), seedIndex);
+            var doorLinks = links.FindAll(link => link.HasDoor);
+            return new FireFloorTopology(spreadPositions, links.ToArray(), doorLinks.ToArray(), seedIndex);
         }
 
         private static Vector3 ScatterPatch(Vector3 anchor, Collider[] floors, Bounds bounds,
