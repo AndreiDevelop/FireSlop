@@ -14,6 +14,7 @@ namespace FireSlop.Interaction
         private Camera _camera;
         private InteractionModel _model;
         private Transform _residentParent;
+        private CabinetView _aimedCabinet;
 
         public string CabinetContentId => _cabinetContentId;
 
@@ -28,10 +29,14 @@ namespace FireSlop.Interaction
 
         public void SetTarget(Collider target)
         {
+            var furniture = target != null && target != _resident.Capsule
+                ? target.GetComponentInParent<ActionableFurniture>()
+                : null;
+            _aimedCabinet = furniture != null ? furniture.Openable : null;
             var context = RescueContext.None;
-            if (_cabinet.IsHit(target))
+            if (_aimedCabinet != null && _aimedCabinet.Cabinet != null)
             {
-                context = _model.CabinetOpened ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
+                context = _aimedCabinet.Cabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
             }
             else if (_model.IsCarryingResident)
             {
@@ -51,10 +56,7 @@ namespace FireSlop.Interaction
             {
                 case RescueContext.OpenCabinet:
                 case RescueContext.CloseCabinet:
-                    _model.ToggleCabinet();
-                    _model.SetRescueContext(
-                        _model.CabinetOpened ? RescueContext.CloseCabinet : RescueContext.OpenCabinet);
-                    return true;
+                    return TryToggleAimedCabinet();
                 case RescueContext.PickUp:
                     _resident.Attach(_shoulder);
                     _model.StartCarryingResident();
@@ -65,6 +67,24 @@ namespace FireSlop.Interaction
                 default:
                     return false;
             }
+        }
+
+        private bool TryToggleAimedCabinet()
+        {
+            if (_aimedCabinet == null || _aimedCabinet.Cabinet == null)
+            {
+                return false;
+            }
+
+            var cabinet = _aimedCabinet.Cabinet;
+            cabinet.Toggle();
+            if (_aimedCabinet == _cabinet && cabinet.IsOpen)
+            {
+                _model.RevealResident();
+            }
+
+            _model.SetRescueContext(cabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet);
+            return true;
         }
 
         private void Throw()

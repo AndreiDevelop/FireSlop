@@ -13,7 +13,6 @@ namespace FireSlop.Interaction
         [SerializeField] private Vector3 _rightOpenEuler;
         [SerializeField] private InteractionConfigSO _config;
 
-        private InteractionModel _model;
         private Quaternion _leftClosed;
         private Quaternion _rightClosed;
         private Quaternion _leftOpen;
@@ -22,22 +21,18 @@ namespace FireSlop.Interaction
         private Coroutine _swing;
         private float _openness;
 
-        public bool IsOpen => _model.CabinetOpened && _openness >= 1f;
-
-        public bool IsHit(Collider target)
-        {
-            return target != null && target.transform.IsChildOf(transform);
-        }
+        internal CabinetModel Cabinet { get; private set; }
+        public bool IsOpen => Cabinet.IsOpen && _openness >= 1f;
 
         [Inject]
-        public void Construct(InteractionModel model)
+        internal void Construct(CabinetModel cabinet)
         {
-            _model = model;
+            Cabinet = cabinet;
             _leftClosed = _leftLeaf.localRotation;
             _rightClosed = _rightLeaf.localRotation;
             _leftOpen = _leftClosed * Quaternion.Euler(_leftOpenEuler);
             _rightOpen = _rightClosed * Quaternion.Euler(_rightOpenEuler);
-            _model.CabinetChanged += Render;
+            Cabinet.Changed += Render;
         }
 
         private void Render()
@@ -48,12 +43,12 @@ namespace FireSlop.Interaction
                 _swing = null;
             }
 
-            var target = _model.CabinetOpened ? 1f : 0f;
+            var target = Cabinet.IsOpen ? 1f : 0f;
             _target.enabled = false;
             if (_openness == target || !isActiveAndEnabled)
             {
                 SetOpenness(target);
-                _target.enabled = !_model.CabinetOpened;
+                _target.enabled = !Cabinet.IsOpen;
                 return;
             }
 
@@ -68,7 +63,7 @@ namespace FireSlop.Interaction
                 SetOpenness(Mathf.MoveTowards(_openness, target, Time.deltaTime / _config.DoorSwingDuration));
             }
 
-            _target.enabled = !_model.CabinetOpened;
+            _target.enabled = !Cabinet.IsOpen;
             _swing = null;
         }
 
@@ -89,15 +84,15 @@ namespace FireSlop.Interaction
 
             StopCoroutine(_swing);
             _swing = null;
-            SetOpenness(_model.CabinetOpened ? 1f : 0f);
-            _target.enabled = !_model.CabinetOpened;
+            SetOpenness(Cabinet.IsOpen ? 1f : 0f);
+            _target.enabled = !Cabinet.IsOpen;
         }
 
         private void OnDestroy()
         {
-            if (_model != null)
+            if (Cabinet != null)
             {
-                _model.CabinetChanged -= Render;
+                Cabinet.Changed -= Render;
             }
         }
     }

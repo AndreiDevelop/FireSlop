@@ -32,12 +32,10 @@ namespace FireSlop.Interaction
         private RescueContext _rescueContext;
 
         public bool HasRevealedResident { get; private set; }
-        public bool CabinetOpened { get; private set; }
         public bool IsCarryingResident { get; private set; }
         public RescueContext RescueAction => _enabled ? _rescueContext : RescueContext.None;
         public event Action ThrowRequested;
         public event Action CabinetRevealed;
-        public event Action CabinetChanged;
         public event Action CarryingChanged;
 
         public bool HoseActive { get; private set; }
@@ -198,16 +196,15 @@ namespace FireSlop.Interaction
             ContextChanged?.Invoke();
         }
 
-        public void ToggleCabinet()
+        public void RevealResident()
         {
-            CabinetOpened = !CabinetOpened;
-            if (CabinetOpened && !HasRevealedResident)
+            if (HasRevealedResident)
             {
-                HasRevealedResident = true;
-                CabinetRevealed?.Invoke();
+                return;
             }
 
-            CabinetChanged?.Invoke();
+            HasRevealedResident = true;
+            CabinetRevealed?.Invoke();
         }
 
         public void StartCarryingResident()
