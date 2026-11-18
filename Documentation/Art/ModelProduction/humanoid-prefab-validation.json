@@ -1,6 +1,6 @@
 [
   {
-    "path": "Assets/Prefabs/Characters/Resident.prefab",
+    "path": "Assets/Prefabs/Characters/Resident/Resident.prefab",
     "avatar": "ResidentAvatar",
     "animatorCount": 1,
     "allSkinned": true,
@@ -10,7 +10,7 @@
     "applyRootMotion": false
   },
   {
-    "path": "Assets/Prefabs/Characters/FirefighterVisual.prefab",
+    "path": "Assets/Prefabs/Characters/Firefighter/FirefighterVisual.prefab",
     "avatar": "FirefighterAvatar",
     "animatorCount": 1,
     "allSkinned": true,
@@ -20,7 +20,7 @@
     "applyRootMotion": false
   },
   {
-    "path": "Assets/Prefabs/Characters/Firefighter.prefab",
+    "path": "Assets/Prefabs/Characters/Firefighter/Firefighter.prefab",
     "avatar": "FirefighterAvatar",
     "animatorCount": 1,
     "allSkinned": true,

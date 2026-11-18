@@ -94,7 +94,7 @@ Matching intact and pre-cut four-panel doors, with a separate frame. The pre-cut
 
 ![Door fragments](Props/Door/fractured-exploded-preview.png)
 
-[Fractured Blender source](Props/Door/fractured.blend) · [Fractured prefab](../../Assets/Prefabs/Props/DoorFractured.prefab)
+[Fractured Blender source](Props/Door/fractured.blend) · [Fractured prefab](../../Assets/Prefabs/Props/Doors/DoorFractured.prefab)
 
 ### Rescue Drone
 

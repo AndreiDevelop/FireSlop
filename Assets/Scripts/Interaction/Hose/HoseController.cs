@@ -131,7 +131,7 @@ namespace FireSlop.Interaction
             var retainedCount = 0;
             for (var index = 0; index < _packetCount; index++)
             {
-                var packet = _packets[index];
+                ref var packet = ref _packets[index];
                 var age = (float)(time - packet.LaunchTime);
                 if (packet.HasPendingImpact && age >= packet.FlightLimit)
                 {
@@ -152,7 +152,11 @@ namespace FireSlop.Interaction
                     continue;
                 }
 
-                _packets[retainedCount] = packet;
+                if (retainedCount != index)
+                {
+                    _packets[retainedCount] = packet;
+                }
+
                 retainedCount++;
             }
 
@@ -224,7 +228,7 @@ namespace FireSlop.Interaction
             _stream.Splash(hit.point, hit.normal, sampleDuration);
         }
 
-        private bool FindImpact(HoseWaterPacket packet, LayerMask mask, out RaycastHit hit, out float age)
+        private bool FindImpact(in HoseWaterPacket packet, LayerMask mask, out RaycastHit hit, out float age)
         {
             age = 0f;
             var start = packet.PositionAt(packet.SegmentStartAge, _gravity);

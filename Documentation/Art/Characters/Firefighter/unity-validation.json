@@ -4,7 +4,7 @@
   "meshes": 29,
   "bounds": "(1.93, 2.07, 0.80)",
   "triangles": 3616,
-  "visualConnected": "Assets/Prefabs/Characters/FirefighterVisual.prefab",
+  "visualConnected": "Assets/Prefabs/Characters/Firefighter/FirefighterVisual.prefab",
   "oldResidentVisualCount": 0,
   "shadowModes": [
     "ShadowsOnly"

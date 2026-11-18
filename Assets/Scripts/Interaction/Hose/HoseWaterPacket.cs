@@ -28,9 +28,9 @@ namespace FireSlop.Interaction
         public Vector3 LaunchVelocity { get; }
         public double LaunchTime { get; }
         public float FlightLimit { get; set; }
-        public float CheckedAge { get; set; }
+        public float CheckedAge { readonly get; set; }
         public float ConfirmedAge { get; set; }
-        public float SegmentStartAge { get; set; }
+        public float SegmentStartAge { readonly get; set; }
         public bool HasPendingImpact { get; set; }
         public bool HasImpacted { get; set; }
         public int DropletCount { get; set; }
@@ -54,7 +54,7 @@ namespace FireSlop.Interaction
             IsEmissionSealed = seal;
         }
 
-        public Vector3 PositionAt(float age, Vector3 gravity)
+        public readonly Vector3 PositionAt(float age, Vector3 gravity)
         {
             return Origin + (LaunchVelocity + gravity * (0.5f * age)) * age;
         }

@@ -10,7 +10,7 @@
     ]
   },
   {
-    "prefab": "Assets/Prefabs/RescueDrone.prefab",
+    "prefab": "Assets/Prefabs/Modules/Drone/RescueDrone.prefab",
     "nestedModules": 21,
     "boundsDifferenceMeters": 0.0,
     "sizeMeters": [

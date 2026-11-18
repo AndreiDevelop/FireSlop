@@ -7,6 +7,7 @@ namespace FireSlop.Interaction
 {
     internal sealed class FireFloorTopology
     {
+        private const int InitialOverlapCapacity = 8;
         private readonly Vector3[] _positions;
 
         private FireFloorTopology(Vector3[] positions, FireSpreadLink[] links, int seedIndex)
@@ -62,10 +63,11 @@ namespace FireSlop.Interaction
             }
 
             var links = new List<FireSpreadLink>(cells.Count * 2);
+            var overlaps = new Collider[InitialOverlapCapacity];
             foreach (var cell in cells)
             {
-                AddLink(cell, Vector2Int.right, cells, positions, floors, bounds, config, links);
-                AddLink(cell, Vector2Int.up, cells, positions, floors, bounds, config, links);
+                AddLink(cell, Vector2Int.right, cells, positions, floors, bounds, config, links, ref overlaps);
+                AddLink(cell, Vector2Int.up, cells, positions, floors, bounds, config, links, ref overlaps);
             }
 
             // Keep the checked routes through doorways and breaches, and scatter their ignition points.
@@ -147,7 +149,7 @@ namespace FireSlop.Interaction
 
         private static void AddLink(KeyValuePair<Vector2Int, int> cell, Vector2Int direction,
             Dictionary<Vector2Int, int> cells, List<Vector3> positions, Collider[] floors, Bounds bounds,
-            FireSpreadConfigSO config, List<FireSpreadLink> links)
+            FireSpreadConfigSO config, List<FireSpreadLink> links, ref Collider[] overlaps)
         {
             if (!cells.TryGetValue(cell.Key + direction, out var adjacent))
             {
@@ -162,12 +164,12 @@ namespace FireSlop.Interaction
             }
 
             var height = Vector3.up * config.ClearanceHeight;
-            var hits = Physics.OverlapCapsule(start + height, end + height, config.ClearanceRadius,
-                config.StructureMask, QueryTriggerInteraction.Ignore);
+            var hitCount = FindObstructions(start + height, end + height, config, ref overlaps);
             List<DoorView> doors = null;
             List<Collider> bricks = null;
-            foreach (var hit in hits)
+            for (var index = 0; index < hitCount; index++)
             {
+                var hit = overlaps[index];
                 var door = hit.GetComponentInParent<DoorView>();
                 if (door != null)
                 {
@@ -190,6 +192,22 @@ namespace FireSlop.Interaction
 
             links.Add(new FireSpreadLink(cell.Value, adjacent,
                 doors?.ToArray() ?? Array.Empty<DoorView>(), bricks?.ToArray() ?? Array.Empty<Collider>()));
+        }
+
+        private static int FindObstructions(Vector3 start, Vector3 end, FireSpreadConfigSO config,
+            ref Collider[] overlaps)
+        {
+            var count = Physics.OverlapCapsuleNonAlloc(start, end, config.ClearanceRadius, overlaps,
+                config.StructureMask, QueryTriggerInteraction.Ignore);
+            // A full buffer may omit a solid collider that makes the link impassable.
+            while (count == overlaps.Length)
+            {
+                overlaps = new Collider[overlaps.Length * 2];
+                count = Physics.OverlapCapsuleNonAlloc(start, end, config.ClearanceRadius, overlaps,
+                    config.StructureMask, QueryTriggerInteraction.Ignore);
+            }
+
+            return count;
         }
     }
 }
