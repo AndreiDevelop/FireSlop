@@ -7,7 +7,7 @@ namespace FireSlop.Interaction
     {
         [SerializeField] private string _cabinetContentId;
         [SerializeField] private ResidentView _resident;
-        [SerializeField] private CabinetView _cabinet;
+        [SerializeField] private SwingOpenView _cabinet;
         [SerializeField] private Transform _shoulder;
         [SerializeField] private InteractionConfigSO _config;
 

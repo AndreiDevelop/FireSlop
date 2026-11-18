@@ -9,13 +9,13 @@ namespace FireSlop.Interaction
     public sealed class Openable : MonoBehaviour
     {
         [FormerlySerializedAs("_openable")]
-        [SerializeField] private CabinetView _view;
+        [SerializeField] private SwingOpenView _view;
         [SerializeField] private Collider _blockingCollider;
 
         private OpenableModel _model;
         private Coroutine _swing;
 
-        public bool CanToggle => isActiveAndEnabled && _model != null;
+        public bool CanToggle => isActiveAndEnabled && _model != null && !_model.IsLocked;
         public bool IsOpen => _model != null && _model.IsOpen;
         public bool IsFullyOpen => IsOpen && _swing == null;
 
@@ -23,11 +23,16 @@ namespace FireSlop.Interaction
         internal void Construct(OpenableModel model)
         {
             _model = model;
-            if (_view == null || _blockingCollider == null)
+            if (_view == null)
             {
-                Debug.LogError("Openable requires a swing view and a blocking collider.", this);
+                Debug.LogError("Openable requires a swing view.", this);
                 enabled = false;
             }
+        }
+
+        internal void Lock()
+        {
+            _model.Lock();
         }
 
         public bool TryToggle()
@@ -43,7 +48,7 @@ namespace FireSlop.Interaction
                 StopCoroutine(_swing);
             }
 
-            _blockingCollider.enabled = false;
+            SetBlocking(false);
             _swing = StartCoroutine(SwingTo(IsOpen));
             return true;
         }
@@ -51,8 +56,16 @@ namespace FireSlop.Interaction
         private IEnumerator SwingTo(bool isOpen)
         {
             yield return _view.AnimateSwing(isOpen);
-            _blockingCollider.enabled = !isOpen;
+            SetBlocking(!isOpen);
             _swing = null;
+        }
+
+        private void SetBlocking(bool blocking)
+        {
+            if (_blockingCollider != null)
+            {
+                _blockingCollider.enabled = blocking;
+            }
         }
 
         private void OnDisable()
@@ -65,7 +78,7 @@ namespace FireSlop.Interaction
             StopCoroutine(_swing);
             _swing = null;
             _view.SetSwingPose(IsOpen);
-            _blockingCollider.enabled = !IsOpen;
+            SetBlocking(!IsOpen);
         }
     }
 }

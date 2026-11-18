@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using UnityEngine;
+using Zenject;
 
 namespace FireSlop.Interaction
 {
@@ -9,7 +9,7 @@ namespace FireSlop.Interaction
         [SerializeField] private Transform _leaf;
         [SerializeField] private ClickableObject _clickableObject;
         [SerializeField] private bool _isLocked = true;
-        [SerializeField] private Quaternion _openLocalRotation;
+        [SerializeField] private Openable _openable;
         [SerializeField] private string _contentId;
         [SerializeField] private Renderer _intactLeaf;
         [SerializeField] private Collider _intactSolid;
@@ -18,30 +18,27 @@ namespace FireSlop.Interaction
         [SerializeField] private AudioSource _doorAudio;
         [SerializeField] private AudioClip _woodBreak;
 
-        private Quaternion _closedLocalRotation;
-        private Coroutine _swing;
-        private float _openness;
+        private DoorModel _door;
 
-        public DoorModel Door { get; private set; }
+        public Openable Openable => _openable;
+        public bool IsBroken => _door.IsBroken;
+        public bool IsPassable => _openable.IsOpen || IsBroken;
         public Sprite ActionIcon => _clickableObject != null ? _clickableObject.ActionIcon : null;
         public string ContentId => _contentId;
         public event Action Broken;
 
-        private void Awake()
+        [Inject]
+        internal void Construct(DoorModel door)
         {
-            Door = new DoorModel(_isLocked);
-            _closedLocalRotation = _leaf.localRotation;
+            _door = door;
         }
 
-        private void OnDisable()
+        private void Awake()
         {
-            if (_swing == null)
+            if (_isLocked)
             {
-                return;
+                _openable.Lock();
             }
-
-            StopSwing();
-            SetOpenness(Door.IsOpen ? 1f : 0f);
         }
 
         public bool IsLeafHit(Transform hit)
@@ -51,7 +48,7 @@ namespace FireSlop.Interaction
 
         internal void HitIntact(Collider hit, Ray ray, InteractionConfigSO config)
         {
-            if (hit != _intactSolid || Door.DamageHits != 0)
+            if (hit != _intactSolid || _door.DamageHits != 0)
             {
                 return;
             }
@@ -65,12 +62,12 @@ namespace FireSlop.Interaction
 
         internal void Hit(BreakableFragment fragment, Vector3 direction, InteractionConfigSO config)
         {
-            if (!IsLeafHit(fragment.transform) || !Door.RegisterHit(config.DoorHitsToBreak))
+            if (!IsLeafHit(fragment.transform) || !_door.RegisterHit(config.DoorHitsToBreak))
             {
                 return;
             }
 
-            if (Door.DamageHits == 1)
+            if (_door.DamageHits == 1)
             {
                 _intactLeaf.enabled = false;
                 foreach (var piece in _fragments)
@@ -85,7 +82,7 @@ namespace FireSlop.Interaction
             }
 
             fragment.Detach(transform, direction, config);
-            if (!Door.IsBroken)
+            if (!_door.IsBroken)
             {
                 return;
             }
@@ -95,62 +92,8 @@ namespace FireSlop.Interaction
                 piece.Detach(transform, direction, config);
             }
 
-            StopSwing();
             _leaf.gameObject.SetActive(false);
             Broken?.Invoke();
-        }
-
-        public void Render(float swingDuration)
-        {
-            StopSwing();
-            if (Door.IsBroken)
-            {
-                _leaf.gameObject.SetActive(false);
-                return;
-            }
-
-            var target = Door.IsOpen ? 1f : 0f;
-            if (_openness == target || !isActiveAndEnabled)
-            {
-                SetOpenness(target);
-                return;
-            }
-
-            if (Door.IsOpen && _doorAudio != null && _doorAudio.clip != null)
-            {
-                _doorAudio.Play();
-            }
-
-            _swing = StartCoroutine(SwingTo(target, swingDuration));
-        }
-
-        private IEnumerator SwingTo(float target, float duration)
-        {
-            while (_openness != target)
-            {
-                yield return null;
-                SetOpenness(Mathf.MoveTowards(_openness, target, Time.deltaTime / duration));
-            }
-
-            _swing = null;
-        }
-
-        private void SetOpenness(float openness)
-        {
-            _openness = openness;
-            var easedOpenness = Mathf.SmoothStep(0f, 1f, openness);
-            _leaf.localRotation = Quaternion.Slerp(_closedLocalRotation, _openLocalRotation, easedOpenness);
-        }
-
-        private void StopSwing()
-        {
-            if (_swing == null)
-            {
-                return;
-            }
-
-            StopCoroutine(_swing);
-            _swing = null;
         }
     }
 }

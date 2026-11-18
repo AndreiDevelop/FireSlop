@@ -46,7 +46,7 @@ namespace FireSlop.Interaction
 
             _model.ContextRequested -= Interact;
             _entranceDoor.Broken -= RefreshEntrance;
-            _model.SetDoorInSight(null);
+            _model.SetDoorInSight(false);
             _model.EndPrimary(PrimaryInputSource.Mouse);
         }
 
@@ -64,20 +64,13 @@ namespace FireSlop.Interaction
             }
 
             var target = FindTarget();
+            var aimedDoor = FindDoor(target);
             if (_rescue != null)
             {
-                _rescue.SetTarget(target);
+                _rescue.SetTarget(aimedDoor == null ? target : null);
             }
 
-            var aimedDoor = FindDoor(target);
-            if (aimedDoor != null)
-            {
-                _model.SetDoorInSight(aimedDoor.Door, aimedDoor.ActionIcon);
-            }
-            else
-            {
-                _model.SetDoorInSight(null);
-            }
+            SetDoorInSight(aimedDoor);
 
             var keyboard = Keyboard.current;
             if (keyboard != null && keyboard.eKey.wasPressedThisFrame)
@@ -136,7 +129,7 @@ namespace FireSlop.Interaction
 
             var target = FindTarget();
             var door = FindDoor(target);
-            if (door == null || door.Door.IsBroken)
+            if (door == null || door.IsBroken)
             {
                 if (_rescue != null)
                 {
@@ -147,29 +140,34 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            if (!door.Door.TryToggle())
+            if (!door.Openable.TryToggle())
             {
                 _model.ReportClosedDoor();
                 return;
             }
 
-            RefreshDoor(door);
+            SetDoorInSight(door);
+            if (door == _entranceDoor)
+            {
+                _model.SetEntrancePassable(door.IsPassable);
+            }
         }
 
         private void RefreshEntrance()
         {
-            _model.SetDoorInSight(null);
+            _model.SetDoorInSight(false);
             _model.SetEntrancePassable(true);
         }
 
-        private void RefreshDoor(DoorView door)
+        private void SetDoorInSight(DoorView door)
         {
-            door.Render(_config.DoorSwingDuration);
-            _model.SetDoorInSight(door.Door, door.ActionIcon);
-            if (door == _entranceDoor)
+            if (door == null || door.IsBroken)
             {
-                _model.SetEntrancePassable(door.Door.IsPassable);
+                _model.SetDoorInSight(false);
+                return;
             }
+
+            _model.SetDoorInSight(true, door.Openable.IsOpen, door.ActionIcon);
         }
     }
 }

@@ -2200,7 +2200,7 @@ MonoBehaviour:
   _leaf: {fileID: 5299890050333285900}
   _clickableObject: {fileID: 3890851878018801884}
   _isLocked: 1
-  _openLocalRotation: {x: 0, y: -0.00000009131963, z: 0.7660445, w: 0.6427876}
+  _openable: {fileID: 8616895653944841779}
   _contentId: 
   _intactLeaf: {fileID: 3545081181792525434}
   _intactSolid: {fileID: 31799197438676856}
@@ -2989,6 +2989,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6869487737865188421, guid: b8bc7283798314cf388490c7162ba452, type: 3}
       insertIndex: -1
       addedObject: {fileID: 31799197438676856}
+    - targetCorrespondingSourceObject: {fileID: 6869487737865188421, guid: b8bc7283798314cf388490c7162ba452, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2811050245915400412}
+    - targetCorrespondingSourceObject: {fileID: 6869487737865188421, guid: b8bc7283798314cf388490c7162ba452, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8616895653944841779}
     - targetCorrespondingSourceObject: {fileID: -3111565609762313623, guid: b8bc7283798314cf388490c7162ba452, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8137957406832352737}
@@ -3098,6 +3104,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.14, y: 0.26500002, z: 2.21}
   m_Center: {x: 0.57, y: 0, z: 1.105}
+--- !u!114 &2811050245915400412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059801455310152936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9263fb458305246b09d682a9a15cde0b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.SwingOpenView
+  _leaves:
+  - _hinge: {fileID: 5299890050333285900}
+    _openEulerOffset: {x: 0.000008016241, y: -0.000006726424, z: 100.00001}
+  _config: {fileID: 11400000, guid: 53f6a3a2d4a374297bbb5aadf69995bf, type: 2}
+  _openingAudio: {fileID: 6948238250993160986}
+--- !u!114 &8616895653944841779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059801455310152936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6132e631a51f547699183addf2bd06d3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Openable
+  _view: {fileID: 2811050245915400412}
+  _blockingCollider: {fileID: 0}
 --- !u!4 &5299890050333285900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3354865826749812385, guid: b8bc7283798314cf388490c7162ba452, type: 3}

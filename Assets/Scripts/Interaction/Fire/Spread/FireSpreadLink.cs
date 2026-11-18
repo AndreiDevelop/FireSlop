@@ -22,7 +22,7 @@ namespace FireSlop.Interaction
         {
             foreach (var door in _doors)
             {
-                if (door != null && !door.Door.IsPassable)
+                if (door != null && !door.IsPassable)
                 {
                     return false;
                 }

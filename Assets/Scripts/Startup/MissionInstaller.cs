@@ -47,6 +47,7 @@ namespace FireSlop.Startup
             Container.Bind<ToolBeltSO>().FromInstance(_toolBelt);
             Container.Bind<ToolSelectionModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();
+            Container.Bind<DoorModel>().AsTransient();
             Container.Bind<OpenableModel>().AsTransient();
             Container.Bind<FireSpreadModel>().AsTransient();
             Container.Bind<WaterKnockdownModel>().AsTransient();

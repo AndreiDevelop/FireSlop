@@ -556,11 +556,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9263fb458305246b09d682a9a15cde0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.CabinetView
-  _leftLeaf: {fileID: 9160518500672587891}
-  _rightLeaf: {fileID: 2553756723054949711}
-  _leftOpenEuler: {x: 0, y: -105, z: 0}
-  _rightOpenEuler: {x: 0, y: 105, z: 0}
+  _leaves:
+  - _hinge: {fileID: 9160518500672587891}
+    _openEulerOffset: {x: 0, y: -105, z: 0}
+  - _hinge: {fileID: 2553756723054949711}
+    _openEulerOffset: {x: 0, y: 105, z: 0}
   _config: {fileID: 11400000, guid: 53f6a3a2d4a374297bbb5aadf69995bf, type: 2}
+  _openingAudio: {fileID: 0}
 --- !u!54 &2613898043832204698
 Rigidbody:
   m_ObjectHideFlags: 0

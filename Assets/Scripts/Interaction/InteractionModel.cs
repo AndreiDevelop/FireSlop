@@ -150,10 +150,8 @@ namespace FireSlop.Interaction
             ContextChanged?.Invoke();
         }
 
-        public void SetDoorInSight(DoorModel door, Sprite icon = null)
+        public void SetDoorInSight(bool visible, bool shouldCloseDoor = false, Sprite icon = null)
         {
-            var visible = door != null && !door.IsBroken;
-            var shouldCloseDoor = visible && door.IsOpen;
             var doorIcon = visible ? icon : null;
             if (_doorInSight == visible && ShouldCloseDoor == shouldCloseDoor && _doorIcon == doorIcon)
             {
