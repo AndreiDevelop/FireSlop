@@ -13,10 +13,13 @@ namespace FireSlop.MissionHud
         private ToolSelectionModel _model;
         private InteractionModel _interaction;
 
+        private MissionHudPlatform _platform;
+
         [Inject]
-        public void Construct(ToolSelectionModel model, InteractionModel interaction)
+        public void Construct(ToolSelectionModel model, InteractionModel interaction, MissionHudPlatform platform)
         {
             _model = model;
+            _platform = platform;
             _interaction = interaction;
 
             if (!_buttonPrefab)
@@ -55,12 +58,14 @@ namespace FireSlop.MissionHud
 
             _model.SelectionChanged -= RenderSelection;
             _interaction.ContextChanged -= RenderVisibility;
+            _platform.Changed -= RenderVisibility;
         }
 
         private void Bind()
         {
             _model.SelectionChanged += RenderSelection;
             _interaction.ContextChanged += RenderVisibility;
+            _platform.Changed += RenderVisibility;
             RenderSelection(_model.SelectedId);
             RenderVisibility();
         }
@@ -79,6 +84,7 @@ namespace FireSlop.MissionHud
             foreach (var button in _buttons)
             {
                 button.gameObject.SetActive(visible);
+                button.SetShortcutVisible(!_platform.UsesTouchControls);
             }
         }
     }

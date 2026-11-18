@@ -52,9 +52,14 @@ namespace FireSlop.MissionHud
         private void Render()
         {
             _panel.SetActive(_model.IsWon);
+            if (!_model.IsWon)
+            {
+                return;
+            }
+
             foreach (var control in _gameplayControls)
             {
-                control.SetActive(!_model.IsWon);
+                control.SetActive(false);
             }
 
             var duration = TimeSpan.FromSeconds(_model.ElapsedSeconds);

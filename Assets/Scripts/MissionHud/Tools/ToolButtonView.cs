@@ -16,6 +16,7 @@ namespace FireSlop.MissionHud
         [SerializeField] private TMP_Text _shortcutLabel;
         [SerializeField] private GameObject _selection;
 
+        private bool _hasShortcut;
         private string _toolId;
         private Action<string> _select;
 
@@ -31,13 +32,18 @@ namespace FireSlop.MissionHud
             _select = select;
             _icon.sprite = tool.Icon;
             _label.text = tool.DisplayName;
-            _shortcutBadge.SetActive(tool.SelectionKey != Key.None);
+            _hasShortcut = tool.SelectionKey != Key.None;
             if (tool.SelectionKey != Key.None)
             {
                 _shortcutLabel.text = GetShortcutLabel(tool.SelectionKey);
             }
 
             _button.onClick.AddListener(SelectTool);
+        }
+
+        public void SetShortcutVisible(bool visible)
+        {
+            _shortcutBadge.SetActive(visible && _hasShortcut);
         }
 
         public void RenderSelection(string selectedId)

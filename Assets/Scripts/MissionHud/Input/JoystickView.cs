@@ -1,7 +1,6 @@
 using FireSlop.Firefighter;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using Zenject;
 
 namespace FireSlop.MissionHud
@@ -14,16 +13,21 @@ namespace FireSlop.MissionHud
         private MissionInputModel _input;
         private int? _pointer;
 
+        private MissionHudPlatform _platform;
+
         [Inject]
-        public void Construct(MissionInputModel input)
+        public void Construct(MissionInputModel input, MissionHudPlatform platform)
         {
             _input = input;
             _input.Cancelled += ResetPointer;
+            _platform = platform;
+            _platform.Changed += RenderVisibility;
+            RenderVisibility();
         }
 
-        private void Start()
+        private void RenderVisibility()
         {
-            gameObject.SetActive(Application.isMobilePlatform || Touchscreen.current != null);
+            gameObject.SetActive(_platform.UsesTouchControls);
         }
 
         public void OnPointerDown(PointerEventData data)
@@ -71,6 +75,7 @@ namespace FireSlop.MissionHud
             if (_input != null)
             {
                 _input.Cancelled -= ResetPointer;
+                _platform.Changed -= RenderVisibility;
             }
         }
 

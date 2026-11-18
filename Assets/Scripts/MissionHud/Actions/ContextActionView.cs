@@ -29,9 +29,12 @@ namespace FireSlop.MissionHud
             }
         }
 
+        private MissionHudPlatform _platform;
+
         [Inject]
-        public void Construct(InteractionModel model)
+        public void Construct(InteractionModel model, MissionHudPlatform platform)
         {
+            _platform = platform;
             _model = model;
             if (isActiveAndEnabled)
             {
@@ -55,6 +58,7 @@ namespace FireSlop.MissionHud
             }
 
             _model.ContextChanged -= Render;
+            _platform.Changed -= Render;
             _model.ClosedDoor -= ShowClosed;
             _touchButton.onClick.RemoveListener(_model.Interact);
             ClearClosed();
@@ -63,6 +67,7 @@ namespace FireSlop.MissionHud
         private void Subscribe()
         {
             _model.ContextChanged += Render;
+            _platform.Changed += Render;
             _model.ClosedDoor += ShowClosed;
             _touchButton.onClick.AddListener(_model.Interact);
             Render();
@@ -70,7 +75,7 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
-            var touch = MissionHudPlatform.UsesTouchControls;
+            var touch = _platform.UsesTouchControls;
             if (!_model.CanInteractWithDoor || _model.HasDroneAction)
             {
                 ClearClosed();

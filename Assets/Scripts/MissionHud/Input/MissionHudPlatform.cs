@@ -1,11 +1,24 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
+using System;
+using FireSlop.Orientation;
+using Zenject;
 
 namespace FireSlop.MissionHud
 {
-    internal static class MissionHudPlatform
+    public sealed class MissionHudPlatform : ITickable
     {
-        public static bool UsesTouchControls => UnityEngine.Device.Application.isMobilePlatform ||
-            (Application.platform == RuntimePlatform.WebGLPlayer && Touchscreen.current != null);
+        public bool UsesTouchControls { get; private set; } = MobileOrientationPlatform.IsMobile;
+        public event Action Changed;
+
+        public void Tick()
+        {
+#if UNITY_EDITOR
+            var touch = MobileOrientationPlatform.IsMobile;
+            if (UsesTouchControls != touch)
+            {
+                UsesTouchControls = touch;
+                Changed?.Invoke();
+            }
+#endif
+        }
     }
 }
