@@ -34,6 +34,9 @@ namespace FireSlop.Firefighter
                     _solidLayers |= 1 << layer;
                 }
             }
+
+            // The carried ragdoll uses Ignore Raycast and must not obstruct clearance checks.
+            _solidLayers &= Physics.DefaultRaycastLayers;
         }
 
         public void TryStart(Vector3 direction, float reach, MovementConfigSO config, bool crouchHeld, float deltaTime)
