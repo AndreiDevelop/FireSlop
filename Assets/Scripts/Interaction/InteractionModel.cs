@@ -32,14 +32,15 @@ namespace FireSlop.Interaction
         private RescueContext _rescueContext;
 
         public bool HasRevealedResident { get; private set; }
-        public bool IsCarryingResident { get; private set; }
+        public string CarriedContentId { get; private set; }
+        public bool IsCarrying => CarriedContentId != null;
         public RescueContext RescueAction => _enabled ? _rescueContext : RescueContext.None;
         public event Action ThrowRequested;
         public event Action CabinetRevealed;
         public event Action CarryingChanged;
 
         public bool HoseActive { get; private set; }
-        public bool CanSprayHose => CanUsePrimary && !IsCarryingResident && _tools.SelectedAction == ToolAction.Hose;
+        public bool CanSprayHose => CanUsePrimary && !IsCarrying && _tools.SelectedAction == ToolAction.Hose;
         public bool IsHoseInUseManually => _primarySource.HasValue && CanSprayHose;
         public bool IsEntrancePassable { get; private set; }
         public bool CanInteractWithDoor => _enabled && !_flight.IsPiloted && _doorInSight;
@@ -59,6 +60,7 @@ namespace FireSlop.Interaction
             }
         }
 
+        public event Action SignalThrowRequested;
         public event Action HammerPressed;
         public event Action HammerInterrupted;
         public event Action HoseStarted;
@@ -77,7 +79,7 @@ namespace FireSlop.Interaction
             }
 
             _primarySource = source;
-            if (IsCarryingResident)
+            if (IsCarrying)
             {
                 ThrowRequested?.Invoke();
             }
@@ -88,6 +90,10 @@ namespace FireSlop.Interaction
             else if (_tools.SelectedAction == ToolAction.Hammer)
             {
                 HammerPressed?.Invoke();
+            }
+            else if (_tools.SelectedAction == ToolAction.SignalCanister && _tools.IsAvailable(_tools.SelectedId))
+            {
+                SignalThrowRequested?.Invoke();
             }
         }
 
@@ -110,6 +116,11 @@ namespace FireSlop.Interaction
         {
             var active = _autoHoseActive || IsHoseInUseManually;
             if (HoseActive == active)
+            {
+                return;
+            }
+
+            if (active && !_tools.TryCommitUse(ToolAction.Hose))
             {
                 return;
             }
@@ -205,17 +216,17 @@ namespace FireSlop.Interaction
             CabinetRevealed?.Invoke();
         }
 
-        public void StartCarryingResident()
+        internal void StartCarrying(string contentId)
         {
-            IsCarryingResident = true;
+            CarriedContentId = contentId;
             InterruptPrimary();
             CarryingChanged?.Invoke();
             SetRescueContext(RescueContext.PutDown);
         }
 
-        public void StopCarryingResident()
+        internal void StopCarrying()
         {
-            IsCarryingResident = false;
+            CarriedContentId = null;
             CarryingChanged?.Invoke();
             SetRescueContext(RescueContext.None);
         }

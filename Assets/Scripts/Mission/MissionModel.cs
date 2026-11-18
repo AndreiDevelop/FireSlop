@@ -4,8 +4,6 @@ namespace FireSlop.Mission
 {
     public sealed class MissionModel
     {
-        private readonly string _residentId;
-
         public MissionModel(string residentId)
         {
             if (string.IsNullOrWhiteSpace(residentId))
@@ -13,9 +11,10 @@ namespace FireSlop.Mission
                 throw new ArgumentException("Mission requires an authored resident ID.", nameof(residentId));
             }
 
-            _residentId = residentId;
+            ResidentId = residentId;
         }
 
+        public string ResidentId { get; }
         public bool IsActive { get; private set; }
         public bool IsWon { get; private set; }
         public double ElapsedSeconds { get; private set; }
@@ -39,7 +38,7 @@ namespace FireSlop.Mission
 
         public bool TryRescue(string residentId)
         {
-            if (!IsActive || residentId != _residentId)
+            if (!IsActive || residentId != ResidentId)
             {
                 return false;
             }

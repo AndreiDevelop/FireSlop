@@ -17,7 +17,7 @@ namespace FireSlop.MissionHud
         [SerializeField] private GameObject _selection;
 
         private bool _hasShortcut;
-        private string _toolId;
+        private ToolDefinitionSO _tool;
         private Action<string> _select;
 
         public void Initialize(ToolDefinitionSO tool, Action<string> select)
@@ -28,7 +28,7 @@ namespace FireSlop.MissionHud
                 return;
             }
 
-            _toolId = tool.Id;
+            _tool = tool;
             _select = select;
             _icon.sprite = tool.Icon;
             _label.text = tool.DisplayName;
@@ -41,6 +41,20 @@ namespace FireSlop.MissionHud
             _button.onClick.AddListener(SelectTool);
         }
 
+        public void RenderAvailability(ToolSelectionModel model)
+        {
+            if (!_tool)
+            {
+                return;
+            }
+
+            if (model.TryGetQuantity(_tool.Id, out var quantity))
+            {
+                _label.text = $"{_tool.DisplayName} ×{quantity}";
+                _button.interactable = quantity > 0;
+            }
+        }
+
         public void SetShortcutVisible(bool visible)
         {
             _shortcutBadge.SetActive(visible && _hasShortcut);
@@ -48,9 +62,9 @@ namespace FireSlop.MissionHud
 
         public void RenderSelection(string selectedId)
         {
-            if (_selection)
+            if (_selection && _tool)
             {
-                _selection.SetActive(selectedId == _toolId);
+                _selection.SetActive(selectedId == _tool.Id);
             }
         }
 
@@ -64,7 +78,7 @@ namespace FireSlop.MissionHud
 
         private void SelectTool()
         {
-            _select(_toolId);
+            _select(_tool.Id);
         }
 
         private static string GetShortcutLabel(Key key)

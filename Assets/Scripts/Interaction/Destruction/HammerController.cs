@@ -1,5 +1,7 @@
 using System.Collections;
 using FireSlop.Firefighter;
+using FireSlop.MissionHud;
+using FireSlop.Tools;
 using UnityEngine;
 using Zenject;
 
@@ -12,13 +14,15 @@ namespace FireSlop.Interaction
 
         private Camera _camera;
         private InteractionModel _input;
+        private ToolSelectionModel _tools;
         private Coroutine _strike;
 
         [Inject]
-        public void Construct(Camera camera, InteractionModel input)
+        public void Construct(Camera camera, InteractionModel input, ToolSelectionModel tools)
         {
             _camera = camera;
             _input = input;
+            _tools = tools;
             if (isActiveAndEnabled)
             {
                 Subscribe();
@@ -62,7 +66,7 @@ namespace FireSlop.Interaction
 
         private void StartSwing()
         {
-            if (_strike == null && _swing.isActiveAndEnabled)
+            if (_strike == null && _swing.isActiveAndEnabled && _tools.TryCommitUse(ToolAction.Hammer))
             {
                 _strike = StartCoroutine(Swing());
             }

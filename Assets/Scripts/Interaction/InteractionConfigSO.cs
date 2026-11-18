@@ -21,8 +21,8 @@ namespace FireSlop.Interaction
         [SerializeField, Min(0.1f)] private float _residentMass = 36f;
 
         public float ResidentMass => _residentMass;
-        public float ResidentReleaseDistance => _residentReleaseDistance;
-        public float ResidentThrowSpeed => _residentThrowSpeed;
+        public float ReleaseDistance => _residentReleaseDistance;
+        public float ThrowSpeed => _residentThrowSpeed;
         public float ContextRange => _contextRange;
         public float DoorSwingDuration => _doorSwingDuration;
         public float HammerReach => _hammerReach;

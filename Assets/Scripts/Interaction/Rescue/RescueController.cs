@@ -13,7 +13,8 @@ namespace FireSlop.Interaction
 
         private Camera _camera;
         private InteractionModel _model;
-        private Transform _residentParent;
+        private Carryable _aimedCarryable;
+        private Carryable _carried;
         private Openable _rescueCabinet;
         private Openable _aimedCabinet;
 
@@ -24,7 +25,6 @@ namespace FireSlop.Interaction
         {
             _camera = camera;
             _model = model;
-            _residentParent = _resident.transform.parent;
             _rescueCabinet = _cabinet != null ? _cabinet.GetComponent<Openable>() : null;
             if (_rescueCabinet == null)
             {
@@ -36,7 +36,13 @@ namespace FireSlop.Interaction
 
         public void SetTarget(Collider target)
         {
-            _aimedCabinet = target != null && target != _resident.Capsule
+            _aimedCarryable = target != null ? target.GetComponentInParent<Carryable>() : null;
+            if (_aimedCarryable != null && target != _aimedCarryable.PickupCollider)
+            {
+                _aimedCarryable = null;
+            }
+
+            _aimedCabinet = target != null && _aimedCarryable == null
                 ? target.GetComponentInParent<Openable>()
                 : null;
             var context = RescueContext.None;
@@ -44,19 +50,17 @@ namespace FireSlop.Interaction
             {
                 context = _aimedCabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
             }
-            else if (_model.IsCarryingResident)
+            else if (_model.IsCarrying)
             {
                 context = RescueContext.PutDown;
             }
-            else if (target == _resident.Capsule && CanPickUpResident)
+            else if (CanPickUpTarget())
             {
                 context = RescueContext.PickUp;
             }
 
             _model.SetRescueContext(context);
         }
-
-        private bool CanPickUpResident => _resident.IsFree || (_rescueCabinet != null && _rescueCabinet.IsFullyOpen);
 
         public bool TryInteract()
         {
@@ -66,12 +70,9 @@ namespace FireSlop.Interaction
                 case RescueContext.CloseCabinet:
                     return TryToggleAimedCabinet();
                 case RescueContext.PickUp:
-                    _resident.Attach(_shoulder);
-                    _model.StartCarryingResident();
-                    return true;
+                    return TryPickUp();
                 case RescueContext.PutDown:
-                    TryRelease(false);
-                    return true;
+                    return TryRelease(false);
                 default:
                     return false;
             }
@@ -94,13 +95,47 @@ namespace FireSlop.Interaction
             return true;
         }
 
+        private bool CanPickUpTarget()
+        {
+            if (_model.IsCarrying || _aimedCarryable == null || !_aimedCarryable.CanPickUp)
+            {
+                return false;
+            }
+
+            if (_aimedCarryable != _resident)
+            {
+                return true;
+            }
+
+            var cabinetOpen = _rescueCabinet != null && _rescueCabinet.IsFullyOpen;
+            return !_resident.IsRescued && (_resident.IsFree || cabinetOpen);
+        }
+
+        private bool TryPickUp()
+        {
+            if (!CanPickUpTarget())
+            {
+                return false;
+            }
+
+            _carried = _aimedCarryable;
+            _carried.Attach(_shoulder);
+            _model.StartCarrying(_carried.ContentId);
+            return true;
+        }
+
         private void Throw()
         {
             TryRelease(true);
         }
 
-        private void TryRelease(bool throwResident)
+        private bool TryRelease(bool throwObject)
         {
+            if (_carried == null)
+            {
+                return false;
+            }
+
             var view = _camera.transform;
             var forward = Vector3.ProjectOnPlane(view.forward, Vector3.up).normalized;
             if (forward.sqrMagnitude < 0.01f)
@@ -108,27 +143,15 @@ namespace FireSlop.Interaction
                 forward = _shoulder.parent.forward;
             }
 
-            var rotation = Quaternion.LookRotation(forward);
-            var capsule = _resident.Capsule;
-            var origin = view.position - Vector3.up * (capsule.height * 0.5f);
-            var center = origin + rotation * capsule.center;
-            var axis = Vector3.up * (capsule.height * 0.5f - capsule.radius);
-            var top = center + axis;
-            var bottom = center - axis;
-            var distance = _config.ResidentReleaseDistance;
-            var offset = forward * distance;
-            var mask = _config.AimCollisionMask;
-            if (Physics.CapsuleCast(top, bottom, capsule.radius, forward, distance, mask,
-                    QueryTriggerInteraction.Ignore) ||
-                Physics.CheckCapsule(top + offset, bottom + offset, capsule.radius, mask,
-                    QueryTriggerInteraction.Ignore))
+            var velocity = throwObject ? view.forward * _config.ThrowSpeed : Vector3.zero;
+            if (!_carried.TryRelease(view.position, forward, _config.ReleaseDistance, _config.AimCollisionMask, velocity))
             {
-                return;
+                return false;
             }
 
-            var velocity = throwResident ? view.forward * _config.ResidentThrowSpeed : Vector3.zero;
-            _resident.Release(_residentParent, origin + offset, rotation, velocity);
-            _model.StopCarryingResident();
+            _carried = null;
+            _model.StopCarrying();
+            return true;
         }
 
         private void OnDestroy()

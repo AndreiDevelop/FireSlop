@@ -58,6 +58,7 @@ namespace FireSlop.MissionHud
             }
 
             _model.SelectionChanged -= RenderSelection;
+            _model.QuantityChanged -= RenderAvailability;
             _interaction.ContextChanged -= RenderVisibility;
             _platform.Changed -= RenderVisibility;
         }
@@ -65,9 +66,11 @@ namespace FireSlop.MissionHud
         private void Bind()
         {
             _model.SelectionChanged += RenderSelection;
+            _model.QuantityChanged += RenderAvailability;
             _interaction.ContextChanged += RenderVisibility;
             _platform.Changed += RenderVisibility;
             RenderSelection(_model.SelectedId);
+            RenderAvailability(_model.SelectedId);
             RenderVisibility();
         }
 
@@ -76,6 +79,14 @@ namespace FireSlop.MissionHud
             foreach (var button in _buttons)
             {
                 button.RenderSelection(selectedId);
+            }
+        }
+
+        private void RenderAvailability(string toolId)
+        {
+            foreach (var button in _buttons)
+            {
+                button.RenderAvailability(_model);
             }
         }
 

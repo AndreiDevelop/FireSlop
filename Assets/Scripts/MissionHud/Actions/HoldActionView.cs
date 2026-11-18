@@ -39,9 +39,9 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
-            _label.text = _model.IsCarryingResident ? "Throw" : "Use tool";
+            _label.text = _model.IsCarrying ? "Throw" : "Use tool";
             _icon.sprite = _tools.SelectedIcon;
-            _icon.enabled = !_model.IsCarryingResident;
+            _icon.enabled = !_model.IsCarrying;
         }
 
         private void OnToolChanged(string selectedId)

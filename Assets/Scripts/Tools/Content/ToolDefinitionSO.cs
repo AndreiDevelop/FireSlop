@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace FireSlop.Tools
 {
@@ -12,12 +13,17 @@ namespace FireSlop.Tools
         [SerializeField] private Sprite _icon;
         [SerializeField] private Key _selectionKey;
         [SerializeField] private ToolAction _action;
+        [FormerlySerializedAs("_singleUse")]
+        [SerializeField] private bool _consumable;
+        [SerializeField, Min(1)] private int _startingQuantity = 1;
 
         public string Id => _id;
         public int Index => _index;
         public string DisplayName => _displayName;
         public Sprite Icon => _icon;
         public Key SelectionKey => _selectionKey;
+        public bool IsConsumable => _consumable;
+        public int StartingQuantity => _startingQuantity;
         public ToolAction Action => _action;
     }
 }

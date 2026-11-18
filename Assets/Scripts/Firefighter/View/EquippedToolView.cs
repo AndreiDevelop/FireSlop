@@ -67,6 +67,7 @@ namespace FireSlop.Firefighter
             }
 
             _tools.SelectionChanged -= Render;
+            _tools.QuantityChanged -= OnQuantityChanged;
             _interaction.CarryingChanged -= RenderCurrentSelection;
             _interaction.ContextChanged -= RenderCurrentSelection;
         }
@@ -74,8 +75,14 @@ namespace FireSlop.Firefighter
         private void Subscribe()
         {
             _tools.SelectionChanged += Render;
+            _tools.QuantityChanged += OnQuantityChanged;
             _interaction.CarryingChanged += RenderCurrentSelection;
             _interaction.ContextChanged += RenderCurrentSelection;
+            RenderCurrentSelection();
+        }
+
+        private void OnQuantityChanged(string toolId)
+        {
             RenderCurrentSelection();
         }
 
@@ -88,7 +95,7 @@ namespace FireSlop.Firefighter
         {
             foreach (var model in _models)
             {
-                var equipped = !_interaction.IsCarryingResident && model.ToolId == selectedId;
+                var equipped = !_interaction.IsCarrying && model.ToolId == selectedId && _tools.IsAvailable(selectedId);
                 model.Render(equipped, _interaction.IsPilotingDrone);
             }
         }

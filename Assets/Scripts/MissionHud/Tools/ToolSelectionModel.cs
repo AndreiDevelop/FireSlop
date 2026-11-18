@@ -9,6 +9,7 @@ namespace FireSlop.MissionHud
     public sealed class ToolSelectionModel
     {
         private readonly Dictionary<string, ToolDefinitionSO> _toolsById = new(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> _quantities = new(StringComparer.Ordinal);
         private ToolDefinitionSO _selected;
         private bool _enabled = true;
 
@@ -17,6 +18,39 @@ namespace FireSlop.MissionHud
         public ToolAction SelectedAction => _selected.Action;
         public Sprite SelectedIcon => _selected.Icon;
         public event Action<string> SelectionChanged;
+        public event Action<string> QuantityChanged;
+
+        public bool IsAvailable(string id)
+        {
+            return id != null && _toolsById.ContainsKey(id) && (!_quantities.TryGetValue(id, out var quantity) || quantity > 0);
+        }
+
+        public bool TryGetQuantity(string id, out int quantity)
+        {
+            return _quantities.TryGetValue(id, out quantity);
+        }
+
+        public bool TryCommitUse(ToolAction action)
+        {
+            if (!_enabled || _selected.Action != action)
+            {
+                return false;
+            }
+
+            if (!_quantities.TryGetValue(_selected.Id, out var quantity))
+            {
+                return true;
+            }
+
+            if (quantity == 0)
+            {
+                return false;
+            }
+
+            _quantities[_selected.Id] = quantity - 1;
+            QuantityChanged?.Invoke(_selected.Id);
+            return true;
+        }
 
         public ToolSelectionModel(ToolBeltSO belt)
         {
@@ -44,6 +78,16 @@ namespace FireSlop.MissionHud
                         $"Tool Belt '{belt.name}' repeats an ID, index or selection key on '{tool.name}'.");
                 }
 
+                if (tool.IsConsumable)
+                {
+                    if (tool.StartingQuantity < 1)
+                    {
+                        throw new InvalidOperationException($"Consumable '{tool.Id}' requires a positive starting quantity.");
+                    }
+
+                    _quantities.Add(tool.Id, tool.StartingQuantity);
+                }
+
                 tools.Add(tool);
             }
 
@@ -65,7 +109,7 @@ namespace FireSlop.MissionHud
         public void Select(string id)
         {
             if (!_enabled || string.IsNullOrEmpty(id) || id == SelectedId ||
-                !_toolsById.TryGetValue(id, out var tool))
+                !_toolsById.TryGetValue(id, out var tool) || !IsAvailable(id))
             {
                 return;
             }

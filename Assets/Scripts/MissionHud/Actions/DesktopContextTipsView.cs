@@ -10,7 +10,7 @@ namespace FireSlop.MissionHud
         protected override void Display(string action, bool closed)
         {
             _hint.text = closed ? action : "<sprite name=\"E\">  " + action;
-            if (!closed && Model.IsCarryingResident && !Model.IsPilotingDrone)
+            if (!closed && Model.IsCarrying && !Model.IsPilotingDrone)
             {
                 _hint.text += "   |   LMB  Throw";
             }

@@ -4,11 +4,8 @@ using Zenject;
 
 namespace FireSlop.Interaction
 {
-    public sealed class ResidentView : MonoBehaviour
+    public sealed class ResidentView : Carryable
     {
-        [SerializeField] private string _contentId;
-        [SerializeField] private CapsuleCollider _capsule;
-        [SerializeField] private Rigidbody _body;
         [SerializeField] private Transform _visual;
         [SerializeField] private ResidentCarryRagdoll _carryRagdoll;
         [SerializeField] private InteractionConfigSO _config;
@@ -21,10 +18,7 @@ namespace FireSlop.Interaction
 
         public bool IsRescued => _mission != null && _mission.IsWon;
 
-        public string ContentId => _contentId;
-        public CapsuleCollider Capsule => _capsule;
-        public bool IsFree => !_body.isKinematic;
-        public bool CanBeKnockedDown => _hasBeenRevealed && _capsule.enabled && !IsRescued;
+        public bool CanBeKnockedDown => _hasBeenRevealed && PickupCollider.enabled && !IsRescued;
 
         [Inject]
         public void Construct(InteractionModel model, MissionModel mission)
@@ -32,38 +26,26 @@ namespace FireSlop.Interaction
             _model = model;
             _mission = mission;
             _mission.Won += Rescue;
-            _body.mass = _config.ResidentMass;
+            Body.mass = _config.ResidentMass;
             _carryRagdoll.Initialize();
             _model.CabinetRevealed += Reveal;
         }
 
-        public void Attach(Transform shoulder)
+        protected override void OnAttached(Transform shoulder)
         {
-            _capsule.enabled = false;
-            _body.isKinematic = true;
-            transform.SetParent(shoulder, false);
-            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             _carryRagdoll.HangFrom(shoulder);
             _visual.gameObject.SetActive(false);
         }
 
-        public void Release(Transform worldParent, Vector3 position, Quaternion rotation, Vector3 velocity)
+        protected override void OnReleasing()
         {
             _carryRagdoll.Stow();
             _visual.gameObject.SetActive(true);
-            transform.SetParent(worldParent, true);
-            transform.SetPositionAndRotation(position, rotation);
-            _body.position = position;
-            _body.rotation = rotation;
-            _capsule.enabled = true;
-            _body.isKinematic = false;
-            _body.linearVelocity = velocity;
-            _body.angularVelocity = Vector3.zero;
         }
 
         private void Rescue()
         {
-            _body.isKinematic = true;
+            Body.isKinematic = true;
         }
 
         private void Reveal()

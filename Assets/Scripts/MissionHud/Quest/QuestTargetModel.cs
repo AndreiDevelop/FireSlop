@@ -40,7 +40,7 @@ namespace FireSlop.MissionHud
                     return QuestStep.Complete;
                 }
 
-                if (_interaction.IsCarryingResident)
+                if (_interaction.CarriedContentId == _mission.ResidentId)
                 {
                     return QuestStep.DeliverResident;
                 }

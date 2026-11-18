@@ -30,7 +30,7 @@ namespace FireSlop.Mission
 
         private void FixedUpdate()
         {
-            if (_mission == null || !_mission.IsActive || !_interaction.IsCarryingResident)
+            if (_mission == null || !_mission.IsActive || _interaction.CarriedContentId != _resident.ContentId)
             {
                 return;
             }
@@ -55,7 +55,7 @@ namespace FireSlop.Mission
 
         private void Accept(Collider other)
         {
-            if (_mission != null && other == _resident.Capsule)
+            if (_mission != null && other == _resident.PickupCollider)
             {
                 _mission.TryRescue(_resident.ContentId);
             }
