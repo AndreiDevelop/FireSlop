@@ -38,7 +38,7 @@ namespace FireSlop.Interaction
                 return default;
             }
 
-            return new ContextActionPrompt("Pick up");
+            return new ContextActionPrompt(HudActionId.PickUp);
         }
 
         public void Interact()

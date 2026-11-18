@@ -16,10 +16,12 @@ namespace FireSlop.MissionHud
         private InteractionModel _model;
         private MissionInputModel _input;
         private ToolSelectionModel _tools;
+        private HudActionCatalogSO _actions;
         private int? _pointer;
 
         [Inject]
-        public void Construct(InteractionModel model, MissionInputModel input, ToolSelectionModel tools)
+        public void Construct(
+            InteractionModel model, MissionInputModel input, ToolSelectionModel tools, HudActionCatalogSO actions)
         {
             if (_label == null || _icon == null)
             {
@@ -31,6 +33,7 @@ namespace FireSlop.MissionHud
             _model = model;
             _input = input;
             _tools = tools;
+            _actions = actions;
             _model.CarryingChanged += Render;
             _input.Cancelled += ResetPointer;
             _tools.SelectionChanged += OnToolChanged;
@@ -39,9 +42,16 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
-            _label.text = _model.IsCarrying ? "Throw" : "Use tool";
-            _icon.sprite = _tools.SelectedIcon;
-            _icon.enabled = !_model.IsCarrying;
+            var action = _actions.Get(_model.PrimaryActionId);
+            var icon = action.Icon;
+            if (action.Id == HudActionId.UseTool && icon == null)
+            {
+                icon = _tools.GetTool(_tools.SelectedId).Icon;
+            }
+
+            _label.text = action.Label;
+            _icon.sprite = icon;
+            _icon.enabled = icon != null;
         }
 
         private void OnToolChanged(string selectedId)

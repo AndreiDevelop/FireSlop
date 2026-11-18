@@ -1,3 +1,4 @@
+using FireSlop.Interaction;
 using TMPro;
 using UnityEngine;
 
@@ -7,15 +8,16 @@ namespace FireSlop.MissionHud
     {
         [SerializeField] private TextMeshProUGUI _hint;
 
-        protected override void Display(string action, bool closed)
+        protected override void Display(HudActionDefinition action, bool closed)
         {
-            _hint.text = closed ? action : "<sprite name=\"E\">  " + action;
+            var label = action?.Label ?? string.Empty;
+            _hint.text = closed ? label : "<sprite name=\"E\">  " + label;
             if (!closed && Model.IsCarrying && !Model.IsPilotingDrone)
             {
-                _hint.text += "   |   LMB  Throw";
+                _hint.text += "   |   LMB  " + Actions.Get(HudActionId.Throw).Label;
             }
 
-            _hint.gameObject.SetActive(action.Length > 0 && !Model.IsPilotingDrone);
+            _hint.gameObject.SetActive(action != null && !Model.IsPilotingDrone);
         }
     }
 }

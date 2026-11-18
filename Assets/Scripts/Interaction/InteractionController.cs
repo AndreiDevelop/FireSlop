@@ -22,7 +22,6 @@ namespace FireSlop.Interaction
             _camera = camera;
             _model = model;
             _drone = drone;
-            _model.SetDroneIcon(_drone != null ? _drone.ActionIcon : null);
             if (isActiveAndEnabled)
             {
                 Subscribe();
@@ -124,7 +123,7 @@ namespace FireSlop.Interaction
             }
 
             var target = ResolveTarget();
-            if (_model.ContextPrompt.BlockedMessage != null)
+            if (_model.ContextPrompt.IsBlocked)
             {
                 _model.ReportActionBlocked();
                 return;

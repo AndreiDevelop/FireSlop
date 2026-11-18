@@ -20,7 +20,8 @@ namespace FireSlop.Interaction
                 return default;
             }
 
-            return new ContextActionPrompt(_openable.IsOpen ? "Close cabinet" : "Open cabinet");
+            var actionId = _openable.IsOpen ? HudActionId.CloseCabinet : HudActionId.OpenCabinet;
+            return new ContextActionPrompt(actionId);
         }
 
         public void Interact()

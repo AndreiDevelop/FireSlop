@@ -7,7 +7,6 @@ namespace FireSlop.Interaction
     public sealed class DoorView : MonoBehaviour, IHitTarget, IContextActionTarget
     {
         [SerializeField] private Transform _leaf;
-        [SerializeField] private ClickableObject _clickableObject;
         [SerializeField] private bool _isLocked = true;
         [SerializeField] private Openable _openable;
         [SerializeField] private string _contentId;
@@ -23,7 +22,6 @@ namespace FireSlop.Interaction
         public Openable Openable => _openable;
         public bool IsBroken => _door.IsBroken;
         public bool IsPassable => _openable.IsOpen || IsBroken;
-        public Sprite ActionIcon => _clickableObject != null ? _clickableObject.ActionIcon : null;
         public string ContentId => _contentId;
         public event Action Broken;
 
@@ -48,8 +46,9 @@ namespace FireSlop.Interaction
                 return default;
             }
 
-            var label = _openable.IsOpen ? "Close door" : "Open door";
-            return new ContextActionPrompt(label, ActionIcon, _openable.CanToggle ? null : "Closed");
+            var actionId = _openable.IsOpen ? HudActionId.CloseDoor : HudActionId.OpenDoor;
+            var blockedActionId = _openable.CanToggle ? HudActionId.None : HudActionId.DoorLocked;
+            return new ContextActionPrompt(actionId, blockedActionId);
         }
 
         public void Interact()

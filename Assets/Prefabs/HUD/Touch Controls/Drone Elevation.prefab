@@ -247,10 +247,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 243284566180152250}
     m_Modifications:
     - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_text
-      value: DOWN
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_fontSize
       value: 13
       objectReference: {fileID: 0}
@@ -258,10 +254,6 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}
     - target: {fileID: 5189614539748882611, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -360,7 +352,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6961714201377056529}
+    - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5585639189705319093}
   m_SourcePrefab: {fileID: 100100000, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+--- !u!114 &1269991661893085228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 3789021893373643462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &4182413734624969848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 3789021893373643462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &5257633869310028327 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
@@ -379,6 +396,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.DroneElevationView
   _ascend: 0
+--- !u!114 &5585639189705319093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257633869310028327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb0c6accb0244235bb7902f97df2431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FixedActionAppearanceView
+  _actionId: 15
+  _label: {fileID: 4182413734624969848}
+  _icon: {fileID: 1269991661893085228}
 --- !u!224 &8975807905078571637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5189614539748882611, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
@@ -393,10 +425,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 243284566180152250}
     m_Modifications:
     - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_text
-      value: UP
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_fontSize
       value: 13
       objectReference: {fileID: 0}
@@ -404,10 +432,6 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}
     - target: {fileID: 5189614539748882611, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -506,6 +530,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2855562181076538989}
+    - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 944291487276845123}
   m_SourcePrefab: {fileID: 100100000, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
 --- !u!224 &1207563379961479266 stripped
 RectTransform:
@@ -530,3 +557,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.DroneElevationView
   _ascend: 1
+--- !u!114 &944291487276845123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640384682978400304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb0c6accb0244235bb7902f97df2431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FixedActionAppearanceView
+  _actionId: 14
+  _label: {fileID: 6221919581897717359}
+  _icon: {fileID: 9065098939167824443}
+--- !u!114 &6221919581897717359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 6397106614585850065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &9065098939167824443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 6397106614585850065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image

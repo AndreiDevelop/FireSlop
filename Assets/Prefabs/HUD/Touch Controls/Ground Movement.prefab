@@ -114,14 +114,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_text
-      value: Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 46f21b116e3fc40d1a6da09e47c857d9, type: 3}
     - target: {fileID: 5189614539748882611, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -209,19 +201,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6902629246571815663}
   m_SourcePrefab: {fileID: 100100000, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+--- !u!114 &2059415746326493016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 1300176633081985510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &3963592238368545548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 1300176633081985510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!224 &6489143009919254869 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5189614539748882611, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
   m_PrefabInstance: {fileID: 1300176633081985510}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7955809617301395719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 1300176633081985510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6902629246571815663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955809617301395719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb0c6accb0244235bb7902f97df2431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FixedActionAppearanceView
+  _actionId: 12
+  _label: {fileID: 2059415746326493016}
+  _icon: {fileID: 3963592238368545548}
 --- !u!114 &8117480959172159361 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7110113088256958055, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
   m_PrefabInstance: {fileID: 1300176633081985510}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7955809617301395719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -239,14 +276,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 7.0000067
       objectReference: {fileID: 0}
-    - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_text
-      value: Crouch
-      objectReference: {fileID: 0}
-    - target: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: aed5e80d59387409bbfb1907b779c935, type: 3}
     - target: {fileID: 5189614539748882611, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -338,6 +367,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3743223208506535652}
+    - targetCorrespondingSourceObject: {fileID: 8963167609256124641, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5182468120359791178}
   m_SourcePrefab: {fileID: 100100000, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
 --- !u!224 &540106156541772216 stripped
 RectTransform:
@@ -361,3 +393,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77faec2adcf348ce85e0054715cc973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.TouchCrouchView
+--- !u!114 &5182468120359791178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681816038929603050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb0c6accb0244235bb7902f97df2431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FixedActionAppearanceView
+  _actionId: 13
+  _label: {fileID: 4747995954248693685}
+  _icon: {fileID: 7669987213981850593}
+--- !u!114 &4747995954248693685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 5727419143016397067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &7669987213981850593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2669128137814483690, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+  m_PrefabInstance: {fileID: 5727419143016397067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image

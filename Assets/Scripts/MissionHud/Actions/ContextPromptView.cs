@@ -11,11 +11,13 @@ namespace FireSlop.MissionHud
 
         private Coroutine _closedMessage;
         protected InteractionModel Model { get; private set; }
+        protected HudActionCatalogSO Actions { get; private set; }
 
         [Inject]
-        public void Construct(InteractionModel model)
+        public void Construct(InteractionModel model, HudActionCatalogSO actions)
         {
             Model = model;
+            Actions = actions;
             if (isActiveAndEnabled)
             {
                 OnEnable();
@@ -44,17 +46,19 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
-            if (Model.ContextPrompt.BlockedMessage == null)
+            var prompt = Model.ContextPrompt;
+            if (!prompt.IsBlocked)
             {
                 ClearClosed();
             }
 
-            var prompt = Model.ContextPrompt;
-            var label = _closedMessage != null ? prompt.BlockedMessage : prompt.Label;
-            Display(label ?? string.Empty, _closedMessage != null);
+            var isShowingBlocked = _closedMessage != null;
+            var actionId = isShowingBlocked ? prompt.BlockedActionId : prompt.ActionId;
+            var action = actionId != HudActionId.None ? Actions.Get(actionId) : null;
+            Display(action, isShowingBlocked);
         }
 
-        protected abstract void Display(string action, bool closed);
+        protected abstract void Display(HudActionDefinition action, bool closed);
 
         private void ShowClosed()
         {

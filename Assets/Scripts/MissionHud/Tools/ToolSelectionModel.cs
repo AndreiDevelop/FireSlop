@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using FireSlop.Tools;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace FireSlop.MissionHud
@@ -16,9 +15,13 @@ namespace FireSlop.MissionHud
         public IReadOnlyList<ToolDefinitionSO> Tools { get; }
         public string SelectedId => _selected.Id;
         public ToolAction SelectedAction => _selected.Action;
-        public Sprite SelectedIcon => _selected.Icon;
         public event Action<string> SelectionChanged;
         public event Action<string> QuantityChanged;
+
+        public ToolDefinitionSO GetTool(string id)
+        {
+            return _toolsById[id];
+        }
 
         public bool IsAvailable(string id)
         {

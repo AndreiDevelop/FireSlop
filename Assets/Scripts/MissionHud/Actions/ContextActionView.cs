@@ -25,12 +25,12 @@ namespace FireSlop.MissionHud
             Model.Interact();
         }
 
-        protected override void Display(string action, bool closed)
+        protected override void Display(HudActionDefinition action, bool closed)
         {
-            _touchLabel.text = action;
-            _touchIcon.sprite = Model.ContextPrompt.Icon;
+            _touchLabel.text = action?.Label ?? string.Empty;
+            _touchIcon.sprite = action?.Icon;
             _touchIcon.enabled = _touchIcon.sprite != null;
-            _touchButton.gameObject.SetActive(action.Length > 0);
+            _touchButton.gameObject.SetActive(action != null);
         }
     }
 }

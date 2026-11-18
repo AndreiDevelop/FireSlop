@@ -1820,6 +1820,7 @@ MonoBehaviour:
   _entrance: {fileID: 1270000263}
   _movement: {fileID: 11400000, guid: 9ce45ac303da74293991ed5fcadaefdd, type: 2}
   _toolBelt: {fileID: 11400000, guid: a4b9ec652c526496a99bdae92319d752, type: 2}
+  _hudActions: {fileID: 11400000, guid: 2447d9b8f007f4c4fa08b3853daf35f2, type: 2}
 --- !u!4 &1747266542
 Transform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using FireSlop.Audio;
 using FireSlop.Drone;
 using FireSlop.Firefighter;
@@ -19,9 +20,18 @@ namespace FireSlop.Startup
         [SerializeField] private Transform _entrance;
         [SerializeField] private MovementConfigSO _movement;
         [SerializeField] private ToolBeltSO _toolBelt;
+        [SerializeField] private HudActionCatalogSO _hudActions;
 
         public override void InstallBindings()
         {
+            if (_hudActions == null)
+            {
+                throw new InvalidOperationException("Assign a HUD Action Catalog asset in Mission Installer.");
+            }
+
+            _hudActions.Validate();
+            Container.Bind<HudActionCatalogSO>().FromInstance(_hudActions);
+
             // Tool-only prototype scenes do not contain a rescue mission.
             if (_resident != null)
             {

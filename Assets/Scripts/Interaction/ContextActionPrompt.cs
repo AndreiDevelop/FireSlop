@@ -1,19 +1,16 @@
-using UnityEngine;
-
 namespace FireSlop.Interaction
 {
     public readonly struct ContextActionPrompt
     {
-        public ContextActionPrompt(string label, Sprite icon = null, string blockedMessage = null)
+        public ContextActionPrompt(HudActionId actionId, HudActionId blockedActionId = HudActionId.None)
         {
-            Label = label;
-            Icon = icon;
-            BlockedMessage = blockedMessage;
+            ActionId = actionId;
+            BlockedActionId = blockedActionId;
         }
 
-        public string Label { get; }
-        public Sprite Icon { get; }
-        public string BlockedMessage { get; }
-        public bool IsAvailable => !string.IsNullOrEmpty(Label);
+        public HudActionId ActionId { get; }
+        public HudActionId BlockedActionId { get; }
+        public bool IsAvailable => ActionId != HudActionId.None;
+        public bool IsBlocked => BlockedActionId != HudActionId.None;
     }
 }

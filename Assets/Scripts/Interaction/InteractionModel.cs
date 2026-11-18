@@ -3,7 +3,6 @@ using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.MissionHud;
 using FireSlop.Tools;
-using UnityEngine;
 
 namespace FireSlop.Interaction
 {
@@ -16,7 +15,6 @@ namespace FireSlop.Interaction
         private bool _autoHoseActive;
         private bool _enabled = true;
         private ContextActionPrompt _aimedPrompt;
-        private Sprite _droneIcon;
 
         public InteractionModel(ToolSelectionModel tools, MissionInputModel input, DroneModel flight)
         {
@@ -41,6 +39,7 @@ namespace FireSlop.Interaction
         public bool IsEntrancePassable { get; private set; }
         public bool HasDroneAction => _enabled && (_flight.IsPiloted || _flight.IsOnPlatform);
         public bool IsPilotingDrone => _flight.IsPiloted;
+        public HudActionId PrimaryActionId => IsCarrying ? HudActionId.Throw : HudActionId.UseTool;
         public ContextActionPrompt ContextPrompt
         {
             get
@@ -52,7 +51,8 @@ namespace FireSlop.Interaction
 
                 if (HasDroneAction)
                 {
-                    return new ContextActionPrompt(IsPilotingDrone ? "Exit flight" : "Use drone", _droneIcon);
+                    var actionId = IsPilotingDrone ? HudActionId.ExitFlight : HudActionId.UseDrone;
+                    return new ContextActionPrompt(actionId);
                 }
 
                 if (_aimedPrompt.IsAvailable)
@@ -60,7 +60,7 @@ namespace FireSlop.Interaction
                     return _aimedPrompt;
                 }
 
-                return IsCarrying ? new ContextActionPrompt("Put down") : default;
+                return IsCarrying ? new ContextActionPrompt(HudActionId.PutDown) : default;
             }
         }
 
@@ -167,24 +167,12 @@ namespace FireSlop.Interaction
 
         internal void SetAimedPrompt(ContextActionPrompt prompt)
         {
-            if (_aimedPrompt.Label == prompt.Label && _aimedPrompt.Icon == prompt.Icon &&
-                _aimedPrompt.BlockedMessage == prompt.BlockedMessage)
+            if (_aimedPrompt.ActionId == prompt.ActionId && _aimedPrompt.BlockedActionId == prompt.BlockedActionId)
             {
                 return;
             }
 
             _aimedPrompt = prompt;
-            ContextChanged?.Invoke();
-        }
-
-        public void SetDroneIcon(Sprite icon)
-        {
-            if (_droneIcon == icon)
-            {
-                return;
-            }
-
-            _droneIcon = icon;
             ContextChanged?.Invoke();
         }
 

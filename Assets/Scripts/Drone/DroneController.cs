@@ -1,5 +1,4 @@
 using FireSlop.Firefighter;
-using FireSlop.Interaction;
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +9,6 @@ namespace FireSlop.Drone
         private const float Clearance = 0.025f;
 
         [SerializeField] private DroneConfigSO _config;
-        [SerializeField] private ClickableObject _clickableObject;
         [SerializeField] private BoxCollider _deck;
         [SerializeField] private BoxCollider _flightBounds;
         [SerializeField] private BoxCollider _landingBounds;
@@ -26,7 +24,6 @@ namespace FireSlop.Drone
         private Vector3 _origin;
 
         public string ContentId => _contentId;
-        public Sprite ActionIcon => _clickableObject != null ? _clickableObject.ActionIcon : null;
         public float CameraTransitionSeconds => _config.CameraTransitionSeconds;
 
         [Inject]
