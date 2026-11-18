@@ -17,7 +17,10 @@ namespace FireSlop.MissionHud
         public void Construct(MissionInputModel input)
         {
             _input = input;
-            _input.Cancelled += ResetPointer;
+            if (isActiveAndEnabled)
+            {
+                _input.Cancelled += ResetPointer;
+            }
         }
 
         public void OnPointerDown(PointerEventData data)
@@ -55,24 +58,32 @@ namespace FireSlop.MissionHud
             }
         }
 
-        private void OnDisable()
+        private void OnEnable()
         {
-            ResetPointer();
+            if (_input != null)
+            {
+                _input.Cancelled += ResetPointer;
+            }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             if (_input != null)
             {
                 _input.Cancelled -= ResetPointer;
             }
+
+            ResetPointer();
         }
 
         private void ResetPointer()
         {
             _pointer = null;
             _input?.SetMovement(Vector2.zero);
-            _handle.anchoredPosition = Vector2.zero;
+            if (_handle != null)
+            {
+                _handle.anchoredPosition = Vector2.zero;
+            }
         }
     }
 }

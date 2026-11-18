@@ -128,3 +128,5 @@ MonoBehaviour:
   _solid: {fileID: 3898200809785988263}
   _surface: {fileID: 2044185158736823391}
   _debris: {fileID: 346870413346134675, guid: df45eaa45f54b4f738e2250986873d61, type: 3}
+  _meshFilter: {fileID: 4524200765314836687}
+  _crackedMesh: {fileID: -4364427793756080362, guid: 6ed1bf268a8ba4378acadd2af78d7aa0, type: 3}

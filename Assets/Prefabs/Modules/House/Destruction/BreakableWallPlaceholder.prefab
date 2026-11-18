@@ -216,6 +216,8 @@ GameObject:
   - component: {fileID: 7810820276908544272}
   - component: {fileID: 3856293018561213556}
   - component: {fileID: 8301588408427094550}
+  - component: {fileID: 4628457179226679348}
+  - component: {fileID: 3962170970279566607}
   m_Layer: 0
   m_Name: BreakableWallPlaceholder
   m_TagString: Untagged
@@ -259,6 +261,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableWallView
   _contentId: 
   _breakAudio: {fileID: 3856293018561213556}
+  _crackCandidates:
+  - {fileID: 4926241291053409762}
+  - {fileID: 6178891941713538764}
+  - {fileID: 8987538098961996250}
+  - {fileID: 1725530536688080821}
+  - {fileID: 1582095826845844895}
+  - {fileID: 5393007918529682966}
+  - {fileID: 3711774250471988283}
+  - {fileID: 7673457245866947210}
+  - {fileID: 3901601169767153958}
+  - {fileID: 5651035604683855916}
+  - {fileID: 2025784636651767782}
+  - {fileID: 4282616255157968629}
+  - {fileID: 1618480373971709970}
+  - {fileID: 3911129630609137432}
+  - {fileID: 6740964336475678292}
+  _crackInterior: {fileID: 2100000, guid: e67461a8dc96e413d9835e8aade753c3, type: 2}
 --- !u!82 &3856293018561213556
 AudioSource:
   m_ObjectHideFlags: 0
@@ -369,6 +388,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Audio.AudioOutputView
   _isMusic: 0
+--- !u!114 &4628457179226679348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804534620307043145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Zenject::Zenject.GameObjectContext
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 3962170970279566607}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &3962170970279566607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804534620307043145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfddac77969a40d78c61dfcb5b12790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableWallInstaller
 --- !u!1 &9034015899298811874
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +513,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+--- !u!114 &1725530536688080821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 1507264372539140366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &2138895453467676873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
@@ -530,6 +590,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+--- !u!114 &1582095826845844895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 1651708160654424868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &2281083317522793187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
@@ -597,6 +668,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
   m_PrefabInstance: {fileID: 2235395595609012573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2025784636651767782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 2235395595609012573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!1001 &2913207613683073721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -725,6 +807,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8183207038586650381, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
   m_PrefabInstance: {fileID: 3538692024326170215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5393007918529682966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8920546216445261937, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+  m_PrefabInstance: {fileID: 3538692024326170215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!1001 &3836492388240834461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -786,6 +879,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+--- !u!114 &3901601169767153958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 3836492388240834461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &4357786119047874138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
@@ -852,6 +956,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+--- !u!114 &3911129630609137432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 3845985823641805219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &4331246068390172772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
@@ -918,6 +1033,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+--- !u!114 &4926241291053409762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8920546216445261937, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+  m_PrefabInstance: {fileID: 4580622477519297939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &5620831732750869150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8183207038586650381, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
@@ -985,6 +1111,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8183207038586650381, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
   m_PrefabInstance: {fileID: 4657510701285090948}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4282616255157968629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8920546216445261937, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+  m_PrefabInstance: {fileID: 4657510701285090948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!1001 &5210377274569761866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,6 +1179,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+--- !u!114 &3711774250471988283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8920546216445261937, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+  m_PrefabInstance: {fileID: 5210377274569761866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &4169891214596856647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8183207038586650381, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
@@ -1113,6 +1261,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
   m_PrefabInstance: {fileID: 5581141804426323607}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5651035604683855916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 5581141804426323607}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!1001 &6129538684575787073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1236,6 +1395,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+--- !u!114 &6178891941713538764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 6244070924395876471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &6909480119217793456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
@@ -1373,6 +1543,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
   m_PrefabInstance: {fileID: 6815080171139782895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6740964336475678292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 6815080171139782895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!1001 &7048367637436317620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1571,6 +1752,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
   m_PrefabInstance: {fileID: 7594521023293557809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7673457245866947210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 7594521023293557809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!1001 &7906591235214329955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1632,6 +1824,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+--- !u!114 &1618480373971709970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8920546216445261937, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
+  m_PrefabInstance: {fileID: 7906591235214329955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView
 --- !u!4 &2029238489266272110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8183207038586650381, guid: fdaa88e5cb9e24c01941e9c93fc67e55, type: 3}
@@ -1761,3 +1964,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
   m_PrefabInstance: {fileID: 9197078727874750305}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8987538098961996250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+  m_PrefabInstance: {fileID: 9197078727874750305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777bbc9d1f18440f982ee3a6d4ee518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BreakableBrickView

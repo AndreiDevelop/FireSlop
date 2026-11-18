@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: _debris
       value: 
       objectReference: {fileID: 6588352888831035531, guid: d5549e871e0e64effa9f5c7d4bcc9683, type: 3}
+    - target: {fileID: 223121796594794171, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
+      propertyPath: _crackedMesh
+      value: 
+      objectReference: {fileID: -5372571373754567691, guid: 9601885c0ef594778a859744fef25f43, type: 3}
     - target: {fileID: 667661819282700743, guid: f018e36b9a3bd4de7b0354dec75ba361, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
