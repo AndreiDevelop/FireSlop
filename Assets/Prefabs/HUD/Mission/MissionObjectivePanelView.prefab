@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 8082664098695855977}
   - component: {fileID: 7097716025558883433}
   m_Layer: 0
-  m_Name: MissionObjectivePanel
+  m_Name: MissionObjectivePanelView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
