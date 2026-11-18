@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc4705b408a744cd8af82746ec46b5b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.MovableFurniture
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Movable
   _settings: {fileID: 11400000, guid: bcafaa27047024a3a834c9e9b58d4086, type: 2}
   _contentId: 
 --- !u!1001 &3853081263753553632

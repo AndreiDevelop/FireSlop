@@ -556,7 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9263fb458305246b09d682a9a15cde0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.CabinetView
-  _target: {fileID: 5006535959315758162}
   _leftLeaf: {fileID: 9160518500672587891}
   _rightLeaf: {fileID: 2553756723054949711}
   _leftOpenEuler: {x: 0, y: -105, z: 0}
@@ -600,7 +599,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc4705b408a744cd8af82746ec46b5b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.MovableFurniture
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Movable
   _settings: {fileID: 11400000, guid: f5f0b91a2d995435d87b8dce0e846a5d, type: 2}
   _contentId: 0
 --- !u!114 &6769129207423749606
@@ -614,9 +613,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6132e631a51f547699183addf2bd06d3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.ActionableFurniture
-  _action: 0
-  _openable: {fileID: 2569252937213363701}
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Openable
+  _view: {fileID: 2569252937213363701}
+  _blockingCollider: {fileID: 5006535959315758162}
 --- !u!1 &7118837663931637457
 GameObject:
   m_ObjectHideFlags: 0

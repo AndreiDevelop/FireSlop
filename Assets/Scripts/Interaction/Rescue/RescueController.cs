@@ -14,7 +14,8 @@ namespace FireSlop.Interaction
         private Camera _camera;
         private InteractionModel _model;
         private Transform _residentParent;
-        private CabinetView _aimedCabinet;
+        private Openable _rescueCabinet;
+        private Openable _aimedCabinet;
 
         public string CabinetContentId => _cabinetContentId;
 
@@ -24,31 +25,38 @@ namespace FireSlop.Interaction
             _camera = camera;
             _model = model;
             _residentParent = _resident.transform.parent;
+            _rescueCabinet = _cabinet != null ? _cabinet.GetComponent<Openable>() : null;
+            if (_rescueCabinet == null)
+            {
+                Debug.LogError("The rescue cabinet requires an Openable component.", this);
+            }
+
             _model.ThrowRequested += Throw;
         }
 
         public void SetTarget(Collider target)
         {
-            var furniture = target != null && target != _resident.Capsule
-                ? target.GetComponentInParent<ActionableFurniture>()
+            _aimedCabinet = target != null && target != _resident.Capsule
+                ? target.GetComponentInParent<Openable>()
                 : null;
-            _aimedCabinet = furniture != null ? furniture.Openable : null;
             var context = RescueContext.None;
-            if (_aimedCabinet != null && _aimedCabinet.Cabinet != null)
+            if (_aimedCabinet != null && _aimedCabinet.CanToggle)
             {
-                context = _aimedCabinet.Cabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
+                context = _aimedCabinet.IsOpen ? RescueContext.CloseCabinet : RescueContext.OpenCabinet;
             }
             else if (_model.IsCarryingResident)
             {
                 context = RescueContext.PutDown;
             }
-            else if (target == _resident.Capsule && (_cabinet.IsOpen || _resident.IsFree))
+            else if (target == _resident.Capsule && CanPickUpResident)
             {
                 context = RescueContext.PickUp;
             }
 
             _model.SetRescueContext(context);
         }
+
+        private bool CanPickUpResident => _resident.IsFree || (_rescueCabinet != null && _rescueCabinet.IsFullyOpen);
 
         public bool TryInteract()
         {
@@ -71,14 +79,13 @@ namespace FireSlop.Interaction
 
         private bool TryToggleAimedCabinet()
         {
-            if (_aimedCabinet == null || _aimedCabinet.Cabinet == null)
+            var cabinet = _aimedCabinet;
+            if (cabinet == null || !cabinet.TryToggle())
             {
                 return false;
             }
 
-            var cabinet = _aimedCabinet.Cabinet;
-            cabinet.Toggle();
-            if (_aimedCabinet == _cabinet && cabinet.IsOpen)
+            if (cabinet == _rescueCabinet && cabinet.IsOpen)
             {
                 _model.RevealResident();
             }
