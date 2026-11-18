@@ -4,7 +4,7 @@ using TMPro;
 
 namespace FireSlop.MissionHud
 {
-    public sealed class DesktopContextHintView : ContextPromptView
+    public sealed class DesktopContextTipsView : ContextPromptView
     {
         [SerializeField] private TextMeshProUGUI _hint;
 

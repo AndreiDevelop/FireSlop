@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 6546549156285986168}
   - component: {fileID: 4463020374344048503}
   m_Layer: 0
-  m_Name: DroneControls
+  m_Name: DroneControlsTips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
