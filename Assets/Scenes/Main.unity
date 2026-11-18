@@ -3555,6 +3555,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4300000, guid: c63f4d66fc98a49dcb1ccf22e97bc093, type: 2}
     - target: {fileID: 911724314281925933, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _isLocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911724314281925933, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: _contentId
       value: main-door-07
       objectReference: {fileID: 0}
@@ -3601,6 +3605,10 @@ PrefabInstance:
     - target: {fileID: 956381931138011257, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960778141074574170, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _isLocked
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 960778141074574170, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: _contentId
@@ -6326,6 +6334,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300000, guid: c63f4d66fc98a49dcb1ccf22e97bc093, type: 2}
+    - target: {fileID: 4402940213966490460, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
+      propertyPath: _isLocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4402940213966490460, guid: 5ff9c94711f7a4bff94e1ebc9233feee, type: 3}
       propertyPath: _contentId
       value: main-door-05
