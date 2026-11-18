@@ -40,6 +40,7 @@ namespace FireSlop.Startup
             Container.Bind<MovementConfigSO>().FromInstance(_movement);
             Container.Bind<HoseFlightModel>().AsSingle();
             Container.Bind<MissionInputModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MissionPauseController>().AsSingle();
             Container.Bind<SettingsModel>().AsSingle();
             Container.Bind<SettingsController>().AsSingle().NonLazy();
             Container.Bind<ToolBeltSO>().FromInstance(_toolBelt);

@@ -1,6 +1,7 @@
 using System;
 using FireSlop.Audio;
 using FireSlop.Firefighter;
+using FireSlop.Mission;
 using UnityEngine;
 
 namespace FireSlop.MissionHud
@@ -12,14 +13,15 @@ namespace FireSlop.MissionHud
 
         private readonly SettingsModel _settings;
         private readonly MissionInputModel _input;
-        private float _previousTimeScale;
+        private readonly MissionPauseController _pause;
         private bool _resumeMouseLook;
         private bool _hasUnsavedLevels;
 
-        public SettingsController(SettingsModel settings, MissionInputModel input)
+        public SettingsController(SettingsModel settings, MissionInputModel input, MissionPauseController pause)
         {
             _settings = settings;
             _input = input;
+            _pause = pause;
             _settings.SetLevels(PlayerPrefs.GetFloat(MusicKey, 1f), PlayerPrefs.GetFloat(EffectsKey, 1f));
         }
 
@@ -28,16 +30,19 @@ namespace FireSlop.MissionHud
 
         public void Toggle()
         {
+            if (_pause.IsOrientationBlocked)
+            {
+                return;
+            }
+
             if (IsOpen)
             {
                 Close();
                 return;
             }
 
-            _previousTimeScale = Time.timeScale;
             _resumeMouseLook = Cursor.lockState == CursorLockMode.Locked;
-            _input.SetSuspended(true);
-            Time.timeScale = 0f;
+            _pause.SetSettingsOpen(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             IsOpen = true;
@@ -51,8 +56,7 @@ namespace FireSlop.MissionHud
                 return;
             }
 
-            Time.timeScale = _previousTimeScale;
-            _input.SetSuspended(false);
+            _pause.SetSettingsOpen(false);
             if (resumeMouseLook && _resumeMouseLook)
             {
                 _input.RequestMouseLook();

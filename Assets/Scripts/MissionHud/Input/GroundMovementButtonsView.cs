@@ -9,6 +9,7 @@ namespace FireSlop.MissionHud
     public sealed class GroundMovementButtonsView : MonoBehaviour
     {
         [SerializeField] private GameObject _controls;
+        [SerializeField] private GameObject _droneControls;
         [SerializeField] private Button _jumpButton;
 
         private DroneModel _flight;
@@ -17,9 +18,9 @@ namespace FireSlop.MissionHud
         [Inject]
         public void Construct(DroneModel flight, MissionInputModel input)
         {
-            if (!_controls || !_jumpButton)
+            if (!_controls || !_droneControls || !_jumpButton)
             {
-                Debug.LogError("Ground Movement requires a controls group and jump button.", this);
+                Debug.LogError("Movement buttons require ground controls, drone controls, and a jump button.", this);
                 return;
             }
 
@@ -49,6 +50,7 @@ namespace FireSlop.MissionHud
             _flight.ContextChanged -= Render;
             _jumpButton.onClick.RemoveListener(_input.RequestJump);
             _controls.SetActive(false);
+            _droneControls.SetActive(false);
         }
 
         private void Bind()
@@ -60,7 +62,9 @@ namespace FireSlop.MissionHud
 
         private void Render()
         {
-            _controls.SetActive(MissionHudPlatform.UsesTouchControls && !_flight.IsPiloted);
+            var touch = MissionHudPlatform.UsesTouchControls;
+            _controls.SetActive(touch && !_flight.IsPiloted);
+            _droneControls.SetActive(touch && _flight.IsPiloted);
         }
     }
 }
