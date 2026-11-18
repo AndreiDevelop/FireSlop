@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520f4d80ae0114fa6993599602aa454d, type: 3}
   m_Name: FloorSpread
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.FireSpreadConfigSO
-  _spreadInterval: 4
+  _spreadInterval: 1
   _reignitionDelay: 8
   _cellSpacing: 0.4
   _corridorLaneSpacing: 0.25

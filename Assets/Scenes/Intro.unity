@@ -300,6 +300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IntroMobileOrientationGate
       objectReference: {fileID: 0}
+    - target: {fileID: 6728614362671462242, guid: 309dad54bd1b24a859b2ff7c3f636080, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

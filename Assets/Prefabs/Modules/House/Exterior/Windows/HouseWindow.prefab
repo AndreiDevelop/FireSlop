@@ -52,7 +52,7 @@ MonoBehaviour:
   _lowerGlass: {fileID: 2888951932271562776}
   _wood: {fileID: 983350147038307934}
   _entryGuard: {fileID: 5578734425752352082}
-  _allowGroundTraversal: 0
+  _allowGroundTraversal: 1
   _breakAudio: {fileID: 6606206650378272642}
   _woodBreak: {fileID: 8300000, guid: e192d1f45b6be42a188a3a245f195890, type: 3}
 --- !u!82 &6606206650378272642

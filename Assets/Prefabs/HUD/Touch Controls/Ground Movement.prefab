@@ -110,6 +110,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 207082877524148088}
     m_Modifications:
+    - target: {fileID: 33879124562077741, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_text
       value: Jump
@@ -231,6 +235,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 207082877524148088}
     m_Modifications:
+    - target: {fileID: 33879124562077741, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.0000067
+      objectReference: {fileID: 0}
     - target: {fileID: 1053741671465848510, guid: d8761c2fb083f41259a6a6d6d8f53116, type: 3}
       propertyPath: m_text
       value: Crouch

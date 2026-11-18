@@ -3,6 +3,7 @@ using FireSlop.Mission;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using TMPro;
 
 namespace FireSlop.MissionHud
 {
@@ -12,7 +13,7 @@ namespace FireSlop.MissionHud
 
         [SerializeField] private GameObject _body;
         [SerializeField] private RectTransform _arrow;
-        [SerializeField] private Text _objective;
+        [SerializeField] private TextMeshProUGUI _objective;
         [SerializeField] private string _entranceText;
         [SerializeField] private string _prototypeRescueText;
         [SerializeField] private string _findText;
