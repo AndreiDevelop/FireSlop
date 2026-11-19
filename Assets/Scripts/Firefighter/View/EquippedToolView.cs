@@ -13,6 +13,7 @@ namespace FireSlop.Firefighter
         private EquippedToolModelView[] _models;
         private ToolSelectionModel _tools;
         private InteractionModel _interaction;
+        private bool _isSubscribed;
 
         [Inject]
         public void Construct(ToolSelectionModel tools, InteractionModel interaction)
@@ -61,7 +62,7 @@ namespace FireSlop.Firefighter
 
         private void OnDisable()
         {
-            if (_models == null)
+            if (!_isSubscribed)
             {
                 return;
             }
@@ -70,14 +71,21 @@ namespace FireSlop.Firefighter
             _tools.QuantityChanged -= OnQuantityChanged;
             _interaction.CarryingChanged -= RenderCurrentSelection;
             _interaction.ContextChanged -= RenderCurrentSelection;
+            _isSubscribed = false;
         }
 
         private void Subscribe()
         {
+            if (_isSubscribed)
+            {
+                return;
+            }
+
             _tools.SelectionChanged += Render;
             _tools.QuantityChanged += OnQuantityChanged;
             _interaction.CarryingChanged += RenderCurrentSelection;
             _interaction.ContextChanged += RenderCurrentSelection;
+            _isSubscribed = true;
             RenderCurrentSelection();
         }
 
