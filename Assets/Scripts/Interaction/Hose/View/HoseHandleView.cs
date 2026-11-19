@@ -6,11 +6,14 @@ namespace FireSlop.Interaction
 {
     public sealed class HoseHandleView : MonoBehaviour
     {
-        [SerializeField] private AnimationClip _opening;
+        private static readonly int OpeningParameter = Animator.StringToHash("Opening");
+
+        [SerializeField] private Animator _animator;
 
         private InteractionModel _interaction;
         private Coroutine _animation;
-        private float _time;
+        private float _openingDuration;
+        private float _opening;
 
         [Inject]
         public void Construct(InteractionModel interaction)
@@ -24,11 +27,16 @@ namespace FireSlop.Interaction
 
         private void Awake()
         {
-            if (_opening == null || _opening.length <= 0f)
+            var controller = _animator != null ? _animator.runtimeAnimatorController : null;
+            var clips = controller != null ? controller.animationClips : null;
+            if (clips == null || clips.Length != 1 || clips[0].length <= 0f)
             {
-                Debug.LogError("Hose handle requires an opening animation clip with a positive duration.", this);
+                Debug.LogError("Hose handle requires an Animator with one opening clip of positive duration.", this);
                 enabled = false;
+                return;
             }
+
+            _openingDuration = clips[0].length;
         }
 
         private void OnEnable()
@@ -53,10 +61,10 @@ namespace FireSlop.Interaction
                 _animation = null;
             }
 
-            _time = 0f;
-            if (_opening != null)
+            _opening = 0f;
+            if (_animator != null && _animator.isActiveAndEnabled)
             {
-                _opening.SampleAnimation(gameObject, _time);
+                _animator.SetFloat(OpeningParameter, _opening);
             }
         }
 
@@ -72,19 +80,23 @@ namespace FireSlop.Interaction
             if (_animation != null)
             {
                 StopCoroutine(_animation);
+                _animation = null;
             }
 
-            _animation = StartCoroutine(MoveHandle());
+            var target = _interaction.HoseActive ? 1f : 0f;
+            if (_opening != target)
+            {
+                _animation = StartCoroutine(MoveHandle(target));
+            }
         }
 
-        private IEnumerator MoveHandle()
+        private IEnumerator MoveHandle(float target)
         {
-            var target = _interaction.HoseActive ? _opening.length : 0f;
-            while (!Mathf.Approximately(_time, target))
+            while (_opening != target)
             {
-                _time = Mathf.MoveTowards(_time, target, Time.deltaTime);
-                _opening.SampleAnimation(gameObject, _time);
                 yield return null;
+                _opening = Mathf.MoveTowards(_opening, target, Time.deltaTime / _openingDuration);
+                _animator.SetFloat(OpeningParameter, _opening);
             }
 
             _animation = null;

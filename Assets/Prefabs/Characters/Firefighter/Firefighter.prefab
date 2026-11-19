@@ -449,6 +449,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4360857970698112424, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8201884634792040037}
+    - targetCorrespondingSourceObject: {fileID: 4360857970698112424, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2822585990951303266}
   m_SourcePrefab: {fileID: 100100000, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}
 --- !u!1 &3862596054820306271 stripped
 GameObject:
@@ -467,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd18054b507964e5fb80443b41c3504c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.HammerSwingView
-  _swing: {fileID: 7400000, guid: 7ebfa6b75ca3746d8a0d7ec2d82b3853, type: 2}
+  _animator: {fileID: 2822585990951303266}
 --- !u!114 &8201884634792040037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +484,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.EquippedToolModelView
   _tool: {fileID: 11400000, guid: c60a1b71d857947c2800f7db16b6589d, type: 2}
+--- !u!95 &2822585990951303266
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862596054820306271}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b1ae8cb6630d4dd78670abce58c314f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7005653362734226628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7505045369433926707, guid: f17dc8875ebe84c0680bfcab6b3216f2, type: 3}

@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7963062417629429242}
   - component: {fileID: 2523097987312834340}
   - component: {fileID: 5421175589333973897}
+  - component: {fileID: 4486613834296026082}
   m_Layer: 0
   m_Name: Hose
   m_TagString: Untagged
@@ -163,7 +164,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fc9b2cbf89440048ecdd46bfb42fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HoseHandleView
-  _opening: {fileID: 7400000, guid: d756d6121864343e09b57db272478149, type: 2}
+  _animator: {fileID: 4486613834296026082}
+--- !u!95 &4486613834296026082
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478475121221657236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e332ff04ba5424d7497820c002fe11c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &808981419153768774
 PrefabInstance:
   m_ObjectHideFlags: 0

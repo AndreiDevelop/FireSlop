@@ -1,4 +1,3 @@
-using System.Collections;
 using FireSlop.Firefighter;
 using FireSlop.MissionHud;
 using FireSlop.Tools;
@@ -15,7 +14,6 @@ namespace FireSlop.Interaction
         private Camera _camera;
         private InteractionModel _input;
         private ToolSelectionModel _tools;
-        private Coroutine _strike;
 
         [Inject]
         public void Construct(Camera camera, InteractionModel input, ToolSelectionModel tools)
@@ -31,10 +29,9 @@ namespace FireSlop.Interaction
 
         private void Awake()
         {
-            if (_swing == null || _config == null || _config.AimCollisionMask.value == 0 ||
-                _config.HammerImpactTime >= _swing.Duration)
+            if (_swing == null || _config == null || _config.AimCollisionMask.value == 0)
             {
-                Debug.LogError("Hammer requires a swing clip, a valid contact time, and a collision mask.", this);
+                Debug.LogError("Hammer requires a swing view, interaction settings, and a collision mask.", this);
                 enabled = false;
             }
         }
@@ -55,54 +52,31 @@ namespace FireSlop.Interaction
                 _input.HammerInterrupted -= StopSwing;
             }
 
-            StopSwing();
+            if (_swing != null)
+            {
+                _swing.Impact -= Strike;
+                _swing.StopSwing();
+            }
         }
 
         private void Subscribe()
         {
             _input.HammerPressed += StartSwing;
             _input.HammerInterrupted += StopSwing;
+            _swing.Impact += Strike;
         }
 
         private void StartSwing()
         {
-            if (_strike == null && _swing.isActiveAndEnabled && _tools.TryCommitUse(ToolAction.Hammer))
+            if (_swing.CanSwing && _tools.TryCommitUse(ToolAction.Hammer))
             {
-                _strike = StartCoroutine(Swing());
+                _swing.PlaySwing();
             }
         }
 
         private void StopSwing()
         {
-            if (_strike == null)
-            {
-                return;
-            }
-
-            StopCoroutine(_strike);
-            _strike = null;
-            _swing.Sample(0f);
-        }
-
-        private IEnumerator Swing()
-        {
-            var elapsed = 0f;
-            var struck = false;
-            _swing.Sample(0f);
-            while (elapsed < _swing.Duration)
-            {
-                yield return null;
-                elapsed += Time.deltaTime;
-                _swing.Sample(Mathf.Min(elapsed, _swing.Duration));
-                if (!struck && elapsed >= _config.HammerImpactTime)
-                {
-                    Strike();
-                    struck = true;
-                }
-            }
-
-            _swing.Sample(0f);
-            _strike = null;
+            _swing.StopSwing();
         }
 
         private void Strike()
