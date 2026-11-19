@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace FireSlop.Interaction
 {
@@ -8,6 +10,7 @@ namespace FireSlop.Interaction
         [SerializeField] private string _cabinetContentId;
         [SerializeField] private ResidentView _resident;
         [SerializeField] private SwingOpenView _cabinet;
+        [SerializeField] private Openable[] _additionalCabinets = Array.Empty<Openable>();
         [SerializeField] private Transform _shoulder;
         [SerializeField] private InteractionConfigSO _config;
 
@@ -15,6 +18,7 @@ namespace FireSlop.Interaction
         private InteractionModel _model;
         private Carryable _carried;
         private Openable _rescueCabinet;
+        private Rigidbody _occupiedCabinetBody;
 
         public string CabinetContentId => _cabinetContentId;
 
@@ -45,6 +49,37 @@ namespace FireSlop.Interaction
             }
         }
 
+        public void PlaceResident(bool useOriginalCabinet)
+        {
+            if (_rescueCabinet == null)
+            {
+                throw new InvalidOperationException("Assign the original rescue cabinet before starting the mission.");
+            }
+
+            // Index zero keeps the original cabinet eligible on every replay.
+            var index = useOriginalCabinet ? 0 : Random.Range(0, _additionalCabinets.Length + 1);
+            if (index > 0)
+            {
+                var cabinet = _additionalCabinets[index - 1];
+                if (cabinet == null)
+                {
+                    throw new InvalidOperationException($"Assign rescue cabinet {index} in the Rescue Controller.");
+                }
+
+                _rescueCabinet.Toggled -= OnCabinetToggled;
+                _rescueCabinet = cabinet;
+                _rescueCabinet.Toggled += OnCabinetToggled;
+                _resident.PlaceInCabinet(cabinet.transform);
+            }
+
+            // An occupied cabinet must stay aligned with the resident's authored pickup body.
+            if (_rescueCabinet.TryGetComponent<Rigidbody>(out var body) && !body.isKinematic)
+            {
+                body.isKinematic = true;
+                _occupiedCabinetBody = body;
+            }
+        }
+
         internal bool CanPickUp(Carryable target)
         {
             if (_model.IsCarrying || !target.CanPickUp)
@@ -67,6 +102,12 @@ namespace FireSlop.Interaction
             {
                 _carried = target;
                 _carried.Attach(_shoulder);
+                if (target == _resident && _occupiedCabinetBody != null)
+                {
+                    _occupiedCabinetBody.isKinematic = false;
+                    _occupiedCabinetBody = null;
+                }
+
                 _model.StartCarrying(_carried.ContentId);
             }
         }

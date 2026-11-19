@@ -7,6 +7,7 @@ namespace FireSlop.Drone
     public sealed class DroneController : MonoBehaviour
     {
         private const float Clearance = 0.025f;
+        private const string PlayerBoundaryLayer = "Player Boundary";
 
         [SerializeField] private DroneConfigSO _config;
         [SerializeField] private BoxCollider _deck;
@@ -27,6 +28,7 @@ namespace FireSlop.Drone
         private Vector3 _origin;
         private Vector3 _landingPoint;
         private ArrivalPhase _arrival;
+        private int _playerBoundaryMask;
         private enum ArrivalPhase
         {
             Available,
@@ -51,6 +53,7 @@ namespace FireSlop.Drone
         {
             _model = model;
             _input = input;
+            _playerBoundaryMask = LayerMask.GetMask(PlayerBoundaryLayer);
             _origin = _requiresSignal ? _flightOrigin : transform.position;
             _arrival = _requiresSignal ? ArrivalPhase.Waiting : ArrivalPhase.Available;
         }
@@ -102,12 +105,17 @@ namespace FireSlop.Drone
 
             var previous = transform.position;
             var pilotOffset = transform.InverseTransformPoint(pilot.transform.position);
-            if (CanTurn(_flightBounds, rotation, pilot) && CanTurn(_landingBounds, rotation, pilot))
+            var pilotBounds = pilot.bounds;
+            var pilotCenterOffset = Quaternion.Inverse(transform.rotation) * (pilotBounds.center - previous);
+            var turnedPilotCenter = previous + rotation * pilotCenterOffset;
+            if (CanTurn(_flightBounds, rotation, pilot) && CanTurn(_landingBounds, rotation, pilot) &&
+                !Physics.CheckBox(turnedPilotCenter, pilotBounds.extents, Quaternion.identity, _playerBoundaryMask,
+                    QueryTriggerInteraction.Ignore))
             {
                 transform.rotation = rotation;
             }
 
-            Move(target - previous, pilot);
+            Move(target - previous, pilot, pilotCenterOffset, pilotBounds.extents);
             var wasEnabled = pilot.enabled;
             pilot.enabled = false;
             pilot.transform.position = transform.TransformPoint(pilotOffset);
@@ -117,7 +125,8 @@ namespace FireSlop.Drone
         public Vector3 GetCameraPosition(Transform eyes, CharacterController pilot, float blend)
         {
             var offset = (Vector3.up * _config.CameraHeight - eyes.forward * _config.CameraDistance) * blend;
-            var distance = GetClearDistance(eyes.position, Vector3.one * Clearance, offset, pilot, Quaternion.identity);
+            var distance = GetClearDistance(eyes.position, Vector3.one * Clearance, offset, pilot, Quaternion.identity,
+                Physics.DefaultRaycastLayers & ~_playerBoundaryMask);
             return eyes.position + offset.normalized * distance;
         }
 
@@ -175,7 +184,7 @@ namespace FireSlop.Drone
                 {
                     var corner = point + transform.rotation * new Vector3(x * half.x, 0f, z * half.z);
                     if (!Physics.Raycast(corner + Vector3.up * 0.15f, Vector3.down, out var hit, 0.3f,
-                            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore) || hit.normal.y < 0.95f)
+                            FlightCollisionMask(null), QueryTriggerInteraction.Ignore) || hit.normal.y < 0.95f)
                     {
                         return false;
                     }
@@ -193,9 +202,9 @@ namespace FireSlop.Drone
             var rotation = transform.rotation;
             var distance = delta.magnitude;
             var upper = GetClearDistance(start + transform.TransformVector(_flightBounds.center),
-                GetHalfSize(_flightBounds), delta, null, rotation);
+                GetHalfSize(_flightBounds), delta, null, rotation, FlightCollisionMask(null));
             var lower = GetClearDistance(start + transform.TransformVector(_landingBounds.center),
-                GetHalfSize(_landingBounds), delta, null, rotation);
+                GetHalfSize(_landingBounds), delta, null, rotation, FlightCollisionMask(null));
             return Mathf.Min(upper, lower) + 0.002f >= distance;
         }
 
@@ -263,24 +272,35 @@ namespace FireSlop.Drone
             var center = transform.TransformPoint(_landingBounds.center);
             center.y -= half.y - Clearance;
             half.y = Clearance;
-            return GetClearDistance(center, half, Vector3.down * Clearance, null, transform.rotation) > 0f;
+            return GetClearDistance(center, half, Vector3.down * Clearance, null, transform.rotation,
+                FlightCollisionMask(null)) > 0f;
         }
 
-        private void Move(Vector3 delta, CharacterController pilot)
+        private void Move(Vector3 delta, CharacterController pilot, Vector3 pilotCenterOffset, Vector3 pilotHalfSize)
         {
             var horizontal = Vector3.ProjectOnPlane(delta, Vector3.up);
-            transform.position += horizontal.normalized * GetFlightDistance(horizontal, pilot);
+            MoveWithPilot(horizontal, pilot, pilotCenterOffset, pilotHalfSize);
 
             var vertical = Vector3.up * delta.y;
-            transform.position += vertical.normalized * GetFlightDistance(vertical, pilot);
+            MoveWithPilot(vertical, pilot, pilotCenterOffset, pilotHalfSize);
+        }
+
+        private void MoveWithPilot(Vector3 delta, CharacterController pilot, Vector3 pilotCenterOffset,
+            Vector3 pilotHalfSize)
+        {
+            var distance = GetFlightDistance(delta, pilot);
+            var pilotCenter = transform.position + transform.rotation * pilotCenterOffset;
+            var pilotClearance = GetClearDistance(pilotCenter, pilotHalfSize, delta, pilot, Quaternion.identity,
+                _playerBoundaryMask);
+            transform.position += delta.normalized * Mathf.Min(distance, pilotClearance);
         }
 
         private float GetFlightDistance(Vector3 delta, CharacterController pilot)
         {
             var upper = GetClearDistance(transform.TransformPoint(_flightBounds.center), GetHalfSize(_flightBounds),
-                delta, pilot, transform.rotation);
+                delta, pilot, transform.rotation, FlightCollisionMask(pilot));
             var lower = GetClearDistance(transform.TransformPoint(_landingBounds.center), GetHalfSize(_landingBounds),
-                delta, pilot, transform.rotation);
+                delta, pilot, transform.rotation, FlightCollisionMask(pilot));
             return Mathf.Min(upper, lower);
         }
 
@@ -293,7 +313,7 @@ namespace FireSlop.Drone
 
             var center = transform.position + rotation * Vector3.Scale(volume.center, volume.transform.lossyScale);
             var count = Physics.OverlapBoxNonAlloc(center, GetHalfSize(volume), _overlaps, rotation,
-                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                FlightCollisionMask(pilot), QueryTriggerInteraction.Ignore);
             for (var index = 0; index < count; index++)
             {
                 if (IsObstacle(_overlaps[index], pilot))
@@ -317,8 +337,13 @@ namespace FireSlop.Drone
                    (pilot == null || !collider.transform.IsChildOf(pilot.transform));
         }
 
+        private int FlightCollisionMask(CharacterController pilot)
+        {
+            return pilot == null ? Physics.DefaultRaycastLayers & ~_playerBoundaryMask : Physics.DefaultRaycastLayers;
+        }
+
         private float GetClearDistance(Vector3 center, Vector3 half, Vector3 delta, CharacterController pilot,
-            Quaternion rotation)
+            Quaternion rotation, int collisionMask)
         {
             var distance = delta.magnitude;
             if (distance <= Mathf.Epsilon)
@@ -327,7 +352,7 @@ namespace FireSlop.Drone
             }
 
             var count = Physics.BoxCastNonAlloc(center, half, delta / distance, _hits, rotation,
-                distance + Clearance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                distance + Clearance, collisionMask, QueryTriggerInteraction.Ignore);
             for (var index = 0; index < count; index++)
             {
                 if (IsObstacle(_hits[index].collider, pilot))

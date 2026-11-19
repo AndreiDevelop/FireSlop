@@ -31,6 +31,13 @@ namespace FireSlop.Interaction
             _model.CabinetRevealed += Reveal;
         }
 
+        internal void PlaceInCabinet(Transform cabinet)
+        {
+            transform.SetPositionAndRotation(cabinet.position, cabinet.rotation);
+            Body.position = cabinet.position;
+            Body.rotation = cabinet.rotation;
+        }
+
         protected override void OnAttached(Transform shoulder)
         {
             _carryRagdoll.HangFrom(shoulder);
