@@ -1,4 +1,5 @@
 using System.Collections;
+using FireSlop.Audio;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,9 @@ namespace FireSlop.Interaction
         [SerializeField] private AudioSource _fireAudio;
 
         private WaterFireModel _fire;
+        private FireAudioController _audioController;
+        private AudioOutputView _audioOutput;
+        private float _audioGain;
         private float _fullEmissionRate;
         private float _reignitionDelay;
         private double _smokeUntil;
@@ -27,10 +31,18 @@ namespace FireSlop.Interaction
         public bool RequestsAutoSpray => isActiveAndEnabled && Intensity > 0f;
         internal WaterFireModel Fire => _fire;
         internal WaterFireConfigSO Settings => _settings;
+        internal bool IsAudioPlaying => _fireAudio != null && _fireAudio.isPlaying;
 
         [Inject]
-        internal void Construct([InjectOptional] WaterFireModel fire, [InjectOptional] FireSpreadConfigSO spread)
+        internal void Construct(FireAudioController audioController,
+            [InjectOptional] WaterFireModel fire, [InjectOptional] FireSpreadConfigSO spread)
         {
+            _audioController = audioController;
+            if (isActiveAndEnabled)
+            {
+                _audioController.Register(this);
+            }
+
             _fire = fire;
             if (spread != null)
             {
@@ -40,6 +52,19 @@ namespace FireSlop.Interaction
 
         private void Awake()
         {
+            if (_fireAudio != null)
+            {
+                _audioOutput = _fireAudio.GetComponent<AudioOutputView>();
+                if (_audioOutput == null)
+                {
+                    Debug.LogError("Fire audio requires an Audio Output View on its Audio Source.", this);
+                }
+                else
+                {
+                    _audioOutput.SetGain(0f);
+                }
+            }
+
             if ((_fire == null && string.IsNullOrWhiteSpace(_contentId)) ||
                 _waterTarget == null || _passageBlocker == null ||
                 _flames == null || _settings == null || !_settings.IsValid)
@@ -82,14 +107,25 @@ namespace FireSlop.Interaction
 
         private void OnEnable()
         {
-            if (_fire != null)
+            if (_audioController != null)
             {
-                UpdateFireAudio(_fire.IsBurning);
+                _audioController.Register(this);
             }
         }
 
         private void OnDisable()
         {
+            if (_audioController != null)
+            {
+                _audioController.Unregister(this);
+            }
+
+            _audioGain = 0f;
+            if (_audioOutput != null)
+            {
+                _audioOutput.SetGain(0f);
+            }
+
             if (_fireAudio != null)
             {
                 _fireAudio.Stop();
@@ -143,7 +179,6 @@ namespace FireSlop.Interaction
             emission.rateOverTimeMultiplier = _fullEmissionRate * Intensity;
             var burns = _fire.IsBurning;
             _waterTarget.enabled = burns;
-            UpdateFireAudio(burns);
             if (burns && !_flames.isEmitting)
             {
                 _flames.Play(false);
@@ -154,18 +189,32 @@ namespace FireSlop.Interaction
             }
         }
 
-        private void UpdateFireAudio(bool burns)
+        internal float GetAudioDistanceSquared(Vector3 listener)
         {
-            if (_fireAudio == null || _fireAudio.clip == null || _fireAudio.isPlaying == burns)
+            if (!isActiveAndEnabled || _fire == null || !_fire.IsBurning || _audioOutput == null ||
+                _fireAudio == null || _fireAudio.clip == null)
+            {
+                return float.PositiveInfinity;
+            }
+
+            var distance = (_fireAudio.transform.position - listener).sqrMagnitude;
+            return distance < _fireAudio.maxDistance * _fireAudio.maxDistance ? distance : float.PositiveInfinity;
+        }
+
+        internal void RenderAudio(bool audible, float fadeStep)
+        {
+            if (_audioOutput == null || _fireAudio == null)
             {
                 return;
             }
 
-            if (burns && isActiveAndEnabled)
+            _audioGain = Mathf.MoveTowards(_audioGain, audible ? 1f : 0f, fadeStep);
+            _audioOutput.SetGain(_audioGain);
+            if (_audioGain > 0f && !_fireAudio.isPlaying)
             {
                 _fireAudio.Play();
             }
-            else
+            else if (_audioGain == 0f && _fireAudio.isPlaying)
             {
                 _fireAudio.Stop();
             }

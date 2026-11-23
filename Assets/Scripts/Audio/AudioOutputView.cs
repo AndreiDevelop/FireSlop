@@ -12,6 +12,7 @@ namespace FireSlop.Audio
         private AudioSource _source;
         private float _authoredVolume;
         private bool _subscribed;
+        private float _gain = 1f;
 
         [Inject]
         public void Construct(SettingsModel settings)
@@ -32,11 +33,7 @@ namespace FireSlop.Audio
                 return;
             }
 
-            if (_source == null)
-            {
-                _source = GetComponent<AudioSource>();
-                _authoredVolume = _source.volume;
-            }
+            CacheSource();
 
             _settings.LevelsChanged += ApplyVolume;
             _subscribed = true;
@@ -45,8 +42,26 @@ namespace FireSlop.Audio
 
         private void ApplyVolume()
         {
-            var level = _isMusic ? _settings.MusicVolume : _settings.EffectsVolume;
-            _source.volume = _authoredVolume * level;
+            var level = _settings == null ? 1f : (_isMusic ? _settings.MusicVolume : _settings.EffectsVolume);
+            _source.volume = _authoredVolume * level * _gain;
+        }
+
+        public void SetGain(float gain)
+        {
+            CacheSource();
+            _gain = Mathf.Clamp01(gain);
+            ApplyVolume();
+        }
+
+        private void CacheSource()
+        {
+            if (_source != null)
+            {
+                return;
+            }
+
+            _source = GetComponent<AudioSource>();
+            _authoredVolume = _source.volume;
         }
 
         private void OnDisable()

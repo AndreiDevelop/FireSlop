@@ -21,6 +21,7 @@ namespace FireSlop.Startup
         [SerializeField] private MovementConfigSO _movement;
         [SerializeField] private ToolBeltSO _toolBelt;
         [SerializeField] private HudActionCatalogSO _hudActions;
+        [SerializeField] private FireAudioConfigSO _fireAudio;
 
         public override void InstallBindings()
         {
@@ -58,6 +59,14 @@ namespace FireSlop.Startup
             Container.BindInterfacesAndSelfTo<MissionPauseController>().AsSingle();
             Container.BindInterfacesAndSelfTo<MissionHudPlatform>().AsSingle();
             Container.Bind<SettingsModel>().AsSingle();
+            if (_fireAudio == null || !_fireAudio.IsValid)
+            {
+                throw new InvalidOperationException("Assign valid Fire Audio settings in Mission Installer.");
+            }
+
+            Container.Bind<FireAudioConfigSO>().FromInstance(_fireAudio);
+            Container.Bind<FireAudioModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<FireAudioController>().AsSingle();
             Container.Bind<SettingsController>().AsSingle().NonLazy();
             Container.Bind<ToolBeltSO>().FromInstance(_toolBelt);
             Container.Bind<ToolSelectionModel>().AsSingle();
