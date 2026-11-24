@@ -100,7 +100,7 @@ namespace FireSlop.Cats
                 _model.SetThreatened(CanReachPlayer());
                 if (_model.State == CatState.Warning)
                 {
-                    _view.FacePlayer(_camera.transform.position, _config.RoamTurnSpeed, Time.deltaTime);
+                    _view.FacePlayer(_camera.transform.position, _config.FaceTurnSpeed, Time.deltaTime);
                 }
 
                 if (_model.State == CatState.Warning && _model.StateSeconds >= _config.WarningSeconds &&
@@ -150,6 +150,8 @@ namespace FireSlop.Cats
                 return;
             }
 
+            var pose = _view.DetachFromFace();
+            _carryable.DropFromFace(pose);
             _model.Remove();
             _face.Release(ContentId);
         }

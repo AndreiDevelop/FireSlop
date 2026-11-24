@@ -17,6 +17,7 @@ namespace FireSlop.Cats
         [SerializeField, Min(0.1f)] private float _roamSpeed;
         [SerializeField, Min(0.1f)] private float _roamAcceleration;
         [SerializeField, Min(0.1f)] private float _roamTurnSpeed;
+        [SerializeField, Min(0.1f)] private float _faceTurnSpeed;
         [SerializeField, Min(0.01f)] private float _roamArrivalDistance;
         [SerializeField, Min(0.1f)] private float _roamPauseSeconds;
         [SerializeField, Min(0.1f)] private float _roamClearance;
@@ -38,6 +39,7 @@ namespace FireSlop.Cats
         public float RoamSpeed => _roamSpeed;
         public float RoamAcceleration => _roamAcceleration;
         public float RoamTurnSpeed => _roamTurnSpeed;
+        public float FaceTurnSpeed => _faceTurnSpeed;
         public float RoamArrivalDistance => _roamArrivalDistance;
         public float RoamPauseSeconds => _roamPauseSeconds;
         public float RoamClearance => _roamClearance;
@@ -47,7 +49,8 @@ namespace FireSlop.Cats
         public LayerMask RoamObstacleMask => _roamObstacleMask;
         public bool IsValid => _noticeRange > 0f && _warningSeconds > _waterSeconds && _waterSeconds > 0f &&
             _jumpSeconds > 0f && _arcHeight >= 0f && _mass > 0f && _faceOffset.z > 0f && _obstructionMask.value != 0 &&
-            _roamSpeed > 0f && _roamAcceleration > 0f && _roamTurnSpeed > 0f && _roamArrivalDistance > 0f &&
+            _roamSpeed > 0f && _roamAcceleration > 0f && _roamTurnSpeed > 0f && _faceTurnSpeed > 0f &&
+            _roamArrivalDistance > 0f &&
             _roamPauseSeconds > 0f && _roamClearance > 0f && _roamFireMask.value != 0 &&
             _attackCooldownSeconds > 0f && _roamObstacleRadius > 0f && _roamObstacleMask.value != 0;
     }

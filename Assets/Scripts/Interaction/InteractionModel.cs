@@ -72,7 +72,7 @@ namespace FireSlop.Interaction
             }
         }
 
-        public event Action SignalThrowRequested;
+        public event Action<ToolAction> InventoryThrowRequested;
         public event Action HammerPressed;
         public event Action HammerInterrupted;
         public event Action HoseStarted;
@@ -103,9 +103,10 @@ namespace FireSlop.Interaction
             {
                 HammerPressed?.Invoke();
             }
-            else if (_tools.SelectedAction == ToolAction.SignalCanister && _tools.IsAvailable(_tools.SelectedId))
+            else if ((_tools.SelectedAction == ToolAction.SignalCanister || _tools.SelectedAction == ToolAction.Brick) &&
+                _tools.IsAvailable(_tools.SelectedId))
             {
-                SignalThrowRequested?.Invoke();
+                InventoryThrowRequested?.Invoke(_tools.SelectedAction);
             }
         }
 

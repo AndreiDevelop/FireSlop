@@ -15,7 +15,7 @@ namespace FireSlop.Tools
         [SerializeField] private ToolAction _action;
         [FormerlySerializedAs("_singleUse")]
         [SerializeField] private bool _consumable;
-        [SerializeField, Min(1)] private int _startingQuantity = 1;
+        [SerializeField, Min(0)] private int _startingQuantity = 1;
 
         public string Id => _id;
         public int Index => _index;

@@ -31,6 +31,175 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5144341887878610319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4149888766961868126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2771415243215605865}
+  - component: {fileID: 7747010716260079280}
+  - component: {fileID: 7163096891460899319}
+  m_Layer: 8
+  m_Name: Brick Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2771415243215605865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149888766961868126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1833398208542230556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7747010716260079280
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149888766961868126}
+  m_Mesh: {fileID: 2593728811739907850, guid: a43e5ec8a26224c81913e66520b2ff67, type: 3}
+--- !u!23 &7163096891460899319
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149888766961868126}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8d061cf95bd0640adbdce0f230782ce6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4640327995404889776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6110596827171390723}
+  m_Layer: 8
+  m_Name: Throw Hold Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6110596827171390723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640327995404889776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.10324155, y: 0.016351856, z: -0.15557751, w: 0.98227775}
+  m_LocalPosition: {x: -0.07, y: 0.095, z: 0.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2634801659370655315}
+  - {fileID: 1833398208542230556}
+  m_Father: {fileID: 3382859056979453007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5178243792542208736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833398208542230556}
+  - component: {fileID: 6235384459663527810}
+  m_Layer: 8
+  m_Name: Brick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1833398208542230556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178243792542208736}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2771415243215605865}
+  m_Father: {fileID: 6110596827171390723}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6235384459663527810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178243792542208736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b59def9b981411d9e646942e11c0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.EquippedToolModelView
+  _tool: {fileID: 11400000, guid: d6e13f943cc434152aed4fbca3252ec5, type: 2}
 --- !u!1 &6141282625755519561
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +385,7 @@ Transform:
   m_Children:
   - {fileID: 5144341887878610319}
   - {fileID: 7005653362734226628}
-  - {fileID: 2634801659370655315}
+  - {fileID: 6110596827171390723}
   m_Father: {fileID: 661478166230397988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8148326083380863896
@@ -517,7 +686,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3382859056979453007}
+    m_TransformParent: {fileID: 6110596827171390723}
     m_Modifications:
     - target: {fileID: 1393605593428033039, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_Layer
@@ -537,31 +706,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.09
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98227775
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10324155
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.016351856
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.15557751
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593854191701256380, guid: 5e5843f599dc946dbaa1c5bad7819888, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -688,6 +857,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3668163988148043029, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8576437808393390093}
+    - targetCorrespondingSourceObject: {fileID: 3668163988148043029, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5410598455416319513}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
       insertIndex: -1
@@ -707,6 +879,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5899906427363880868}
+    - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5165494853945195152}
+    - targetCorrespondingSourceObject: {fileID: 7885940885128341258, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 438311881312272996}
   m_SourcePrefab: {fileID: 100100000, guid: 220b295c271f44ab79a0464cb42787c1, type: 3}
 --- !u!4 &1355092379467948173 stripped
 Transform:
@@ -897,6 +1075,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Audio.AudioOutputView
   _isMusic: 0
+--- !u!114 &5165494853945195152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573718648985156242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e467f89e82704c07945d91a14ea9d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.ThrowPoseView
+  _holdPoint: {fileID: 6110596827171390723}
+  _config: {fileID: 11400000, guid: 23b3f38bc63f24619ad5ae41076db65b, type: 2}
+--- !u!114 &438311881312272996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573718648985156242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e50c1685704746d4a1b8009c94e45b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.BrickThrowController
+  _tool: {fileID: 11400000, guid: d6e13f943cc434152aed4fbca3252ec5, type: 2}
+  _trajectory: {fileID: 3088546793316333223}
 --- !u!1001 &2481219664105722050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1489,3 +1695,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Firefighter.EquippedToolModelView
   _tool: {fileID: 11400000, guid: 788c567ef443e427fb41cd7f1bc4cc44, type: 2}
+--- !u!1001 &4876696384013044425
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1355092379467948173}
+    m_Modifications:
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524984028835969909, guid: 553147f4463c8451c830751561471c84, type: 3}
+      propertyPath: m_Name
+      value: ThrowArc
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 553147f4463c8451c830751561471c84, type: 3}
+--- !u!114 &3088546793316333223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7597917217422654574, guid: 553147f4463c8451c830751561471c84, type: 3}
+  m_PrefabInstance: {fileID: 4876696384013044425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130186a5446ca46fab8b223b561cae85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.ThrowArcView
+--- !u!4 &5410598455416319513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 629324331102135504, guid: 553147f4463c8451c830751561471c84, type: 3}
+  m_PrefabInstance: {fileID: 4876696384013044425}
+  m_PrefabAsset: {fileID: 0}

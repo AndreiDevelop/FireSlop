@@ -1132,6 +1132,67 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &425387176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5105324728173478198, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: _contentId
+      value: courtyard-brick-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3610001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312365689271835760, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_Name
+      value: Throwable Brick 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
 --- !u!1001 &434631288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2787,6 +2848,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1355092379467948173, guid: 1977850650f4d4ce78808f0fff8a6ebf, type: 3}
   m_PrefabInstance: {fileID: 1117075222}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1117075225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5165494853945195152, guid: 1977850650f4d4ce78808f0fff8a6ebf, type: 3}
+  m_PrefabInstance: {fileID: 1117075222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e467f89e82704c07945d91a14ea9d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.ThrowPoseView
 --- !u!1001 &1133730340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4640,6 +4712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Startup.MissionInstaller
   _drone: {fileID: 509868889}
+  _throwPose: {fileID: 1117075225}
   _residents:
   - {fileID: 1317736016}
   - {fileID: 648828277}
@@ -4987,6 +5060,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883710376}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1911682890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5105324728173478198, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: _contentId
+      value: courtyard-brick-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3610001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799326027778780750, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312365689271835760, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
+      propertyPath: m_Name
+      value: Throwable Brick 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 906f222e69a3e40aab7b85f0ba9b3250, type: 3}
 --- !u!1001 &1915876178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6198,3 +6332,5 @@ SceneRoots:
   - {fileID: 242677328}
   - {fileID: 635721081}
   - {fileID: 1338151130}
+  - {fileID: 425387176}
+  - {fileID: 1911682890}

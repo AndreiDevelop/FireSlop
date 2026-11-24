@@ -3,151 +3,116 @@ using FireSlop.Interaction;
 using FireSlop.MissionHud;
 using FireSlop.Tools;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace FireSlop.Drone
 {
     public sealed class SignalThrowController : MonoBehaviour
     {
-        private const int Samples = 81;
-        private const float Step = 0.05f;
-        private const float Radius = 0.06f;
-        [SerializeField] private LineRenderer _arc;
+        [SerializeField] private ThrowArcView _trajectory;
         [SerializeField] private LineRenderer _marker;
         [SerializeField] private ParticleSystem _signalPrefab;
 
-        private readonly Vector3[] _points = new Vector3[Samples];
-        private readonly RaycastHit[] _hits = new RaycastHit[16];
         private DroneController _drone;
         private MissionInputModel _input;
         private InteractionModel _interaction;
         private ToolSelectionModel _tools;
-        private Transform _eyes;
-        private Transform _player;
+        private ThrowPoseView _pose;
         private Vector3 _landing;
-        private int _count;
         private ParticleSystem _signal;
         private float _elapsed;
+        private bool _inFlight;
         private bool _focused = true;
 
         [Inject]
-        public void Construct(Camera camera, DroneController drone, MissionInputModel input,
-            InteractionModel interaction, ToolSelectionModel tools)
+        public void Construct(DroneController drone, MissionInputModel input, InteractionModel interaction,
+            ToolSelectionModel tools, ThrowPoseView pose)
         {
-            _eyes = camera.transform;
-            _player = camera.GetComponentInParent<CharacterController>().transform;
             _drone = drone;
             _input = input;
             _interaction = interaction;
             _tools = tools;
-            _interaction.SignalThrowRequested += Throw;
+            _pose = pose;
+            if (isActiveAndEnabled)
+            {
+                Subscribe();
+            }
         }
 
         private bool CanAim => _focused && _input.IsEnabled && !_interaction.IsCarrying && !_interaction.IsPilotingDrone &&
             _drone.WaitingForSignal && _tools.SelectedAction == ToolAction.SignalCanister && _tools.IsAvailable(_tools.SelectedId);
 
+        private void OnEnable()
+        {
+            if (_interaction != null)
+            {
+                Subscribe();
+            }
+        }
+
+        private void Subscribe()
+        {
+            _interaction.InventoryThrowRequested -= Throw;
+            _interaction.InventoryThrowRequested += Throw;
+        }
+
         private void LateUpdate()
         {
-            if (_signal != null && _count > 0 && _input.IsEnabled)
+            AdvanceSignal();
+            var aim = _signal == null && _tools != null && CanAim;
+            _trajectory.SetVisible(aim);
+            _marker.enabled = aim && Trace();
+        }
+
+        private void AdvanceSignal()
+        {
+            if (_signal != null && _inFlight && _input.IsEnabled)
             {
                 _elapsed += Time.deltaTime;
-                var sample = _elapsed / Step;
-                var index = Mathf.FloorToInt(sample);
-                if (index >= _count - 1)
+                _signal.transform.position = _trajectory.Path.PositionAt(_elapsed);
+                if (_elapsed >= _trajectory.Path.Duration)
                 {
-                    _signal.transform.position = _points[_count - 1];
                     _signal.Play();
                     _drone.Dispatch(_landing);
-                    _count = 0;
-                }
-                else
-                {
-                    _signal.transform.position = Vector3.Lerp(_points[index], _points[index + 1], sample - index);
+                    _inFlight = false;
                 }
             }
 
-            if (_signal != null && _count == 0 && _drone.HasArrived)
+            if (_signal != null && !_inFlight && _drone.HasArrived)
             {
                 _signal.Stop(true, ParticleSystemStopBehavior.StopEmitting);
                 Destroy(_signal.gameObject, _signal.main.startLifetime.constantMax);
                 _signal = null;
             }
-
-            var aim = _signal == null && _tools != null && CanAim;
-            _arc.enabled = aim;
-            _marker.enabled = aim && Trace();
-            if (aim)
-            {
-                _arc.positionCount = _count;
-                // SetPositions accepts a buffer larger than positionCount.
-                _arc.SetPositions(_points);
-            }
         }
 
         private bool Trace()
         {
-            var start = _eyes.TransformPoint(_drone.Config.ThrowOffset);
-            if (FindContact(_eyes.position, start, out var obstruction))
+            _trajectory.Trace(_pose);
+            var path = _trajectory.Path;
+            if (!path.IsOriginClear || !path.HasContact)
             {
-                _points[0] = _eyes.position;
-                _points[1] = obstruction.point;
-                _count = 2;
                 return false;
             }
 
-            var velocity = _eyes.forward * _drone.Config.ThrowSpeed + Vector3.up * _drone.Config.ThrowLift;
-            _points[0] = start;
-            for (var i = 1; i < Samples; i++)
+            var hit = path.Contact;
+            _landing = hit.point;
+            if (hit.normal.y < 0.95f || hit.rigidbody != null || !_drone.CanLandAt(_landing))
             {
-                var time = i * Step;
-                var next = start + velocity * time + Physics.gravity * (0.5f * time * time);
-                if (FindContact(_points[i - 1], next, out var hit))
-                {
-                    _points[i] = hit.point + hit.normal * Radius;
-                    _count = i + 1;
-                    _landing = hit.point;
-                    if (hit.normal.y < 0.95f || hit.rigidbody != null || !_drone.CanLandAt(_landing))
-                    {
-                        return false;
-                    }
-
-                    var half = _drone.Footprint;
-                    var center = _landing + Vector3.up * 0.04f;
-                    for (var corner = 0; corner < 4; corner++)
-                    {
-                        var x = corner < 2 ? -half.x : half.x;
-                        var z = corner == 0 || corner == 3 ? -half.z : half.z;
-                        _marker.SetPosition(corner, center + _drone.transform.rotation * new Vector3(x, 0f, z));
-                    }
-
-                    return true;
-                }
-
-                _points[i] = next;
+                return false;
             }
 
-            _count = Samples;
-            return false;
-        }
-
-        private bool FindContact(Vector3 start, Vector3 end, out RaycastHit contact)
-        {
-            var delta = end - start;
-            var hits = Physics.SphereCastNonAlloc(start, Radius, delta.normalized, _hits, delta.magnitude,
-                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
-            var distance = float.PositiveInfinity;
-            contact = default;
-            for (var i = 0; i < hits; i++)
+            var half = _drone.Footprint;
+            var center = _landing + Vector3.up * 0.04f;
+            for (var corner = 0; corner < 4; corner++)
             {
-                var hit = _hits[i];
-                if (hit.distance < distance && !hit.collider.transform.IsChildOf(_player))
-                {
-                    contact = hit;
-                    distance = hit.distance;
-                }
+                var x = corner < 2 ? -half.x : half.x;
+                var z = corner == 0 || corner == 3 ? -half.z : half.z;
+                _marker.SetPosition(corner, center + _drone.transform.rotation * new Vector3(x, 0f, z));
             }
 
-            return distance < float.PositiveInfinity;
+            return true;
         }
 
         private void OnApplicationFocus(bool focused)
@@ -155,24 +120,36 @@ namespace FireSlop.Drone
             _focused = focused;
         }
 
-        private void Throw()
+        private void Throw(ToolAction action)
         {
-            if (_signal != null || !CanAim || !Trace() || !_tools.TryCommitUse(ToolAction.SignalCanister))
+            if (action != ToolAction.SignalCanister || _signal != null || !CanAim || !Trace() || !_tools.TryCommitUse(ToolAction.SignalCanister))
             {
                 return;
             }
 
-            _signal = Instantiate(_signalPrefab, _points[0], Quaternion.identity);
-            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(_signal.gameObject, gameObject.scene);
+            _signal = Instantiate(_signalPrefab, _pose.LaunchPosition, Quaternion.identity);
+            SceneManager.MoveGameObjectToScene(_signal.gameObject, gameObject.scene);
+            _elapsed = 0f;
+            _inFlight = true;
             _marker.enabled = false;
-            _arc.enabled = false;
+            _trajectory.SetVisible(false);
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             if (_interaction != null)
             {
-                _interaction.SignalThrowRequested -= Throw;
+                _interaction.InventoryThrowRequested -= Throw;
+            }
+
+            if (_trajectory != null)
+            {
+                _trajectory.SetVisible(false);
+            }
+
+            if (_marker != null)
+            {
+                _marker.enabled = false;
             }
         }
     }

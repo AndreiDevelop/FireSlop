@@ -4,6 +4,7 @@ namespace FireSlop.Tools
     {
         Hose,
         Hammer,
-        SignalCanister
+        SignalCanister,
+        Brick
     }
 }

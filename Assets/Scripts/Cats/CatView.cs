@@ -110,12 +110,12 @@ namespace FireSlop.Cats
         private void RenderState()
         {
             var state = _model.State;
-            var hasBody = state == CatState.Idle || state == CatState.Warning || state == CatState.Settled ||
-                state == CatState.Rescued;
+            var hasBody = state == CatState.Idle || state == CatState.Warning || state == CatState.Returning ||
+                state == CatState.Settled || state == CatState.Rescued;
             foreach (var body in _bodies)
             {
                 body.enabled = hasBody;
-                body.isTrigger = state != CatState.Settled && state != CatState.Rescued;
+                body.isTrigger = state == CatState.Idle || state == CatState.Warning;
             }
             if (state == CatState.Warning)
             {
@@ -126,7 +126,7 @@ namespace FireSlop.Cats
                 _hiss.Stop();
             }
 
-            if (state == CatState.Jumping || state == CatState.Returning)
+            if (state == CatState.Jumping)
             {
                 _travelStart = new Pose(_visual.position, _visual.rotation);
             }
@@ -145,18 +145,26 @@ namespace FireSlop.Cats
             }
         }
 
+        public Pose DetachFromFace()
+        {
+            var rotation = _visual.rotation * Quaternion.Inverse(_homeRotation);
+            var offset = Vector3.Scale(_homePosition, transform.lossyScale);
+            var position = _visual.position - rotation * offset;
+            transform.SetPositionAndRotation(position, rotation);
+            _visual.SetLocalPositionAndRotation(_homePosition, _homeRotation);
+            return new Pose(position, rotation);
+        }
+
         public void RenderMotion(Transform eye, CatConfigSO config)
         {
             var state = _model.State;
-            if (state != CatState.Jumping && state != CatState.Attached && state != CatState.Returning)
+            if (state != CatState.Jumping && state != CatState.Attached)
             {
                 return;
             }
 
-            var returning = state == CatState.Returning;
-            var parent = _visual.parent;
-            var target = returning ? parent.TransformPoint(_homePosition) : eye.TransformPoint(config.FaceOffset);
-            var rotation = returning ? parent.rotation * _homeRotation : eye.rotation * config.FaceRotation * _homeRotation;
+            var target = eye.TransformPoint(config.FaceOffset);
+            var rotation = eye.rotation * config.FaceRotation * _homeRotation;
             var progress = state == CatState.Attached ? 1f : Mathf.Clamp01(_model.StateSeconds / config.JumpSeconds);
             var position = Vector3.Lerp(_travelStart.position, target, progress);
             position += Vector3.up * (Mathf.Sin(progress * Mathf.PI) * config.ArcHeight);

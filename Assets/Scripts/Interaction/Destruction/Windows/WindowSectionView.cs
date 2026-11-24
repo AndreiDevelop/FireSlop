@@ -11,9 +11,14 @@ namespace FireSlop.Interaction
 
         public void ApplyHit(Ray ray, RaycastHit hit, InteractionConfigSO config)
         {
-            if (hit.collider == _solid)
+            ApplyImpact(hit.collider, ray.direction, config);
+        }
+
+        public void ApplyImpact(Collider collider, Vector3 direction, InteractionConfigSO config)
+        {
+            if (collider == _solid && _solid.enabled)
             {
-                _window.Hit(this, ray.direction, config);
+                _window.Hit(this, direction, config);
             }
         }
 

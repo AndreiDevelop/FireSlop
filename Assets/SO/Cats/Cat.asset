@@ -26,6 +26,7 @@ MonoBehaviour:
   _roamSpeed: 0.75
   _roamAcceleration: 3
   _roamTurnSpeed: 180
+  _faceTurnSpeed: 720
   _roamArrivalDistance: 0.12
   _roamPauseSeconds: 0.7
   _roamClearance: 0.55

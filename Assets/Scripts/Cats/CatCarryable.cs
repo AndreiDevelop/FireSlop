@@ -61,6 +61,15 @@ namespace FireSlop.Cats
             }
         }
 
+        internal void DropFromFace(in Pose pose)
+        {
+            Body.position = pose.position;
+            Body.rotation = pose.rotation;
+            Body.isKinematic = false;
+            Body.linearVelocity = Vector3.zero;
+            Body.angularVelocity = Vector3.zero;
+        }
+
         public bool TryRescue(Vector3 deliveryPosition)
         {
             if (_model == null || !_model.TryRescue())

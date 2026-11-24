@@ -75,9 +75,18 @@ namespace FireSlop.Interaction
             var halfHeight = _radius > 0f ? _radius + Mathf.Abs(axis.y) :
                 Mathf.Abs(up.x) * _extents.x + Mathf.Abs(up.y) * _extents.y + Mathf.Abs(up.z) * _extents.z;
             var origin = eye - Vector3.up * halfHeight;
+            position = origin + forward * distance;
+            return IsPathClear(origin, position, rotation, mask);
+        }
+
+        public bool IsPathClear(Vector3 origin, Vector3 position, Quaternion rotation, LayerMask mask)
+        {
+            var orientation = rotation * _orientation;
+            var axis = rotation * _halfAxis;
             var center = origin + rotation * _center;
-            var offset = forward * distance;
-            position = origin + offset;
+            var offset = position - origin;
+            var distance = offset.magnitude;
+            var forward = offset.normalized;
             const QueryTriggerInteraction triggers = QueryTriggerInteraction.Ignore;
 
             if (_radius == 0f)

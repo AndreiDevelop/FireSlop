@@ -9,6 +9,7 @@ namespace FireSlop.MissionHud
     {
         private readonly Dictionary<string, ToolDefinitionSO> _toolsById = new(StringComparer.Ordinal);
         private readonly Dictionary<string, int> _quantities = new(StringComparer.Ordinal);
+        private readonly ToolDefinitionSO _defaultTool;
         private ToolDefinitionSO _selected;
         private bool _enabled = true;
 
@@ -33,6 +34,19 @@ namespace FireSlop.MissionHud
             return _quantities.TryGetValue(id, out quantity);
         }
 
+        public bool TryCollect(ToolDefinitionSO tool)
+        {
+            if (!_enabled || !_quantities.TryGetValue(tool.Id, out var quantity) || quantity == int.MaxValue)
+            {
+                return false;
+            }
+
+            _quantities[tool.Id] = quantity + 1;
+            QuantityChanged?.Invoke(tool.Id);
+            Select(tool.Id);
+            return true;
+        }
+
         public bool TryCommitUse(ToolAction action)
         {
             if (!_enabled || _selected.Action != action)
@@ -50,8 +64,14 @@ namespace FireSlop.MissionHud
                 return false;
             }
 
-            _quantities[_selected.Id] = quantity - 1;
-            QuantityChanged?.Invoke(_selected.Id);
+            var usedTool = _selected;
+            _quantities[usedTool.Id] = quantity - 1;
+            QuantityChanged?.Invoke(usedTool.Id);
+            if (quantity == 1 && usedTool.StartingQuantity == 0 && _selected == usedTool)
+            {
+                Select(_defaultTool.Id);
+            }
+
             return true;
         }
 
@@ -83,9 +103,9 @@ namespace FireSlop.MissionHud
 
                 if (tool.IsConsumable)
                 {
-                    if (tool.StartingQuantity < 1)
+                    if (tool.StartingQuantity < 0)
                     {
-                        throw new InvalidOperationException($"Consumable '{tool.Id}' requires a positive starting quantity.");
+                        throw new InvalidOperationException($"Consumable '{tool.Id}' requires a nonnegative starting quantity.");
                     }
 
                     _quantities.Add(tool.Id, tool.StartingQuantity);
@@ -101,7 +121,8 @@ namespace FireSlop.MissionHud
 
             tools.Sort(CompareIndex);
             Tools = tools.AsReadOnly();
-            _selected = belt.DefaultTool;
+            _defaultTool = belt.DefaultTool;
+            _selected = _defaultTool;
         }
 
         public void SetEnabled(bool enabled)

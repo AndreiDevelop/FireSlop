@@ -15,6 +15,7 @@ namespace FireSlop.Startup
     public sealed class MissionInstaller : MonoInstaller
     {
         [SerializeField] private DroneController _drone;
+        [SerializeField] private ThrowPoseView _throwPose;
         [SerializeField] private ResidentView[] _residents = Array.Empty<ResidentView>();
         [SerializeField] private RescueZoneView _rescueZone;
         [SerializeField] private Camera _camera;
@@ -57,6 +58,12 @@ namespace FireSlop.Startup
             if (TryGetComponent<RescueController>(out var carrier))
             {
                 Container.Bind<RescueController>().FromInstance(carrier);
+            }
+
+            if (_throwPose != null)
+            {
+                Container.Bind<ThrowPoseView>().FromInstance(_throwPose);
+                Container.Bind<BrickThrowController>().FromComponentOn(_throwPose.gameObject).AsSingle();
             }
 
             Container.Bind<DroneModel>().AsSingle();
