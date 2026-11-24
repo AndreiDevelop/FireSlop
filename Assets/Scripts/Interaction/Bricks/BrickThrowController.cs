@@ -21,6 +21,7 @@ namespace FireSlop.Interaction
 
         internal bool CanCollect => _input.IsEnabled && !_interaction.IsPilotingDrone && !_interaction.IsCarrying;
         private bool CanAim => _stored.Count > 0 && _focused && CanCollect && _tools.SelectedId == _tool.Id;
+        private bool CanThrow => CanAim && _stored.Peek().CanLaunch(_pose);
 
         [Inject]
         public void Construct(MissionInputModel input, InteractionModel interaction, ToolSelectionModel tools,
@@ -58,17 +59,18 @@ namespace FireSlop.Interaction
 
         private void LateUpdate()
         {
-            bool visible = CanAim && _stored.Peek().CanLaunch(_pose);
+            var visible = CanAim;
             _trajectory.SetVisible(visible);
             if (visible)
             {
                 _trajectory.Trace(_pose);
+                _trajectory.SetValidity(CanThrow);
             }
         }
 
         private void Throw(ToolAction action)
         {
-            if (action == ToolAction.Brick && CanAim && _stored.Peek().CanLaunch(_pose) && _tools.TryCommitUse(action))
+            if (action == ToolAction.Brick && CanThrow && _tools.TryCommitUse(action))
             {
                 _stored.Pop().Launch(_pose);
             }

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Fridge",
+    "movedMeters": 0.660674751,
+    "massFromSO": true,
+    "secondInstanceUnchanged": true,
+    "passed": true
+  },
+  {
+    "name": "Stove",
+    "movedMeters": 0.353983432,
+    "massFromSO": true,
+    "secondInstanceUnchanged": true,
+    "passed": true
+  },
+  {
+    "name": "DiningChair",
+    "movedMeters": 0.714257956,
+    "massFromSO": true,
+    "secondInstanceUnchanged": true,
+    "passed": true
+  },
+  {
+    "name": "CoatRack",
+    "movedMeters": 0.413302749,
+    "massFromSO": true,
+    "secondInstanceUnchanged": true,
+    "passed": true
+  },
+  {
+    "name": "ShoeCabinet",
+    "movedMeters": 0.342688173,
+    "massFromSO": true,
+    "secondInstanceUnchanged": true,
+    "passed": true
+  }
+]

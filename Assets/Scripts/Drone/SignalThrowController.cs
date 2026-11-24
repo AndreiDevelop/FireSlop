@@ -62,7 +62,12 @@ namespace FireSlop.Drone
             AdvanceSignal();
             var aim = _signal == null && _tools != null && CanAim;
             _trajectory.SetVisible(aim);
-            _landingPreview.gameObject.SetActive(aim && Trace());
+            var canThrow = aim && Trace();
+            _landingPreview.gameObject.SetActive(canThrow);
+            if (aim)
+            {
+                _trajectory.SetValidity(canThrow);
+            }
         }
 
         private void AdvanceSignal()

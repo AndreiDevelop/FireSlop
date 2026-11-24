@@ -70,6 +70,8 @@ The existing [firefighter model preview](Characters/Firefighter/model-preview.pn
 
 See [Modeling Sketches](ModelingSketches.md) for the current draft resident, tools, furniture, door, drone, base-house, trampoline and cat sheets, their source references and generation prompts.
 
+The [expansion furniture concepts](ModelingSketches.md#expansion-furniture-concepts), drafted 2026-11-24, add a fridge, stove, dining chair, coat rack and shoe cabinet for kitchen and entryway recognition. Their [editable Blender models and reusable Unity prefabs](ModelProduction/README.md#expansion-furniture) extend the existing chunky furniture family, sharing its wood and enamel materials. A saved Unity comparison includes the existing coffee table at the same scale. Mission placement and final gameplay balance remain pending.
+
 The [base-house sheet](Environments/BaseHouse/modeling-sheet.png) shows the approved intact roof, modular three-floor structure, rear return stairs, corridor and two-room apartment layout.
 
 See [model production](ModelProduction/README.md) for editable Blender sources, FBX exports, geometry checks and Unity import status.
@@ -94,4 +96,4 @@ The [user-supplied ranking reference](UI/Dispatch/ranking-reference.png) establi
 
 ### Drone landing preview
 
-The signal canister uses a full-size translucent green drone in place of the landing frame. The preview reuses the production drone meshes with an authored transparent unlit material and no shadows. [Roof aim](Props/Drone/landing-preview-roof.png) shows a Unity Editor camera capture at 1280 × 720. See the [implementation and verification report](../Engineering/Reports/2026-11-24-drone-landing-preview.md).
+The signal canister uses a full-size translucent green drone in place of the landing frame. The preview reuses the production drone meshes with an authored transparent unlit material and no shadows. [Valid roof aim](Props/Drone/landing-preview-roof.png) and [blocked aim](Props/Drone/throw-arc-blocked.png) show green and red throw arcs without a crosshair in Unity Editor camera captures at 1280 × 720. Both throwable tools use the shared ThrowArc prefab's authored validity colors. See the [implementation and verification report](../Engineering/Reports/2026-11-24-drone-landing-preview.md).

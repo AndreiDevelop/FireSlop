@@ -1,0 +1,12 @@
+{
+  "status": "Draft for review",
+  "date": "2026-11-24",
+  "tool": "built-in image_gen",
+  "use_case": "stylized-concept",
+  "prompt": "Use case: stylized-concept. Asset type: FireSlop furniture modeling concept sheet, draft. Style: match existing chunky low-poly cartoon furniture: simple beveled box construction, matte flat colors, warm honey wood and brown structural parts, bold clean dark outline, minimal broad shading, white background. Landscape sheet with one large three-quarter view at top and smaller front, right side and top orthographic construction views below. Keep the identical design, part counts and proportions across all views. Objects fully visible, generous separation. Short English title and view labels only. No decorative room props, people, brands, textures, dimension arrows or clutter. These are simple affordable apartment furnishings, economical to model for a Unity WebGL game. DINING CHAIR. One simple warm honey wood dining chair with four thick brown square legs, broad beveled square wooden seat and a single broad rounded rectangular wooden backrest on two sturdy uprights. No upholstery, no armrests, no crossbars, no ornament. Match the warm honey top and brown legs of the existing FireSlop coffee table.",
+  "output": "modeling-sheet.png",
+  "references": [
+    "../CoffeeTable/modeling-sheet.png"
+  ],
+  "reference_usage": "Existing coffee-table sheet inspected for chunky bevels, warm honey wood and brown legs; prompt-based style guidance."
+}

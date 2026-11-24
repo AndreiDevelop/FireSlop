@@ -67,6 +67,7 @@ namespace FireSlop.Startup
             }
 
             Container.Bind<DroneModel>().AsSingle();
+            Container.Bind<ThrowPreviewModel>().AsSingle();
             Container.Bind<CatFaceModel>().AsSingle();
             if (_drone != null)
             {

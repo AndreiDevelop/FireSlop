@@ -10,6 +10,16 @@ The [preview prefab](../../../Assets/Prefabs/Modules/Drone/LandingPreview.prefab
 
 The preview hides for invalid landing, tool switching, pause, focus loss, component disable and successful release. Reopening valid aim restores it without spending a charge.
 
+## Throw availability and crosshair follow-up
+
+Both throwable tools use the shared ThrowArc prefab's authored green and red colors. SignalThrowController uses its existing landing validation for both color and release. BrickThrowController uses the stored brick's CanLaunch check for both color and release. A blocked brick now keeps its arc visible in red instead of hiding it.
+
+ThrowArcView reports visibility through a scene-scoped ThrowPreviewModel with independent ownership per arc. AimView observes its events and DroneModel; it hides the existing crosshair Body while any arc is visible or the drone is piloted. Disabling or unloading an arc releases its ownership. Colors remain authored in the prefab, with no runtime material creation or global object searches.
+
+Unity CLI runtime checks passed for both tools' valid/invalid colors, rejected releases preserving inventory, successful touch canister and mouse brick releases, crosshair restoration, tool switching, pause/resume, focus loss, component disable/re-enable and pilot-mode transitions. A separate model check verified independent owners, idempotent updates and one visibility event per aggregate transition. Recompilation and current Console ground truth passed without errors. Physical-device testing remains open.
+
+The updated [valid roof aim](../../Art/Props/Drone/landing-preview-roof.png) and [blocked aim](../../Art/Props/Drone/throw-arc-blocked.png) were inspected at 1280 × 720: green/red arcs, no crosshair while aiming, and no drone ghost at the invalid destination.
+
 ## Verification
 
 [DroneLandingPreviewVerification](../../../AgentScripts/DroneLandingPreviewVerification.cs) runs through Unity CLI script run, outside the runtime assembly:

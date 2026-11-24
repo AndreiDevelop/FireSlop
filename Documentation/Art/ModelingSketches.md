@@ -1,8 +1,8 @@
 # Modeling Sketches
 
-Status: Draft for review. Updated: 2026-11-16.
+Status: Draft for review. Updated: 2026-11-24.
 
-Eleven color concept sheets for modeling, generated with the built-in image_gen tool. They establish silhouettes and broad construction, not dimensionally exact CAD views, final textures or verified gameplay clearances. Final scale and collision geometry follow the playable blockout.
+Eleven original color concept sheets and five expansion furniture sheets for modeling, generated with the built-in image_gen tool. They establish silhouettes and broad construction, not dimensionally exact CAD views, final textures or verified gameplay clearances. Final scale and collision geometry follow the playable blockout.
 
 Sources: [Obsidian reference canvas](../../FireSlop/FireSlop/Consepts.canvas), [authoritative GDD](../../FireSlop/Documentation/GDD/GDD.md), [art guidelines](ART_DIRECTION_GUIDELINES.md). The supplied screenshots are visual references, not production textures. Sledgehammer and drone are new proposals in the same visual family.
 
@@ -160,7 +160,47 @@ Octagonal padded rim and taut center, adapted from the handheld Canvas reference
 
 [Blender source](Props/Trampoline/source.blend) · [FBX](../../Assets/Models/Props/Trampoline.fbx) · 844 triangles.
 
-## Review notes
+## Expansion furniture concepts
+
+Draft for review, 2026-11-24. Five new sheets for [expansion step 9](../../FireSlop/Documentation/GDD/Design/SinglePlayerExpansion.md). Generated with built-in image_gen and visually inspected. The existing [coffee table sheet](Props/CoffeeTable/modeling-sheet.png) supplies the chunky bevels, warm honey wood and brown structural parts. Cream enamel and muted sage distinguish the kitchen appliances. These are the original concept references. The linked production follow-up below establishes model dimensions and initial physics settings; opening behavior and mission placement remain pending.
+
+### Fridge
+
+![Fridge concept: three-quarter, front, side and top views](Props/Fridge/modeling-sheet.png)
+
+Cream body, two sage doors and dark vertical handles; small freezer above the larger refrigerator compartment. [Prompt](Props/Fridge/prompt.json).
+
+### Stove
+
+![Stove concept: three-quarter, front, side and top views](Props/Stove/modeling-sheet.png)
+
+Cream enamel cooker with four solid hotplates, four controls and a closed oven. No cookware or active flame. [Prompt](Props/Stove/prompt.json).
+
+### Dining Chair
+
+![Dining chair concept: three-quarter, front, side and top views](Props/DiningChair/modeling-sheet.png)
+
+Honey wood seat and single backrest, two back uprights and four thick brown legs; matches the coffee-table family. [Prompt](Props/DiningChair/prompt.json).
+
+### Coat Rack
+
+![Coat rack concept: three-quarter, front, side and top views](Props/CoatRack/modeling-sheet.png)
+
+Freestanding wooden post with four hooks and four low feet. The top view rotates the hook cross relative to the base compared with the main view; use the main three-quarter construction as the silhouette reference and reconcile alignment in the modeling blockout. [Prompt](Props/CoatRack/prompt.json).
+
+### Shoe Cabinet
+
+![Shoe cabinet concept: three-quarter, front, side and top views](Props/ShoeCabinet/modeling-sheet.png)
+
+Low entryway cabinet with two stacked tilt-out front panels and dark handles. The right-side view exaggerates panel bevels; reconcile the closed fronts in the blockout. [Prompt](Props/ShoeCabinet/prompt.json).
+
+### Expansion review
+
+2026-11-24 — At the user's request, all five concepts now have [editable Blender models, FBX exports and reusable Unity prefabs](ModelProduction/README.md#expansion-furniture). The models reconcile the coat-rack hook alignment and shoe-cabinet panel bevels. See that production section for actual dimensions, same-scale Unity preview and verification; the concept sheets remain the original draft references.
+
+All five subjects and four views per sheet are present and uncropped. Stove hotplates and controls, fridge doors, chair legs and cabinet panels were checked visually. Drawn views are construction guidance rather than exact orthographic projections. Final scale, door clearances and coat-rack stability require a 3D blockout. No production models or gameplay behavior were added by this concept pass.
+
+## Original model review notes
 
 All eleven images were visually inspected for subject, view coverage and readable construction. Furniture cushion counts and four drone rotors are consistent. Minor perspective differences remain in drawn turnarounds; use orthographic views as construction guidance. The eleven Blender models and FBX exports now exist; see [model production status](ModelProduction/README.md). Blender previews are not Unity captures. Unity imported all 36 FBX assets with shared URP materials. Connected module prefabs and an Edit Mode review scene are saved; [Unity previews](ModelProduction/README.md#unity-previews) were visually inspected. No player build or gameplay validation was performed.
 

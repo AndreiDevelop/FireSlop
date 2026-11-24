@@ -48,7 +48,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3428337635156600867}
-  - component: {fileID: 6699627252231166489}
+  - component: {fileID: 5309930307362705462}
   m_Layer: 0
   m_Name: Aim
   m_TagString: Untagged
@@ -76,7 +76,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6699627252231166489
+--- !u!114 &5309930307362705462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,11 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8723010538361412701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea9f0110f34940ff9840d5a2b1d4894, type: 3}
+  m_Script: {fileID: 11500000, guid: fa882183916b247dbb02d310046bb1b1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FlightControlsView
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.AimView
   _body: {fileID: 7772613043106393174}
-  _inFlight: 0
 --- !u!1001 &2048246870202255965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8624687734681413131, guid: ac60badb8f0c9472ba07f707ca2e74f5, type: 3}
       propertyPath: m_Name
-      value: AimBody
+      value: Body
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

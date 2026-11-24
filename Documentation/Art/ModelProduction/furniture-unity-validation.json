@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Fridge",
+    "prefab": "Assets/Prefabs/Props/Furniture/Fridge.prefab",
+    "dimensionsMetersXYZ": [
+      0.6600605,
+      1.65006042,
+      0.7125605
+    ],
+    "triangles": 308,
+    "submeshes": 4,
+    "boxColliders": 1,
+    "massKg": 55.0,
+    "connectedFBX": true,
+    "passed": true
+  },
+  {
+    "name": "Stove",
+    "prefab": "Assets/Prefabs/Props/Furniture/Stove.prefab",
+    "dimensionsMetersXYZ": [
+      0.6400374,
+      0.905037344,
+      0.7000374
+    ],
+    "triangles": 1224,
+    "submeshes": 3,
+    "boxColliders": 1,
+    "massKg": 40.0,
+    "connectedFBX": true,
+    "passed": true
+  },
+  {
+    "name": "DiningChair",
+    "prefab": "Assets/Prefabs/Props/Furniture/DiningChair.prefab",
+    "dimensionsMetersXYZ": [
+      0.5200371,
+      0.9550371,
+      0.500037134
+    ],
+    "triangles": 352,
+    "submeshes": 2,
+    "boxColliders": 8,
+    "massKg": 6.0,
+    "connectedFBX": true,
+    "passed": true
+  },
+  {
+    "name": "CoatRack",
+    "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+    "dimensionsMetersXYZ": [
+      0.7000613,
+      1.65844607,
+      0.7000613
+    ],
+    "triangles": 396,
+    "submeshes": 2,
+    "boxColliders": 9,
+    "massKg": 5.0,
+    "connectedFBX": true,
+    "passed": true
+  },
+  {
+    "name": "ShoeCabinet",
+    "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+    "dimensionsMetersXYZ": [
+      0.980041265,
+      0.8625412,
+      0.405541331
+    ],
+    "triangles": 308,
+    "submeshes": 3,
+    "boxColliders": 1,
+    "massKg": 18.0,
+    "connectedFBX": true,
+    "passed": true
+  }
+]

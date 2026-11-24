@@ -1,0 +1,12 @@
+{
+  "status": "Draft for review",
+  "date": "2026-11-24",
+  "tool": "built-in image_gen",
+  "use_case": "stylized-concept",
+  "prompt": "Use case: stylized-concept. Asset type: FireSlop furniture modeling concept sheet, draft. Style: match existing chunky low-poly cartoon furniture: simple beveled box construction, matte flat colors, warm honey wood and brown structural parts, bold clean dark outline, minimal broad shading, white background. Landscape sheet with one large three-quarter view at top and smaller front, right side and top orthographic construction views below. Keep the identical design, part counts and proportions across all views. Objects fully visible, generous separation. Short English title and view labels only. No decorative room props, people, brands, textures, dimension arrows or clutter. These are simple affordable apartment furnishings, economical to model for a Unity WebGL game. STOVE. A compact freestanding cream enamel electric cooker, dark charcoal cooktop with exactly four circular solid hotplates arranged 2 by 2, four chunky round controls in one front row, oven door below with a wide dark glass rectangle and one horizontal dark handle, simple black toe plinth. All views consistent, closed oven, no flame, no cookware.",
+  "output": "modeling-sheet.png",
+  "references": [
+    "../CoffeeTable/modeling-sheet.png"
+  ],
+  "reference_usage": "Existing coffee-table sheet inspected for chunky bevels, warm honey wood and brown legs; prompt-based style guidance."
+}
