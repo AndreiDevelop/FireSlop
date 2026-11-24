@@ -1,8 +1,8 @@
 # Model Production
 
-Updated: 2026-11-16. Status: models imported and visually verified in Unity.
+Updated: 2026-11-24. Status: models imported; see subject-specific verification below.
 
-Eleven colored low-poly model subjects plus a pre-cut door variant. Blender sources and [colored concept sheets](../ModelingSketches.md) are maintained by subject. One Blender unit equals one meter. Resident and Firefighter use skinned Humanoid rigs in a T-pose. Cat remains a static mesh.
+Eleven colored low-poly model subjects plus a pre-cut door variant. Blender sources and [colored concept sheets](../ModelingSketches.md) are maintained by subject. One Blender unit equals one meter. Resident and Firefighter use skinned Humanoid rigs in a T-pose. Cat uses a 14-bone Generic rig with five clips.
 
 ## Assets
 
@@ -13,7 +13,7 @@ Eleven colored low-poly model subjects plus a pre-cut door variant. Blender sour
 | Hose | 420 | [Source](../Props/Hose/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Tools/Hose.prefab) |
 | Door | 1,096 | [Source](../Props/Door/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Doors/Door.prefab) |
 | Trampoline | 844 | [Source](../Props/Trampoline/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Rescue/Trampoline.prefab) |
-| Cat | 2,362 | [Source](../Characters/Cat/source.blend) | [Prefab](../../../Assets/Prefabs/Characters/Cat.prefab) |
+| Cat | 4,896 | [Source](../Characters/Cat/ginger-cat.blend) | [Prefab](../../../Assets/Prefabs/Characters/Cat.prefab) |
 | RescueDrone | 2,000 | [Source](../Vehicles/RescueDrone/source.blend) | [Prefab](../../../Assets/Prefabs/Modules/Drone/RescueDrone.prefab) |
 | BaseHouse | 20,532 | [Source](../Environments/BaseHouse/source.blend) | [Prefab](../../../Assets/Prefabs/BaseHouse.prefab) |
 | Resident | 2,540 | [Source](../Characters/Resident/source.blend) | [Prefab](../../../Assets/Prefabs/Characters/Resident/Resident.prefab) |
@@ -36,7 +36,7 @@ The drone uses eight source module types: hull, arm, guard, rotor, pylon, platfo
 
 Door and DoorFractured share their assembly origin and dimensions. The intact leaf pivots at its hinge; the fractured variant has 20 independent mesh fragments with local pivots and a separate frame. The fragments total 3,672 triangles; the frame brings the variant to 3,860. Swap matching roots to transition between assets. Primitive colliders are authored on the intact leaf, frame and each fractured piece. Rigidbodies, impact triggering, fragment lifetime and damage states remain gameplay integration work.
 
-The hose asset is a nozzle plus a short section, without flexible hose simulation. Colors use shared `FS_*` URP Lit materials under `Assets/Materials/Models`; no baked texture maps.
+The hose asset is a nozzle plus a short section, without flexible hose simulation. The original models use shared `FS_*` URP Lit materials under `Assets/Materials/Models`. The updated Meshy cat uses external URP materials and 512 px texture maps.
 
 ## Collision geometry
 
@@ -165,3 +165,15 @@ The [Blender master](../Characters/Firefighter/Outfits/firefighter-wardrobe.blen
 - **Use in Unity.** Open [FirefighterWardrobeNPC](../../../Assets/Prefabs/Characters/Firefighter/FirefighterWardrobeNPC.prefab). Under the Animator, expand Wardrobe and toggle the child GameObjects of each slot. Base_Face stays active. The prefab inherits the original NPC Animator, body colliders and joints. For a newly added FBX mesh, bind its renderer to the existing rig, mapping the input bones in their original array order by bone name, and copy its root bone, mesh-space transform, materials and local bounds. Existing modules retain their bindings when re-exported with the same names and bind poses.
 
 Blender validation covered normalized skin weights on all 38 meshes and rendered each preset. Unity evaluated Idle and Running on all seven presets and one mixed outfit at nine samples per clip. The mixed outfit used the chef pot, captain gloves, off-duty clothes, bunny slippers and chief facial accessories. In an isolated Play Mode physics scene the 13-body, 12-joint NPC ragdoll fell for 90 simulation steps while wearing this outfit. This check exercised physics and skinning directly. The first-person player and the gameplay knockdown/recovery sequence are outside this wardrobe check.
+
+## Ginger cat animations
+
+Updated 2026-11-24 from `Meshy_AI_Goofy_Ginger_Cat_20261124_texture.blend`. The self-contained [Blender master](../Characters/Cat/ginger-cat.blend) includes the skinned body, 14-bone quadruped rig, three star meshes and Idle, Walk, JumpAttack, FaceGrab and Stunned actions. The body has 4,788 triangles; the three stars add 108. The body retains the previous 1.04 m gameplay height, with a ground pivot and Unity +Z facing. The former static Cat FBX/source remain available for legacy art references.
+
+[CatGinger FBX](../../../Assets/Models/Characters/CatGinger.fbx) is the connected visual in the existing gameplay Cat prefab. [Animator and editable clips](../../../Assets/Animations/Cats/) own the animation, with root motion disabled. CatAnimationView observes the injected CatModel and actual navigation velocity. Settled means stunned during the existing rescue cooldown; carrying and rescue hide the stars. Input suspension pauses animation.
+
+The source base-color, normal and ORM maps were 2048 × 2048. Final base-color, renormalized normal, metallic/smoothness and occlusion maps are physically 512 × 512, with compressed WebGL importer overrides. URP metallic R and smoothness A are packed from ORM B and 1−G; occlusion uses ORM R. Model material remaps persist through reimport. The original download was preserved.
+
+Unity renders: [idle](../Characters/Cat/AnimationPreviews/Idle.png), [walk](../Characters/Cat/AnimationPreviews/Walk.png), [jump attack](../Characters/Cat/AnimationPreviews/JumpAttack.png), [face grab](../Characters/Cat/AnimationPreviews/FaceGrab.png), [stunned](../Characters/Cat/AnimationPreviews/Stunned.png). These are isolated Unity renders, not full-scene gameplay captures.
+
+[Animation verification and current scene limitations](../../Engineering/Reports/2026-11-24-cat-encounter.md#ginger-cat-model-and-animation-update).

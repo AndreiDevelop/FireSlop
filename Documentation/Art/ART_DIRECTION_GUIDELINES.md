@@ -81,3 +81,7 @@ Draft front-view T-pose references for Blender modeling. [Default firefighter](C
 [Rendered wardrobe models](Characters/Firefighter/Outfits/wardrobe-models.jpg) · [Blender master and modular authoring workflow](ModelProduction/README.md#modular-firefighter-wardrobe).
 
 [Character editor preview](Characters/Firefighter/Outfits/wardrobe-editor-preview.png) shows the modular wardrobe during fitting, with category icons and the gold button treatment from Ducks Strike.
+
+### Ginger cat production model
+
+The 2026-11-24 Meshy ginger cat replaces the static gameplay visual. Its [editable Blender rig, texture workflow and Unity animation previews](ModelProduction/README.md#ginger-cat-animations) cover walking with a wagging tail, extended attack paws, face grabbing and a dizzy head with orbiting stars. The saved Cat prefab retains the authored gameplay placement and shows the idle pose in Edit Mode.

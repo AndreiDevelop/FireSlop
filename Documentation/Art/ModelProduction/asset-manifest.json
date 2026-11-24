@@ -102,26 +102,21 @@
     },
     {
       "name": "Cat",
-      "source": "Documentation/Art/Characters/Cat/source.blend",
-      "fbx": "Assets/Models/Characters/Cat.fbx",
+      "source": "Documentation/Art/Characters/Cat/ginger-cat.blend",
+      "fbx": "Assets/Models/Characters/CatGinger.fbx",
       "preview": "Documentation/Art/Characters/Cat/model-preview.png",
-      "triangles": 2362,
-      "meshObjects": 1,
+      "triangles": 4896,
+      "meshObjects": 4,
       "dimensionsMeters": [
-        0.8027336597442627,
-        1.3029999732971191,
-        1.0399223566055298
+        0.721109,
+        1.115596,
+        1.185
       ],
       "materials": [
-        "FS_Charcoal",
-        "FS_DarkWood",
-        "FS_Ginger",
-        "FS_Ivory",
-        "FS_Pink",
-        "FS_Tabby",
-        "FS_White"
+        "GingerCat",
+        "StunStars"
       ],
-      "rigBones": 0
+      "rigBones": 14
     },
     {
       "name": "RescueDrone",
