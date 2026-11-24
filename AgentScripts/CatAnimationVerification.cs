@@ -144,7 +144,7 @@ namespace FireSlop.Verification
             cat.GetComponent<CatView>().Construct(model);
             cat.GetComponent<CatAnimationView>().Construct(model, config, input);
             cat.GetComponent<CatCarryable>().Construct(model, null, config);
-            patrol.Construct(model, new CatPatrolModel(), config, input);
+            patrol.Construct(model, new CatPatrolModel(), config, input, new HammerStunModel());
             patrol.enabled = true;
             typeof(CatPatrolController).GetMethod("Start", BindingFlags.Instance | BindingFlags.NonPublic)
                 .Invoke(patrol, null);

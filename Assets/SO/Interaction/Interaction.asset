@@ -15,6 +15,7 @@ MonoBehaviour:
   _contextRange: 2.5
   _doorSwingDuration: 0.4
   _hammerReach: 2.5
+  _hammerStunSeconds: 2.4
   _doorHitsToBreak: 3
   _debrisSettleSeconds: 0.62
   _debrisTravel: 0.68

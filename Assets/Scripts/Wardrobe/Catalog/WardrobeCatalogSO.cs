@@ -11,6 +11,7 @@ namespace FireSlop.Wardrobe
     {
         [SerializeField] private WardrobeCategory[] _categories;
         [SerializeField] private LeaderboardSettingsSO _leaderboard;
+        [SerializeField, Min(0)] private int _startingBalance;
         [SerializeField, Min(0)] private int _rescueReward;
 
         [SerializeField] private WardrobeFraming _fullBody;
@@ -20,6 +21,7 @@ namespace FireSlop.Wardrobe
         public float CameraDuration => _cameraDuration;
         public IReadOnlyList<WardrobeCategory> Categories => _categories;
         public int RescueReward => _rescueReward;
+        public int StartingBalance => _startingBalance;
 
         public override void InstallBindings()
         {

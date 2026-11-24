@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 5282373875426063448}
   - component: {fileID: 325560078865239717}
   - component: {fileID: 1291950408300447271}
+  - component: {fileID: 640471270287959261}
   m_Layer: 12
   m_Name: Cat
   m_TagString: Untagged
@@ -730,8 +731,22 @@ MonoBehaviour:
   _animator: {fileID: 7108379154066112507}
   _agent: {fileID: 3743485489892445057}
   _carryable: {fileID: 5119410554119555222}
-  _stunStars: {fileID: 2205495144942043083}
+  _stunReaction: {fileID: 640471270287959261}
   _transitionSeconds: 0.08
+--- !u!114 &640471270287959261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6372307609457869125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f24618bb0ee424797e739319195b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.StunReactionView
+  _animator: {fileID: 7108379154066112507}
+  _stars: {fileID: 2205495144942043083}
 --- !u!1001 &3732530282958832234
 PrefabInstance:
   m_ObjectHideFlags: 0

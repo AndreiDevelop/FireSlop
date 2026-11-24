@@ -93,6 +93,7 @@ namespace FireSlop.Startup
             Container.Bind<ToolSelectionModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<InteractionModel>().AsSingle();
             Container.Bind<BrickDustEffect>().AsSingle();
+            Container.Bind<HammerStunModel>().AsTransient();
             Container.Bind<DoorModel>().AsTransient();
             Container.Bind<OpenableModel>().AsTransient();
             Container.Bind<FireSpreadModel>().AsTransient();

@@ -1,3 +1,4 @@
+using System;
 using FireSlop.Firefighter;
 using FireSlop.MissionHud;
 using FireSlop.Tools;
@@ -11,6 +12,7 @@ namespace FireSlop.Interaction
         [SerializeField] private HammerSwingView _swing;
         [SerializeField] private InteractionConfigSO _config;
 
+        private RaycastHit[] _hits = new RaycastHit[16];
         private Camera _camera;
         private InteractionModel _input;
         private ToolSelectionModel _tools;
@@ -83,14 +85,38 @@ namespace FireSlop.Interaction
         {
             var view = _camera.transform;
             var ray = new Ray(view.position, view.forward);
-            if (!Physics.Raycast(ray, out var hit, _config.HammerReach, _config.AimCollisionMask,
-                    QueryTriggerInteraction.Ignore))
+            int count = Physics.RaycastNonAlloc(ray, _hits, _config.HammerReach, _config.AimCollisionMask,
+                QueryTriggerInteraction.Collide);
+            while (count == _hits.Length)
             {
-                return;
+                Array.Resize(ref _hits, _hits.Length * 2);
+                count = Physics.RaycastNonAlloc(ray, _hits, _config.HammerReach, _config.AimCollisionMask,
+                    QueryTriggerInteraction.Collide);
             }
 
-            var target = hit.collider.GetComponentInParent<IHitTarget>();
-            target?.ApplyHit(ray, hit, _config);
+            float nearest = float.PositiveInfinity;
+            RaycastHit contact = default;
+            IHitTarget target = null;
+            for (int index = 0; index < count; index++)
+            {
+                RaycastHit hit = _hits[index];
+                if (hit.distance >= nearest)
+                {
+                    continue;
+                }
+
+                var candidate = hit.collider.GetComponentInParent<IHitTarget>();
+                if (hit.collider.isTrigger && candidate?.AcceptsTriggerHits != true)
+                {
+                    continue;
+                }
+
+                nearest = hit.distance;
+                contact = hit;
+                target = candidate;
+            }
+
+            target?.ApplyHit(ray, contact, _config);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace FireSlop.Cats
         private readonly Vector3[] _corners = new Vector3[QueryCapacity];
         private NavMeshPath _path;
         private CatModel _cat;
+        private HammerStunModel _hammerStun;
         private CatPatrolModel _patrol;
         private CatConfigSO _config;
         private MissionInputModel _input;
@@ -27,9 +28,11 @@ namespace FireSlop.Cats
         private CatCarryable _carryable;
 
         [Inject]
-        public void Construct(CatModel cat, CatPatrolModel patrol, CatConfigSO config, MissionInputModel input)
+        public void Construct(CatModel cat, CatPatrolModel patrol, CatConfigSO config, MissionInputModel input,
+            HammerStunModel hammerStun)
         {
             _cat = cat;
+            _hammerStun = hammerStun;
             _patrol = patrol;
             _config = config;
             _input = input;
@@ -118,7 +121,7 @@ namespace FireSlop.Cats
                 return;
             }
 
-            if (!_input.IsEnabled)
+            if (!_input.IsEnabled || _hammerStun.IsActive)
             {
                 StopAgent();
                 return;

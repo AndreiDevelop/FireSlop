@@ -4,7 +4,7 @@ using Zenject;
 
 namespace FireSlop.Interaction
 {
-    public sealed class ResidentView : Carryable, IRescueTarget
+    public sealed class ResidentView : Carryable, IRescueTarget, IStunEligibility
     {
         [SerializeField] private Transform _visual;
         [SerializeField] private ResidentCarryRagdoll _carryRagdoll;
@@ -18,6 +18,7 @@ namespace FireSlop.Interaction
         private Rigidbody _occupiedCabinetBody;
 
         public bool IsRescued => _mission != null && _mission.IsRescued(ContentId);
+        public bool CanBeStunned => CanBeKnockedDown && !IsCarried;
         public Vector3 DeliveryPosition => transform.position;
         internal override bool CanPickUp => !IsRescued && base.CanPickUp &&
             (IsFree || (_cabinet != null && _cabinet.IsFullyOpen));

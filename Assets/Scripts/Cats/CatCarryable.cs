@@ -4,13 +4,15 @@ using Zenject;
 
 namespace FireSlop.Cats
 {
-    public sealed class CatCarryable : Carryable, IRescueTarget
+    public sealed class CatCarryable : Carryable, IRescueTarget, IStunEligibility
     {
         [SerializeField] private Collider[] _bodies;
 
         private CatModel _model;
         private RescueController _carrier;
 
+        public bool CanBeStunned => !IsCarried && _model != null &&
+            (_model.State == CatState.Idle || _model.State == CatState.Warning || _model.State == CatState.Settled);
         public Vector3 DeliveryPosition => transform.position;
         internal override bool CanPickUp => _model != null && _model.State == CatState.Settled && base.CanPickUp;
 

@@ -256,6 +256,7 @@ MonoBehaviour:
       _size: 0.42
       _distance: 2.2
   _leaderboard: {fileID: 11400000, guid: 9f640a2a56c434d12a573e2c78b84f71, type: 2}
+  _startingBalance: 100000
   _rescueReward: 100
   _fullBody:
     _focus: {x: 0, y: 0.98, z: 0}

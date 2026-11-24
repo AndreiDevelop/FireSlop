@@ -15,7 +15,11 @@ namespace FireSlop.Wardrobe
         {
             _catalog = catalog;
             string json = PlayerPrefs.GetString(SaveKey);
-            if (!string.IsNullOrEmpty(json))
+            if (string.IsNullOrEmpty(json))
+            {
+                _data = new WardrobeSaveData { balance = catalog.StartingBalance };
+            }
+            else
             {
                 try
                 {

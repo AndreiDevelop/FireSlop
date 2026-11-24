@@ -1,6 +1,7 @@
 using System;
 using FireSlop.Drone;
 using FireSlop.Firefighter;
+using FireSlop.Interaction;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,7 @@ namespace FireSlop.Cats
         [SerializeField] private CatView _view;
 
         private CatModel _model;
+        private HammerStunModel _hammerStun;
         private CatPatrolModel _patrol;
         private CatFaceModel _face;
         private CatConfigSO _config;
@@ -23,7 +25,7 @@ namespace FireSlop.Cats
 
         [Inject]
         public void Construct(CatModel model, CatFaceModel face, CatConfigSO config, MissionInputModel input,
-            DroneModel drone, Camera camera, CatPatrolModel patrol)
+            DroneModel drone, Camera camera, CatPatrolModel patrol, HammerStunModel hammerStun)
         {
             if (_carryable == null || string.IsNullOrWhiteSpace(ContentId) || _view == null)
             {
@@ -31,6 +33,7 @@ namespace FireSlop.Cats
             }
 
             _model = model;
+            _hammerStun = hammerStun;
             _face = face;
             _config = config;
             _input = input;
@@ -77,6 +80,12 @@ namespace FireSlop.Cats
         {
             if (_model == null || !_input.IsEnabled || _model.State == CatState.Rescued)
             {
+                return;
+            }
+
+            if (_hammerStun.IsActive)
+            {
+                _model.SetThreatened(false);
                 return;
             }
 
