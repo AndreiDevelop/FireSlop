@@ -4,6 +4,13 @@ namespace FireSlop.Cats
 {
     public sealed class CatFaceModel
     {
+        private int _presses;
+        private int _requiredPresses;
+        private double _deadline;
+        private float _gapSeconds;
+
+        public float Progress => IsAttached ? (float)_presses / _requiredPresses : 0f;
+        public event Action ProgressChanged;
         public string OccupantId { get; private set; }
         public bool IsOccupied => OccupantId != null;
         public bool IsAttached { get; private set; }
@@ -21,20 +28,40 @@ namespace FireSlop.Cats
             return true;
         }
 
-        public void Attach(string contentId)
+        public void Attach(string contentId, CatConfigSO config)
         {
             if (OccupantId == contentId && !IsAttached)
             {
+                _requiredPresses = config.RemovalPresses;
+                _gapSeconds = config.RemovalGapSeconds;
                 IsAttached = true;
                 Changed?.Invoke();
             }
         }
 
-        public void RequestRemoval()
+        public void RequestRemoval(double now)
         {
-            if (IsAttached)
+            if (!IsAttached || _presses >= _requiredPresses)
+            {
+                return;
+            }
+
+            ResetIfExpired(now);
+            _deadline = now + _gapSeconds;
+            _presses++;
+            ProgressChanged?.Invoke();
+            if (_presses == _requiredPresses)
             {
                 RemovalRequested?.Invoke();
+            }
+        }
+
+        public void ResetIfExpired(double now)
+        {
+            if (_presses > 0 && now >= _deadline)
+            {
+                _presses = 0;
+                ProgressChanged?.Invoke();
             }
         }
 
@@ -45,6 +72,7 @@ namespace FireSlop.Cats
                 return;
             }
 
+            _presses = 0;
             OccupantId = null;
             IsAttached = false;
             Changed?.Invoke();

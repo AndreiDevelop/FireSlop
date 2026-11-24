@@ -1,0 +1,348 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5135650226465526122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2273019109297720266}
+  m_Layer: 0
+  m_Name: NeighborFrontFences
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2273019109297720266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135650226465526122}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9165691525618672930}
+  - {fileID: 2715608213482972103}
+  - {fileID: 1110641912024667147}
+  - {fileID: 5530798522837569193}
+  - {fileID: 1542988236258823508}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2145125117148597556
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2273019109297720266}
+    m_Modifications:
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075017076734937594, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_Name
+      value: CourtyardFence
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+--- !u!4 &2715608213482972103 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+  m_PrefabInstance: {fileID: 2145125117148597556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3243452674232837031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2273019109297720266}
+    m_Modifications:
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075017076734937594, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_Name
+      value: CourtyardFence
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+--- !u!4 &1542988236258823508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+  m_PrefabInstance: {fileID: 3243452674232837031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3964027811249011448
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2273019109297720266}
+    m_Modifications:
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075017076734937594, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_Name
+      value: CourtyardFence
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+--- !u!4 &1110641912024667147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+  m_PrefabInstance: {fileID: 3964027811249011448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5141377139075910609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2273019109297720266}
+    m_Modifications:
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075017076734937594, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_Name
+      value: CourtyardFence
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+--- !u!4 &9165691525618672930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+  m_PrefabInstance: {fileID: 5141377139075910609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8406975127033290842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2273019109297720266}
+    m_Modifications:
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075017076734937594, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+      propertyPath: m_Name
+      value: CourtyardFence
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+--- !u!4 &5530798522837569193 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065277830892629747, guid: 1fc58b58152cb45afb2603d852daa0a0, type: 3}
+  m_PrefabInstance: {fileID: 8406975127033290842}
+  m_PrefabAsset: {fileID: 0}

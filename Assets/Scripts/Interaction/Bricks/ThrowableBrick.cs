@@ -16,6 +16,8 @@ namespace FireSlop.Interaction
         private Vector3 _authoredPosition;
         private Quaternion _authoredRotation;
 
+        private bool _inFlight;
+
         public string ContentId => _contentId;
 
         [Inject]
@@ -57,6 +59,7 @@ namespace FireSlop.Interaction
         {
             transform.SetPositionAndRotation(pose.LaunchPosition, pose.HoldPoint.rotation);
             gameObject.SetActive(true);
+            _inFlight = true;
             _body.position = transform.position;
             _body.rotation = transform.rotation;
             _body.linearVelocity = pose.LaunchVelocity;
@@ -67,6 +70,7 @@ namespace FireSlop.Interaction
         {
             if (_body.position.y < _authoredPosition.y - _config.RecoveryDepth)
             {
+                _inFlight = false;
                 _body.position = _authoredPosition;
                 _body.rotation = _authoredRotation;
                 _body.linearVelocity = Vector3.zero;
@@ -74,8 +78,35 @@ namespace FireSlop.Interaction
             }
         }
 
+        private void OnDisable()
+        {
+            _inFlight = false;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            TryStun(other);
+        }
+
+        private void TryStun(Collider other)
+        {
+            if (!_inFlight)
+            {
+                return;
+            }
+
+            var target = other.GetComponentInParent<StunReactionView>();
+            if (target != null && target.TryStun(_interactionConfig.StunSeconds))
+            {
+                _inFlight = false;
+            }
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
+            TryStun(collision.collider);
+            _inFlight = false;
+
             if (collision.relativeVelocity.sqrMagnitude < _config.BreakSpeed * _config.BreakSpeed)
             {
                 return;

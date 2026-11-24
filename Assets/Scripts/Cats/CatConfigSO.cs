@@ -27,6 +27,11 @@ namespace FireSlop.Cats
         [SerializeField, Min(0.01f)] private float _roamObstacleRadius;
         [SerializeField] private LayerMask _roamObstacleMask;
 
+        [SerializeField, Min(2)] private int _removalPresses = 8;
+        [SerializeField, Min(0.1f)] private float _removalGapSeconds = 0.45f;
+
+        public int RemovalPresses => _removalPresses;
+        public float RemovalGapSeconds => _removalGapSeconds;
         public float NoticeRange => _noticeRange;
         public float WarningSeconds => _warningSeconds;
         public float WaterSeconds => _waterSeconds;

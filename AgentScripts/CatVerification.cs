@@ -44,9 +44,9 @@ namespace FireSlop.Verification
             var face = new CatFaceModel();
             Require(face.TryReserve("first"), "The first cat must reserve the face.");
             Require(!face.TryReserve("second"), "A second cat must not claim an occupied face.");
-            face.Attach("second");
+            face.Attach("second", settings);
             Require(!face.IsAttached, "A different cat must not attach to another reservation.");
-            face.Attach("first");
+            face.Attach("first", settings);
             var removals = 0;
             Action remove = () =>
             {
@@ -55,8 +55,14 @@ namespace FireSlop.Verification
                 face.Release("first");
             };
             face.RemovalRequested += remove;
-            face.RequestRemoval();
-            face.RequestRemoval();
+            face.RequestRemoval(0d);
+            face.ResetIfExpired(settings.RemovalGapSeconds + 0.1d);
+            Require(face.Progress == 0f && face.IsAttached, "A pause must reset the series.");
+            for (var index = 0; index < settings.RemovalPresses; index++)
+            {
+                face.RequestRemoval(1d + index * 0.1d);
+            }
+            face.RequestRemoval(5d);
             face.RemovalRequested -= remove;
             Require(removals == 1 && !face.IsOccupied && second.State == CatState.Returning,
                 "Repeated removal must release exactly once.");
@@ -76,7 +82,7 @@ namespace FireSlop.Verification
             using (var interaction = new InteractionModel(tools, input, flight, face))
             {
                 face.TryReserve("priority");
-                face.Attach("priority");
+                face.Attach("priority", settings);
                 Require(interaction.ContextPrompt.ActionId == HudActionId.RemoveCat,
                     "An attached cat must take priority over drone controls.");
                 flight.TogglePilot(0f, 1f);

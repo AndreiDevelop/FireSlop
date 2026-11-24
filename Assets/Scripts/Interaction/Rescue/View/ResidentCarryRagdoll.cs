@@ -59,6 +59,15 @@ namespace FireSlop.Interaction
 
             _anchor.MovePosition(_shoulder.TransformPoint(_anchorPosition));
             _anchor.MoveRotation(_shoulder.rotation * _anchorRotation);
+            for (var index = 0; index < _limbs.Length; index++)
+            {
+                var limb = _limbs[index];
+                if (limb.isKinematic)
+                {
+                    limb.MovePosition(_shoulder.TransformPoint(_restPositions[index]));
+                    limb.MoveRotation(_shoulder.rotation * _restRotations[index]);
+                }
+            }
         }
     }
 }

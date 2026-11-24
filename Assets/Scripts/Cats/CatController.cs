@@ -13,7 +13,7 @@ namespace FireSlop.Cats
         [SerializeField] private CatView _view;
 
         private CatModel _model;
-        private HammerStunModel _hammerStun;
+        private StunModel _stun;
         private CatPatrolModel _patrol;
         private CatFaceModel _face;
         private CatConfigSO _config;
@@ -25,7 +25,7 @@ namespace FireSlop.Cats
 
         [Inject]
         public void Construct(CatModel model, CatFaceModel face, CatConfigSO config, MissionInputModel input,
-            DroneModel drone, Camera camera, CatPatrolModel patrol, HammerStunModel hammerStun)
+            DroneModel drone, Camera camera, CatPatrolModel patrol, StunModel stun)
         {
             if (_carryable == null || string.IsNullOrWhiteSpace(ContentId) || _view == null)
             {
@@ -33,7 +33,7 @@ namespace FireSlop.Cats
             }
 
             _model = model;
-            _hammerStun = hammerStun;
+            _stun = stun;
             _face = face;
             _config = config;
             _input = input;
@@ -83,7 +83,7 @@ namespace FireSlop.Cats
                 return;
             }
 
-            if (_hammerStun.IsActive)
+            if (_stun.IsActive)
             {
                 _model.SetThreatened(false);
                 return;
@@ -122,7 +122,11 @@ namespace FireSlop.Cats
             else if (_model.State == CatState.Jumping && _model.StateSeconds >= _config.JumpSeconds)
             {
                 _model.FinishJump();
-                _face.Attach(ContentId);
+                _face.Attach(ContentId, _config);
+            }
+            else if (_model.State == CatState.Attached)
+            {
+                _face.ResetIfExpired(Time.timeAsDouble);
             }
             else if (_model.State == CatState.Returning && _model.StateSeconds >= _config.JumpSeconds)
             {

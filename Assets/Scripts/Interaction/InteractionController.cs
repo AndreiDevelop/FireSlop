@@ -122,7 +122,7 @@ namespace FireSlop.Interaction
         {
             if (_catFace.IsAttached)
             {
-                _catFace.RequestRemoval();
+                _catFace.RequestRemoval(Time.timeAsDouble);
                 return;
             }
 

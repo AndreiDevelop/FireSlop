@@ -205,3 +205,11 @@ All five subjects and four views per sheet are present and uncropped. Stove hotp
 All eleven images were visually inspected for subject, view coverage and readable construction. Furniture cushion counts and four drone rotors are consistent. Minor perspective differences remain in drawn turnarounds; use orthographic views as construction guidance. The eleven Blender models and FBX exports now exist; see [model production status](ModelProduction/README.md). Blender previews are not Unity captures. Unity imported all 36 FBX assets with shared URP materials. Connected module prefabs and an Edit Mode review scene are saved; [Unity previews](ModelProduction/README.md#unity-previews) were visually inspected. No player build or gameplay validation was performed.
 
 The reference canvas keeps its original nodes. A separate draft group presents these sheets through a vault symlink to the single maintained art directory.
+
+### Зона спасения
+
+![Палатка Save Zone](Environments/RescueZone/save-zone-tent.png)
+
+### Пожарная машина
+
+![Пожарная машина](Vehicles/FireEngine/modeling-sheet.png)

@@ -11,6 +11,7 @@ namespace FireSlop.Interaction
         [SerializeField] private ResidentView[] _residents = Array.Empty<ResidentView>();
         [SerializeField] private Openable[] _cabinets = Array.Empty<Openable>();
         [SerializeField] private Transform _shoulder;
+        [SerializeField] private Transform _rescueGrip;
         [SerializeField] private InteractionConfigSO _config;
 
         private Camera _camera;
@@ -25,6 +26,7 @@ namespace FireSlop.Interaction
             if (_carried == target)
             {
                 _carried = null;
+                _rescueGrip.gameObject.SetActive(false);
                 _model.StopCarrying();
             }
         }
@@ -77,7 +79,9 @@ namespace FireSlop.Interaction
             if (CanPickUp(target))
             {
                 _carried = target;
-                _carried.Attach(_shoulder);
+                var anchor = target.UsesRescueGrip ? _rescueGrip : _shoulder;
+                _rescueGrip.gameObject.SetActive(target.UsesRescueGrip);
+                _carried.Attach(anchor);
                 _model.StartCarrying(_carried.ContentId);
             }
         }
@@ -113,6 +117,7 @@ namespace FireSlop.Interaction
             }
 
             _carried = null;
+            _rescueGrip.gameObject.SetActive(false);
             _model.StopCarrying();
             return true;
         }

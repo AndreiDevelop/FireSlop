@@ -38,3 +38,5 @@ MonoBehaviour:
   _roamObstacleMask:
     serializedVersion: 2
     m_Bits: 44033
+  _removalPresses: 8
+  _removalGapSeconds: 0.45

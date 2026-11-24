@@ -1,6 +1,6 @@
 namespace FireSlop.Interaction
 {
-    public sealed class HammerStunModel
+    public sealed class StunModel
     {
         private float _remainingSeconds;
 

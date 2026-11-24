@@ -20,7 +20,7 @@ namespace FireSlop.Cats
         private readonly Vector3[] _corners = new Vector3[QueryCapacity];
         private NavMeshPath _path;
         private CatModel _cat;
-        private HammerStunModel _hammerStun;
+        private StunModel _stun;
         private CatPatrolModel _patrol;
         private CatConfigSO _config;
         private MissionInputModel _input;
@@ -29,10 +29,10 @@ namespace FireSlop.Cats
 
         [Inject]
         public void Construct(CatModel cat, CatPatrolModel patrol, CatConfigSO config, MissionInputModel input,
-            HammerStunModel hammerStun)
+            StunModel stun)
         {
             _cat = cat;
-            _hammerStun = hammerStun;
+            _stun = stun;
             _patrol = patrol;
             _config = config;
             _input = input;
@@ -54,11 +54,26 @@ namespace FireSlop.Cats
             _agent.stoppingDistance = _config.RoamArrivalDistance;
             _path = new NavMeshPath();
             _started = true;
+            _cat.StateChanged += UpdateAgentState;
             UpdateAgentState();
+        }
+
+        private void OnEnable()
+        {
+            if (_started)
+            {
+                _cat.StateChanged += UpdateAgentState;
+                UpdateAgentState();
+            }
         }
 
         private void OnDisable()
         {
+            if (_started)
+            {
+                _cat.StateChanged -= UpdateAgentState;
+            }
+
             if (_agent != null)
             {
                 _agent.enabled = false;
@@ -121,7 +136,7 @@ namespace FireSlop.Cats
                 return;
             }
 
-            if (!_input.IsEnabled || _hammerStun.IsActive)
+            if (!_input.IsEnabled || _stun.IsActive)
             {
                 StopAgent();
                 return;

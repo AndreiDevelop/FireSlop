@@ -957,6 +957,9 @@ MonoBehaviour:
   _contentId: main-resident-01
   _pickupCollider: {fileID: 4445997404851868652}
   _body: {fileID: 40596569998395081}
+  _useRescueGrip: 1
+  _carryOffset: {x: 0.9640997, y: -0.11442742, z: 1.3541715}
+  _carryEuler: {x: 329.35477, y: 170.90973, z: 273.2403}
   _visual: {fileID: 107538794957481389}
   _carryRagdoll: {fileID: 3442292340620998609}
   _config: {fileID: 11400000, guid: 53f6a3a2d4a374297bbb5aadf69995bf, type: 2}
@@ -1021,6 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.StunReactionView
   _animator: {fileID: 1256939733699896944}
   _stars: {fileID: 3682055817842078367}
+  _impactSound: {fileID: 1179502757609485650}
 --- !u!1 &1703242699805870821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1931,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -4182,7 +4186,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -4503,6 +4507,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f9c848bbab5f457cbde736cefd1adbf, type: 3}
+--- !u!82 &1179502757609485650 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2354455985435164028, guid: 5f9c848bbab5f457cbde736cefd1adbf, type: 3}
+  m_PrefabInstance: {fileID: 3527121962223503406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3682055817842078367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 282478825398123185, guid: 5f9c848bbab5f457cbde736cefd1adbf, type: 3}

@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.StunReactionView
   _animator: {fileID: 6333545357467334092}
   _stars: {fileID: 4149650149453298866}
+  _impactSound: {fileID: 1932502818279947135}
 --- !u!1 &8341365905952104731
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +232,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f9c848bbab5f457cbde736cefd1adbf, type: 3}
+--- !u!82 &1932502818279947135 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2354455985435164028, guid: 5f9c848bbab5f457cbde736cefd1adbf, type: 3}
+  m_PrefabInstance: {fileID: 4214547011944564227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4110953526460635861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 247731368999558358, guid: 5f9c848bbab5f457cbde736cefd1adbf, type: 3}

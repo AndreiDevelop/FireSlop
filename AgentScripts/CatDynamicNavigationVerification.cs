@@ -161,7 +161,10 @@ namespace FireSlop.Verification
                 Require(model.State == CatState.Attached, "The repeated encounter must actually jump and attach.");
                 Require(Vector3.Distance(takeoff, cat.transform.position) < 0.01f,
                     "A jumping cat must preserve its physical takeoff position.");
-                input.Interact();
+                for (var index = 0; index < config.RemovalPresses; index++)
+                {
+                    input.Interact();
+                }
                 await WaitSeconds(config.JumpSeconds + 0.1f);
                 Require(model.State == CatState.Settled, "Removal must start another rescue/cooldown window.");
                 carry.Interact();

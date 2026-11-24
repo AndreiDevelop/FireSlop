@@ -12,6 +12,11 @@ namespace FireSlop.Interaction
         [SerializeField] private Collider _pickupCollider;
         [SerializeField] private Rigidbody _body;
 
+        [SerializeField] private bool _useRescueGrip;
+        [SerializeField] private Vector3 _carryOffset;
+        [SerializeField] private Vector3 _carryEuler;
+
+        internal bool UsesRescueGrip => _useRescueGrip;
         private RescueController _carrier;
         private Transform _worldParent;
         private Vector3 _originalLocalScale;
@@ -57,7 +62,7 @@ namespace FireSlop.Interaction
             _pickupCollider.enabled = false;
             _body.isKinematic = true;
             transform.SetParent(shoulder, false);
-            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            transform.SetLocalPositionAndRotation(_carryOffset, Quaternion.Euler(_carryEuler));
             OnAttached(shoulder);
         }
 

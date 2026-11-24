@@ -173,7 +173,10 @@ namespace FireSlop.Verification
             var model = cat.GetComponent<GameObjectContext>().Container.Resolve<CatModel>();
             Require(face.IsAttached, "Run CheckJump before checking removal.");
             EditorApplication.isPaused = false;
-            input.Interact();
+            for (var index = 0; index < cat.GetComponent<GameObjectContext>().Container.Resolve<CatConfigSO>().RemovalPresses; index++)
+            {
+                input.Interact();
+            }
             Require(!face.IsOccupied && model.State == CatState.Returning,
                 "The shared interaction action must remove the cat once.");
             await WaitSeconds(0.6f);

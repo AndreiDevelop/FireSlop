@@ -7,6 +7,7 @@ using FireSlop.Interaction;
 using FireSlop.MissionHud;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -62,9 +63,22 @@ namespace FireSlop.Verification
                 Require(Vector3.Distance(attachedPosition, takeoffPosition) > 15f,
                     "The player must have moved well away from the takeoff point.");
                 Require(input.ContextPrompt.ActionId == HudActionId.RemoveCat, "E must advertise cat removal.");
+                var meter = Object.FindAnyObjectByType<CatRemovalMeterView>();
+                var fillImage = (Image)new SerializedObject(meter).FindProperty("_fill").objectReferenceValue;
                 input.Interact();
+                Require(face.IsAttached && fillImage.isActiveAndEnabled && fillImage.fillAmount == face.Progress,
+                    "The first press must show partial progress.");
+                await Wait(config.RemovalGapSeconds + 0.2f);
+                Require(face.IsAttached && face.Progress == 0f && fillImage.fillAmount == 0f,
+                    "A pause must empty the visible meter.");
+                attachedPosition = visual.position;
+                attachedRotation = visual.rotation;
+                for (var index = 0; index < config.RemovalPresses; index++)
+                {
+                    input.Interact();
+                }
                 Require(model.State == CatState.Returning && !face.IsOccupied,
-                    "The shared E/touch command must detach the cat immediately.");
+                    "Completing the series must detach the cat.");
                 Require(Vector3.Distance(visual.position, attachedPosition) < 0.001f &&
                     Quaternion.Angle(visual.rotation, attachedRotation) < 0.01f,
                     "Detaching must preserve the visible pose without teleporting.");
@@ -87,6 +101,8 @@ namespace FireSlop.Verification
                     "The detached cat must remain available for rescue pickup.");
                 carryable.Interact();
                 Require(carryable.IsCarried, "A removed cat must still use the normal pickup operation.");
+                Require(Vector3.Dot(carryable.transform.forward, -camera.transform.forward) > 0.99f,
+                    "The carried cat must face its carrier.");
                 Require(carryable.TryRescue(cat.transform.position + Vector3.forward * 2f),
                     "A removed carried cat must remain rescuable.");
                 Require(model.State == CatState.Rescued && !carryable.IsCarried,

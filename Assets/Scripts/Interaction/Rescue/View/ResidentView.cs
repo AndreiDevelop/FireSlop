@@ -76,7 +76,7 @@ namespace FireSlop.Interaction
                 _occupiedCabinetBody = null;
             }
 
-            _carryRagdoll.HangFrom(shoulder);
+            _carryRagdoll.HangFrom(transform);
             _visual.gameObject.SetActive(false);
         }
 

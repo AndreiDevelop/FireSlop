@@ -17,7 +17,7 @@ namespace FireSlop.Cats
             }
 
             Container.Bind<CatConfigSO>().FromInstance(_config);
-            Container.Bind<HammerStunModel>().AsSingle();
+            Container.Bind<StunModel>().AsSingle();
             Container.Bind<CatModel>().AsSingle();
             Container.Bind<CatPatrolModel>().AsSingle();
         }

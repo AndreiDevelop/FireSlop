@@ -11,8 +11,9 @@ namespace FireSlop.Interaction
 
         [SerializeField] private Animator _animator;
         [SerializeField] private GameObject _stars;
+        [SerializeField] private AudioSource _impactSound;
 
-        private HammerStunModel _model;
+        private StunModel _model;
         private MissionInputModel _input;
         private IStunEligibility _eligibility;
         private bool _sustained;
@@ -22,7 +23,7 @@ namespace FireSlop.Interaction
         public bool IsShowing { get; private set; }
 
         [Inject]
-        public void Construct(HammerStunModel model, MissionInputModel input)
+        public void Construct(StunModel model, MissionInputModel input)
         {
             _model = model;
             _input = input;
@@ -31,13 +32,20 @@ namespace FireSlop.Interaction
 
         public void ApplyHit(Ray ray, RaycastHit hit, InteractionConfigSO config)
         {
+            TryStun(config.StunSeconds);
+        }
+
+        public bool TryStun(float seconds)
+        {
             if (_model == null || !_input.IsEnabled || !CanReact())
             {
-                return;
+                return false;
             }
 
-            _model.Restart(config.HammerStunSeconds);
+            _model.Restart(seconds);
             Render(true);
+            _impactSound.Play();
+            return true;
         }
 
         public void SetSustained(bool sustained)

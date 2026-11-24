@@ -11,10 +11,11 @@ namespace FireSlop.MissionHud
         [SerializeField] private GameObject _body;
 
         private DroneModel _drone;
+        private InteractionModel _interaction;
         private ThrowPreviewModel _preview;
 
         [Inject]
-        public void Construct(DroneModel drone, ThrowPreviewModel preview)
+        public void Construct(DroneModel drone, ThrowPreviewModel preview, InteractionModel interaction)
         {
             if (_body == null)
             {
@@ -22,6 +23,7 @@ namespace FireSlop.MissionHud
             }
 
             _drone = drone;
+            _interaction = interaction;
             _preview = preview;
             if (isActiveAndEnabled)
             {
@@ -34,6 +36,7 @@ namespace FireSlop.MissionHud
             if (_preview != null)
             {
                 _drone.ContextChanged += Render;
+                _interaction.CarryingChanged += Render;
                 _preview.VisibilityChanged += Render;
                 Render();
             }
@@ -44,13 +47,14 @@ namespace FireSlop.MissionHud
             if (_preview != null)
             {
                 _drone.ContextChanged -= Render;
+                _interaction.CarryingChanged -= Render;
                 _preview.VisibilityChanged -= Render;
             }
         }
 
         private void Render()
         {
-            _body.SetActive(!_drone.IsPiloted && !_preview.IsVisible);
+            _body.SetActive(!_interaction.IsCarrying && !_drone.IsPiloted && !_preview.IsVisible);
         }
     }
 }
