@@ -9,11 +9,11 @@ Colored low-poly models, including five expansion furniture assets and a pre-cut
 | Asset | Triangles | Blender source | Unity prefab |
 | --- | ---: | --- | --- |
 | CoffeeTable | 396 | [Source](../Props/CoffeeTable/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/CoffeeTable.prefab) |
-| Fridge | 308 | [Source](../Props/Fridge/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/Fridge.prefab) |
-| Stove | 1,224 | [Source](../Props/Stove/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/Stove.prefab) |
+| Fridge | 660 | [Source](../Props/Fridge/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/Fridge.prefab) |
+| Stove | 1,532 | [Source](../Props/Stove/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/Stove.prefab) |
 | DiningChair | 352 | [Source](../Props/DiningChair/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/DiningChair.prefab) |
 | CoatRack | 396 | [Source](../Props/CoatRack/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/CoatRack.prefab) |
-| ShoeCabinet | 308 | [Source](../Props/ShoeCabinet/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab) |
+| ShoeCabinet | 528 | [Source](../Props/ShoeCabinet/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab) |
 | Sledgehammer | 296 | [Source](../Props/Sledgehammer/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Tools/Sledgehammer.prefab) |
 | Hose | 420 | [Source](../Props/Hose/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Tools/Hose.prefab) |
 | Door | 1,096 | [Source](../Props/Door/source.blend) | [Prefab](../../../Assets/Prefabs/Props/Doors/Door.prefab) |
@@ -29,27 +29,33 @@ Colored low-poly models, including five expansion furniture assets and a pre-cut
 
 ## Expansion furniture
 
-Delivered 2026-11-24 from the [five concept sheets](../ModelingSketches.md#expansion-furniture-concepts). Sources retain named editable construction parts and a studio camera; each exported [FBX](../../../Assets/Models/Props/) combines its parts into one mesh. No new texture maps are needed. Existing `FS_HoneyWood`, `FS_Wood`, `FS_Ivory`, `FS_Charcoal` and `FS_DarkSteel` materials are reused; `FS_SageEnamel` is the fridge's new shared URP Lit material. Bevels use one segment. The coat rack uses four aligned hooks and four feet; the shoe cabinet's closed panels use consistent shallow bevels.
+Delivered 2026-11-24 from the [five concept sheets](../ModelingSketches.md#expansion-furniture-concepts). Sources retain named editable construction parts and a studio camera; each exported [FBX](../../../Assets/Models/Props/) retains a static carcass and independent hinged door meshes. Chair and coat rack each use one mesh. No new texture maps are needed. Existing `FS_HoneyWood`, `FS_Wood`, `FS_Ivory`, `FS_Charcoal` and `FS_DarkSteel` materials are reused; `FS_SageEnamel` is the fridge's new shared URP Lit material. Bevels use one segment. The coat rack uses four aligned hooks and four feet; the shoe cabinet's closed panels use consistent shallow bevels.
 
 | Asset | Width × height × depth, meters | Box colliders | Initial mass, kg |
 | --- | --- | ---: | ---: |
-| Fridge | 0.660 × 1.650 × 0.713 | 1 | 55 |
-| Stove | 0.640 × 0.905 × 0.700 | 1 | 40 |
+| Fridge | 0.660 × 1.650 × 0.713 | 13 | 55 |
+| Stove | 0.640 × 0.905 × 0.700 | 10 | 40 |
 | DiningChair | 0.520 × 0.955 × 0.500 | 8 | 6 |
 | CoatRack | 0.700 × 1.658 × 0.700 | 9 | 5 |
-| ShoeCabinet | 0.980 × 0.863 × 0.406 | 1 | 18 |
+| ShoeCabinet | 0.980 × 0.863 × 0.406 | 9 | 18 |
 
-Sizes include handles and bevels. Chair seat height is 0.493 m at its top; the existing coffee table is 0.530 m high. All prefab roots have identity transforms, ground-center origins and Unity +Z facing. Named source parts remain editable; door and panel opening behavior is not implemented. Unity uses the existing furniture import compression (Medium), imported normals, no animation and persistent external material remaps. Axis conversion is baked at import.
+Sizes include handles and bevels. Chair seat height is 0.493 m at its top; the existing coffee table is 0.530 m high. All prefab roots have identity transforms, ground-center origins and Unity +Z facing. Named source parts and hinge pivots remain editable. Fridge compartments open independently; the oven door folds down and shoe panels tilt forward. Interiors have modeled shelves. Existing Openable, SwingOpenView and CabinetContextTarget components provide the shared Open/Close action. Nested leaf renderers retain authored identity-rotation overrides to compensate for FBX baked-axis child rotations. Unity uses the existing furniture import compression (Medium), imported normals, no animation and persistent external material remaps. Axis conversion is baked at import.
 
-Each reusable wrapper contains a connected FBX instance, Rigidbody, `Movable`, stationary-carving NavMeshObstacle and `FurnitureNavigationView`. Physics assets live in `Assets/SO/Furniture/`; masses above are initial tuning values, with the existing 3/3 linear/angular damping. Chair and rack use compound boxes to preserve the openings between their parts. Their water receiver is the existing `IWaterTarget` path, with no new runtime code. Assign a unique `Movable._contentId` override to each gameplay placement, as required by the scene's furniture restoration system; asset-default IDs identify the type only. Add new placements to the existing authored restoration references when integrating them into a mission.
+Each reusable wrapper contains a connected FBX instance, Rigidbody, `Movable`, stationary-carving NavMeshObstacle and `FurnitureNavigationView`. Physics assets live in `Assets/SO/Furniture/`; masses above are initial tuning values, with the existing 3/3 linear/angular damping. All five use fitted primitive collision. Hollow cabinets and appliances retain separate frame, shelf, base-support and moving-leaf colliders; chair and rack preserve the openings between their parts. Their water receiver is the existing `IWaterTarget` path, with no new runtime code. Main contains 21 new connected instances with unique `Movable._contentId` overrides. Asset-default IDs identify the type only. Mission Restart reloads the saved Main scene, restoring authored placement and fresh closed-panel state; no runtime furniture spawning or additional position registry is used.
 
-The saved [FurnitureReview scene](../../../Assets/Scenes/FurnitureReview.unity) contains the five connected new prefabs and the existing coffee table at the same world scale. It is an Edit Mode asset review scene, excluded from build settings. Main, Intro and HUD placements were not changed.
+The saved [FurnitureReview scene](../../../Assets/Scenes/FurnitureReview.unity) contains the five connected new prefabs and the existing coffee table at the same world scale. It is an Edit Mode asset review scene, excluded from build settings. Main now contains three East Kitchen groups and six entryway groups. Intro and HUD layouts are unchanged. See the [house integration report](../../Engineering/Reports/2026-11-24-furniture-placement.md) for placement and restart checks.
 
 ![Unity furniture comparison, left to right: existing coffee table, shoe cabinet, coat rack, dining chair, stove and fridge](furniture-unity-preview.png)
 
 The Unity render was visually inspected for facades, part counts, palette, scale and unclipped silhouettes. Individual Blender previews: [fridge](../Props/Fridge/model-preview.png), [stove](../Props/Stove/model-preview.png), [chair](../Props/DiningChair/model-preview.png), [coat rack](../Props/CoatRack/model-preview.png), [shoe cabinet](../Props/ShoeCabinet/model-preview.png).
 
-Verification: [source geometry](furniture-blender-validation.json), [closed source meshes and FBX round-trip](furniture-fbx-validation.json), [saved Unity prefabs](furniture-unity-validation.json), [Play Mode water response and instance isolation](furniture-physics-validation.json). All five passed. Prefab links were checked again after reopening the review scene. See the [production report](../../Engineering/Reports/2026-11-24-furniture-models.md) for scope and limits.
+Verification: [source geometry](furniture-blender-validation.json), [closed source meshes and retained FBX geometry/hinges](furniture-fbx-validation.json), [saved Unity prefabs](furniture-unity-validation.json), [Play Mode water response and instance isolation](furniture-physics-validation.json). All five passed. Prefab links were checked again after reopening the review scene. See the [production report](../../Engineering/Reports/2026-11-24-furniture-models.md) for scope and limits.
+
+### Furniture in the house
+
+The three east rear rooms contain a fridge, stove and dining chair each. Each east corridor entry and west apartment entry has a coat rack and shoe cabinet. The existing east ground-floor sofa moved into its living room; the west second-floor sofa moved 0.2 m to preserve entryway clearance. These transforms are saved in Main, visible without Play Mode.
+
+[Ground-floor layout](../Environments/BaseHouse/furniture-ground-floor.png) · [Open kitchen interiors](../Environments/BaseHouse/furniture-open-kitchen.png). These are Unity inspection renders with upper-floor renderers temporarily hidden and temporary inspection lighting/fog overrides; those overrides were restored and not saved.
 
 ## Modular house assembly
 

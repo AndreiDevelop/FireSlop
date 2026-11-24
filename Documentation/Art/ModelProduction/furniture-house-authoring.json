@@ -1,0 +1,341 @@
+{
+  "furniture": [
+    {
+      "id": "furniture-floor-1-east-kitchen-fridge",
+      "prefab": "Assets/Prefabs/Props/Furniture/Fridge.prefab",
+      "position": [
+        -10.43,
+        -1.21,
+        -2.6
+      ],
+      "rotation": [
+        0.0,
+        270.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-1-east-kitchen-stove",
+      "prefab": "Assets/Prefabs/Props/Furniture/Stove.prefab",
+      "position": [
+        -13.5,
+        -1.21,
+        -2.6
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 1,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-1-east-kitchen-diningchair",
+      "prefab": "Assets/Prefabs/Props/Furniture/DiningChair.prefab",
+      "position": [
+        -13.25,
+        -1.21,
+        -1.0
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-1-east-entry-shoecabinet",
+      "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+      "position": [
+        -15.62,
+        -1.21,
+        3.8
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-1-east-entry-coatrack",
+      "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+      "position": [
+        -15.5,
+        -1.21,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-1-west-entry-shoecabinet",
+      "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+      "position": [
+        -16.33,
+        -1.21,
+        1.95
+      ],
+      "rotation": [
+        0.0,
+        270.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-1-west-entry-coatrack",
+      "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+      "position": [
+        -17.35,
+        -1.21,
+        1.85
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-east-kitchen-fridge",
+      "prefab": "Assets/Prefabs/Props/Furniture/Fridge.prefab",
+      "position": [
+        -10.43,
+        1.78999984,
+        -2.6
+      ],
+      "rotation": [
+        0.0,
+        270.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-east-kitchen-stove",
+      "prefab": "Assets/Prefabs/Props/Furniture/Stove.prefab",
+      "position": [
+        -13.5,
+        1.78999984,
+        -2.6
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 1,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-east-kitchen-diningchair",
+      "prefab": "Assets/Prefabs/Props/Furniture/DiningChair.prefab",
+      "position": [
+        -13.25,
+        1.78999984,
+        -1.0
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-east-entry-shoecabinet",
+      "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+      "position": [
+        -15.62,
+        1.78999984,
+        3.8
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-east-entry-coatrack",
+      "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+      "position": [
+        -15.5,
+        1.78999984,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-west-entry-shoecabinet",
+      "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+      "position": [
+        -16.33,
+        1.78999984,
+        1.95
+      ],
+      "rotation": [
+        0.0,
+        270.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-2-west-entry-coatrack",
+      "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+      "position": [
+        -17.35,
+        1.78999984,
+        1.85
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-east-kitchen-fridge",
+      "prefab": "Assets/Prefabs/Props/Furniture/Fridge.prefab",
+      "position": [
+        -10.43,
+        4.79,
+        -2.6
+      ],
+      "rotation": [
+        0.0,
+        270.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-east-kitchen-stove",
+      "prefab": "Assets/Prefabs/Props/Furniture/Stove.prefab",
+      "position": [
+        -13.5,
+        4.79,
+        -2.6
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 1,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-east-kitchen-diningchair",
+      "prefab": "Assets/Prefabs/Props/Furniture/DiningChair.prefab",
+      "position": [
+        -13.25,
+        4.79,
+        -1.0
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-east-entry-shoecabinet",
+      "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+      "position": [
+        -15.62,
+        4.79,
+        3.8
+      ],
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-east-entry-coatrack",
+      "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+      "position": [
+        -15.5,
+        4.79,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-west-entry-shoecabinet",
+      "prefab": "Assets/Prefabs/Props/Furniture/ShoeCabinet.prefab",
+      "position": [
+        -16.33,
+        4.79,
+        1.95
+      ],
+      "rotation": [
+        0.0,
+        270.0,
+        0.0
+      ],
+      "doors": 2,
+      "connected": true
+    },
+    {
+      "id": "furniture-floor-3-west-entry-coatrack",
+      "prefab": "Assets/Prefabs/Props/Furniture/CoatRack.prefab",
+      "position": [
+        -17.35,
+        4.79,
+        1.85
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "doors": 0,
+      "connected": true
+    }
+  ],
+  "overlaps": []
+}

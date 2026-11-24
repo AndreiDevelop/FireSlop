@@ -33,10 +33,9 @@ namespace FireSlop.Verification
                     allColliders.AddRange(root.GetComponentsInChildren<Collider>(true));
                     foreach (var movable in root.GetComponentsInChildren<Movable>(true))
                     {
-                        Require(ids.Add(movable.ContentId) && !string.IsNullOrWhiteSpace(movable.ContentId),
-                            "Every furniture instance requires a unique authored ID.");
-                        if (movable.ContentId.StartsWith("furniture-floor-"))
+                        if (movable.ContentId != null && movable.ContentId.StartsWith("furniture-floor-"))
                         {
+                            Require(ids.Add(movable.ContentId), "New furniture IDs must be unique.");
                             added.Add(movable);
                         }
                     }

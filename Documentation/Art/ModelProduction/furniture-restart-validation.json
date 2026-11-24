@@ -1,0 +1,128 @@
+[
+  {
+    "id": "furniture-floor-1-east-kitchen-fridge",
+    "positionErrorMeters": 3.868337E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-east-kitchen-stove",
+    "positionErrorMeters": 1.925885E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-east-kitchen-diningchair",
+    "positionErrorMeters": 8.596304E-07,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-east-entry-shoecabinet",
+    "positionErrorMeters": 1.20819659E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-east-entry-coatrack",
+    "positionErrorMeters": 1.20684317E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-west-entry-shoecabinet",
+    "positionErrorMeters": 1.54333447E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-west-entry-coatrack",
+    "positionErrorMeters": 1.106144E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-kitchen-fridge",
+    "positionErrorMeters": 5.00679E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-kitchen-stove",
+    "positionErrorMeters": 1.43051147E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-kitchen-diningchair",
+    "positionErrorMeters": 7.53945756E-07,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-entry-shoecabinet",
+    "positionErrorMeters": 1.21101621E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-entry-coatrack",
+    "positionErrorMeters": 1.20326113E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-west-entry-shoecabinet",
+    "positionErrorMeters": 1.54149184E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-west-entry-coatrack",
+    "positionErrorMeters": 1.16612036E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-east-kitchen-fridge",
+    "positionErrorMeters": 4.10190842E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-east-kitchen-stove",
+    "positionErrorMeters": 2.03704917E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-east-kitchen-diningchair",
+    "positionErrorMeters": 1.35395726E-06,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-east-entry-shoecabinet",
+    "positionErrorMeters": 1.16410783E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-east-entry-coatrack",
+    "positionErrorMeters": 1.09894218E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-west-entry-shoecabinet",
+    "positionErrorMeters": 1.16758183E-05,
+    "closed": true,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-3-west-entry-coatrack",
+    "positionErrorMeters": 7.747687E-06,
+    "closed": true,
+    "passed": true
+  }
+]

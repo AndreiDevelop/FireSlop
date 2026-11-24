@@ -1,62 +1,52 @@
 [
   {
     "name": "Fridge",
-    "closedManifoldParts": 7,
-    "triangles": 308,
-    "fbxRoundTripDimensionsBlender": [
-      0.6600000858306885,
-      0.7125001549720764,
-      1.6499999948816253
-    ],
-    "groundPivot": true,
-    "passed": true
+    "closedManifoldParts": 15,
+    "triangles": 660,
+    "fbxMeshes": 3,
+    "fbxTriangleCountMatches": true,
+    "editableHinges": 2,
+    "passed": true,
+    "axisValidation": "Final Unity prefab bounds checked after authored nested-leaf rotation overrides."
   },
   {
     "name": "Stove",
-    "closedManifoldParts": 22,
-    "triangles": 1224,
-    "fbxRoundTripDimensionsBlender": [
-      0.64000004529953,
-      0.7000000774860382,
-      0.9050000195380861
-    ],
-    "groundPivot": true,
-    "passed": true
+    "closedManifoldParts": 29,
+    "triangles": 1532,
+    "fbxMeshes": 2,
+    "fbxTriangleCountMatches": true,
+    "editableHinges": 1,
+    "passed": true,
+    "axisValidation": "Final Unity prefab bounds checked after authored nested-leaf rotation overrides."
   },
   {
     "name": "DiningChair",
     "closedManifoldParts": 8,
     "triangles": 352,
-    "fbxRoundTripDimensionsBlender": [
-      0.5200000405311584,
-      0.5000000596046448,
-      0.9550000590341483
-    ],
-    "groundPivot": true,
-    "passed": true
+    "fbxMeshes": 1,
+    "fbxTriangleCountMatches": true,
+    "editableHinges": 0,
+    "passed": true,
+    "axisValidation": "Final Unity prefab bounds checked after authored nested-leaf rotation overrides."
   },
   {
     "name": "CoatRack",
     "closedManifoldParts": 9,
     "triangles": 396,
-    "fbxRoundTripDimensionsBlender": [
-      0.7000000476837158,
-      0.7000000476837158,
-      1.6583848247960837
-    ],
-    "groundPivot": true,
-    "passed": true
+    "fbxMeshes": 1,
+    "fbxTriangleCountMatches": true,
+    "editableHinges": 0,
+    "passed": true,
+    "axisValidation": "Final Unity prefab bounds checked after authored nested-leaf rotation overrides."
   },
   {
     "name": "ShoeCabinet",
-    "closedManifoldParts": 7,
-    "triangles": 308,
-    "fbxRoundTripDimensionsBlender": [
-      0.9800000190734863,
-      0.40550006926059723,
-      0.8624999600925705
-    ],
-    "groundPivot": true,
-    "passed": true
+    "closedManifoldParts": 12,
+    "triangles": 528,
+    "fbxMeshes": 3,
+    "fbxTriangleCountMatches": true,
+    "editableHinges": 2,
+    "passed": true,
+    "axisValidation": "Final Unity prefab bounds checked after authored nested-leaf rotation overrides."
   }
 ]

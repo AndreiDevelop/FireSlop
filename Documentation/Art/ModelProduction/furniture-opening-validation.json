@@ -1,0 +1,278 @@
+{
+  "panels": [
+    {
+      "id": "furniture-floor-2-east-kitchen-stove",
+      "panel": "Hinge_OvenDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-east-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_1",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-east-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_2",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-2-east-kitchen-fridge",
+      "panel": "Hinge_FreezerDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-2-east-kitchen-fridge",
+      "panel": "Hinge_RefrigeratorDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-east-kitchen-fridge",
+      "panel": "Hinge_FreezerDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-east-kitchen-fridge",
+      "panel": "Hinge_RefrigeratorDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-east-kitchen-stove",
+      "panel": "Hinge_OvenDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-2-east-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_1",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-2-east-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_2",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-west-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_1",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-west-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_2",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-east-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_1",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-east-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_2",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-east-kitchen-stove",
+      "panel": "Hinge_OvenDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-east-kitchen-fridge",
+      "panel": "Hinge_FreezerDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-1-east-kitchen-fridge",
+      "panel": "Hinge_RefrigeratorDoor",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-2-west-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_1",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-2-west-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_2",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-west-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_1",
+      "contextOpenClose": true,
+      "independentState": true
+    },
+    {
+      "id": "furniture-floor-3-west-entry-shoecabinet",
+      "panel": "Hinge_TiltPanel_2",
+      "contextOpenClose": true,
+      "independentState": true
+    }
+  ],
+  "closedRoutes": [
+    {
+      "floor": 1,
+      "route": "east-entry",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 1,
+      "route": "kitchen",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 1,
+      "route": "west-entry-a",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 1,
+      "route": "west-entry-b",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "east-entry",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "kitchen",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "west-entry-a",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "west-entry-b",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "east-entry",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "kitchen",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "west-entry-a",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "west-entry-b",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    }
+  ],
+  "openRoutes": [
+    {
+      "floor": 1,
+      "route": "east-entry",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 1,
+      "route": "kitchen",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 1,
+      "route": "west-entry-a",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 1,
+      "route": "west-entry-b",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "east-entry",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "kitchen",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "west-entry-a",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 2,
+      "route": "west-entry-b",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "east-entry",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "kitchen",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "west-entry-a",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    },
+    {
+      "floor": 3,
+      "route": "west-entry-b",
+      "capsuleRadiusMeters": 0.34,
+      "newFurnitureClear": true
+    }
+  ]
+}

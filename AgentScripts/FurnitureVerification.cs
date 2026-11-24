@@ -38,15 +38,25 @@ namespace FireSlop.Verification
                     Require(PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(visual) ==
                         "Assets/Models/Props/" + name + ".fbx", name + " FBX link mismatch.");
                     var meshes = root.GetComponentsInChildren<MeshFilter>(true);
-                    Require(meshes.Length == 1 && meshes[0].sharedMesh != null, name + " needs one combined draw mesh.");
+                    Require(meshes.Length > 0 && meshes[0].sharedMesh != null, name + " needs valid authored meshes.");
                     var renderers = root.GetComponentsInChildren<MeshRenderer>(true);
-                    Require(renderers.Length == 1, name + " needs one MeshRenderer.");
+                    Require(renderers.Length == meshes.Length, name + " renderer/mesh counts must match.");
                     var bounds = renderers[0].bounds;
+                    foreach (var renderer in renderers)
+                    {
+                        bounds.Encapsulate(renderer.bounds);
+                    }
                     var dimensions = records[index]["dimensionsBlender"];
                     var expected = new Vector3(dimensions[0].Value<float>(), dimensions[2].Value<float>(), dimensions[1].Value<float>());
                     Require(Vector3.Distance(bounds.size, expected) < 0.004f && Mathf.Abs(bounds.min.y) < 0.002f,
                         name + " scale or ground pivot mismatch.");
-                    foreach (var material in renderers[0].sharedMaterials)
+                    var sharedMaterials = new List<Material>();
+                    foreach (var renderer in renderers)
+                    {
+                        sharedMaterials.AddRange(renderer.sharedMaterials);
+                    }
+
+                    foreach (var material in sharedMaterials)
                     {
                         Require(material != null && AssetDatabase.GetAssetPath(material).StartsWith("Assets/Materials/Models/"),
                             name + " needs external shared materials.");
@@ -81,11 +91,16 @@ namespace FireSlop.Verification
                             name + " collider setup mismatch.");
                     }
 
-                    var mesh = meshes[0].sharedMesh;
                     uint triangles = 0;
-                    for (var submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                    var submeshes = 0;
+                    foreach (var filter in meshes)
                     {
-                        triangles += mesh.GetIndexCount(submesh) / 3;
+                        var mesh = filter.sharedMesh;
+                        submeshes += mesh.subMeshCount;
+                        for (var submesh = 0; submesh < mesh.subMeshCount; submesh++)
+                        {
+                            triangles += mesh.GetIndexCount(submesh) / 3;
+                        }
                     }
 
                     Require(triangles == records[index]["triangles"].Value<uint>(), name + " triangle count changed on import.");
@@ -95,7 +110,8 @@ namespace FireSlop.Verification
                         ["prefab"] = path,
                         ["dimensionsMetersXYZ"] = new JArray(bounds.size.x, bounds.size.y, bounds.size.z),
                         ["triangles"] = triangles,
-                        ["submeshes"] = mesh.subMeshCount,
+                        ["submeshes"] = submeshes,
+                        ["renderers"] = renderers.Length,
                         ["boxColliders"] = colliders.Length,
                         ["massKg"] = settings.Mass,
                         ["connectedFBX"] = true,

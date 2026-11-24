@@ -1,0 +1,27 @@
+[
+  {
+    "id": "furniture-floor-3-west-entry-coatrack",
+    "movedMeters": 1.00205112,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-kitchen-diningchair",
+    "movedMeters": 0.408038467,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-kitchen-stove",
+    "movedMeters": 0.4594623,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-1-east-entry-shoecabinet",
+    "movedMeters": 0.369420528,
+    "passed": true
+  },
+  {
+    "id": "furniture-floor-2-east-kitchen-fridge",
+    "movedMeters": 0.514621,
+    "passed": true
+  }
+]

@@ -70,7 +70,7 @@ The existing [firefighter model preview](Characters/Firefighter/model-preview.pn
 
 See [Modeling Sketches](ModelingSketches.md) for the current draft resident, tools, furniture, door, drone, base-house, trampoline and cat sheets, their source references and generation prompts.
 
-The [expansion furniture concepts](ModelingSketches.md#expansion-furniture-concepts), drafted 2026-11-24, add a fridge, stove, dining chair, coat rack and shoe cabinet for kitchen and entryway recognition. Their [editable Blender models and reusable Unity prefabs](ModelProduction/README.md#expansion-furniture) extend the existing chunky furniture family, sharing its wood and enamel materials. A saved Unity comparison includes the existing coffee table at the same scale. Mission placement and final gameplay balance remain pending.
+The [expansion furniture concepts](ModelingSketches.md#expansion-furniture-concepts), drafted 2026-11-24, add a fridge, stove, dining chair, coat rack and shoe cabinet for kitchen and entryway recognition. Their [editable Blender models and reusable Unity prefabs](ModelProduction/README.md#expansion-furniture) extend the existing chunky furniture family, sharing its wood and enamel materials. A saved Unity comparison includes the existing coffee table at the same scale. Main now contains the furniture in kitchens and entryways. The appliance/cabinet interiors have shelves and independent opening panels; see the linked production section for house inspection renders. Initial physics tuning remains subject to playtesting.
 
 The [base-house sheet](Environments/BaseHouse/modeling-sheet.png) shows the approved intact roof, modular three-floor structure, rear return stairs, corridor and two-room apartment layout.
 

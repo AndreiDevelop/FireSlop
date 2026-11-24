@@ -5,11 +5,12 @@
     "dimensionsMetersXYZ": [
       0.6600605,
       1.65006042,
-      0.7125605
+      0.7125596
     ],
-    "triangles": 308,
-    "submeshes": 4,
-    "boxColliders": 1,
+    "triangles": 660,
+    "submeshes": 6,
+    "renderers": 3,
+    "boxColliders": 13,
     "massKg": 55.0,
     "connectedFBX": true,
     "passed": true
@@ -19,12 +20,13 @@
     "prefab": "Assets/Prefabs/Props/Furniture/Stove.prefab",
     "dimensionsMetersXYZ": [
       0.6400374,
-      0.905037344,
-      0.7000374
+      0.9050374,
+      0.700033665
     ],
-    "triangles": 1224,
-    "submeshes": 3,
-    "boxColliders": 1,
+    "triangles": 1532,
+    "submeshes": 6,
+    "renderers": 2,
+    "boxColliders": 10,
     "massKg": 40.0,
     "connectedFBX": true,
     "passed": true
@@ -39,6 +41,7 @@
     ],
     "triangles": 352,
     "submeshes": 2,
+    "renderers": 1,
     "boxColliders": 8,
     "massKg": 6.0,
     "connectedFBX": true,
@@ -54,6 +57,7 @@
     ],
     "triangles": 396,
     "submeshes": 2,
+    "renderers": 1,
     "boxColliders": 9,
     "massKg": 5.0,
     "connectedFBX": true,
@@ -65,11 +69,12 @@
     "dimensionsMetersXYZ": [
       0.980041265,
       0.8625412,
-      0.405541331
+      0.405539423
     ],
-    "triangles": 308,
-    "submeshes": 3,
-    "boxColliders": 1,
+    "triangles": 528,
+    "submeshes": 6,
+    "renderers": 3,
+    "boxColliders": 9,
     "massKg": 18.0,
     "connectedFBX": true,
     "passed": true

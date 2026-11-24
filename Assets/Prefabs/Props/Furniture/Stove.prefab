@@ -95,6 +95,7 @@ Transform:
   - {fileID: 907918017636197488}
   - {fileID: 537407125267357700}
   - {fileID: 6463111037280211458}
+  - {fileID: 7359906637949580369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8956243950302526833
@@ -538,6 +539,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.036, y: 0.8, z: 0.57}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8582523095847803054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7359906637949580369}
+  - component: {fileID: 1281763955504618105}
+  m_Layer: 10
+  m_Name: BaseSupportCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7359906637949580369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8582523095847803054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.045, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6701854546421619329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1281763955504618105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8582523095847803054}
+  m_Material: {fileID: 13400000, guid: 8188f7c6372b7499aac55310d1e6ef19, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.56, y: 0.09, z: 0.53}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9003938536554097475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,6 +659,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ad4553c77eec847fdab662274a2e0d71, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642617614825729866, guid: ad4553c77eec847fdab662274a2e0d71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642617614825729866, guid: ad4553c77eec847fdab662274a2e0d71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7182576021069821514, guid: ad4553c77eec847fdab662274a2e0d71, type: 3}
       propertyPath: m_Layer

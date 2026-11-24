@@ -162,7 +162,7 @@ Octagonal padded rim and taut center, adapted from the handheld Canvas reference
 
 ## Expansion furniture concepts
 
-Draft for review, 2026-11-24. Five new sheets for [expansion step 9](../../FireSlop/Documentation/GDD/Design/SinglePlayerExpansion.md). Generated with built-in image_gen and visually inspected. The existing [coffee table sheet](Props/CoffeeTable/modeling-sheet.png) supplies the chunky bevels, warm honey wood and brown structural parts. Cream enamel and muted sage distinguish the kitchen appliances. These are the original concept references. The linked production follow-up below establishes model dimensions and initial physics settings; opening behavior and mission placement remain pending.
+Draft for review, 2026-11-24. Five new sheets for [expansion step 9](../../FireSlop/Documentation/GDD/Design/SinglePlayerExpansion.md). Generated with built-in image_gen and visually inspected. The existing [coffee table sheet](Props/CoffeeTable/modeling-sheet.png) supplies the chunky bevels, warm honey wood and brown structural parts. Cream enamel and muted sage distinguish the kitchen appliances. These are the original concept references. The linked production follow-up below establishes model dimensions and initial physics settings; the linked production follow-up implements opening panels and house placement.
 
 ### Fridge
 
