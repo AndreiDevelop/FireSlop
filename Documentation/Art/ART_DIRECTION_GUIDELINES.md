@@ -91,3 +91,7 @@ The 2026-11-24 Meshy ginger cat replaces the static gameplay visual. Its [editab
 ### Dispatch ranking and daily calendar
 
 The [user-supplied ranking reference](UI/Dispatch/ranking-reference.png) establishes the classic top-three podium, scrolling rows and pinned player row. FireSlop reuses its navy, cream and gold rounded UI and authored helmet icons. [Ranking at 640×360](UI/Dispatch/ranking-640x360.png), [ranking at 800×600](UI/Dispatch/ranking-800x600.png) and [daily calendar](UI/Dispatch/calendar-800x600.png) are isolated Unity prefab renders. [Behavior and scope](../../FireSlop/Documentation/GDD/Design/dispatch-and-progression.md) define the cumulative local score, fictitious opponents and compact numeric labels.
+
+### Drone landing preview
+
+The signal canister uses a full-size translucent green drone in place of the landing frame. The preview reuses the production drone meshes with an authored transparent unlit material and no shadows. [Roof aim](Props/Drone/landing-preview-roof.png) shows a Unity Editor camera capture at 1280 × 720. See the [implementation and verification report](../Engineering/Reports/2026-11-24-drone-landing-preview.md).

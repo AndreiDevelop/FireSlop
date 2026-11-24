@@ -11,7 +11,7 @@ namespace FireSlop.Drone
     public sealed class SignalThrowController : MonoBehaviour
     {
         [SerializeField] private ThrowArcView _trajectory;
-        [SerializeField] private LineRenderer _marker;
+        [SerializeField] private Transform _landingPreview;
         [SerializeField] private ParticleSystem _signalPrefab;
 
         private DroneController _drone;
@@ -62,7 +62,7 @@ namespace FireSlop.Drone
             AdvanceSignal();
             var aim = _signal == null && _tools != null && CanAim;
             _trajectory.SetVisible(aim);
-            _marker.enabled = aim && Trace();
+            _landingPreview.gameObject.SetActive(aim && Trace());
         }
 
         private void AdvanceSignal()
@@ -103,15 +103,7 @@ namespace FireSlop.Drone
                 return false;
             }
 
-            var half = _drone.Footprint;
-            var center = _landing + Vector3.up * 0.04f;
-            for (var corner = 0; corner < 4; corner++)
-            {
-                var x = corner < 2 ? -half.x : half.x;
-                var z = corner == 0 || corner == 3 ? -half.z : half.z;
-                _marker.SetPosition(corner, center + _drone.transform.rotation * new Vector3(x, 0f, z));
-            }
-
+            _landingPreview.SetPositionAndRotation(_landing, _drone.transform.rotation);
             return true;
         }
 
@@ -131,7 +123,7 @@ namespace FireSlop.Drone
             SceneManager.MoveGameObjectToScene(_signal.gameObject, gameObject.scene);
             _elapsed = 0f;
             _inFlight = true;
-            _marker.enabled = false;
+            _landingPreview.gameObject.SetActive(false);
             _trajectory.SetVisible(false);
         }
 
@@ -147,9 +139,9 @@ namespace FireSlop.Drone
                 _trajectory.SetVisible(false);
             }
 
-            if (_marker != null)
+            if (_landingPreview != null)
             {
-                _marker.enabled = false;
+                _landingPreview.gameObject.SetActive(false);
             }
         }
     }
