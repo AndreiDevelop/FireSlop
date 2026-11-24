@@ -16,13 +16,14 @@ namespace FireSlop.Interaction
         private Transform _worldParent;
         private Vector3 _originalLocalScale;
         private CarryReleaseShape _releaseShape;
+        private bool _isCarried;
 
         public string ContentId => _contentId;
         public Collider PickupCollider => _pickupCollider;
         public bool IsFree => !_body.isKinematic;
         protected Rigidbody Body => _body;
 
-        internal bool CanPickUp => isActiveAndEnabled && _body != null && _pickupCollider != null && _pickupCollider.enabled &&
+        internal virtual bool CanPickUp => isActiveAndEnabled && _body != null && _pickupCollider != null && _pickupCollider.enabled &&
             !string.IsNullOrWhiteSpace(_contentId);
 
         [Inject]
@@ -31,7 +32,7 @@ namespace FireSlop.Interaction
             _carrier = carrier;
         }
 
-        public ContextActionPrompt GetPrompt(Collider hit)
+        public virtual ContextActionPrompt GetPrompt(Collider hit)
         {
             if (hit != _pickupCollider || _carrier == null || !_carrier.CanPickUp(this))
             {
@@ -48,6 +49,7 @@ namespace FireSlop.Interaction
 
         internal void Attach(Transform shoulder)
         {
+            _isCarried = true;
             _worldParent = transform.parent;
             _originalLocalScale = transform.localScale;
             _releaseShape = CarryReleaseShape.Capture(_pickupCollider, transform);
@@ -76,7 +78,26 @@ namespace FireSlop.Interaction
             _body.isKinematic = false;
             _body.linearVelocity = velocity;
             _body.angularVelocity = Vector3.zero;
+            _isCarried = false;
             return true;
+        }
+
+        internal void Deliver(Vector3 position)
+        {
+            if (_isCarried)
+            {
+                OnReleasing();
+                transform.SetParent(_worldParent, false);
+                transform.localScale = _originalLocalScale;
+            }
+
+            transform.position = position;
+            _body.position = position;
+            _body.isKinematic = false;
+            _body.linearVelocity = Vector3.zero;
+            _body.angularVelocity = Vector3.zero;
+            _pickupCollider.enabled = true;
+            _isCarried = false;
         }
 
         protected virtual void OnAttached(Transform shoulder)

@@ -17,6 +17,7 @@ namespace FireSlop.Interaction
         Jump = 12,
         Crouch = 13,
         Ascend = 14,
-        Descend = 15
+        Descend = 15,
+        RemoveCat = 16
     }
 }

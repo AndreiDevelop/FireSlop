@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Bits: 48129
   _movingCollisionMask:
     serializedVersion: 2
-    m_Bits: 11264
+    m_Bits: 15360
   _pushMask:
     serializedVersion: 2
     m_Bits: 3072

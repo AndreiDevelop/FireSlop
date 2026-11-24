@@ -1,5 +1,6 @@
 using System;
 using FireSlop.Audio;
+using FireSlop.Cats;
 using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.Interaction;
@@ -48,6 +49,7 @@ namespace FireSlop.Startup
             }
 
             Container.Bind<DroneModel>().AsSingle();
+            Container.Bind<CatFaceModel>().AsSingle();
             if (_drone != null)
             {
                 Container.Bind<DroneController>().FromInstance(_drone);

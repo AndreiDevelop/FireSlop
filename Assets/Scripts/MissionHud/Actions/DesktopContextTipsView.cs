@@ -17,7 +17,8 @@ namespace FireSlop.MissionHud
                 _hint.text += "   |   <sprite name=\"MouseLeft\">  " + Actions.Get(HudActionId.Throw).Label;
             }
 
-            _hint.gameObject.SetActive(action != null && !Model.IsPilotingDrone);
+            var canShow = !Model.IsPilotingDrone || action?.Id == HudActionId.RemoveCat;
+            _hint.gameObject.SetActive(action != null && canShow);
         }
     }
 }

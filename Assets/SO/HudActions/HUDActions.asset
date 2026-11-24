@@ -58,3 +58,6 @@ MonoBehaviour:
   - _id: 15
     _label: DOWN
     _icon: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}
+  - _id: 16
+    _label: Remove cat
+    _icon: {fileID: 21300000, guid: 1dc58e3764a36456aaf025b30a54bcac, type: 3}

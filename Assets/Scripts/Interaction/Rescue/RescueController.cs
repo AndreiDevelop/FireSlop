@@ -21,6 +21,17 @@ namespace FireSlop.Interaction
         private Rigidbody _occupiedCabinetBody;
 
         public string CabinetContentId => _cabinetContentId;
+        public Carryable Carried => _carried;
+
+        public void Deliver(Carryable target, Vector3 position)
+        {
+            target.Deliver(position);
+            if (_carried == target)
+            {
+                _carried = null;
+                _model.StopCarrying();
+            }
+        }
 
         [Inject]
         public void Construct(Camera camera, InteractionModel model)

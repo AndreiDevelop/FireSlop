@@ -1,4 +1,5 @@
 using System;
+using FireSlop.Cats;
 using FireSlop.Drone;
 using FireSlop.Firefighter;
 using FireSlop.MissionHud;
@@ -11,16 +12,20 @@ namespace FireSlop.Interaction
         private readonly ToolSelectionModel _tools;
         private readonly MissionInputModel _input;
         private readonly DroneModel _flight;
+        private readonly CatFaceModel _catFace;
         private PrimaryInputSource? _primarySource;
         private bool _autoHoseActive;
         private bool _enabled = true;
         private ContextActionPrompt _aimedPrompt;
 
-        public InteractionModel(ToolSelectionModel tools, MissionInputModel input, DroneModel flight)
+        public InteractionModel(ToolSelectionModel tools, MissionInputModel input, DroneModel flight,
+            CatFaceModel catFace)
         {
             _tools = tools;
             _input = input;
             _flight = flight;
+            _catFace = catFace;
+            _catFace.Changed += NotifyContextChanged;
             _flight.ContextChanged += NotifyContextChanged;
             _tools.SelectionChanged += OnToolSelectionChanged;
             _input.Cancelled += InterruptPrimary;
@@ -47,6 +52,11 @@ namespace FireSlop.Interaction
                 if (!_enabled)
                 {
                     return default;
+                }
+
+                if (_catFace.IsAttached)
+                {
+                    return new ContextActionPrompt(HudActionId.RemoveCat);
                 }
 
                 if (HasDroneAction)
@@ -241,6 +251,7 @@ namespace FireSlop.Interaction
             _tools.SelectionChanged -= OnToolSelectionChanged;
             _input.Cancelled -= InterruptPrimary;
             _flight.ContextChanged -= NotifyContextChanged;
+            _catFace.Changed -= NotifyContextChanged;
         }
     }
 }

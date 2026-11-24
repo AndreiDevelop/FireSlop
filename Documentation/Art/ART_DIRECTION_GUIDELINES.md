@@ -62,8 +62,18 @@ Follow [authored scene content](../Engineering/CODE_STYLE_AND_ARCHITECTURE.md#au
 
 ## Fire Slop modeling concepts
 
+### Firefighter redesign exploration
+
+Draft, 2026-11-24. [Three-way concept comparison](Characters/Firefighter/Concepts/redesign-comparison.png) · [Generation prompt and references](Characters/Firefighter/Concepts/prompt.json).
+
+The existing [firefighter model preview](Characters/Firefighter/model-preview.png) is the identity baseline. The saved [trailer frame](../../FireSlop/FireSlop/Screens/Pasted%20image%2020261113145349.png) supplies the soft face, tiny pupils, black hood and padded collar reference. A keeps the compact existing proportions, B follows the trailer face most closely, and C experiments with an elongated comic silhouette. B is the recommended direction for review; no option is approved. The generated sheet was visually inspected for all three complete silhouettes and face close-ups. These are concept renders, not Unity captures or a production model replacement.
+
 See [Modeling Sketches](ModelingSketches.md) for the current draft resident, tools, furniture, door, drone, base-house, trampoline and cat sheets, their source references and generation prompts.
 
 The [base-house sheet](Environments/BaseHouse/modeling-sheet.png) shows the approved intact roof, modular three-floor structure, rear return stairs, corridor and two-room apartment layout.
 
 See [model production](ModelProduction/README.md) for editable Blender sources, FBX exports, geometry checks and Unity import status.
+
+### Modular firefighter outfits
+
+Draft front-view T-pose references for Blender modeling. [Default firefighter](Characters/Firefighter/Outfits/default-front.png) · [On-call chef](Characters/Firefighter/Outfits/chef-front.png) · [Shallow Water captain](Characters/Firefighter/Outfits/captain-front.png) · [Gardener](Characters/Firefighter/Outfits/gardener-front.png) · [Roused by alarm](Characters/Firefighter/Outfits/sleepy-front.png) · [Chief of pressure](Characters/Firefighter/Outfits/chief-front.png) · [Off-duty firefighter](Characters/Firefighter/Outfits/off-duty-front.png).

@@ -1,3 +1,4 @@
+using FireSlop.Cats;
 using FireSlop.Drone;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,13 +16,16 @@ namespace FireSlop.Interaction
         private Camera _camera;
         private InteractionModel _model;
         private DroneController _drone;
+        private CatFaceModel _catFace;
 
         [Inject]
-        public void Construct(Camera camera, InteractionModel model, [InjectOptional] DroneController drone)
+        public void Construct(Camera camera, InteractionModel model, CatFaceModel catFace,
+            [InjectOptional] DroneController drone)
         {
             _camera = camera;
             _model = model;
             _drone = drone;
+            _catFace = catFace;
             if (isActiveAndEnabled)
             {
                 Subscribe();
@@ -116,6 +120,12 @@ namespace FireSlop.Interaction
 
         private void Interact()
         {
+            if (_catFace.IsAttached)
+            {
+                _catFace.RequestRemoval();
+                return;
+            }
+
             if (_model.HasDroneAction && _drone != null)
             {
                 _drone.TogglePilot();

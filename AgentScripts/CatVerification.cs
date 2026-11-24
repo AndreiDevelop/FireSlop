@@ -1,0 +1,109 @@
+using System;
+using FireSlop.Cats;
+using FireSlop.Drone;
+using FireSlop.Firefighter;
+using FireSlop.Interaction;
+using FireSlop.MissionHud;
+using FireSlop.Tools;
+using UnityEditor;
+
+namespace FireSlop.Verification
+{
+    public static class CatVerification
+    {
+        public static string RunModelChecks()
+        {
+            var settings = AssetDatabase.LoadAssetAtPath<CatConfigSO>("Assets/SO/Cats/Cat.asset");
+            Require(settings != null && settings.IsValid, "Authored cat settings must be valid.");
+            var first = new CatModel();
+            var second = new CatModel();
+            first.SetThreatened(true);
+            Require(first.State == CatState.Warning && second.State == CatState.Idle,
+                "Each cat must own independent state.");
+            Require(!first.TryJump(settings.WarningSeconds), "A warning must precede a jump.");
+            first.Advance(settings.WarningSeconds);
+            first.SetThreatened(false);
+            Require(first.State == CatState.Idle, "Lost sight must cancel the warning.");
+            first.SetThreatened(true);
+            Require(first.StateSeconds == 0f, "A new warning must restart its timer.");
+            Require(!first.ApplyWater(settings.WaterSeconds * 0.5f, settings.WaterSeconds),
+                "A partial water hit must not finish calming.");
+            Require(first.ApplyWater(settings.WaterSeconds, settings.WaterSeconds),
+                "Sufficient water must calm the cat.");
+            first.SetThreatened(true);
+            Require(first.State == CatState.Settled && !first.TryJump(settings.WarningSeconds),
+                "A calmed cat must not attack again.");
+            Require(!first.ApplyWater(1f, settings.WaterSeconds), "Calming must complete only once.");
+            second.SetThreatened(true);
+            second.Advance(settings.WarningSeconds);
+            Require(second.TryJump(settings.WarningSeconds), "A full warning must allow jumping.");
+            Require(!second.ApplyWater(1f, settings.WaterSeconds), "Water must not calm an airborne cat.");
+            second.FinishJump();
+            Require(second.State == CatState.Attached, "The jump must attach the cat.");
+
+            var face = new CatFaceModel();
+            Require(face.TryReserve("first"), "The first cat must reserve the face.");
+            Require(!face.TryReserve("second"), "A second cat must not claim an occupied face.");
+            face.Attach("second");
+            Require(!face.IsAttached, "A different cat must not attach to another reservation.");
+            face.Attach("first");
+            var removals = 0;
+            Action remove = () =>
+            {
+                removals++;
+                second.Remove();
+                face.Release("first");
+            };
+            face.RemovalRequested += remove;
+            face.RequestRemoval();
+            face.RequestRemoval();
+            face.RemovalRequested -= remove;
+            Require(removals == 1 && !face.IsOccupied && second.State == CatState.Returning,
+                "Repeated removal must release exactly once.");
+            second.FinishReturn();
+            second.SetThreatened(true);
+            Require(second.State == CatState.Settled, "A removed cat must not attack again.");
+            Require(second.TryRescue(), "A settled cat must be rescuable.");
+            Require(!second.TryRescue() && second.State == CatState.Rescued,
+                "Repeated delivery must not rescue a cat twice.");
+            Require(!new CatModel().TryRescue(), "A hostile cat cannot be rescued.");
+
+            var belt = AssetDatabase.LoadAssetAtPath<ToolBeltSO>("Assets/SO/ToolBelts/ToolBelt.asset");
+            var tools = new ToolSelectionModel(belt);
+            var input = new MissionInputModel();
+            var flight = new DroneModel();
+            flight.SetOnPlatform(true);
+            using (var interaction = new InteractionModel(tools, input, flight, face))
+            {
+                face.TryReserve("priority");
+                face.Attach("priority");
+                Require(interaction.ContextPrompt.ActionId == HudActionId.RemoveCat,
+                    "An attached cat must take priority over drone controls.");
+                flight.TogglePilot(0f, 1f);
+                Require(interaction.ContextPrompt.ActionId == HudActionId.RemoveCat,
+                    "Cat removal must remain available if flight begins during the jump.");
+                interaction.SetActionsEnabled(false);
+                Require(!interaction.ContextPrompt.IsAvailable, "Mission completion must hide the cat action.");
+                interaction.SetActionsEnabled(true);
+                Require(interaction.ContextPrompt.ActionId == HudActionId.RemoveCat,
+                    "Reopening controls must read current attachment state.");
+            }
+
+            var catalog = AssetDatabase.LoadAssetAtPath<HudActionCatalogSO>("Assets/SO/HudActions/HUDActions.asset");
+            catalog.Validate();
+            Require(!string.IsNullOrWhiteSpace(catalog.Get(HudActionId.RemoveCat).Label),
+                "Cat removal needs authored HUD text.");
+            return "PASS: warning timing/cancellation, water threshold/idempotence, independent cats, " +
+                "exclusive attachment, removal/retry, rescue/retry, no repeat attack, drone priority, " +
+                "action gating and HUD catalog.";
+        }
+
+        private static void Require(bool condition, string message)
+        {
+            if (!condition)
+            {
+                throw new InvalidOperationException(message);
+            }
+        }
+    }
+}

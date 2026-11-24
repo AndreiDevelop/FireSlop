@@ -646,6 +646,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6132e631a51f547699183addf2bd06d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Openable
+--- !u!1001 &242677328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1807815783677440716, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: _contentId
+      value: cat-upstairs-room
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119410554119555222, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: _contentId
+      value: cat-upstairs-room
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282373875426063448, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: _area
+      value: 
+      objectReference: {fileID: 1338151131}
+    - target: {fileID: 6372307609457869125, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_Name
+      value: Cat - Upstairs Apartment
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
 --- !u!1 &276826772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1418,78 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a12ae7cf7934349afa6af7de80ed9a, type: 3}
+--- !u!1001 &635721081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945255844656644926, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_Name
+      value: Cat Patrol - Ground Apartment
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654940601404903265, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 859d84ba3dad8464eaf10619a4f9063a, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+--- !u!114 &635721082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2415622919695221881, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+  m_PrefabInstance: {fileID: 635721081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc5e817f3e8d442bb32e8c3fc53e25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Cats.CatPatrolArea
 --- !u!1 &643001309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,6 +1824,87 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 505629590957156970, guid: 197b86243eca1416da097c86dab917fb, type: 3}
   m_PrefabInstance: {fileID: 735003243}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &736422601
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1807815783677440716, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: _contentId
+      value: cat-ground-hall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992379416321626120, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119410554119555222, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: _contentId
+      value: cat-ground-hall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282373875426063448, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: _area
+      value: 
+      objectReference: {fileID: 635721082}
+    - target: {fileID: 6372307609457869125, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
+      propertyPath: m_Name
+      value: Cat - Ground Apartment
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 718f629d09f404d86ad24b424b9a7ca1, type: 3}
 --- !u!1001 &799433741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3249,6 +3483,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317453545}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1338151130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202390370565567899, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945255844656644926, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_Name
+      value: Cat Patrol - Upstairs Apartment
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404418629712675191, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654940601404903265, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: a946872f0f6874ceb8187b3a064ce234, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+--- !u!114 &1338151131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2415622919695221881, guid: 83d82f8dc22974c1cbb26ca364e750d8, type: 3}
+  m_PrefabInstance: {fileID: 1338151130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc5e817f3e8d442bb32e8c3fc53e25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Cats.CatPatrolArea
 --- !u!4 &1338874813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5229173545227870664, guid: 522aefb2ed74d4667b3e7c727e0b81e5, type: 3}
@@ -5641,3 +5951,7 @@ SceneRoots:
   - {fileID: 652750367}
   - {fileID: 879240440}
   - {fileID: 137089212}
+  - {fileID: 736422601}
+  - {fileID: 242677328}
+  - {fileID: 635721081}
+  - {fileID: 1338151130}
