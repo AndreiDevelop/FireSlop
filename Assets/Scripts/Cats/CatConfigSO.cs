@@ -21,6 +21,10 @@ namespace FireSlop.Cats
         [SerializeField, Min(0.1f)] private float _roamPauseSeconds;
         [SerializeField, Min(0.1f)] private float _roamClearance;
         [SerializeField] private LayerMask _roamFireMask;
+        [SerializeField, Min(0.1f), Tooltip("Calm rescue window after water or removal. Pauses while carried.")]
+        private float _attackCooldownSeconds;
+        [SerializeField, Min(0.01f)] private float _roamObstacleRadius;
+        [SerializeField] private LayerMask _roamObstacleMask;
 
         public float NoticeRange => _noticeRange;
         public float WarningSeconds => _warningSeconds;
@@ -38,9 +42,13 @@ namespace FireSlop.Cats
         public float RoamPauseSeconds => _roamPauseSeconds;
         public float RoamClearance => _roamClearance;
         public LayerMask RoamFireMask => _roamFireMask;
+        public float AttackCooldownSeconds => _attackCooldownSeconds;
+        public float RoamObstacleRadius => _roamObstacleRadius;
+        public LayerMask RoamObstacleMask => _roamObstacleMask;
         public bool IsValid => _noticeRange > 0f && _warningSeconds > _waterSeconds && _waterSeconds > 0f &&
             _jumpSeconds > 0f && _arcHeight >= 0f && _mass > 0f && _faceOffset.z > 0f && _obstructionMask.value != 0 &&
             _roamSpeed > 0f && _roamAcceleration > 0f && _roamTurnSpeed > 0f && _roamArrivalDistance > 0f &&
-            _roamPauseSeconds > 0f && _roamClearance > 0f && _roamFireMask.value != 0;
+            _roamPauseSeconds > 0f && _roamClearance > 0f && _roamFireMask.value != 0 &&
+            _attackCooldownSeconds > 0f && _roamObstacleRadius > 0f && _roamObstacleMask.value != 0;
     }
 }

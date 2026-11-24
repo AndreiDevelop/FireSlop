@@ -495,6 +495,8 @@ GameObject:
   - component: {fileID: 6970928662290042450}
   - component: {fileID: 6769129207423749606}
   - component: {fileID: 7383370601077116724}
+  - component: {fileID: 5465293933759260032}
+  - component: {fileID: 5219478343799502458}
   m_Layer: 10
   m_Name: Cabinet
   m_TagString: Untagged
@@ -631,6 +633,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4985a1ef5f39e46e2b2bec69f27e704f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.CabinetContextTarget
+--- !u!208 &5465293933759260032
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867244896387689628}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.100002, y: 1.0465019, z: 0.5937511}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.00000023841858, y: 1.0435004, z: 0.05374974}
+  m_TimeToStationary: 0.3
+--- !u!114 &5219478343799502458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867244896387689628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b45041f4b349a79c37ce57773ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.FurnitureNavigationView
+  _config: {fileID: 11400000, guid: 544695ae233ef428e8788573a6064575, type: 2}
 --- !u!1 &7118837663931637457
 GameObject:
   m_ObjectHideFlags: 0

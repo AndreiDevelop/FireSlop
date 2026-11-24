@@ -2,6 +2,7 @@ using System;
 using FireSlop.Firefighter;
 using FireSlop.Interaction;
 using FireSlop.MissionHud;
+using FireSlop.Wardrobe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -17,11 +18,13 @@ namespace FireSlop.Mission
         private readonly InteractionModel _interaction;
         private readonly ToolSelectionModel _tools;
         private readonly RescueController _rescue;
+        private readonly WardrobeProfile _profile;
         private bool _restarting;
 
         public MissionController(MissionModel mission, MissionInputModel input, InteractionModel interaction,
-            ToolSelectionModel tools, RescueController rescue)
+            ToolSelectionModel tools, RescueController rescue, WardrobeProfile profile)
         {
+            _profile = profile;
             _mission = mission;
             _input = input;
             _interaction = interaction;
@@ -52,6 +55,7 @@ namespace FireSlop.Mission
 
         private void Finish()
         {
+            _profile.CreditRescue();
             _input.SetEnabled(false);
             _interaction.SetActionsEnabled(false);
             _tools.SetEnabled(false);
@@ -61,13 +65,23 @@ namespace FireSlop.Mission
 
         public void Restart()
         {
+            LeaveResult("Main");
+        }
+
+        public void ReturnToMenu()
+        {
+            LeaveResult("Intro");
+        }
+
+        private void LeaveResult(string scene)
+        {
             if (!_mission.IsWon || _restarting)
             {
                 return;
             }
 
             _restarting = true;
-            SceneManager.LoadSceneAsync("Main", LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
         }
 
         public void Dispose()

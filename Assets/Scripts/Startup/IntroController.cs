@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace FireSlop.Startup
 {
@@ -11,9 +12,23 @@ namespace FireSlop.Startup
 
         [SerializeField] private LoadingProgressView _loadingProgress;
 
+        [SerializeField] private GameObject _menu;
+        [SerializeField] private Button _play;
+
         private AsyncOperation _loading;
 
-        private IEnumerator Start()
+        private void OnEnable()
+        {
+            _play.onClick.AddListener(Play);
+        }
+
+        private void Play()
+        {
+            _menu.SetActive(false);
+            StartCoroutine(LoadMission());
+        }
+
+        private IEnumerator LoadMission()
         {
             if (_loadingProgress == null || !_loadingProgress.IsConfigured)
             {
@@ -39,6 +54,7 @@ namespace FireSlop.Startup
 
         private void OnDisable()
         {
+            _play.onClick.RemoveListener(Play);
             StopAllCoroutines();
             AllowSceneActivation();
         }

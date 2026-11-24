@@ -77,3 +77,7 @@ See [model production](ModelProduction/README.md) for editable Blender sources, 
 ### Modular firefighter outfits
 
 Draft front-view T-pose references for Blender modeling. [Default firefighter](Characters/Firefighter/Outfits/default-front.png) · [On-call chef](Characters/Firefighter/Outfits/chef-front.png) · [Shallow Water captain](Characters/Firefighter/Outfits/captain-front.png) · [Gardener](Characters/Firefighter/Outfits/gardener-front.png) · [Roused by alarm](Characters/Firefighter/Outfits/sleepy-front.png) · [Chief of pressure](Characters/Firefighter/Outfits/chief-front.png) · [Off-duty firefighter](Characters/Firefighter/Outfits/off-duty-front.png).
+
+[Rendered wardrobe models](Characters/Firefighter/Outfits/wardrobe-models.jpg) · [Blender master and modular authoring workflow](ModelProduction/README.md#modular-firefighter-wardrobe).
+
+[Character editor preview](Characters/Firefighter/Outfits/wardrobe-editor-preview.png) shows the modular wardrobe during fitting, with category icons and the gold button treatment from Ducks Strike.

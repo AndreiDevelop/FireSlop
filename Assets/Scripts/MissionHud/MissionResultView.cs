@@ -60,6 +60,11 @@ namespace FireSlop.MissionHud
             _time.text = $"{(int)duration.TotalMinutes:00}:{duration.Seconds:00}.{duration.Milliseconds / 10:00}";
         }
 
+        public void ReturnToMenu()
+        {
+            _controller.ReturnToMenu();
+        }
+
         private void Restart()
         {
             _controller.Restart();

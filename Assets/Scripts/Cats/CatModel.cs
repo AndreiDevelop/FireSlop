@@ -95,6 +95,18 @@ namespace FireSlop.Cats
             return true;
         }
 
+        public bool TryEndCooldown(float cooldownSeconds, bool isCarried)
+        {
+            if (State != CatState.Settled || isCarried || StateSeconds < cooldownSeconds)
+            {
+                return false;
+            }
+
+            WaterSeconds = 0f;
+            ChangeState(CatState.Idle);
+            return true;
+        }
+
         private void ChangeState(CatState state)
         {
             State = state;

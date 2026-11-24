@@ -75,9 +75,22 @@ namespace FireSlop.Cats
 
         private void Update()
         {
-            if (_model == null || !_input.IsEnabled || _model.State == CatState.Settled ||
-                _model.State == CatState.Rescued)
+            if (_model == null || !_input.IsEnabled || _model.State == CatState.Rescued)
             {
+                return;
+            }
+
+            if (_model.State == CatState.Settled)
+            {
+                if (!_carryable.IsCarried)
+                {
+                    _model.Advance(Time.deltaTime);
+                }
+
+                if (_model.TryEndCooldown(_config.AttackCooldownSeconds, _carryable.IsCarried))
+                {
+                    _carryable.PrepareForEncounter();
+                }
                 return;
             }
 
@@ -93,6 +106,7 @@ namespace FireSlop.Cats
                 if (_model.State == CatState.Warning && _model.StateSeconds >= _config.WarningSeconds &&
                     _face.TryReserve(ContentId))
                 {
+                    _carryable.PrepareForEncounter();
                     _model.TryJump(_config.WarningSeconds);
                 }
             }

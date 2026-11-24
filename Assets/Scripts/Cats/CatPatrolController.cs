@@ -1,5 +1,6 @@
 using FireSlop.Firefighter;
 using FireSlop.Interaction;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -10,6 +11,7 @@ namespace FireSlop.Cats
     public sealed class CatPatrolController : MonoBehaviour
     {
         private const int QueryCapacity = 32;
+        private static readonly ProfilerMarker PatrolMarker = new ProfilerMarker("Cat.Patrol");
 
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private CatPatrolArea _area;
@@ -22,6 +24,7 @@ namespace FireSlop.Cats
         private CatConfigSO _config;
         private MissionInputModel _input;
         private bool _started;
+        private CatCarryable _carryable;
 
         [Inject]
         public void Construct(CatModel cat, CatPatrolModel patrol, CatConfigSO config, MissionInputModel input)
@@ -34,7 +37,8 @@ namespace FireSlop.Cats
 
         private void Start()
         {
-            if (_agent == null || _area == null || !_area.IsValid || !_area.Contains(transform.position))
+            _carryable = GetComponent<CatCarryable>();
+            if (_carryable == null || _agent == null || _area == null || !_area.IsValid || !_area.Contains(transform.position))
             {
                 Debug.LogError("Cat patrol requires a baked apartment area and an authored spawn inside it.", this);
                 enabled = false;
@@ -60,19 +64,36 @@ namespace FireSlop.Cats
 
         private void UpdateAgentState()
         {
-            var canNavigate = _cat.State == CatState.Idle || _cat.State == CatState.Warning;
+            var wantsNavigation = _cat.State == CatState.Idle || _cat.State == CatState.Warning;
             _agent.updateRotation = _cat.State == CatState.Idle;
-            if (_agent.enabled != canNavigate)
+            if (!wantsNavigation)
             {
-                _agent.enabled = canNavigate;
+                _agent.enabled = false;
+                return;
             }
 
-            if (_agent.enabled && !_agent.isOnNavMesh)
+            if (_agent.enabled)
             {
-                Debug.LogError("Cat spawn must be on its apartment's baked Cat NavMesh; rebake after moving floors.", this);
-                _agent.enabled = false;
-                enabled = false;
+                if (!_agent.isOnNavMesh)
+                {
+                    _agent.enabled = false;
+                }
+                return;
             }
+
+            var filter = new NavMeshQueryFilter
+            {
+                agentTypeID = _agent.agentTypeID,
+                areaMask = _agent.areaMask
+            };
+            if (!_area.Contains(transform.position) ||
+                !NavMesh.SamplePosition(transform.position, out _, _config.RoamObstacleRadius, filter))
+            {
+                return;
+            }
+
+            _carryable.PrepareForEncounter();
+            _agent.enabled = true;
         }
 
         private void Update()
@@ -82,9 +103,18 @@ namespace FireSlop.Cats
                 return;
             }
 
+            using (PatrolMarker.Auto())
+            {
+                TickPatrol();
+            }
+        }
+
+        private void TickPatrol()
+        {
             UpdateAgentState();
             if (!_agent.enabled || !_agent.isOnNavMesh)
             {
+                _patrol.SetFireSafety(!IsSegmentSafe(transform.position, transform.position), _config.RoamPauseSeconds);
                 return;
             }
 
@@ -118,11 +148,13 @@ namespace FireSlop.Cats
             {
                 var direction = (_agent.steeringTarget - transform.position).normalized;
                 var ahead = transform.position + direction * _config.RoamClearance;
-                if (!IsSegmentSafe(transform.position, ahead))
+                var fireSafe = IsSegmentSafe(transform.position, ahead);
+                if (!fireSafe || !IsMovementClear(transform.position, ahead))
                 {
                     _agent.ResetPath();
                     _patrol.NextPoint(_area.PointCount);
-                    _patrol.SetFireSafety(true, 0f);
+                    _patrol.SetFireSafety(!fireSafe, 0f);
+                    _patrol.Wait(_config.RoamPauseSeconds);
                     StopAgent();
                 }
 
@@ -146,7 +178,7 @@ namespace FireSlop.Cats
                 _patrol.NextPoint(_area.PointCount);
                 var destination = _area.GetPoint(_patrol.PointIndex);
                 if (!_area.Contains(destination) || !_agent.CalculatePath(destination, _path) ||
-                    _path.status != NavMeshPathStatus.PathComplete || !IsPathSafe())
+                    _path.status != NavMeshPathStatus.PathComplete || !IsPathSafe() || !IsPathClear())
                 {
                     continue;
                 }
@@ -168,6 +200,7 @@ namespace FireSlop.Cats
                 return;
             }
 
+            var blockedByFire = false;
             for (var index = 0; index < _area.PointCount; index++)
             {
                 var destination = _area.GetPoint(index);
@@ -176,15 +209,20 @@ namespace FireSlop.Cats
                     continue;
                 }
 
-                if (_agent.CalculatePath(destination, _path) && _path.status == NavMeshPathStatus.PathComplete &&
-                    IsPathSafe())
+                if (!_agent.CalculatePath(destination, _path) || _path.status != NavMeshPathStatus.PathComplete)
+                {
+                    continue;
+                }
+
+                if (IsPathSafe())
                 {
                     _patrol.SetFireSafety(false, _config.RoamPauseSeconds);
                     return;
                 }
+                blockedByFire = true;
             }
 
-            _patrol.SetFireSafety(true, _config.RoamPauseSeconds);
+            _patrol.SetFireSafety(blockedByFire, _config.RoamPauseSeconds);
         }
 
         private bool IsPathSafe()
@@ -204,6 +242,34 @@ namespace FireSlop.Cats
             }
 
             return true;
+        }
+
+        private bool IsPathClear()
+        {
+            var count = _path.GetCornersNonAlloc(_corners);
+            for (var index = 1; index < count; index++)
+            {
+                if (!IsMovementClear(_corners[index - 1], _corners[index]))
+                {
+                    return false;
+                }
+            }
+            return count >= 2;
+        }
+
+        private bool IsMovementClear(Vector3 start, Vector3 end)
+        {
+            var travel = end - start;
+            if (travel.sqrMagnitude <= 0f)
+            {
+                return true;
+            }
+
+            var radius = _config.RoamObstacleRadius;
+            var bottom = start + Vector3.up * radius;
+            var top = start + Vector3.up * (_agent.height - radius);
+            return !Physics.CapsuleCast(bottom, top, radius, travel.normalized, travel.magnitude,
+                _config.RoamObstacleMask, QueryTriggerInteraction.Ignore);
         }
 
         private bool IsSegmentSafe(Vector3 start, Vector3 end)

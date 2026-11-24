@@ -51,6 +51,16 @@ namespace FireSlop.Cats
             }
         }
 
+        internal void PrepareForEncounter()
+        {
+            if (!Body.isKinematic)
+            {
+                Body.linearVelocity = Vector3.zero;
+                Body.angularVelocity = Vector3.zero;
+                Body.isKinematic = true;
+            }
+        }
+
         public bool TryRescue(Vector3 deliveryPosition)
         {
             if (_model == null || !_model.TryRescue())

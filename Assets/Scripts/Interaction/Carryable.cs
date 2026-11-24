@@ -21,6 +21,7 @@ namespace FireSlop.Interaction
         public string ContentId => _contentId;
         public Collider PickupCollider => _pickupCollider;
         public bool IsFree => !_body.isKinematic;
+        public bool IsCarried => _isCarried;
         protected Rigidbody Body => _body;
 
         internal virtual bool CanPickUp => isActiveAndEnabled && _body != null && _pickupCollider != null && _pickupCollider.enabled &&

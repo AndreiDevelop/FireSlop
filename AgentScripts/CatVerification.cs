@@ -32,7 +32,7 @@ namespace FireSlop.Verification
                 "Sufficient water must calm the cat.");
             first.SetThreatened(true);
             Require(first.State == CatState.Settled && !first.TryJump(settings.WarningSeconds),
-                "A calmed cat must not attack again.");
+                "A calmed cat must not attack during its cooldown.");
             Require(!first.ApplyWater(1f, settings.WaterSeconds), "Calming must complete only once.");
             second.SetThreatened(true);
             second.Advance(settings.WarningSeconds);
@@ -62,7 +62,7 @@ namespace FireSlop.Verification
                 "Repeated removal must release exactly once.");
             second.FinishReturn();
             second.SetThreatened(true);
-            Require(second.State == CatState.Settled, "A removed cat must not attack again.");
+            Require(second.State == CatState.Settled, "A removed cat must not attack during its cooldown.");
             Require(second.TryRescue(), "A settled cat must be rescuable.");
             Require(!second.TryRescue() && second.State == CatState.Rescued,
                 "Repeated delivery must not rescue a cat twice.");
@@ -96,6 +96,33 @@ namespace FireSlop.Verification
             return "PASS: warning timing/cancellation, water threshold/idempotence, independent cats, " +
                 "exclusive attachment, removal/retry, rescue/retry, no repeat attack, drone priority, " +
                 "action gating and HUD catalog.";
+        }
+
+        public static string RunCooldownChecks()
+        {
+            var config = AssetDatabase.LoadAssetAtPath<CatConfigSO>("Assets/SO/Cats/Cat.asset");
+            var cat = new CatModel();
+            cat.ApplyWater(config.WaterSeconds, config.WaterSeconds);
+            cat.Advance(config.AttackCooldownSeconds * 0.5f);
+            Require(!cat.TryEndCooldown(config.AttackCooldownSeconds, false), "Cooldown must not end early.");
+            cat.Advance(config.AttackCooldownSeconds);
+            Require(!cat.TryEndCooldown(config.AttackCooldownSeconds, true), "A carried cat cannot rearm.");
+            Require(cat.TryEndCooldown(config.AttackCooldownSeconds, false), "A free cat must rearm after cooldown.");
+            Require(cat.WaterSeconds == 0f, "A new encounter must require fresh calming water.");
+            cat.SetThreatened(true);
+            Require(!cat.TryJump(config.WarningSeconds), "A repeat attack still needs the full warning.");
+            cat.Advance(config.WarningSeconds);
+            Require(cat.TryJump(config.WarningSeconds), "A rearmed cat must be able to attack again.");
+            cat.FinishJump();
+            cat.Remove();
+            cat.FinishReturn();
+            cat.Advance(config.AttackCooldownSeconds);
+            Require(cat.TryEndCooldown(config.AttackCooldownSeconds, false), "Removal must also expire.");
+            cat.ApplyWater(config.WaterSeconds, config.WaterSeconds);
+            Require(cat.TryRescue(), "A cooling-down cat must remain rescuable.");
+            cat.Advance(config.AttackCooldownSeconds);
+            Require(!cat.TryEndCooldown(config.AttackCooldownSeconds, false), "A rescued cat must never rearm.");
+            return "PASS: cooldown threshold, carried protection, fresh water, repeated warning/attack, removal and rescue.";
         }
 
         private static void Require(bool condition, string message)

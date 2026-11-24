@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b301f67583c244532aa7e7ffa1a92720, type: 3}
+  m_Name: FirefighterWardrobe
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Wardrobe.WardrobeCatalogSO
+  _categories:
+  - _name: Headwear
+    _icon: {fileID: 21300000, guid: 6515d2ffc2fa946d5a3c459a15895ec8, type: 3}
+    _items:
+    - _id: Headwear_Default
+      _mesh: Headwear_Default
+      _icon: {fileID: 21300000, guid: 6515d2ffc2fa946d5a3c459a15895ec8, type: 3}
+      _price: 0
+      _initiallyOwned: 1
+    - _id: Headwear_Chef
+      _mesh: Headwear_Chef
+      _icon: {fileID: 21300000, guid: 5cfb421a991be4411b6b3ef34f8ee127, type: 3}
+      _price: 120
+      _initiallyOwned: 0
+    - _id: Headwear_Captain
+      _mesh: Headwear_Captain
+      _icon: {fileID: 21300000, guid: 821fbe95aaa1249a4a049f9ffd232608, type: 3}
+      _price: 120
+      _initiallyOwned: 0
+    - _id: Headwear_Gardener
+      _mesh: Headwear_Gardener
+      _icon: {fileID: 21300000, guid: e7d144ee7e17b496694d3303f4b789be, type: 3}
+      _price: 120
+      _initiallyOwned: 0
+    - _id: Headwear_Sleepy
+      _mesh: Headwear_Sleepy
+      _icon: {fileID: 21300000, guid: 9cb752d160a3f4b71935c046069a6f35, type: 3}
+      _price: 120
+      _initiallyOwned: 0
+    - _id: Headwear_Chief
+      _mesh: Headwear_Chief
+      _icon: {fileID: 21300000, guid: 8ff3f2a6abdec48f3a1bedeb1f4d7a6e, type: 3}
+      _price: 120
+      _initiallyOwned: 0
+    - _id: Headwear_None
+      _mesh: 
+      _icon: {fileID: 0}
+      _price: 0
+      _initiallyOwned: 1
+  - _name: Outfit
+    _icon: {fileID: 21300000, guid: a728dd6e56a3048dfb3191719a46d968, type: 3}
+    _items:
+    - _id: Outfit_Default
+      _mesh: Outfit_Default
+      _icon: {fileID: 21300000, guid: a728dd6e56a3048dfb3191719a46d968, type: 3}
+      _price: 0
+      _initiallyOwned: 1
+    - _id: Outfit_Chef
+      _mesh: Outfit_Chef
+      _icon: {fileID: 21300000, guid: a20739dc372414ecfa1855414f03d14e, type: 3}
+      _price: 180
+      _initiallyOwned: 0
+    - _id: Outfit_Captain
+      _mesh: Outfit_Captain
+      _icon: {fileID: 21300000, guid: eeb6f85158ed94f54a0dc51bafa434f7, type: 3}
+      _price: 180
+      _initiallyOwned: 0
+    - _id: Outfit_Gardener
+      _mesh: Outfit_Gardener
+      _icon: {fileID: 21300000, guid: d6cf3ae597819408cbf48287b1cf2c49, type: 3}
+      _price: 180
+      _initiallyOwned: 0
+    - _id: Outfit_Sleepy
+      _mesh: Outfit_Sleepy
+      _icon: {fileID: 21300000, guid: cfce3683397dd422b9e525f38fe08fde, type: 3}
+      _price: 180
+      _initiallyOwned: 0
+    - _id: Outfit_Chief
+      _mesh: Outfit_Chief
+      _icon: {fileID: 21300000, guid: 93ada93e59079408c98ab35c345bc41f, type: 3}
+      _price: 180
+      _initiallyOwned: 0
+    - _id: Outfit_OffDuty
+      _mesh: Outfit_OffDuty
+      _icon: {fileID: 21300000, guid: 9bd9629c1ed5a43a4831415bd0598cb9, type: 3}
+      _price: 180
+      _initiallyOwned: 0
+  - _name: Hands
+    _icon: {fileID: 21300000, guid: 720564e9ce50e44c2803309cd97be06f, type: 3}
+    _items:
+    - _id: Hands_Default
+      _mesh: Hands_Default
+      _icon: {fileID: 21300000, guid: 720564e9ce50e44c2803309cd97be06f, type: 3}
+      _price: 0
+      _initiallyOwned: 1
+    - _id: Hands_Chef
+      _mesh: Hands_Chef
+      _icon: {fileID: 21300000, guid: 7db7558a0e817451980e661c0d881e21, type: 3}
+      _price: 60
+      _initiallyOwned: 0
+    - _id: Hands_Captain
+      _mesh: Hands_Captain
+      _icon: {fileID: 21300000, guid: 5afa73d53d05f4553a72fa23aa497c0b, type: 3}
+      _price: 60
+      _initiallyOwned: 0
+    - _id: Hands_Gardener
+      _mesh: Hands_Gardener
+      _icon: {fileID: 21300000, guid: 15f23b2a0b9794036983a4810238c3c5, type: 3}
+      _price: 60
+      _initiallyOwned: 0
+    - _id: Hands_Sleepy
+      _mesh: Hands_Sleepy
+      _icon: {fileID: 21300000, guid: 889a9dc3b0857412e819382965ea798e, type: 3}
+      _price: 60
+      _initiallyOwned: 0
+    - _id: Hands_Chief
+      _mesh: Hands_Chief
+      _icon: {fileID: 21300000, guid: c37fc26fe2c5842b4ae49d9b4d879d9b, type: 3}
+      _price: 60
+      _initiallyOwned: 0
+    - _id: Hands_OffDuty
+      _mesh: Hands_OffDuty
+      _icon: {fileID: 21300000, guid: 82271edc70e694520bedc0bbf1e84b7a, type: 3}
+      _price: 60
+      _initiallyOwned: 0
+  - _name: Feet
+    _icon: {fileID: 21300000, guid: 60aae4edf0e04448c89fe0ff8987877f, type: 3}
+    _items:
+    - _id: Feet_Default
+      _mesh: Feet_Default
+      _icon: {fileID: 21300000, guid: 60aae4edf0e04448c89fe0ff8987877f, type: 3}
+      _price: 0
+      _initiallyOwned: 1
+    - _id: Feet_Chef
+      _mesh: Feet_Chef
+      _icon: {fileID: 21300000, guid: c988830c5047446e78e81f2472113067, type: 3}
+      _price: 80
+      _initiallyOwned: 0
+    - _id: Feet_Captain
+      _mesh: Feet_Captain
+      _icon: {fileID: 21300000, guid: 6c779a05cfd09439bb16a24d1dd980f4, type: 3}
+      _price: 80
+      _initiallyOwned: 0
+    - _id: Feet_Gardener
+      _mesh: Feet_Gardener
+      _icon: {fileID: 21300000, guid: 593fe406b427e4ee7807c407ea2c1ba5, type: 3}
+      _price: 80
+      _initiallyOwned: 0
+    - _id: Feet_Sleepy
+      _mesh: Feet_Sleepy
+      _icon: {fileID: 21300000, guid: 7ce94d328a66043d1a9a1b09a7db4d0d, type: 3}
+      _price: 80
+      _initiallyOwned: 0
+    - _id: Feet_Chief
+      _mesh: Feet_Chief
+      _icon: {fileID: 21300000, guid: 9e7f98fb5abe34902974b6e3efcf50f8, type: 3}
+      _price: 80
+      _initiallyOwned: 0
+    - _id: Feet_OffDuty
+      _mesh: Feet_OffDuty
+      _icon: {fileID: 21300000, guid: 7de076096ebd64a18b1ceec9fbfc0d5d, type: 3}
+      _price: 80
+      _initiallyOwned: 0
+  - _name: Eyewear
+    _icon: {fileID: 21300000, guid: 0449429872fae4473a6e7863b4f7a625, type: 3}
+    _items:
+    - _id: Eyewear_None
+      _mesh: 
+      _icon: {fileID: 0}
+      _price: 0
+      _initiallyOwned: 1
+    - _id: Eyewear_Chef
+      _mesh: Eyewear_Chef
+      _icon: {fileID: 21300000, guid: 0449429872fae4473a6e7863b4f7a625, type: 3}
+      _price: 70
+      _initiallyOwned: 0
+    - _id: Eyewear_Captain
+      _mesh: Eyewear_Captain
+      _icon: {fileID: 21300000, guid: 0f568d2390a08439bbe90a65ea7f05ec, type: 3}
+      _price: 70
+      _initiallyOwned: 0
+    - _id: Eyewear_Gardener
+      _mesh: Eyewear_Gardener
+      _icon: {fileID: 21300000, guid: 53425ebcb09a4423382fb46de3b40e6e, type: 3}
+      _price: 70
+      _initiallyOwned: 0
+    - _id: Eyewear_Sleepy
+      _mesh: Eyewear_Sleepy
+      _icon: {fileID: 21300000, guid: f8cd190ec3f0b43c78e14b9b73189405, type: 3}
+      _price: 70
+      _initiallyOwned: 0
+    - _id: Eyewear_Chief
+      _mesh: Eyewear_Chief
+      _icon: {fileID: 21300000, guid: 74a8ed00febd449f6a94ee46d5304b8b, type: 3}
+      _price: 70
+      _initiallyOwned: 0
+  - _name: FacialHair
+    _icon: {fileID: 21300000, guid: f9b1b6814e95d4f46b96953982bc9d39, type: 3}
+    _items:
+    - _id: FacialHair_None
+      _mesh: 
+      _icon: {fileID: 0}
+      _price: 0
+      _initiallyOwned: 1
+    - _id: FacialHair_Chef
+      _mesh: FacialHair_Chef
+      _icon: {fileID: 21300000, guid: f9b1b6814e95d4f46b96953982bc9d39, type: 3}
+      _price: 90
+      _initiallyOwned: 0
+    - _id: FacialHair_Captain
+      _mesh: FacialHair_Captain
+      _icon: {fileID: 21300000, guid: 7addebe7e172a4a4fba21ce2af30b9c9, type: 3}
+      _price: 90
+      _initiallyOwned: 0
+    - _id: FacialHair_Gardener
+      _mesh: FacialHair_Gardener
+      _icon: {fileID: 21300000, guid: 2e1dad5bbc83d431eadfaeccc3791cda, type: 3}
+      _price: 90
+      _initiallyOwned: 0
+    - _id: FacialHair_Sleepy
+      _mesh: FacialHair_Sleepy
+      _icon: {fileID: 21300000, guid: de0a3faad559a4bc099b13f7676037ef, type: 3}
+      _price: 90
+      _initiallyOwned: 0
+    - _id: FacialHair_Chief
+      _mesh: FacialHair_Chief
+      _icon: {fileID: 21300000, guid: f067c496d616f4c7997c637de4359283, type: 3}
+      _price: 90
+      _initiallyOwned: 0
+  _rescueReward: 100

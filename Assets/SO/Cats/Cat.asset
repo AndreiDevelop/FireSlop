@@ -32,3 +32,8 @@ MonoBehaviour:
   _roamFireMask:
     serializedVersion: 2
     m_Bits: 4096
+  _attackCooldownSeconds: 12
+  _roamObstacleRadius: 0.17
+  _roamObstacleMask:
+    serializedVersion: 2
+    m_Bits: 44033

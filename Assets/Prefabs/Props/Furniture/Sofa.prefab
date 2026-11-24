@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 9213859071586674504}
   - component: {fileID: 1317777160366786108}
   - component: {fileID: 1301965667369683611}
+  - component: {fileID: 7779196197712870397}
+  - component: {fileID: 4855915273052545741}
   m_Layer: 10
   m_Name: Sofa
   m_TagString: Untagged
@@ -163,6 +165,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Movable
   _settings: {fileID: 11400000, guid: bcafaa27047024a3a834c9e9b58d4086, type: 2}
   _contentId: 
+--- !u!208 &7779196197712870397
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428717919419349342}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.1500003, y: 0.5600001, z: 0.47}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.56000024, z: 0.019999892}
+  m_TimeToStationary: 0.3
+--- !u!114 &4855915273052545741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428717919419349342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b45041f4b349a79c37ce57773ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.FurnitureNavigationView
+  _config: {fileID: 11400000, guid: 544695ae233ef428e8788573a6064575, type: 2}
 --- !u!1001 &3853081263753553632
 PrefabInstance:
   m_ObjectHideFlags: 0

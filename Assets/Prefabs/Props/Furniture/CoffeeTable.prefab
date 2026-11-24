@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3878571815770401353}
   - component: {fileID: 1224024374219265530}
   - component: {fileID: 472328076377333311}
+  - component: {fileID: 8594163235778937415}
+  - component: {fileID: 3034428398142044200}
   m_Layer: 10
   m_Name: CoffeeTable
   m_TagString: Untagged
@@ -97,6 +99,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.Movable
   _settings: {fileID: 11400000, guid: d7eb4e1f241ff4a368148743b873f3d1, type: 2}
   _contentId: 
+--- !u!208 &8594163235778937415
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434477177409500178}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.575, y: 0.265, z: 0.32}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.265, z: -0.000000059604645}
+  m_TimeToStationary: 0.3
+--- !u!114 &3034428398142044200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434477177409500178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b45041f4b349a79c37ce57773ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.FurnitureNavigationView
+  _config: {fileID: 11400000, guid: 544695ae233ef428e8788573a6064575, type: 2}
 --- !u!1001 &5096386069594629046
 PrefabInstance:
   m_ObjectHideFlags: 0
