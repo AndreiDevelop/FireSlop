@@ -12,40 +12,69 @@ namespace FireSlop.Interaction
         [SerializeField] private Vector3 _standingPosition;
         [SerializeField] private Quaternion _standingRotation = Quaternion.identity;
 
-        private InteractionModel _model;
         private MissionModel _mission;
-        private bool _hasBeenRevealed;
+        private RescueController _carrier;
+        private Openable _cabinet;
+        private Rigidbody _occupiedCabinetBody;
 
-        public bool IsRescued => _mission != null && _mission.IsWon;
+        public bool IsRescued => _mission != null && _mission.IsRescued(ContentId);
         public Vector3 DeliveryPosition => transform.position;
+        internal override bool CanPickUp => !IsRescued && base.CanPickUp &&
+            (IsFree || (_cabinet != null && _cabinet.IsFullyOpen));
+        public bool CanBeKnockedDown => _mission != null && _mission.IsRevealed(ContentId) &&
+            PickupCollider.enabled && !IsRescued;
 
         public bool TryRescue(Vector3 deliveryPosition)
         {
-            return _mission != null && _mission.TryRescue(ContentId);
-        }
+            if (_mission == null || !_mission.TryRescue(ContentId))
+            {
+                return false;
+            }
 
-        public bool CanBeKnockedDown => _hasBeenRevealed && PickupCollider.enabled && !IsRescued;
+            _carrier.Deliver(this, deliveryPosition);
+            Body.isKinematic = true;
+            PickupCollider.enabled = false;
+            return true;
+        }
 
         [Inject]
-        public void Construct(InteractionModel model, MissionModel mission)
+        public void Construct(MissionModel mission, RescueController carrier)
         {
-            _model = model;
             _mission = mission;
-            _mission.Won += Rescue;
+            _carrier = carrier;
             Body.mass = _config.ResidentMass;
             _carryRagdoll.Initialize();
-            _model.CabinetRevealed += Reveal;
         }
 
-        internal void PlaceInCabinet(Transform cabinet)
+        internal void PlaceInCabinet(Openable cabinet)
         {
-            transform.SetPositionAndRotation(cabinet.position, cabinet.rotation);
-            Body.position = cabinet.position;
-            Body.rotation = cabinet.rotation;
+            if (_cabinet != null)
+            {
+                _cabinet.Toggled -= OnCabinetToggled;
+            }
+
+            _cabinet = cabinet;
+            _cabinet.Toggled += OnCabinetToggled;
+            transform.SetPositionAndRotation(cabinet.transform.position, cabinet.transform.rotation);
+            Body.position = transform.position;
+            Body.rotation = transform.rotation;
+            if (cabinet.TryGetComponent<Rigidbody>(out var body) && !body.isKinematic)
+            {
+                body.isKinematic = true;
+                _occupiedCabinetBody = body;
+            }
+
+            OnCabinetToggled();
         }
 
         protected override void OnAttached(Transform shoulder)
         {
+            if (_occupiedCabinetBody != null)
+            {
+                _occupiedCabinetBody.isKinematic = false;
+                _occupiedCabinetBody = null;
+            }
+
             _carryRagdoll.HangFrom(shoulder);
             _visual.gameObject.SetActive(false);
         }
@@ -56,32 +85,27 @@ namespace FireSlop.Interaction
             _visual.gameObject.SetActive(true);
         }
 
-        private void Rescue()
+        private void OnCabinetToggled()
         {
-            Body.isKinematic = true;
-        }
+            if (!_cabinet.IsOpen || _mission.IsRevealed(ContentId))
+            {
+                return;
+            }
 
-        private void Reveal()
-        {
-            _hasBeenRevealed = true;
+            _mission.RevealResident(ContentId);
             _visual.SetLocalPositionAndRotation(_standingPosition, _standingRotation);
         }
 
         private void OnDestroy()
         {
-            if (_mission != null)
+            if (_cabinet != null)
             {
-                _mission.Won -= Rescue;
+                _cabinet.Toggled -= OnCabinetToggled;
             }
 
             if (_carryRagdoll != null && _carryRagdoll.transform.parent == null)
             {
                 Destroy(_carryRagdoll.gameObject);
-            }
-
-            if (_model != null)
-            {
-                _model.CabinetRevealed -= Reveal;
             }
         }
     }

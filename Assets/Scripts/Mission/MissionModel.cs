@@ -1,24 +1,63 @@
 using System;
+using System.Collections.Generic;
 
 namespace FireSlop.Mission
 {
     public sealed class MissionModel
     {
-        public MissionModel(string residentId)
+        private readonly HashSet<string> _residents = new HashSet<string>();
+        private readonly HashSet<string> _revealed = new HashSet<string>();
+        private readonly HashSet<string> _rescued = new HashSet<string>();
+
+        public MissionModel(params string[] residentIds)
         {
-            if (string.IsNullOrWhiteSpace(residentId))
+            if (residentIds == null || residentIds.Length == 0)
             {
-                throw new ArgumentException("Mission requires an authored resident ID.", nameof(residentId));
+                throw new ArgumentException("Mission requires authored resident IDs.", nameof(residentIds));
             }
 
-            ResidentId = residentId;
+            foreach (var id in residentIds)
+            {
+                if (string.IsNullOrWhiteSpace(id) || !_residents.Add(id))
+                {
+                    throw new ArgumentException("Resident IDs must be nonempty and unique.", nameof(residentIds));
+                }
+            }
+
+            ResidentIds = Array.AsReadOnly((string[])residentIds.Clone());
         }
 
-        public string ResidentId { get; }
+        public IReadOnlyList<string> ResidentIds { get; }
+        public int RequiredRescues => _residents.Count;
+        public int RescuedCount => _rescued.Count;
         public bool IsActive { get; private set; }
         public bool IsWon { get; private set; }
         public double ElapsedSeconds { get; private set; }
+        public event Action Changed;
         public event Action Won;
+
+        public bool IsResident(string id)
+        {
+            return id != null && _residents.Contains(id);
+        }
+
+        public bool IsRescued(string id)
+        {
+            return id != null && _rescued.Contains(id);
+        }
+
+        public bool IsRevealed(string id)
+        {
+            return id != null && _revealed.Contains(id);
+        }
+
+        public void RevealResident(string id)
+        {
+            if (IsResident(id) && _revealed.Add(id))
+            {
+                Changed?.Invoke();
+            }
+        }
 
         public void Begin()
         {
@@ -38,14 +77,19 @@ namespace FireSlop.Mission
 
         public bool TryRescue(string residentId)
         {
-            if (!IsActive || residentId != ResidentId)
+            if (!IsActive || !IsResident(residentId) || !_rescued.Add(residentId))
             {
                 return false;
             }
 
-            IsActive = false;
-            IsWon = true;
-            Won?.Invoke();
+            IsWon = RescuedCount == RequiredRescues;
+            IsActive = !IsWon;
+            Changed?.Invoke();
+            if (IsWon)
+            {
+                Won?.Invoke();
+            }
+
             return true;
         }
     }

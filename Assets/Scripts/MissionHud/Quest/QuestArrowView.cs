@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using FireSlop.Interaction;
 using FireSlop.Mission;
-using UnityEngine;
-using UnityEngine.UI;
-using Zenject;
 using TMPro;
+using UnityEngine;
+using Zenject;
 
 namespace FireSlop.MissionHud
 {
@@ -23,18 +23,18 @@ namespace FireSlop.MissionHud
         private Camera _camera;
         private QuestTargetModel _quest;
         private Transform _entrance;
-        private Transform _resident;
+        private List<ResidentView> _residents;
         private Transform _rescueZone;
         private Transform _target;
 
         [Inject]
         public void Construct(Camera camera, QuestTargetModel quest, [Inject(Id = EntranceId)] Transform entrance,
-            [InjectOptional] ResidentView resident, [InjectOptional] RescueZoneView rescueZone)
+            List<ResidentView> residents, [InjectOptional] RescueZoneView rescueZone)
         {
             _camera = camera;
             _quest = quest;
             _entrance = entrance;
-            _resident = resident != null ? resident.transform : null;
+            _residents = residents;
             _rescueZone = rescueZone != null ? rescueZone.transform : null;
 
             if (isActiveAndEnabled)
@@ -80,11 +80,11 @@ namespace FireSlop.MissionHud
                     break;
                 case QuestStep.FindResident:
                     _objective.text = _findText;
-                    _target = _resident;
+                    _target = FindResident();
                     break;
                 case QuestStep.PickUpResident:
                     _objective.text = _pickupText;
-                    _target = _resident;
+                    _target = FindResident();
                     break;
                 case QuestStep.DeliverResident:
                     _objective.text = _deliveryText;
@@ -94,6 +94,24 @@ namespace FireSlop.MissionHud
                     _target = null;
                     break;
             }
+
+            if (_quest.RescueProgress != null)
+            {
+                _objective.text = $"{_quest.RescueProgress}  {_objective.text}";
+            }
+        }
+
+        private Transform FindResident()
+        {
+            foreach (var resident in _residents)
+            {
+                if (resident.ContentId == _quest.TargetResidentId)
+                {
+                    return resident.transform;
+                }
+            }
+
+            return null;
         }
 
         private void LateUpdate()

@@ -1,7 +1,10 @@
 using System.Collections;
+using FireSlop.Dispatch;
+using FireSlop.Wardrobe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace FireSlop.Startup
 {
@@ -16,6 +19,16 @@ namespace FireSlop.Startup
         [SerializeField] private Button _play;
 
         private AsyncOperation _loading;
+        private DispatchModel _dispatch;
+        private WardrobeModel _wardrobe;
+        private bool _starting;
+
+        [Inject]
+        public void Construct(DispatchModel dispatch, WardrobeModel wardrobe)
+        {
+            _dispatch = dispatch;
+            _wardrobe = wardrobe;
+        }
 
         private void OnEnable()
         {
@@ -24,6 +37,13 @@ namespace FireSlop.Startup
 
         private void Play()
         {
+            if (_starting || _dispatch == null || _dispatch.Panel != DispatchPanel.None || _wardrobe.IsOpen)
+            {
+                return;
+            }
+
+            _starting = true;
+            _play.interactable = false;
             _menu.SetActive(false);
             StartCoroutine(LoadMission());
         }

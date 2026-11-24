@@ -31,11 +31,9 @@ namespace FireSlop.Interaction
             _input.Cancelled += InterruptPrimary;
         }
 
-        public bool HasRevealedResident { get; private set; }
         public string CarriedContentId { get; private set; }
         public bool IsCarrying => CarriedContentId != null;
         public event Action ThrowRequested;
-        public event Action CabinetRevealed;
         public event Action CarryingChanged;
 
         public bool HoseActive { get; private set; }
@@ -192,17 +190,6 @@ namespace FireSlop.Interaction
             {
                 ContextRequested?.Invoke();
             }
-        }
-
-        public void RevealResident()
-        {
-            if (HasRevealedResident)
-            {
-                return;
-            }
-
-            HasRevealedResident = true;
-            CabinetRevealed?.Invoke();
         }
 
         internal void StartCarrying(string contentId)

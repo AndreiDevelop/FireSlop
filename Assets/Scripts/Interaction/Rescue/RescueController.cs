@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -7,20 +8,15 @@ namespace FireSlop.Interaction
 {
     public sealed class RescueController : MonoBehaviour
     {
-        [SerializeField] private string _cabinetContentId;
-        [SerializeField] private ResidentView _resident;
-        [SerializeField] private SwingOpenView _cabinet;
-        [SerializeField] private Openable[] _additionalCabinets = Array.Empty<Openable>();
+        [SerializeField] private ResidentView[] _residents = Array.Empty<ResidentView>();
+        [SerializeField] private Openable[] _cabinets = Array.Empty<Openable>();
         [SerializeField] private Transform _shoulder;
         [SerializeField] private InteractionConfigSO _config;
 
         private Camera _camera;
         private InteractionModel _model;
         private Carryable _carried;
-        private Openable _rescueCabinet;
-        private Rigidbody _occupiedCabinetBody;
 
-        public string CabinetContentId => _cabinetContentId;
         public Carryable Carried => _carried;
 
         public void Deliver(Carryable target, Vector3 position)
@@ -38,73 +34,42 @@ namespace FireSlop.Interaction
         {
             _camera = camera;
             _model = model;
-            _rescueCabinet = _cabinet != null ? _cabinet.GetComponent<Openable>() : null;
-            if (_rescueCabinet == null)
-            {
-                Debug.LogError("The rescue cabinet requires an Openable component.", this);
-            }
-
-            if (_rescueCabinet != null)
-            {
-                _rescueCabinet.Toggled += OnCabinetToggled;
-            }
-
             _model.ThrowRequested += Throw;
         }
 
-        private void OnCabinetToggled()
+        public void PlaceResidents()
         {
-            if (_rescueCabinet.IsOpen)
+            if (_residents.Length == 0 || _cabinets.Length < _residents.Length)
             {
-                _model.RevealResident();
-            }
-        }
-
-        public void PlaceResident(bool useOriginalCabinet)
-        {
-            if (_rescueCabinet == null)
-            {
-                throw new InvalidOperationException("Assign the original rescue cabinet before starting the mission.");
+                throw new InvalidOperationException("Assign a distinct hiding cabinet for every resident.");
             }
 
-            // Index zero keeps the original cabinet eligible on every replay.
-            var index = useOriginalCabinet ? 0 : Random.Range(0, _additionalCabinets.Length + 1);
-            if (index > 0)
+            var available = new List<Openable>(_cabinets);
+            var unique = new HashSet<Openable>();
+            foreach (var cabinet in available)
             {
-                var cabinet = _additionalCabinets[index - 1];
-                if (cabinet == null)
+                if (cabinet == null || !unique.Add(cabinet))
                 {
-                    throw new InvalidOperationException($"Assign rescue cabinet {index} in the Rescue Controller.");
+                    throw new InvalidOperationException("Rescue cabinets must be assigned and distinct.");
+                }
+            }
+
+            foreach (var resident in _residents)
+            {
+                if (resident == null)
+                {
+                    throw new InvalidOperationException("Assign all authored rescue residents.");
                 }
 
-                _rescueCabinet.Toggled -= OnCabinetToggled;
-                _rescueCabinet = cabinet;
-                _rescueCabinet.Toggled += OnCabinetToggled;
-                _resident.PlaceInCabinet(cabinet.transform);
-            }
-
-            // An occupied cabinet must stay aligned with the resident's authored pickup body.
-            if (_rescueCabinet.TryGetComponent<Rigidbody>(out var body) && !body.isKinematic)
-            {
-                body.isKinematic = true;
-                _occupiedCabinetBody = body;
+                var index = Random.Range(0, available.Count);
+                resident.PlaceInCabinet(available[index]);
+                available.RemoveAt(index);
             }
         }
 
         internal bool CanPickUp(Carryable target)
         {
-            if (_model.IsCarrying || !target.CanPickUp)
-            {
-                return false;
-            }
-
-            if (target != _resident)
-            {
-                return true;
-            }
-
-            var cabinetOpen = _rescueCabinet != null && _rescueCabinet.IsFullyOpen;
-            return !_resident.IsRescued && (_resident.IsFree || cabinetOpen);
+            return !_model.IsCarrying && target.CanPickUp;
         }
 
         internal void TryPickUp(Carryable target)
@@ -113,12 +78,6 @@ namespace FireSlop.Interaction
             {
                 _carried = target;
                 _carried.Attach(_shoulder);
-                if (target == _resident && _occupiedCabinetBody != null)
-                {
-                    _occupiedCabinetBody.isKinematic = false;
-                    _occupiedCabinetBody = null;
-                }
-
                 _model.StartCarrying(_carried.ContentId);
             }
         }
@@ -160,11 +119,6 @@ namespace FireSlop.Interaction
 
         private void OnDestroy()
         {
-            if (_rescueCabinet != null)
-            {
-                _rescueCabinet.Toggled -= OnCabinetToggled;
-            }
-
             if (_model != null)
             {
                 _model.ThrowRequested -= Throw;

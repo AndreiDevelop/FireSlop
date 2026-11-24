@@ -50,7 +50,7 @@ namespace FireSlop.MissionHud
 
             if (model.TryGetQuantity(_tool.Id, out var quantity))
             {
-                _label.text = $"{_tool.DisplayName} ×{quantity}";
+                _label.text = $"{_tool.DisplayName} ×{CompactNumber.Format(quantity)}";
                 _button.interactable = quantity > 0;
             }
         }

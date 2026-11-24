@@ -285,6 +285,8 @@ These are shared requirements for every project using this baseline.
 
 ## Presentation and runtime cost
 
+- Format all player-facing quantities with the shared `CompactNumber` formatter: `1k`, `1.5k`, `1M` and subsequent suffixes, with at most one fractional digit and an invariant decimal point. Apply it to balances, prices, rewards, scores, ranks and counters; keep exact values for calculations and persistence. Durations retain clock notation and percentages retain their percent sign.
+
 - Player-facing currency and resource prices, rewards, balances and shortage messages use authored TMP sprite glyphs instead of currency-name words or emoji. Put the glyph before the amount and before any related action/status text, for example `<sprite name="Crystal"> 200` and `<sprite name="Crystal"> NEED 171`. Assign the matching sprite asset to every TMP label that renders the glyph. Keep glyph and copy together as one compact group. Text-only states such as `FREE` and `EQUIPPED` need no currency glyph.
 - Update discrete state and UI on events. Continuous work runs only while required. Cache components, cameras and IDs during preparation; avoid global dependency searches and repeated hierarchy scans in gameplay.
 - Pool frequently reused objects when measurements justify it. Define capacity, overflow, ownership and complete reset on reuse. Do not prewarm every level speculatively.

@@ -82,6 +82,12 @@ Draft front-view T-pose references for Blender modeling. [Default firefighter](C
 
 [Character editor preview](Characters/Firefighter/Outfits/wardrobe-editor-preview.png) shows the modular wardrobe during fitting, with category icons and the gold button treatment from Ducks Strike.
 
+The implemented fitting room uses a muted low-poly interior based on the house and furniture. Game View captures show the [eyewear close-up](Characters/Firefighter/Outfits/wardrobe-eyewear-game-view.png) and [full-body outfit framing](Characters/Firefighter/Outfits/wardrobe-outfit-game-view.png). The [wardrobe catalog](../../Assets/SO/Wardrobe/FirefighterWardrobe.asset) owns the focus point, distance and orthographic size for each category and the shared transition duration.
+
 ### Ginger cat production model
 
 The 2026-11-24 Meshy ginger cat replaces the static gameplay visual. Its [editable Blender rig, texture workflow and Unity animation previews](ModelProduction/README.md#ginger-cat-animations) cover walking with a wagging tail, extended attack paws, face grabbing and a dizzy head with orbiting stars. The saved Cat prefab retains the authored gameplay placement and shows the idle pose in Edit Mode.
+
+### Dispatch ranking and daily calendar
+
+The [user-supplied ranking reference](UI/Dispatch/ranking-reference.png) establishes the classic top-three podium, scrolling rows and pinned player row. FireSlop reuses its navy, cream and gold rounded UI and authored helmet icons. [Ranking at 640×360](UI/Dispatch/ranking-640x360.png), [ranking at 800×600](UI/Dispatch/ranking-800x600.png) and [daily calendar](UI/Dispatch/calendar-800x600.png) are isolated Unity prefab renders. [Behavior and scope](../../FireSlop/Documentation/GDD/Design/dispatch-and-progression.md) define the cumulative local score, fictitious opponents and compact numeric labels.

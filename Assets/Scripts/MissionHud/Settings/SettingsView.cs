@@ -77,8 +77,8 @@ namespace FireSlop.MissionHud
         {
             _music.SetValueWithoutNotify(_settings.MusicVolume);
             _effects.SetValueWithoutNotify(_settings.EffectsVolume);
-            _musicPercent.text = $"{Mathf.RoundToInt(_settings.MusicVolume * 100f)}%";
-            _effectsPercent.text = $"{Mathf.RoundToInt(_settings.EffectsVolume * 100f)}%";
+            _musicPercent.text = $"{CompactNumber.Format(Mathf.RoundToInt(_settings.MusicVolume * 100f))}%";
+            _effectsPercent.text = $"{CompactNumber.Format(Mathf.RoundToInt(_settings.EffectsVolume * 100f))}%";
         }
 
         private void UnsubscribeFromLevels()

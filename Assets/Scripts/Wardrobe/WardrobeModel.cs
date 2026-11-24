@@ -20,6 +20,7 @@ namespace FireSlop.Wardrobe
         public WardrobeProfile Profile { get; }
         public IReadOnlyList<WardrobeItem> Visible => _visible;
         public WardrobeCategory Filter { get; private set; }
+        public WardrobeCategory Focus { get; private set; }
         public int Page { get; private set; }
         public bool IsOpen { get; private set; }
         public long Total => Profile.Price(_selection.Values);
@@ -52,6 +53,7 @@ namespace FireSlop.Wardrobe
 
         internal void FilterBy(WardrobeCategory category)
         {
+            Focus = category;
             Filter = category;
             Page = 0;
             _visible.Clear();
@@ -98,6 +100,7 @@ namespace FireSlop.Wardrobe
                 {
                     if (candidate == item)
                     {
+                        Focus = slot;
                         _selection[slot] = item;
                         Changed?.Invoke();
                         return;
@@ -109,10 +112,18 @@ namespace FireSlop.Wardrobe
         internal void Commit()
         {
             bool buying = HasUnowned;
-            if (IsOpen && Profile.TryCommit(_selection.Values))
+            if (!IsOpen || !Profile.TryCommit(_selection.Values))
             {
-                Show(buying);
+                return;
             }
+
+            if (buying)
+            {
+                Changed?.Invoke();
+                return;
+            }
+
+            Show(false);
         }
 
         private bool AllOwned()

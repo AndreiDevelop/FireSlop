@@ -270,9 +270,9 @@ MonoBehaviour:
   _objective: {fileID: 6333495618851224191}
   _entranceText: Reach the entrance
   _prototypeRescueText: Rescue the resident
-  _findText: Find the resident
-  _pickupText: Pick up the resident
-  _deliveryText: Carry them to safety
+  _findText: Find residents
+  _pickupText: Pick up resident
+  _deliveryText: Carry to safety
 --- !u!1 &8187750325624352155
 GameObject:
   m_ObjectHideFlags: 0

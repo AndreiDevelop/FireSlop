@@ -30,7 +30,7 @@ namespace FireSlop.Wardrobe
             _icon.sprite = _item.Icon;
             _icon.enabled = _item.Icon != null;
             _emptyIcon.SetActive(_item.Icon == null);
-            _label.text = Model.Profile.Owns(_item) ? "Owned" : $"<sprite name=\"Coin\"> {_item.Price}";
+            _label.text = Model.Profile.Owns(_item) ? "Owned" : $"<sprite name=\"Coin\"> {CompactNumber.Format(_item.Price)}";
         }
 
         public void Select()

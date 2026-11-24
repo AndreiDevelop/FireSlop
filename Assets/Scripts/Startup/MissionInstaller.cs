@@ -15,7 +15,7 @@ namespace FireSlop.Startup
     public sealed class MissionInstaller : MonoInstaller
     {
         [SerializeField] private DroneController _drone;
-        [SerializeField] private ResidentView _resident;
+        [SerializeField] private ResidentView[] _residents = Array.Empty<ResidentView>();
         [SerializeField] private RescueZoneView _rescueZone;
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _entrance;
@@ -35,11 +35,22 @@ namespace FireSlop.Startup
             Container.Bind<HudActionCatalogSO>().FromInstance(_hudActions);
 
             // Tool-only prototype scenes do not contain a rescue mission.
-            if (_resident != null)
+            if (_residents.Length > 0)
             {
-                Container.Bind<ResidentView>().FromInstance(_resident);
+                var residentIds = new string[_residents.Length];
+                for (var index = 0; index < _residents.Length; index++)
+                {
+                    if (_residents[index] == null)
+                    {
+                        throw new InvalidOperationException("Assign every mission resident in Mission Installer.");
+                    }
+
+                    residentIds[index] = _residents[index].ContentId;
+                    Container.Bind<ResidentView>().FromInstance(_residents[index]);
+                }
+
                 Container.Bind<RescueZoneView>().FromInstance(_rescueZone);
-                Container.Bind<MissionModel>().FromInstance(new MissionModel(_resident.ContentId));
+                Container.Bind<MissionModel>().FromInstance(new MissionModel(residentIds));
                 Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();
             }
 

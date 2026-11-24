@@ -16,9 +16,8 @@ namespace FireSlop.MissionHud
             _mission = mission;
             if (_mission != null)
             {
-                _interaction.CabinetRevealed += NotifyChanged;
+                _mission.Changed += NotifyChanged;
                 _interaction.CarryingChanged += NotifyChanged;
-                _mission.Won += NotifyChanged;
             }
             else
             {
@@ -40,14 +39,48 @@ namespace FireSlop.MissionHud
                     return QuestStep.Complete;
                 }
 
-                if (_interaction.CarriedContentId == _mission.ResidentId)
+                if (_mission.IsResident(_interaction.CarriedContentId))
                 {
                     return QuestStep.DeliverResident;
                 }
 
-                return _interaction.HasRevealedResident ? QuestStep.PickUpResident : QuestStep.FindResident;
+                return _mission.IsRevealed(TargetResidentId) ? QuestStep.PickUpResident : QuestStep.FindResident;
             }
         }
+
+        public string TargetResidentId
+        {
+            get
+            {
+                if (_mission == null)
+                {
+                    return null;
+                }
+
+                string hidden = null;
+                foreach (var id in _mission.ResidentIds)
+                {
+                    if (_mission.IsRescued(id))
+                    {
+                        continue;
+                    }
+
+                    if (_mission.IsRevealed(id))
+                    {
+                        return id;
+                    }
+
+                    if (hidden == null)
+                    {
+                        hidden = id;
+                    }
+                }
+
+                return hidden;
+            }
+        }
+
+        public string RescueProgress => _mission != null ? $"{CompactNumber.Format(_mission.RescuedCount)}/{CompactNumber.Format(_mission.RequiredRescues)}" : null;
 
         public event Action Changed;
 
@@ -64,9 +97,8 @@ namespace FireSlop.MissionHud
                 return;
             }
 
-            _interaction.CabinetRevealed -= NotifyChanged;
+            _mission.Changed -= NotifyChanged;
             _interaction.CarryingChanged -= NotifyChanged;
-            _mission.Won -= NotifyChanged;
         }
     }
 }

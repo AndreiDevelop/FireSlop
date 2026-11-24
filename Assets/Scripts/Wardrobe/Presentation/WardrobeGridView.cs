@@ -18,7 +18,7 @@ namespace FireSlop.Wardrobe
             int pages = Mathf.Max(1, (Model.Visible.Count + Capacity - 1) / Capacity);
             _previous.interactable = Model.Page > 0;
             _next.interactable = Model.Page + 1 < pages;
-            _page.text = $"{Model.Page + 1} / {pages}";
+            _page.text = $"{CompactNumber.Format(Model.Page + 1)} / {CompactNumber.Format(pages)}";
         }
 
         public void Previous()

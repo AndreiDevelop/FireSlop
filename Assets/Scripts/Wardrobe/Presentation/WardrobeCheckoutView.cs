@@ -13,8 +13,8 @@ namespace FireSlop.Wardrobe
 
         protected override void Render()
         {
-            _balance.text = $"{Coin} {Model.Profile.Balance}";
-            _label.text = Model.HasUnowned ? $"{Coin} {Model.Total}  Buy" : "Save";
+            _balance.text = $"{Coin} {CompactNumber.Format(Model.Profile.Balance)}";
+            _label.text = Model.HasUnowned ? $"{Coin} {CompactNumber.Format(Model.Total)}  Buy" : "Save";
             _button.interactable = Model.Total <= Model.Profile.Balance;
         }
 

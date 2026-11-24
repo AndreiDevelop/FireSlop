@@ -188,7 +188,7 @@ namespace FireSlop.Verification
         public static async Task<string> CheckResidentRegression()
         {
             var container = FindContainer();
-            var resident = container.Resolve<ResidentView>();
+            var residents = container.ResolveAll<ResidentView>();
             var interaction = container.Resolve<InteractionModel>();
             var mission = container.Resolve<MissionModel>();
             var player = Object.FindAnyObjectByType<FirefighterController>();
@@ -197,17 +197,21 @@ namespace FireSlop.Verification
             var volume = zone.GetComponent<BoxCollider>();
             player.enabled = false;
             character.enabled = false;
-            interaction.RevealResident();
-            resident.GetComponent<Rigidbody>().isKinematic = false;
-            resident.Interact();
-            Require(interaction.CarriedContentId == resident.ContentId,
-                "The shared carrier must still pick up the resident.");
-            player.transform.position += volume.bounds.center - resident.DeliveryPosition;
-            Physics.SyncTransforms();
-            await WaitSeconds(0.2f);
-            Require(mission.IsWon && !mission.IsActive && resident.IsRescued,
-                "Resident delivery must still finish the mission.");
-            Require(!resident.TryRescue(resident.DeliveryPosition), "Resident rescue must remain idempotent.");
+            foreach (var resident in residents)
+            {
+                mission.RevealResident(resident.ContentId);
+                resident.GetComponent<Rigidbody>().isKinematic = false;
+                resident.Interact();
+                Require(interaction.CarriedContentId == resident.ContentId,
+                    "The shared carrier must still pick up each resident.");
+                player.transform.position += volume.bounds.center - resident.DeliveryPosition;
+                Physics.SyncTransforms();
+                await WaitSeconds(0.2f);
+                Require(resident.IsRescued, "Carried delivery must rescue the selected resident.");
+                Require(!resident.TryRescue(resident.DeliveryPosition), "Resident rescue must remain idempotent.");
+            }
+
+            Require(mission.IsWon && !mission.IsActive, "All resident deliveries must finish the mission.");
             return "PASS: resident pickup, carried Save-zone delivery, victory and duplicate rejection.";
         }
 

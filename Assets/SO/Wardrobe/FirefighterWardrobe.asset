@@ -51,6 +51,10 @@ MonoBehaviour:
       _icon: {fileID: 0}
       _price: 0
       _initiallyOwned: 1
+    _framing:
+      _focus: {x: 0, y: 1.54, z: 0}
+      _size: 0.53
+      _distance: 2.5
   - _name: Outfit
     _icon: {fileID: 21300000, guid: a728dd6e56a3048dfb3191719a46d968, type: 3}
     _items:
@@ -89,6 +93,10 @@ MonoBehaviour:
       _icon: {fileID: 21300000, guid: 9bd9629c1ed5a43a4831415bd0598cb9, type: 3}
       _price: 180
       _initiallyOwned: 0
+    _framing:
+      _focus: {x: 0, y: 0.98, z: 0}
+      _size: 1.17
+      _distance: 3.8
   - _name: Hands
     _icon: {fileID: 21300000, guid: 720564e9ce50e44c2803309cd97be06f, type: 3}
     _items:
@@ -127,6 +135,10 @@ MonoBehaviour:
       _icon: {fileID: 21300000, guid: 82271edc70e694520bedc0bbf1e84b7a, type: 3}
       _price: 60
       _initiallyOwned: 0
+    _framing:
+      _focus: {x: 0, y: 0.65, z: 0}
+      _size: 0.64
+      _distance: 2.75
   - _name: Feet
     _icon: {fileID: 21300000, guid: 60aae4edf0e04448c89fe0ff8987877f, type: 3}
     _items:
@@ -165,6 +177,10 @@ MonoBehaviour:
       _icon: {fileID: 21300000, guid: 7de076096ebd64a18b1ceec9fbfc0d5d, type: 3}
       _price: 80
       _initiallyOwned: 0
+    _framing:
+      _focus: {x: 0, y: 0.19, z: 0}
+      _size: 0.41
+      _distance: 2.45
   - _name: Eyewear
     _icon: {fileID: 21300000, guid: 0449429872fae4473a6e7863b4f7a625, type: 3}
     _items:
@@ -198,6 +214,10 @@ MonoBehaviour:
       _icon: {fileID: 21300000, guid: 74a8ed00febd449f6a94ee46d5304b8b, type: 3}
       _price: 70
       _initiallyOwned: 0
+    _framing:
+      _focus: {x: 0, y: 1.48, z: 0}
+      _size: 0.4
+      _distance: 2.15
   - _name: FacialHair
     _icon: {fileID: 21300000, guid: f9b1b6814e95d4f46b96953982bc9d39, type: 3}
     _items:
@@ -231,4 +251,14 @@ MonoBehaviour:
       _icon: {fileID: 21300000, guid: f067c496d616f4c7997c637de4359283, type: 3}
       _price: 90
       _initiallyOwned: 0
+    _framing:
+      _focus: {x: 0, y: 1.37, z: 0}
+      _size: 0.42
+      _distance: 2.2
+  _leaderboard: {fileID: 11400000, guid: 9f640a2a56c434d12a573e2c78b84f71, type: 2}
   _rescueReward: 100
+  _fullBody:
+    _focus: {x: 0, y: 0.98, z: 0}
+    _size: 1.17
+    _distance: 3.8
+  _cameraDuration: 0.85
