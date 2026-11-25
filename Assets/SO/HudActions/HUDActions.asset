@@ -60,4 +60,4 @@ MonoBehaviour:
     _icon: {fileID: 21300000, guid: 7fa7183fccfaf4342965a92be85c0c23, type: 3}
   - _id: 16
     _label: Tap rapidly
-    _icon: {fileID: 21300000, guid: 1dc58e3764a36456aaf025b30a54bcac, type: 3}
+    _icon: {fileID: 21300000, guid: d8db746287017472f8d6df95ebe7f279, type: 3}

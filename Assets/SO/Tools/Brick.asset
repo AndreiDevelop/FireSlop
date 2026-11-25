@@ -16,6 +16,7 @@ MonoBehaviour:
   _index: 3
   _displayName: Brick
   _icon: {fileID: 21300000, guid: 2377363af41ea41a9a173168ff23a229, type: 3}
+  _lockedIcon: {fileID: 21300000, guid: 9d8f9f742742049659c9c44d184d6720, type: 3}
   _selectionKey: 44
   _action: 3
   _consumable: 1

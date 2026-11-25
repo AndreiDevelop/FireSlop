@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FlightControlsView
   _body: {fileID: 6147250236505921375}
   _inFlight: 0
+  _requiresTools: 0
 --- !u!1 &1956563159068118940
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FlightControlsView
   _body: {fileID: 3346260060743459416}
   _inFlight: 1
+  _requiresTools: 0
 --- !u!1 &3224403704890880881
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.MissionHud.FlightControlsView
   _body: {fileID: 5172829791423185946}
   _inFlight: 0
+  _requiresTools: 1
 --- !u!1001 &627708067941265909
 PrefabInstance:
   m_ObjectHideFlags: 0

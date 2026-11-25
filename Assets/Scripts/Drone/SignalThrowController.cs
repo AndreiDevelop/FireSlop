@@ -40,7 +40,7 @@ namespace FireSlop.Drone
             }
         }
 
-        private bool CanAim => _focused && _input.IsEnabled && !_interaction.IsCarrying && !_interaction.IsPilotingDrone &&
+        private bool CanAim => _focused && _input.IsEnabled && !_tools.IsLocked && !_interaction.IsCarrying && !_interaction.IsPilotingDrone &&
             _drone.WaitingForSignal && _tools.SelectedAction == ToolAction.SignalCanister && _tools.IsAvailable(_tools.SelectedId);
 
         private void OnEnable()

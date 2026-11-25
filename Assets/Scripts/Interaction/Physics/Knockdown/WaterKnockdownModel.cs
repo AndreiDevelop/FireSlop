@@ -2,17 +2,28 @@ namespace FireSlop.Interaction
 {
     internal sealed class WaterKnockdownModel
     {
+        private float _exposure;
         private double _standAt;
         private double _standingAt;
         private double _nextHitAt;
 
         public bool IsDown { get; private set; }
 
-        public bool ApplyWater(double now, float fallSeconds)
+        public bool ApplyWater(double now, float fallSeconds, float exposure, float threshold)
         {
             if (now < _nextHitAt)
             {
                 return false;
+            }
+
+            if (!IsDown)
+            {
+                _exposure += exposure;
+                if (_exposure < threshold)
+                {
+                    return false;
+                }
+                _exposure = 0f;
             }
 
             var startsFall = !IsDown;

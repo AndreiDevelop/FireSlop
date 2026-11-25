@@ -157,7 +157,7 @@ namespace FireSlop.Verification
                 Require(cat.GetComponent<Rigidbody>().isKinematic,
                     "A rearmed cat must not fall through the floor when its colliders become triggers.");
                 var takeoff = cat.transform.position;
-                await WaitSeconds(config.WarningSeconds + config.JumpSeconds + 0.1f);
+                await WaitSeconds(config.WarningSeconds + config.AttackFlightSeconds + 0.1f);
                 Require(model.State == CatState.Attached, "The repeated encounter must actually jump and attach.");
                 Require(Vector3.Distance(takeoff, cat.transform.position) < 0.01f,
                     "A jumping cat must preserve its physical takeoff position.");

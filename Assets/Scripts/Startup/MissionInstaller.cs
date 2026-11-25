@@ -50,6 +50,7 @@ namespace FireSlop.Startup
                     Container.Bind<ResidentView>().FromInstance(_residents[index]);
                 }
 
+                Container.Bind<RescueTentView>().FromInstance(_rescueZone.GetComponent<RescueTentView>());
                 Container.Bind<RescueZoneView>().FromInstance(_rescueZone);
                 Container.Bind<MissionModel>().FromInstance(new MissionModel(residentIds));
                 Container.BindInterfacesAndSelfTo<MissionController>().AsSingle();

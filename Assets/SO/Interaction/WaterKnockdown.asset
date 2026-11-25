@@ -16,7 +16,10 @@ MonoBehaviour:
   _tipSpeed: 3
   _fallSeconds: 3
   _standSeconds: 0.65
-  _graceSeconds: 0.65
+  _waterSeconds: 0.3
+  _cooldownSeconds: 12
   _groundMask:
     serializedVersion: 2
     m_Bits: 1
+  _liftSpeed: 2.3
+  _birdSeconds: 2

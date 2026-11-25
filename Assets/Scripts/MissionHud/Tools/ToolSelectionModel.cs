@@ -14,6 +14,8 @@ namespace FireSlop.MissionHud
         private bool _enabled = true;
 
         public IReadOnlyList<ToolDefinitionSO> Tools { get; }
+        public bool IsLocked { get; private set; }
+        public event Action LockChanged;
         public string SelectedId => _selected.Id;
         public ToolAction SelectedAction => _selected.Action;
         public event Action<string> SelectionChanged;
@@ -36,7 +38,7 @@ namespace FireSlop.MissionHud
 
         public bool TryCollect(ToolDefinitionSO tool)
         {
-            if (!_enabled || !_quantities.TryGetValue(tool.Id, out var quantity) || quantity == int.MaxValue)
+            if (!_enabled || IsLocked || !_quantities.TryGetValue(tool.Id, out var quantity) || quantity == int.MaxValue)
             {
                 return false;
             }
@@ -49,7 +51,7 @@ namespace FireSlop.MissionHud
 
         public bool TryCommitUse(ToolAction action)
         {
-            if (!_enabled || _selected.Action != action)
+            if (!_enabled || IsLocked || _selected.Action != action)
             {
                 return false;
             }
@@ -125,6 +127,15 @@ namespace FireSlop.MissionHud
             _selected = _defaultTool;
         }
 
+        internal void SetLocked(bool locked)
+        {
+            if (IsLocked != locked)
+            {
+                IsLocked = locked;
+                LockChanged?.Invoke();
+            }
+        }
+
         public void SetEnabled(bool enabled)
         {
             _enabled = enabled;
@@ -132,7 +143,7 @@ namespace FireSlop.MissionHud
 
         public void Select(string id)
         {
-            if (!_enabled || string.IsNullOrEmpty(id) || id == SelectedId ||
+            if (!_enabled || IsLocked || string.IsNullOrEmpty(id) || id == SelectedId ||
                 !_toolsById.TryGetValue(id, out var tool) || !IsAvailable(id))
             {
                 return;

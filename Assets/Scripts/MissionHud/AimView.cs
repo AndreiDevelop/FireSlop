@@ -10,18 +10,20 @@ namespace FireSlop.MissionHud
     {
         [SerializeField] private GameObject _body;
 
+        private ToolSelectionModel _tools;
         private DroneModel _drone;
         private InteractionModel _interaction;
         private ThrowPreviewModel _preview;
 
         [Inject]
-        public void Construct(DroneModel drone, ThrowPreviewModel preview, InteractionModel interaction)
+        public void Construct(DroneModel drone, ThrowPreviewModel preview, InteractionModel interaction, ToolSelectionModel tools)
         {
             if (_body == null)
             {
                 throw new InvalidOperationException("Assign the authored crosshair Body in Aim View.");
             }
 
+            _tools = tools;
             _drone = drone;
             _interaction = interaction;
             _preview = preview;
@@ -37,6 +39,7 @@ namespace FireSlop.MissionHud
             {
                 _drone.ContextChanged += Render;
                 _interaction.CarryingChanged += Render;
+                _tools.LockChanged += Render;
                 _preview.VisibilityChanged += Render;
                 Render();
             }
@@ -48,13 +51,14 @@ namespace FireSlop.MissionHud
             {
                 _drone.ContextChanged -= Render;
                 _interaction.CarryingChanged -= Render;
+                _tools.LockChanged -= Render;
                 _preview.VisibilityChanged -= Render;
             }
         }
 
         private void Render()
         {
-            _body.SetActive(!_interaction.IsCarrying && !_drone.IsPiloted && !_preview.IsVisible);
+            _body.SetActive(!_tools.IsLocked && !_interaction.IsCarrying && !_drone.IsPiloted && !_preview.IsVisible);
         }
     }
 }

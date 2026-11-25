@@ -48,10 +48,11 @@ namespace FireSlop.MissionHud
                 return;
             }
 
+            _button.interactable = !model.IsLocked && model.IsAvailable(_tool.Id);
+            _icon.sprite = model.IsLocked ? _tool.LockedIcon : _tool.Icon;
             if (model.TryGetQuantity(_tool.Id, out var quantity))
             {
                 _label.text = $"{_tool.DisplayName} ×{CompactNumber.Format(quantity)}";
-                _button.interactable = quantity > 0;
                 if (_tool.StartingQuantity == 0)
                 {
                     gameObject.SetActive(quantity > 0);

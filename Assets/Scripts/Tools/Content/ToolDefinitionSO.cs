@@ -11,6 +11,7 @@ namespace FireSlop.Tools
         [SerializeField, Min(0)] private int _index;
         [SerializeField] private string _displayName;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private Sprite _lockedIcon;
         [SerializeField] private Key _selectionKey;
         [SerializeField] private ToolAction _action;
         [FormerlySerializedAs("_singleUse")]
@@ -21,6 +22,7 @@ namespace FireSlop.Tools
         public int Index => _index;
         public string DisplayName => _displayName;
         public Sprite Icon => _icon;
+        public Sprite LockedIcon => _lockedIcon;
         public Key SelectionKey => _selectionKey;
         public bool IsConsumable => _consumable;
         public int StartingQuantity => _startingQuantity;

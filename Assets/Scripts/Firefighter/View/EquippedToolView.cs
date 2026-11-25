@@ -103,7 +103,7 @@ namespace FireSlop.Firefighter
         {
             foreach (var model in _models)
             {
-                var equipped = !_interaction.IsCarrying && model.ToolId == selectedId && _tools.IsAvailable(selectedId);
+                var equipped = !_tools.IsLocked && !_interaction.IsCarrying && model.ToolId == selectedId && _tools.IsAvailable(selectedId);
                 model.Render(equipped, _interaction.IsPilotingDrone);
             }
         }

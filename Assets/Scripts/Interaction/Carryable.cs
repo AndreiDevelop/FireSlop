@@ -21,6 +21,7 @@ namespace FireSlop.Interaction
         private Transform _worldParent;
         private Vector3 _originalLocalScale;
         private CarryReleaseShape _releaseShape;
+        private RigidbodyInterpolation _worldInterpolation;
         private bool _isCarried;
 
         public string ContentId => _contentId;
@@ -60,6 +61,8 @@ namespace FireSlop.Interaction
             _originalLocalScale = transform.localScale;
             _releaseShape = CarryReleaseShape.Capture(_pickupCollider, transform);
             _pickupCollider.enabled = false;
+            _worldInterpolation = _body.interpolation;
+            _body.interpolation = RigidbodyInterpolation.None;
             _body.isKinematic = true;
             transform.SetParent(shoulder, false);
             transform.SetLocalPositionAndRotation(_carryOffset, Quaternion.Euler(_carryEuler));
@@ -80,6 +83,7 @@ namespace FireSlop.Interaction
             transform.SetPositionAndRotation(position, rotation);
             _body.position = position;
             _body.rotation = rotation;
+            _body.interpolation = _worldInterpolation;
             _pickupCollider.enabled = true;
             _body.isKinematic = false;
             _body.linearVelocity = velocity;
@@ -99,6 +103,10 @@ namespace FireSlop.Interaction
 
             transform.position = position;
             _body.position = position;
+            if (_isCarried)
+            {
+                _body.interpolation = _worldInterpolation;
+            }
             _body.isKinematic = false;
             _body.linearVelocity = Vector3.zero;
             _body.angularVelocity = Vector3.zero;

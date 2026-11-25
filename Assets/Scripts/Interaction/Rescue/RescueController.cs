@@ -26,7 +26,6 @@ namespace FireSlop.Interaction
             if (_carried == target)
             {
                 _carried = null;
-                _rescueGrip.gameObject.SetActive(false);
                 _model.StopCarrying();
             }
         }
@@ -80,7 +79,6 @@ namespace FireSlop.Interaction
             {
                 _carried = target;
                 var anchor = target.UsesRescueGrip ? _rescueGrip : _shoulder;
-                _rescueGrip.gameObject.SetActive(target.UsesRescueGrip);
                 _carried.Attach(anchor);
                 _model.StartCarrying(_carried.ContentId);
             }
@@ -117,7 +115,6 @@ namespace FireSlop.Interaction
             }
 
             _carried = null;
-            _rescueGrip.gameObject.SetActive(false);
             _model.StopCarrying();
             return true;
         }

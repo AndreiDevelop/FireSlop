@@ -13,6 +13,14 @@ namespace FireSlop.Interaction
         [SerializeField] private Rigidbody[] _limbs;
         [SerializeField] private Collider[] _limbColliders;
 
+        [SerializeField] private Collider[] _additionalStandingColliders = System.Array.Empty<Collider>();
+        [SerializeField] private GameObject _recoveryBirds;
+
+        private bool _animatorWasEnabled;
+        private double _hideBirdsAt;
+        public bool IsShowingRecovery => !IsReacting && Time.timeAsDouble < _hideBirdsAt;
+        public bool IsReacting { get; private set; }
+
         private WaterKnockdownModel _model;
         private Pose[] _idlePose;
         private Pose[] _fallenPose;
@@ -39,25 +47,44 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            TryKnockDown(impact.Direction);
-            base.ApplyWater(impact);
+            ReceiveStream(impact);
         }
 
-        private void TryKnockDown(Vector3 direction)
+        internal void ReceiveStream(in WaterImpact impact, bool thresholdMet = false)
+        {
+            TryKnockDown(impact.Direction, impact.Duration, thresholdMet);
+            var hitBody = impact.Hit.rigidbody;
+            if (_model.IsDown && hitBody != null && !hitBody.isKinematic)
+            {
+                var acceleration = Mathf.Min(impact.Impulse / hitBody.mass, _config.KnockbackSpeed);
+                hitBody.linearVelocity = Vector3.ClampMagnitude(hitBody.linearVelocity + impact.Direction * acceleration,
+                    _config.KnockbackSpeed * 2f);
+            }
+        }
+
+        private void TryKnockDown(Vector3 direction, float duration, bool thresholdMet)
         {
             if (!_model.IsDown && _resident != null && !_resident.CanBeKnockedDown)
             {
                 return;
             }
 
-            if (!_model.ApplyWater(Time.timeAsDouble, _config.FallSeconds))
+            if (!_model.ApplyWater(Time.timeAsDouble, _config.FallSeconds, duration, thresholdMet ? 0f : _config.WaterSeconds))
             {
                 return;
             }
 
+            IsReacting = true;
+            SetRecoveryBirds(false);
+            _animatorWasEnabled = _animator.enabled;
             _startPosition = transform.position;
             _standingCollider.enabled = false;
-            var velocity = direction * _config.KnockbackSpeed;
+            foreach (var collider in _additionalStandingColliders)
+            {
+                collider.enabled = false;
+            }
+
+            var velocity = direction * _config.KnockbackSpeed + Vector3.up * _config.LiftSpeed;
             if (_standingBody != null)
             {
                 _standingBodyWasKinematic = _standingBody.isKinematic;
@@ -95,6 +122,16 @@ namespace FireSlop.Interaction
         private void LateUpdate()
         {
             var now = Time.timeAsDouble;
+            if (!IsReacting)
+            {
+                if (now >= _hideBirdsAt || !_standingCollider.enabled)
+                {
+                    SetRecoveryBirds(false);
+                    enabled = false;
+                }
+                return;
+            }
+
             if (_model.CanStand(now))
             {
                 BeginStanding(now);
@@ -127,17 +164,23 @@ namespace FireSlop.Interaction
                 limbCollider.enabled = false;
             }
 
-            var standPosition = FindStandPosition(pelvisPosition);
+            var standPosition = _resident != null && _resident.IsRescued ? _startPosition : FindStandPosition(pelvisPosition);
             transform.position = standPosition;
             pelvis.position = pelvisPosition;
             SavePose(_fallenPose);
-            _model.BeginStanding(now, _config.StandSeconds, _config.GraceSeconds);
+            _model.BeginStanding(now, _config.StandSeconds, _config.CooldownSeconds);
         }
 
         private Vector3 FindStandPosition(Vector3 pelvisPosition)
         {
-            var height = _standingCollider.height;
-            var radius = _standingCollider.radius;
+            var scale = transform.lossyScale;
+            var direction = _standingCollider.direction;
+            var radiusScale = Mathf.Max(Mathf.Abs(scale[(direction + 1) % 3]), Mathf.Abs(scale[(direction + 2) % 3]));
+            var radius = _standingCollider.radius * radiusScale;
+            var height = Mathf.Max(2f * radius, _standingCollider.height * Mathf.Abs(scale[direction]));
+            var localAxis = Vector3.zero;
+            localAxis[direction] = 1f;
+            var axis = transform.TransformDirection(localAxis) * (height * 0.5f - radius);
             var clearance = _standingCollider.contactOffset;
             var probe = pelvisPosition + Vector3.up * radius;
             if (Physics.Raycast(probe, Vector3.down, out var ground, height * 2f, _config.GroundMask,
@@ -145,7 +188,6 @@ namespace FireSlop.Interaction
             {
                 var candidate = ground.point + Vector3.up * clearance;
                 var center = candidate + transform.TransformVector(_standingCollider.center);
-                var axis = Vector3.up * (height * 0.5f - radius);
                 if (!Physics.CheckCapsule(center - axis, center + axis, radius, Physics.DefaultRaycastLayers,
                         QueryTriggerInteraction.Ignore))
                 {
@@ -177,17 +219,32 @@ namespace FireSlop.Interaction
             }
         }
 
+        private void SetRecoveryBirds(bool visible)
+        {
+            if (_recoveryBirds != null)
+            {
+                _recoveryBirds.SetActive(visible);
+            }
+        }
+
         private void FinishStanding()
         {
-            _animator.enabled = true;
+            IsReacting = false;
+            _animator.enabled = _animatorWasEnabled;
+            foreach (var collider in _additionalStandingColliders)
+            {
+                collider.enabled = true;
+            }
             _standingCollider.enabled = true;
             if (_standingBody != null)
             {
                 _standingBody.position = transform.position;
-                _standingBody.isKinematic = _standingBodyWasKinematic || _resident.IsRescued;
+                _standingBody.isKinematic = _standingBodyWasKinematic || (_resident != null && _resident.IsRescued);
             }
 
-            enabled = false;
+            _hideBirdsAt = Time.timeAsDouble + _config.BirdSeconds;
+            SetRecoveryBirds(true);
+            enabled = _recoveryBirds != null;
         }
     }
 }

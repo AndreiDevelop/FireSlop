@@ -354,9 +354,9 @@ namespace FireSlop.Interaction
             var layerBit = 1 << hit.collider.gameObject.layer;
             var impulse = canPush && (_config.PushMask.value & layerBit) != 0 ? _config.Force * sampleDuration : 0f;
             var impact = new WaterImpact(hit, direction, sampleDuration, impulse);
-            if ((_config.FireMask.value & layerBit) != 0 && hit.collider.TryGetComponent<IWaterTarget>(out var target))
+            if ((_config.FireMask.value & layerBit) != 0 && hit.collider.TryGetComponent<IAutoSprayTarget>(out var sprayTarget))
             {
-                target.ApplyWater(impact);
+                sprayTarget.ApplyWater(impact);
                 return;
             }
 
@@ -365,7 +365,7 @@ namespace FireSlop.Interaction
                 return;
             }
 
-            target = hit.collider.GetComponentInParent<IWaterTarget>();
+            var target = hit.collider.GetComponentInParent<IWaterTarget>();
             if (target != null)
             {
                 target.ApplyWater(impact);

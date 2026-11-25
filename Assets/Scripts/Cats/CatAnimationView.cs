@@ -32,7 +32,7 @@ namespace FireSlop.Cats
             if (_animator == null || _animator.runtimeAnimatorController == null || _agent == null ||
                 _carryable == null || _stunReaction == null)
             {
-                throw new InvalidOperationException("Cat Animation View requires its Animator, agent, carryable and stars.");
+                throw new InvalidOperationException("Cat Animation View requires its Animator, agent, carryable and stun reaction.");
             }
 
             _model = model;
@@ -82,7 +82,14 @@ namespace FireSlop.Cats
 
         private void Render()
         {
-            var isStunned = _model.State == CatState.Settled && !_carryable.IsCarried;
+            if (_carryable.IsKnockedDown)
+            {
+                _stunReaction.SetSustained(false);
+                _renderedState = 0;
+                return;
+            }
+
+            var isStunned = !_carryable.IsCarried && (_model.State == CatState.Settled || _carryable.IsShowingRecovery);
             _stunReaction.SetSustained(isStunned);
             if (_stunReaction.IsShowing)
             {
@@ -91,7 +98,7 @@ namespace FireSlop.Cats
                 return;
             }
 
-            var walkingSpeed = 0f;
+            var walkingSpeed = _model.State == CatState.Rescued ? _config.RoamSpeed : 0f;
             if (_model.State == CatState.Idle && _agent.isActiveAndEnabled && _agent.isOnNavMesh)
             {
                 walkingSpeed = _agent.velocity.magnitude;
@@ -110,6 +117,11 @@ namespace FireSlop.Cats
 
         private int SelectState(bool isWalking)
         {
+            if (_carryable.IsLanding)
+            {
+                return JumpState;
+            }
+
             switch (_model.State)
             {
                 case CatState.Jumping:

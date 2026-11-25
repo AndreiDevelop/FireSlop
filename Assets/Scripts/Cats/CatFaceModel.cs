@@ -4,12 +4,13 @@ namespace FireSlop.Cats
 {
     public sealed class CatFaceModel
     {
-        private int _presses;
+        private double _presses;
+        private float _drainSeconds;
         private int _requiredPresses;
-        private double _deadline;
+        private double _nextDecayTime;
         private float _gapSeconds;
 
-        public float Progress => IsAttached ? (float)_presses / _requiredPresses : 0f;
+        public float Progress => IsAttached ? (float)(_presses / _requiredPresses) : 0f;
         public event Action ProgressChanged;
         public string OccupantId { get; private set; }
         public bool IsOccupied => OccupantId != null;
@@ -34,6 +35,7 @@ namespace FireSlop.Cats
             {
                 _requiredPresses = config.RemovalPresses;
                 _gapSeconds = config.RemovalGapSeconds;
+                _drainSeconds = config.RemovalDrainSeconds;
                 IsAttached = true;
                 Changed?.Invoke();
             }
@@ -46,9 +48,9 @@ namespace FireSlop.Cats
                 return;
             }
 
-            ResetIfExpired(now);
-            _deadline = now + _gapSeconds;
-            _presses++;
+            AdvanceDecay(now);
+            _nextDecayTime = now + _gapSeconds;
+            _presses = Math.Min(_requiredPresses, _presses + 1d);
             ProgressChanged?.Invoke();
             if (_presses == _requiredPresses)
             {
@@ -56,11 +58,13 @@ namespace FireSlop.Cats
             }
         }
 
-        public void ResetIfExpired(double now)
+        public void AdvanceDecay(double now)
         {
-            if (_presses > 0 && now >= _deadline)
+            if (_presses > 0d && now > _nextDecayTime)
             {
-                _presses = 0;
+                var elapsed = now - _nextDecayTime;
+                _presses = Math.Max(0d, _presses - elapsed * _requiredPresses / _drainSeconds);
+                _nextDecayTime = now;
                 ProgressChanged?.Invoke();
             }
         }

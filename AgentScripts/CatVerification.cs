@@ -37,7 +37,13 @@ namespace FireSlop.Verification
             second.SetThreatened(true);
             second.Advance(settings.WarningSeconds);
             Require(second.TryJump(settings.WarningSeconds), "A full warning must allow jumping.");
-            Require(!second.ApplyWater(1f, settings.WaterSeconds), "Water must not calm an airborne cat.");
+            var intercepted = new CatModel();
+            intercepted.SetThreatened(true);
+            intercepted.Advance(settings.WarningSeconds);
+            intercepted.TryJump(settings.WarningSeconds);
+            Require(intercepted.ApplyWater(0.01f, settings.WaterSeconds), "The first airborne hit must interrupt the jump.");
+            intercepted.FinishJump();
+            Require(intercepted.State == CatState.Settled, "An intercepted cat must never attach.");
             second.FinishJump();
             Require(second.State == CatState.Attached, "The jump must attach the cat.");
 
@@ -56,11 +62,17 @@ namespace FireSlop.Verification
             };
             face.RemovalRequested += remove;
             face.RequestRemoval(0d);
-            face.ResetIfExpired(settings.RemovalGapSeconds + 0.1d);
+            var firstPress = face.Progress;
+            var halfway = settings.RemovalGapSeconds + firstPress * settings.RemovalDrainSeconds / 2d;
+            face.AdvanceDecay(halfway);
+            Require(Math.Abs(face.Progress - firstPress / 2f) < 0.001f, "Idle progress must drain gradually.");
+            face.RequestRemoval(halfway);
+            Require(face.Progress > firstPress, "A new press must add to the remaining progress.");
+            face.AdvanceDecay(halfway + settings.RemovalGapSeconds + settings.RemovalDrainSeconds);
             Require(face.Progress == 0f && face.IsAttached, "A pause must reset the series.");
             for (var index = 0; index < settings.RemovalPresses; index++)
             {
-                face.RequestRemoval(1d + index * 0.1d);
+                face.RequestRemoval(10d + index * 0.1d);
             }
             face.RequestRemoval(5d);
             face.RemovalRequested -= remove;

@@ -25,7 +25,8 @@ namespace FireSlop.Interaction
             _input = input;
             _flight = flight;
             _catFace = catFace;
-            _catFace.Changed += NotifyContextChanged;
+            _catFace.Changed += OnCatFaceChanged;
+            RefreshToolLock();
             _flight.ContextChanged += NotifyContextChanged;
             _tools.SelectionChanged += OnToolSelectionChanged;
             _input.Cancelled += InterruptPrimary;
@@ -42,7 +43,8 @@ namespace FireSlop.Interaction
         public bool IsEntrancePassable { get; private set; }
         public bool HasDroneAction => _enabled && (_flight.IsPiloted || _flight.IsOnPlatform);
         public bool IsPilotingDrone => _flight.IsPiloted;
-        public HudActionId PrimaryActionId => IsCarrying ? HudActionId.Throw : HudActionId.UseTool;
+        public HudActionId PrimaryActionId => CanThrowCarriedObject ? HudActionId.Throw : HudActionId.UseTool;
+        public bool CanThrowCarriedObject => IsCarrying && !_catFace.IsAttached;
         public ContextActionPrompt ContextPrompt
         {
             get
@@ -81,7 +83,7 @@ namespace FireSlop.Interaction
         public event Action ContextRequested;
         public event Action ActionBlocked;
 
-        private bool CanUsePrimary => _enabled && _input.IsEnabled && !_flight.IsPiloted;
+        private bool CanUsePrimary => !_catFace.IsAttached && _enabled && _input.IsEnabled && !_flight.IsPiloted;
 
         public void BeginPrimary(PrimaryInputSource source)
         {
@@ -196,6 +198,7 @@ namespace FireSlop.Interaction
         internal void StartCarrying(string contentId)
         {
             CarriedContentId = contentId;
+            RefreshToolLock();
             InterruptPrimary();
             CarryingChanged?.Invoke();
             ContextChanged?.Invoke();
@@ -204,6 +207,7 @@ namespace FireSlop.Interaction
         internal void StopCarrying()
         {
             CarriedContentId = null;
+            RefreshToolLock();
             CarryingChanged?.Invoke();
             ContextChanged?.Invoke();
         }
@@ -224,6 +228,22 @@ namespace FireSlop.Interaction
             ContextChanged?.Invoke();
         }
 
+        private void RefreshToolLock()
+        {
+            _tools.SetLocked(IsCarrying || _catFace.IsAttached);
+        }
+
+        private void OnCatFaceChanged()
+        {
+            RefreshToolLock();
+            if (_catFace.IsAttached)
+            {
+                InterruptPrimary();
+            }
+
+            ContextChanged?.Invoke();
+        }
+
         private void NotifyContextChanged()
         {
             if (_flight.IsPiloted && (_primarySource.HasValue || _autoHoseActive))
@@ -239,7 +259,7 @@ namespace FireSlop.Interaction
             _tools.SelectionChanged -= OnToolSelectionChanged;
             _input.Cancelled -= InterruptPrimary;
             _flight.ContextChanged -= NotifyContextChanged;
-            _catFace.Changed -= NotifyContextChanged;
+            _catFace.Changed -= OnCatFaceChanged;
         }
     }
 }

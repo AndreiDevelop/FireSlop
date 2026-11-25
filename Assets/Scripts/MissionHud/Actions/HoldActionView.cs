@@ -34,7 +34,23 @@ namespace FireSlop.MissionHud
             _input = input;
             _tools = tools;
             _actions = actions;
-            _model.CarryingChanged += Render;
+            if (isActiveAndEnabled)
+            {
+                OnEnable();
+            }
+        }
+
+        private void OnEnable()
+        {
+            if (_model == null)
+            {
+                return;
+            }
+
+            _model.ContextChanged -= Render;
+            _input.Cancelled -= ResetPointer;
+            _tools.SelectionChanged -= OnToolChanged;
+            _model.ContextChanged += Render;
             _input.Cancelled += ResetPointer;
             _tools.SelectionChanged += OnToolChanged;
             Render();
@@ -46,7 +62,8 @@ namespace FireSlop.MissionHud
             var icon = action.Icon;
             if (action.Id == HudActionId.UseTool && icon == null)
             {
-                icon = _tools.GetTool(_tools.SelectedId).Icon;
+                var tool = _tools.GetTool(_tools.SelectedId);
+                icon = _tools.IsLocked ? tool.LockedIcon : tool.Icon;
             }
 
             _label.text = action.Label;
@@ -59,19 +76,21 @@ namespace FireSlop.MissionHud
             Render();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             if (_model != null)
             {
-                _model.CarryingChanged -= Render;
+                _model.ContextChanged -= Render;
                 _input.Cancelled -= ResetPointer;
                 _tools.SelectionChanged -= OnToolChanged;
+                ResetPointer();
             }
         }
 
         public void OnPointerDown(PointerEventData data)
         {
             if (_input == null || !_input.IsEnabled || _pointer.HasValue ||
+                (_tools.IsLocked && !_model.CanThrowCarriedObject) ||
                 data.button != PointerEventData.InputButton.Left)
             {
                 return;
@@ -96,11 +115,6 @@ namespace FireSlop.MissionHud
             {
                 ResetPointer();
             }
-        }
-
-        private void OnDisable()
-        {
-            ResetPointer();
         }
 
         private void ResetPointer()

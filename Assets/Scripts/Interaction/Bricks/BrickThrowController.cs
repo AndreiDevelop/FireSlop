@@ -19,7 +19,7 @@ namespace FireSlop.Interaction
         private ThrowPoseView _pose;
         private bool _focused = true;
 
-        internal bool CanCollect => _input.IsEnabled && !_interaction.IsPilotingDrone && !_interaction.IsCarrying;
+        internal bool CanCollect => _input.IsEnabled && !_tools.IsLocked && !_interaction.IsPilotingDrone && !_interaction.IsCarrying;
         private bool CanAim => _stored.Count > 0 && _focused && CanCollect && _tools.SelectedId == _tool.Id;
         private bool CanThrow => CanAim && _stored.Peek().CanLaunch(_pose);
 

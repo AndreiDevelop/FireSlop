@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Cat
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Cats.CatConfigSO
   _noticeRange: 3.8
-  _warningSeconds: 3
-  _waterSeconds: 0.3
+  _warningSeconds: 1.5
+  _waterReaction: {fileID: 11400000, guid: 36bb2593b4e3b48649a2e1210962d4eb, type: 2}
+  _attackFlightSeconds: 1.2
   _jumpSeconds: 0.4
   _arcHeight: 0.45
   _mass: 3
@@ -33,10 +34,10 @@ MonoBehaviour:
   _roamFireMask:
     serializedVersion: 2
     m_Bits: 4096
-  _attackCooldownSeconds: 12
   _roamObstacleRadius: 0.17
   _roamObstacleMask:
     serializedVersion: 2
     m_Bits: 44033
   _removalPresses: 8
   _removalGapSeconds: 0.45
+  _removalDrainSeconds: 4

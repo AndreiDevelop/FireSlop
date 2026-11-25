@@ -40,7 +40,7 @@ namespace FireSlop.Verification
                 PrepareIsolated(cat, model, config, input);
             }
             var animator = cat.GetComponentInChildren<Animator>();
-            var stars = animator.transform.Find("CatRig/StunStars");
+            var birds = cat.transform.Find("RecoveryBirds");
             var head = FindBone(animator, "Head");
             var tail = FindBone(animator, "TailBase");
             var paw = FindBone(animator, "FrontLegL");
@@ -69,7 +69,7 @@ namespace FireSlop.Verification
             cat.GetComponent<CatPatrolController>().enabled = false;
             model.SetThreatened(true);
             await Wait(0.13f);
-            Require(IsState(animator, "Idle") && !stars.gameObject.activeSelf,
+            Require(IsState(animator, "Idle") && !birds.gameObject.activeSelf,
                 "A stopped warning must stop the walking gait and hide stars.");
             model.Advance(config.WarningSeconds);
             Require(model.TryJump(config.WarningSeconds), "The full warning must allow a jump.");
@@ -82,7 +82,7 @@ namespace FireSlop.Verification
             input.SetSuspended(false);
             model.FinishJump();
             await Wait(0.13f);
-            Require(IsState(animator, "FaceGrab") && !stars.gameObject.activeSelf,
+            Require(IsState(animator, "FaceGrab") && !birds.gameObject.activeSelf,
                 "Attachment must select the face-grabbing pose without stars.");
             Require(Quaternion.Angle(attackPaw, paw.localRotation) > 1f,
                 "Face grabbing must have a different paw pose from the jump.");
@@ -91,15 +91,15 @@ namespace FireSlop.Verification
             Require(IsState(animator, "JumpAttack"), "Returning must retain an airborne pose.");
             model.FinishReturn();
             await Wait(0.13f);
-            Require(IsState(animator, "Stunned") && stars.gameObject.activeSelf,
-                "The settled cooldown must show the stunned animation and stars.");
+            Require(IsState(animator, "Stunned") && birds.gameObject.activeSelf,
+                "The settled cooldown must show the stunned animation and birds.");
             var headRotation = head.localRotation;
-            var orbitRotation = stars.localRotation;
+            var orbitRotation = birds.Find("Orbit").localRotation;
             await Wait(0.25f);
             Require(Quaternion.Angle(headRotation, head.localRotation) > 1f,
                 "The stunned head must circle.");
-            Require(Quaternion.Angle(orbitRotation, stars.localRotation) > 10f,
-                "The three stars must orbit above the stunned cat.");
+            Require(Quaternion.Angle(orbitRotation, birds.Find("Orbit").localRotation) > 10f,
+                "The three birds must orbit above the stunned cat.");
             var carryable = cat.GetComponent<CatCarryable>();
             GameObject shoulder = null;
             if (isolated)
@@ -113,8 +113,8 @@ namespace FireSlop.Verification
                 carryable.Interact();
             }
             await Wait(0.13f);
-            Require(carryable.IsCarried && !stars.gameObject.activeSelf && IsState(animator, "Idle"),
-                "Carrying must hide stun stars and stop the dizzy pose.");
+            Require(carryable.IsCarried && !birds.gameObject.activeSelf && IsState(animator, "Idle"),
+                "Carrying must hide stun birds and stop the dizzy pose.");
             if (isolated)
             {
                 Require(model.TryRescue(), "A calm carried cat must remain rescuable.");
@@ -127,12 +127,12 @@ namespace FireSlop.Verification
                 Require(carryable.TryRescue(start), "A calm carried cat must remain rescuable.");
             }
             await Wait(0.13f);
-            Require(model.State == CatState.Rescued && !stars.gameObject.activeSelf && IsState(animator, "Idle"),
+            Require(model.State == CatState.Rescued && !birds.gameObject.activeSelf && IsState(animator, "Idle"),
                 "A rescued cat must remain calm without stars.");
             Require(Object.FindObjectsByType<CatAnimationView>().Length == 2,
                 "Animation must not create duplicate cats or Views.");
             return "PASS: real roaming selects Walk; moving paws and wagging tail; warning idle; attack and face " +
-                "poses; return; pause; circling stunned head and orbiting stars; carried/rescued cleanup; two cats.";
+                "poses; return; pause; circling stunned head and orbiting birds; carried/rescued cleanup; two cats.";
         }
 
         private static void PrepareIsolated(CatController cat, CatModel model, CatConfigSO config,

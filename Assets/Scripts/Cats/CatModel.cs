@@ -32,14 +32,14 @@ namespace FireSlop.Cats
 
         public bool ApplyWater(float seconds, float requiredSeconds)
         {
-            if ((State != CatState.Idle && State != CatState.Warning) || seconds <= 0f ||
+            if ((State != CatState.Idle && State != CatState.Warning && State != CatState.Jumping) || seconds <= 0f ||
                 float.IsInfinity(seconds))
             {
                 return false;
             }
 
             WaterSeconds += seconds;
-            if (WaterSeconds < requiredSeconds)
+            if (State != CatState.Jumping && WaterSeconds < requiredSeconds)
             {
                 return false;
             }

@@ -12,6 +12,10 @@ namespace FireSlop.Interaction
         [SerializeField] private Vector3 _standingPosition;
         [SerializeField] private Quaternion _standingRotation = Quaternion.identity;
 
+        [SerializeField] private AnimationClip _seatedPose;
+        [SerializeField] private Animator _animator;
+
+        private RescueTentView _tent;
         private MissionModel _mission;
         private RescueController _carrier;
         private Openable _cabinet;
@@ -22,26 +26,37 @@ namespace FireSlop.Interaction
         public Vector3 DeliveryPosition => transform.position;
         internal override bool CanPickUp => !IsRescued && base.CanPickUp &&
             (IsFree || (_cabinet != null && _cabinet.IsFullyOpen));
-        public bool CanBeKnockedDown => _mission != null && _mission.IsRevealed(ContentId) &&
-            PickupCollider.enabled && !IsRescued;
+        public bool CanBeKnockedDown => _mission != null && (IsRescued || _mission.IsRevealed(ContentId)) &&
+            PickupCollider.enabled && !IsCarried;
 
         public bool TryRescue(Vector3 deliveryPosition)
         {
-            if (_mission == null || !_mission.TryRescue(ContentId))
+            if (_mission == null || (!IsCarried && !PickupCollider.enabled) || !_mission.TryRescue(ContentId))
             {
                 return false;
             }
 
-            _carrier.Deliver(this, deliveryPosition);
+            var seat = _tent.GetSeat(_mission.RescuedCount - 1);
+            _carrier.Deliver(this, seat.position);
+            transform.rotation = seat.rotation;
+            _visual.SetLocalPositionAndRotation(_standingPosition, _standingRotation);
+            _animator.enabled = false;
+            _seatedPose.SampleAnimation(_visual.gameObject, 0f);
+            var hips = _animator.GetBoneTransform(HumanBodyBones.Hips);
+            transform.position += seat.position - hips.position;
+            Body.position = transform.position;
+            Body.rotation = transform.rotation;
             Body.isKinematic = true;
-            PickupCollider.enabled = false;
+            PickupCollider.enabled = true;
+            PickupCollider.isTrigger = true;
             return true;
         }
 
         [Inject]
-        public void Construct(MissionModel mission, RescueController carrier)
+        public void Construct(MissionModel mission, RescueController carrier, RescueTentView tent)
         {
             _mission = mission;
+            _tent = tent;
             _carrier = carrier;
             Body.mass = _config.ResidentMass;
             _carryRagdoll.Initialize();

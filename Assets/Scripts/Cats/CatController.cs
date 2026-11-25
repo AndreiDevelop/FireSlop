@@ -83,7 +83,7 @@ namespace FireSlop.Cats
                 return;
             }
 
-            if (_stun.IsActive)
+            if (_stun.IsActive || _carryable.IsKnockedDown)
             {
                 _model.SetThreatened(false);
                 return;
@@ -119,14 +119,14 @@ namespace FireSlop.Cats
                     _model.TryJump(_config.WarningSeconds);
                 }
             }
-            else if (_model.State == CatState.Jumping && _model.StateSeconds >= _config.JumpSeconds)
+            else if (_model.State == CatState.Jumping && _model.StateSeconds >= _config.AttackFlightSeconds)
             {
                 _model.FinishJump();
                 _face.Attach(ContentId, _config);
             }
             else if (_model.State == CatState.Attached)
             {
-                _face.ResetIfExpired(Time.timeAsDouble);
+                _face.AdvanceDecay(Time.timeAsDouble);
             }
             else if (_model.State == CatState.Returning && _model.StateSeconds >= _config.JumpSeconds)
             {
@@ -152,7 +152,10 @@ namespace FireSlop.Cats
         {
             if (_input.IsEnabled)
             {
-                _model.ApplyWater(seconds, _config.WaterSeconds);
+                if (_model.ApplyWater(seconds, _config.WaterSeconds))
+                {
+                    _face.Release(ContentId);
+                }
             }
         }
 

@@ -9,8 +9,12 @@ namespace FireSlop.Cats
     {
         [SerializeField] private Transform _visual;
         [SerializeField] private Collider[] _bodies;
+        [SerializeField] private SphereCollider _airborneTarget;
         [SerializeField] private AudioSource _hiss;
         [SerializeField] private AudioSource _calmAudio;
+
+        [SerializeField] private WaterKnockdownView _knockdown;
+        [SerializeField] private CatCarryable _carryable;
 
         private CatModel _model;
         private Vector3 _homePosition;
@@ -19,7 +23,7 @@ namespace FireSlop.Cats
         private bool _prepared;
 
         public bool RequestsAutoSpray => _model != null &&
-            (_model.State == CatState.Idle || _model.State == CatState.Warning);
+            (_model.State == CatState.Idle || _model.State == CatState.Warning || _model.State == CatState.Jumping);
         public Vector3 NoticePosition => _bodies[0].bounds.center;
         public event Action<float> WaterReceived;
 
@@ -110,12 +114,13 @@ namespace FireSlop.Cats
         private void RenderState()
         {
             var state = _model.State;
-            var hasBody = state == CatState.Idle || state == CatState.Warning || state == CatState.Returning ||
+            _airborneTarget.enabled = state == CatState.Jumping;
+            var hasBody = state == CatState.Jumping || state == CatState.Idle || state == CatState.Warning || state == CatState.Returning ||
                 state == CatState.Settled || state == CatState.Rescued;
             foreach (var body in _bodies)
             {
                 body.enabled = hasBody;
-                body.isTrigger = state == CatState.Idle || state == CatState.Warning;
+                body.isTrigger = state == CatState.Jumping || state == CatState.Idle || state == CatState.Warning;
             }
             if (state == CatState.Warning)
             {
@@ -139,9 +144,16 @@ namespace FireSlop.Cats
 
         public void ApplyWater(in WaterImpact impact)
         {
-            if (RequestsAutoSpray)
+            var hostile = RequestsAutoSpray;
+            if (hostile)
             {
                 WaterReceived?.Invoke(impact.Duration);
+            }
+
+            if (!_carryable.IsCarried && !_carryable.IsLanding &&
+                (_model.State == CatState.Settled || _model.State == CatState.Rescued))
+            {
+                _knockdown.ReceiveStream(impact, hostile);
             }
         }
 
@@ -165,9 +177,13 @@ namespace FireSlop.Cats
 
             var target = eye.TransformPoint(config.FaceOffset);
             var rotation = eye.rotation * config.FaceRotation * _homeRotation;
-            var progress = state == CatState.Attached ? 1f : Mathf.Clamp01(_model.StateSeconds / config.JumpSeconds);
+            var progress = state == CatState.Attached ? 1f : Mathf.Clamp01(_model.StateSeconds / config.AttackFlightSeconds);
             var position = Vector3.Lerp(_travelStart.position, target, progress);
             position += Vector3.up * (Mathf.Sin(progress * Mathf.PI) * config.ArcHeight);
+            if (state == CatState.Jumping)
+            {
+                transform.position = position - transform.TransformVector(_homePosition);
+            }
             _visual.SetPositionAndRotation(position, Quaternion.Slerp(_travelStart.rotation, rotation, progress));
         }
     }

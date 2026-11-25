@@ -12,7 +12,7 @@ namespace FireSlop.MissionHud
         {
             var label = action?.Label ?? string.Empty;
             _hint.text = closed ? label : "<sprite name=\"E\">  " + label;
-            if (!closed && Model.IsCarrying && !Model.IsPilotingDrone)
+            if (!closed && Model.IsCarrying && !Model.IsPilotingDrone && action?.Id != HudActionId.RemoveCat)
             {
                 _hint.text += "   |   <sprite name=\"MouseLeft\">  " + Actions.Get(HudActionId.Throw).Label;
             }

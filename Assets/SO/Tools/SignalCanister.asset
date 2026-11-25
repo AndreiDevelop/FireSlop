@@ -16,6 +16,7 @@ MonoBehaviour:
   _index: 2
   _displayName: Signal
   _icon: {fileID: 21300000, guid: 070369a0cab82498d9f405fd6bffb508, type: 3}
+  _lockedIcon: {fileID: 21300000, guid: 182207baae7e64745a0a44b22967160d, type: 3}
   _selectionKey: 43
   _action: 2
   _consumable: 1

@@ -10,20 +10,23 @@ namespace FireSlop.Mission
     {
         [SerializeField] private string _contentId;
         [SerializeField] private BoxCollider _volume;
+        [SerializeField] private Bounds _droneLandingArea;
 
         private RescueController _carrier;
         private InteractionModel _interaction;
         private MissionModel _mission;
         private DroneController _drone;
+        private CharacterController _firefighter;
 
         public string ContentId => _contentId;
 
         [Inject]
         public void Construct(MissionModel mission, InteractionModel interaction, RescueController carrier,
-            [InjectOptional] DroneController drone)
+            Camera camera, [InjectOptional] DroneController drone)
         {
             _mission = mission;
             _drone = drone;
+            _firefighter = camera.GetComponentInParent<CharacterController>();
             _interaction = interaction;
             _carrier = carrier;
             if (_volume == null || !_volume.isTrigger || string.IsNullOrWhiteSpace(_contentId))
@@ -43,7 +46,24 @@ namespace FireSlop.Mission
             if (_interaction.IsPilotingDrone && _drone != null)
             {
                 // Project the carried target onto the skid height to detect delivery at deck touchdown.
-                deliveryPoint.y = Mathf.Clamp(_volume.bounds.center.y, _drone.LandingHeight, deliveryPoint.y);
+                var landingHeight = transform.TransformPoint(_droneLandingArea.center).y;
+                deliveryPoint.y = Mathf.Clamp(landingHeight, _drone.LandingHeight, deliveryPoint.y);
+                if (_droneLandingArea.Contains(transform.InverseTransformPoint(deliveryPoint)))
+                {
+                    target.TryRescue(target.DeliveryPosition);
+                    return;
+                }
+            }
+
+            else if (_firefighter != null)
+            {
+                var feet = _firefighter.bounds.center;
+                feet.y = _firefighter.bounds.min.y + _firefighter.skinWidth;
+                if (_volume.bounds.Contains(feet))
+                {
+                    target.TryRescue(target.DeliveryPosition);
+                    return;
+                }
             }
 
             var local = _volume.transform.InverseTransformPoint(deliveryPoint) - _volume.center;

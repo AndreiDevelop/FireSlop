@@ -25,6 +25,7 @@ namespace FireSlop.Cats
         private CatConfigSO _config;
         private MissionInputModel _input;
         private bool _started;
+        private int _rescueWaypoint = 1;
         private CatCarryable _carryable;
 
         [Inject]
@@ -129,6 +130,17 @@ namespace FireSlop.Cats
 
         private void TickPatrol()
         {
+            if (_carryable.IsKnockedDown)
+            {
+                return;
+            }
+
+            if (_cat.State == CatState.Rescued)
+            {
+                WalkInsideTent();
+                return;
+            }
+
             UpdateAgentState();
             if (!_agent.enabled || !_agent.isOnNavMesh)
             {
@@ -181,6 +193,27 @@ namespace FireSlop.Cats
 
             _agent.ResetPath();
             ChooseDestination();
+        }
+
+        private void WalkInsideTent()
+        {
+            var route = _carryable.RescueRoute;
+            if (route == null || _carryable.IsLanding || !_input.IsEnabled)
+            {
+                return;
+            }
+
+            var destination = route.GetChild(_rescueWaypoint).position;
+            var direction = destination - transform.position;
+            if (direction.sqrMagnitude <= _config.RoamArrivalDistance * _config.RoamArrivalDistance)
+            {
+                _rescueWaypoint = (_rescueWaypoint + 1) % route.childCount;
+                return;
+            }
+
+            var facing = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, facing, _config.RoamTurnSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, destination, _config.RoamSpeed * Time.deltaTime);
         }
 
         private void StopAgent()

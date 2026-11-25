@@ -56,8 +56,16 @@ namespace FireSlop.Verification
                     "A visible nearby cat must hiss before jumping.");
                 var warning = cat.GetComponentInChildren<CatWarningView>(true);
                 Require(warning.IsVisible, "A warning must show the three exclamation marks.");
-                await WaitSeconds(1f);
-                Require(model.State == CatState.Warning, "The new three-second warning must not jump early.");
+                var left = warning.transform.Find("Body/Left");
+                var right = warning.transform.Find("Body/Right");
+                var center = warning.transform.Find("Body/Center");
+                var initialLeft = left.localPosition.y;
+                var initialRight = right.localPosition.y;
+                await WaitSeconds(0.15f);
+                Require(Mathf.Abs(left.localPosition.y - initialLeft) + Mathf.Abs(right.localPosition.y - initialRight) > 0.01f &&
+                    center.localScale.y > left.localScale.y && center.localPosition.y > right.localPosition.y,
+                    "The smaller warning marks must bob below the large central mark.");
+                Require(model.State == CatState.Warning, "The warning must not jump early.");
                 var towardPlayer = Vector3.ProjectOnPlane(camera.transform.position - cat.transform.position,
                     Vector3.up).normalized;
                 Require(Vector3.Dot(cat.transform.forward, towardPlayer) > 0.95f,
@@ -90,6 +98,15 @@ namespace FireSlop.Verification
                     "Water calming must hide the warning and stop the hiss.");
                 Require(cat.transform.Find("Calm Sound").GetComponent<AudioSource>().isPlaying,
                     "Calming with water must play the purr-meow cue.");
+                var knockdown = cat.GetComponent<WaterKnockdownView>();
+                Require(knockdown.IsReacting && cat.GetComponentsInChildren<Rigidbody>().Any(limb => !limb.isKinematic),
+                    "The stream must send the calmed cat into ragdoll.");
+                var physicsConfig = AssetDatabase.LoadAssetAtPath<WaterKnockdownConfigSO>("Assets/SO/Interaction/WaterKnockdown.asset");
+                await WaitSeconds(physicsConfig.FallSeconds + physicsConfig.StandSeconds + 0.6f);
+                Require(!knockdown.IsReacting && cat.transform.Find("RecoveryBirds").gameObject.activeSelf,
+                    "The cat must regain its pose with birds overhead.");
+                player.transform.position = cat.transform.position + new Vector3(0f, 0.45f, 1.5f);
+                Physics.SyncTransforms();
                 camera.transform.LookAt(view.NoticePosition);
                 Physics.SyncTransforms();
                 RefreshContext(interaction);
@@ -108,7 +125,7 @@ namespace FireSlop.Verification
                 Require(!carry.TryRescue(carry.DeliveryPosition), "Repeated zone contact must not rescue twice.");
                 Require(!carry.GetPrompt(carry.PickupCollider).IsAvailable,
                     "A rescued cat must no longer be pickable.");
-                return "PASS: apartment placement, red warning markers, three-second warning, facing the player, " +
+                return "PASS: apartment placement, red warning markers, configured warning, facing the player, " +
                     "retreat cancellation, blocked sight, ballistic hose calming, purr-meow, independent cats, " +
                     "context pickup, carried Save-zone delivery, freed hands, no premature victory or repeat rescue.";
             }
@@ -122,6 +139,83 @@ namespace FireSlop.Verification
                 player.transform.position = originalPosition;
                 camera.transform.localRotation = originalRotation;
                 character.enabled = true;
+                player.enabled = true;
+            }
+        }
+
+        public static async Task<string> CheckAirborneHoseHit()
+        {
+            var container = FindContainer();
+            var player = Object.FindAnyObjectByType<FirefighterController>();
+            var camera = container.Resolve<Camera>();
+            var tools = container.Resolve<ToolSelectionModel>();
+            var input = container.Resolve<InteractionModel>();
+            var face = container.Resolve<CatFaceModel>();
+            var cat = FindCat("cat-upstairs-room");
+            var local = cat.GetComponent<GameObjectContext>().Container;
+            var model = local.Resolve<CatModel>();
+            var view = cat.GetComponent<CatView>();
+            cat.GetComponent<CatPatrolController>().enabled = false;
+            local.Resolve<CatPatrolModel>().SetFireSafety(false, 0f);
+            player.enabled = false;
+            player.GetComponent<CharacterController>().enabled = false;
+            player.transform.position = new Vector3(-24f, -0.76f, 10f);
+            cat.transform.position = new Vector3(-24f, -1.21f, 7.5f);
+            tools.Select(tools.Tools.First(t => t.Action == ToolAction.Hammer).Id);
+            Physics.SyncTransforms();
+            camera.transform.LookAt(view.NoticePosition);
+            var config = local.Resolve<CatConfigSO>();
+            var timeout = Time.time + config.WarningSeconds + 1f;
+            while (model.State != CatState.Jumping && Time.time < timeout)
+            {
+                await Task.Yield();
+            }
+            Require(model.State == CatState.Jumping && face.IsOccupied, "The cat must launch before spraying.");
+            var takeoff = cat.transform.position;
+            await WaitSeconds(config.AttackFlightSeconds * 0.25f);
+            Require(model.State == CatState.Jumping && Vector3.Distance(cat.transform.position, takeoff) > 0.2f,
+                "The hittable cat must have left its takeoff point.");
+            tools.Select(tools.Tools.First(t => t.Action == ToolAction.Hose).Id);
+            camera.transform.LookAt(view.NoticePosition);
+            input.BeginPrimary(PrimaryInputSource.Touch);
+            try
+            {
+                while (model.State == CatState.Jumping && Time.time < timeout + config.AttackFlightSeconds)
+                {
+                    await Task.Yield();
+                }
+                Require(model.State == CatState.Settled && cat.GetComponent<WaterKnockdownView>().IsReacting &&
+                    !face.IsOccupied, "An airborne hose hit must cancel the attack and ragdoll the cat.");
+                input.EndPrimary(PrimaryInputSource.Touch);
+                tools.Select(tools.Tools.First(t => t.Action == ToolAction.Hammer).Id);
+                var skin = cat.GetComponentInChildren<SkinnedMeshRenderer>();
+                var mesh = new Mesh();
+                try
+                {
+                    var maxSize = skin.sharedMesh.bounds.size.magnitude * 1.6f;
+                    var end = Time.time + 4.2f;
+                    while (Time.time < end)
+                    {
+                        skin.BakeMesh(mesh);
+                        mesh.RecalculateBounds();
+                        Require(mesh.bounds.size.magnitude <= maxSize,
+                            $"Cat skin stretched during knockdown: {mesh.bounds.size.magnitude:F2} > {maxSize:F2}");
+                        await Task.Yield();
+                    }
+                }
+                finally
+                {
+                    Object.Destroy(mesh);
+                }
+                Require(cat.transform.Find("RecoveryBirds").gameObject.activeInHierarchy &&
+                    !cat.GetComponentsInChildren<MeshRenderer>().Any(r => r.enabled && r.name.StartsWith("Star")),
+                    "Recovery must show birds alone.");
+                return "PASS: ordinary reticle aim intercepted the leap, the skin stayed compact through recovery and only birds appeared.";
+            }
+            finally
+            {
+                input.EndPrimary(PrimaryInputSource.Touch);
+                player.GetComponent<CharacterController>().enabled = true;
                 player.enabled = true;
             }
         }
@@ -154,7 +248,7 @@ namespace FireSlop.Verification
             Require(model.StateSeconds == elapsed, "Suspended input must pause the cat attack.");
             container.Resolve<MissionInputModel>().SetSuspended(false);
             var config = cat.GetComponent<GameObjectContext>().Container.Resolve<CatConfigSO>();
-            await WaitSeconds(config.WarningSeconds + config.JumpSeconds);
+            await WaitSeconds(config.WarningSeconds + config.AttackFlightSeconds);
             Require(model.State == CatState.Attached && face.IsAttached,
                 "Ignoring the hiss must attach the cat after its jump.");
             Require(input.ContextPrompt.ActionId == HudActionId.RemoveCat,

@@ -16,5 +16,8 @@ MonoBehaviour:
   _index: 0
   _displayName: Hose
   _icon: {fileID: 21300000, guid: 1832fcfe726d04a76898693c9ce81504, type: 3}
+  _lockedIcon: {fileID: 21300000, guid: 099b7ca777aff4ba78a66432f1f99c22, type: 3}
   _selectionKey: 41
   _action: 0
+  _consumable: 0
+  _startingQuantity: 1

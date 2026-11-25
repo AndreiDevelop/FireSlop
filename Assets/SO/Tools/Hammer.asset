@@ -16,5 +16,8 @@ MonoBehaviour:
   _index: 1
   _displayName: Hammer
   _icon: {fileID: 21300000, guid: 14f42b825711d4f2eb3952d31539ff1e, type: 3}
+  _lockedIcon: {fileID: 21300000, guid: d08ed0929dec84d1bba1fcab0b169885, type: 3}
   _selectionKey: 42
   _action: 1
+  _consumable: 0
+  _startingQuantity: 1
