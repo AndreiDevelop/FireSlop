@@ -97,3 +97,7 @@ The [user-supplied ranking reference](UI/Dispatch/ranking-reference.png) establi
 ### Drone landing preview
 
 The signal canister uses a full-size translucent green drone in place of the landing frame. The preview reuses the production drone meshes with an authored transparent unlit material and no shadows. [Valid roof aim](Props/Drone/landing-preview-roof.png) and [blocked aim](Props/Drone/throw-arc-blocked.png) show green and red throw arcs without a crosshair in Unity Editor camera captures at 1280 × 720. Both throwable tools use the shared ThrowArc prefab's authored validity colors. See the [implementation and verification report](../Engineering/Reports/2026-11-24-drone-landing-preview.md).
+
+### Shift Log UI concepts
+
+Draft, 2026-11-25. The [screen gallery](UI/ShiftLog/README.md) explores a dispatch ticket, wardrobe fittings, in-mission controls and an incident report.
