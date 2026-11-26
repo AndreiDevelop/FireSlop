@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb875a588868e4cf985e515333046595, type: 3}
   m_Name: Hose
   m_EditorClassIdentifier: Assembly-CSharp::FireSlop.Interaction.HoseConfigSO
-  _range: 12
+  _range: 24
   _force: 1100
-  _launchSpeed: 12
+  _launchSpeed: 24
   _gravityScale: 1
   _castRadius: 0.065
   _fixedStepsPerSample: 8
