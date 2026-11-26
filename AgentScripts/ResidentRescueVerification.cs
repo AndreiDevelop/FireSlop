@@ -74,8 +74,9 @@ namespace FireSlop.Verification
             {
                 Require(PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(resident) ==
                     "Assets/Prefabs/Characters/Resident/RescueResident.prefab", "Each resident must remain connected.");
-                Require(resident.GetComponentInChildren<ResidentCarryRagdoll>(true) != null,
-                    "Every resident needs its own authored carry rig.");
+                var pose = (GameObject)new SerializedObject(resident).FindProperty("_carryPose").objectReferenceValue;
+                Require(pose != null && !pose.activeSelf && pose.transform.parent == resident.transform &&
+                    pose.GetComponentInChildren<Rigidbody>(true) == null, "Carry poses must be static resident children.");
             }
 
             var carrier = new SerializedObject(Object.FindAnyObjectByType<RescueController>());
@@ -197,15 +198,13 @@ namespace FireSlop.Verification
             var residents = container.ResolveAll<ResidentView>();
             Require(residents.Count == 3 && Object.FindObjectsByType<ResidentView>().Length == 3,
                 "Restart must not duplicate residents.");
-            Require(Object.FindObjectsByType<ResidentCarryRagdoll>(FindObjectsInactive.Include).Length == 3,
-                "Restart must not leak detached carry rigs.");
             Require(residents.Select(x => x.transform.position).Distinct().Count() == 3,
                 "Restart must choose three distinct hiding spots.");
             Require(residents.All(x => !GetCabinet(x).IsOpen && !x.IsRescued && !mission.IsRevealed(x.ContentId)),
                 "Restart must restore closed occupied cabinets and unrevealed residents.");
             Require(!container.Resolve<InteractionModel>().IsCarrying, "Restart must restore free hands.");
             return "PASS: authored restart button, fresh model/timer, closed cabinets, distinct hiding spots, " +
-                "three residents and exactly three carry rigs.";
+                "three residents and free hands.";
         }
 
         private static Openable GetCabinet(ResidentView resident)

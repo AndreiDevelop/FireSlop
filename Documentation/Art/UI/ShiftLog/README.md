@@ -2,6 +2,22 @@
 
 Draft for review · 2026-11-25 · Owner TBD
 
+## Unity implementation
+
+The six screens are authored in the dispatch, settings and mission-result prefabs. The menu uses the original locker room and the animated wardrobe model wearing the saved outfit. The victory report uses the current resident portrait and reads the count and time from the mission model.
+
+The [Play Mode contact sheet](PlayMode/overview.jpg) shows the six screens at 1920 × 1080. On 2026-11-25 the menu-to-mission-to-menu path was also exercised at 640 × 360 and 800 × 600. The checks covered idle progression, calendar credit, ranking, outfit selection by category, audio levels and the victory report after three scripted rescues. Visible TMP labels reported no overflow in these runs.
+
+## Current low-poly screen designs
+
+[Six-screen preview](Screens/overview.jpg) · [Dispatch](Screens/main.png) · [Animated dispatch preview](Screens/main-idle.webp) · [Daily rewards](Screens/daily-rewards.png) · [Local ranking](Screens/ranking.png) · [Wardrobe](Screens/wardrobe.png) · [Settings](Screens/settings.png) · [Victory](Screens/victory.png)
+
+The dispatch preview samples a full 9.93-second Idle cycle from the FirefighterWardrobe Animator in the authored DispatchMenu prefab. The victory portrait is a Unity camera capture of RescueResident.
+
+These 1280 × 720 mockups use the LockerRoom background referenced by DispatchMenu, the original HoseFlightLoading illustration, project character renders, wardrobe sprites, ranking avatar assignments, hose icon and wallet coin. The new gift, podium and speaker symbols use flat polygon faces. Amounts, selections and time illustrate one possible screen state.
+
+## Earlier composition studies
+
 The dispatch ticket starts the mission. The incident report closes it. Warm paper and petrol-blue ink connect the two, with vermilion reserved for the main action or selected control. In the field, keep texture on scenery and leave room around the aim point. Read each sheet left to right, top to bottom.
 
 | Concept sheet | Upper row | Lower row |

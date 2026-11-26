@@ -14,6 +14,8 @@ namespace FireSlop.Dispatch
         [SerializeField] private TMP_Text _status;
         [SerializeField] private TMP_Text _feedback;
         [SerializeField] private DailyRewardCardView[] _cards;
+        [SerializeField] private TMP_Text _featuredAmount;
+        [SerializeField] private Button _featuredClaim;
         private DispatchModel _model;
         private DispatchController _controller;
         private WardrobeProfile _profile;
@@ -50,6 +52,7 @@ namespace FireSlop.Dispatch
             _model.Changed += Render;
             _profile.Changed += Render;
             _close.onClick.AddListener(_controller.Close);
+            _featuredClaim.onClick.AddListener(ClaimFeatured);
             for (int index = 0; index < _cards.Length; index++)
             {
                 _cards[index].Initialize(index, _controller.Claim);
@@ -68,10 +71,16 @@ namespace FireSlop.Dispatch
             _model.Changed -= Render;
             _profile.Changed -= Render;
             _close.onClick.RemoveListener(_controller.Close);
+            _featuredClaim.onClick.RemoveListener(ClaimFeatured);
             foreach (DailyRewardCardView card in _cards)
             {
                 card.Cleanup();
             }
+        }
+
+        private void ClaimFeatured()
+        {
+            _controller.Claim(_profile.DailyClaimCount);
         }
 
         private void Update()
@@ -100,6 +109,9 @@ namespace FireSlop.Dispatch
 
             DateTime now = DateTime.UtcNow;
             bool canClaim = _profile.CanClaimDaily(now);
+            int featuredDay = Math.Min(_profile.DailyClaimCount, _rewards.DayCount - 1);
+            _featuredAmount.text = $"<sprite name=\"Coin\"> {CompactNumber.Format(_rewards.RewardAt(featuredDay))}";
+            _featuredClaim.interactable = canClaim && _profile.LoadError == null;
             _feedback.text = _model.Feedback ?? "Missed a day? Your progress is safe.";
             if (_profile.LoadError != null)
             {

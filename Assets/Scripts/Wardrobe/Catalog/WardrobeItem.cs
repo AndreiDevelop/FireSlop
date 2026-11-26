@@ -7,12 +7,14 @@ namespace FireSlop.Wardrobe
     public sealed class WardrobeItem
     {
         [SerializeField] private string _id;
+        [SerializeField] private string _displayName;
         [SerializeField] private string _mesh;
         [SerializeField] private Sprite _icon;
         [SerializeField, Min(0)] private int _price;
         [SerializeField] private bool _initiallyOwned;
 
         public string Id => _id;
+        public string DisplayName => _displayName;
         public string Mesh => _mesh;
         public Sprite Icon => _icon;
         public int Price => _price;

@@ -84,10 +84,11 @@ namespace FireSlop.Dispatch
 
             for (int index = 0; index < _rows.Length; index++)
             {
-                _rows[index].gameObject.SetActive(index < _leaderboard.Count);
-                if (index < _leaderboard.Count)
+                int entryIndex = _podium.Length + index;
+                _rows[index].gameObject.SetActive(entryIndex < _leaderboard.Count);
+                if (entryIndex < _leaderboard.Count)
                 {
-                    RenderEntry(_rows[index], index);
+                    RenderEntry(_rows[index], entryIndex);
                 }
             }
 

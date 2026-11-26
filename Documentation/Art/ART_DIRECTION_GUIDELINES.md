@@ -100,4 +100,4 @@ The signal canister uses a full-size translucent green drone in place of the lan
 
 ### Shift Log UI concepts
 
-Draft, 2026-11-25. The [screen gallery](UI/ShiftLog/README.md) explores a dispatch ticket, wardrobe fittings, in-mission controls and an incident report.
+Draft, 2026-11-25. The [six low-poly screens](UI/ShiftLog/Screens/overview.jpg) and [screen gallery](UI/ShiftLog/README.md) explores a dispatch ticket, wardrobe fittings, in-mission controls and an incident report.

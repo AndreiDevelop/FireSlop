@@ -11,6 +11,7 @@ namespace FireSlop.Wardrobe
         [SerializeField] private GameObject _body;
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _label;
+        [SerializeField] private TMP_Text _name;
         [SerializeField] private GameObject _highlight;
         [SerializeField] private GameObject _emptyIcon;
 
@@ -26,6 +27,7 @@ namespace FireSlop.Wardrobe
                 return;
             }
 
+            _name.text = _item.DisplayName;
             _highlight.SetActive(Model.Selected(_item));
             _icon.sprite = _item.Icon;
             _icon.enabled = _item.Icon != null;

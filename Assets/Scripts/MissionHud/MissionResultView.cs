@@ -11,6 +11,7 @@ namespace FireSlop.MissionHud
     {
         [SerializeField] private GameObject _panel;
         [SerializeField] private TMP_Text _time;
+        [SerializeField] private TMP_Text _rescued;
         [SerializeField] private Button _restart;
 
         private MissionModel _model;
@@ -56,6 +57,7 @@ namespace FireSlop.MissionHud
                 return;
             }
 
+            _rescued.text = $"{_model.RescuedCount} / {_model.RequiredRescues}";
             var duration = TimeSpan.FromSeconds(_model.ElapsedSeconds);
             _time.text = $"{(int)duration.TotalMinutes:00}:{duration.Seconds:00}.{duration.Milliseconds / 10:00}";
         }

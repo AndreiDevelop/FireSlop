@@ -7,7 +7,7 @@ namespace FireSlop.Interaction
     public sealed class ResidentView : Carryable, IRescueTarget, IStunEligibility
     {
         [SerializeField] private Transform _visual;
-        [SerializeField] private ResidentCarryRagdoll _carryRagdoll;
+        [SerializeField] private GameObject _carryPose;
         [SerializeField] private InteractionConfigSO _config;
         [SerializeField] private Vector3 _standingPosition;
         [SerializeField] private Quaternion _standingRotation = Quaternion.identity;
@@ -59,7 +59,6 @@ namespace FireSlop.Interaction
             _tent = tent;
             _carrier = carrier;
             Body.mass = _config.ResidentMass;
-            _carryRagdoll.Initialize();
         }
 
         internal void PlaceInCabinet(Openable cabinet)
@@ -91,13 +90,13 @@ namespace FireSlop.Interaction
                 _occupiedCabinetBody = null;
             }
 
-            _carryRagdoll.HangFrom(transform);
             _visual.gameObject.SetActive(false);
+            _carryPose.SetActive(true);
         }
 
         protected override void OnReleasing()
         {
-            _carryRagdoll.Stow();
+            _carryPose.SetActive(false);
             _visual.gameObject.SetActive(true);
         }
 
@@ -117,11 +116,6 @@ namespace FireSlop.Interaction
             if (_cabinet != null)
             {
                 _cabinet.Toggled -= OnCabinetToggled;
-            }
-
-            if (_carryRagdoll != null && _carryRagdoll.transform.parent == null)
-            {
-                Destroy(_carryRagdoll.gameObject);
             }
         }
     }
