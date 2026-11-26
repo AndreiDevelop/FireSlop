@@ -265,12 +265,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 7963062417629429242}
     m_Modifications:
     - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.04
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.02
+      value: 0.0125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1649348251869084729, guid: aec8adf23249b4c948040483b49144a4, type: 3}
       propertyPath: InitialModule.startSize.maxCurve.m_Curve.Array.size
@@ -382,6 +398,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8495111939542387032, guid: aec8adf23249b4c948040483b49144a4, type: 3}
       propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685832545626693851, guid: aec8adf23249b4c948040483b49144a4, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
